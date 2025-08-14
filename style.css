@@ -1,0 +1,50 @@
+:root{ --bg:#000; --fg:#f5f5f5; --muted:#a9adb7; --accent:#ffd400; --max:1000px; }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;line-height:1.7}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header/nav */
+.pp-header{background:#000;border-bottom:1px solid #171717}
+.pp-nav{max-width:var(--max);margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+.pp-brand{font-weight:800}
+.pp-nav nav a{color:var(--fg);margin-left:20px}
+.pp-nav nav a:hover{color:var(--accent)}
+.pp-cta{background:var(--accent);color:#111;font-weight:800;padding:8px 12px;border-radius:8px}
+
+/* Layout */
+.pp-wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
+.pp-bottom-space{padding-bottom:120px}
+.pp-sub{color:var(--muted);font-size:1.2rem;margin-top:-.4rem}
+.pp-footer{border-top:1px solid #171717;color:var(--muted);padding:20px;text-align:center;font-size:.9rem}
+
+/* TOC */
+.pp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+.pp-card{background:#0b0b0b;border:1px solid #1b1b1b;border-radius:10px;padding:16px;color:#ddd;text-decoration:none}
+.pp-card-title{color:#fff;font-weight:700;margin-bottom:.35rem}
+.pp-card-desc{color:var(--muted);font-size:.95rem}
+
+/* Dividers */
+.pp-sep{margin:24px 0;color:var(--muted);text-align:center}
+
+/* Floating buttons */
+.pp-fab{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#111;font-weight:800;padding:14px 18px;border-radius:999px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.4);z-index:999}
+.pp-fab:hover{filter:brightness(.95);text-decoration:none}
+.pp-toc-btn{position:fixed;right:18px;bottom:86px;background:#111;border:1px solid #333;color:#fff;border-radius:8px;padding:8px 12px;z-index:999}
+
+/* Slide-over TOC */
+.pp-toc{position:fixed;top:0;right:-360px;width:320px;height:100%;background:#0b0b0b;border-left:1px solid #1b1b1b;box-shadow:-8px 0 24px rgba(0,0,0,.4);padding:16px 16px 80px;transition:right .25s ease;z-index:998;overflow:auto}
+.pp-toc.open{right:0}
+.pp-toc h3{margin:0 0 .6rem}
+#pp-toc-list a{display:block;padding:10px 8px;border-radius:8px;color:#ddd}
+#pp-toc-list a:hover{background:#111;color:#fff}
+
+/* Pill nav */
+.pp-pillbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+.pp-pill{display:inline-block;border:1px solid #333;border-radius:999px;padding:6px 10px;color:#ddd}
+.pp-pill.active{background:#111;border-color:#444;color:#fff}
+
+/* Prev/Next */
+.pp-prevnext{display:flex;justify-content:space-between;align-items:center;margin-top:36px}
+.pp-btn{background:var(--accent);color:#111;font-weight:800;padding:10px 16px;border-radius:8px;text-decoration:none}
+.pp-btn:hover{filter:brightness(.95)}

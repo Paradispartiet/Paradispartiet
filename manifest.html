@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paradispartiet – Manifest</title>
+  <base href="/Paradispartiet/">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="pp-header">
+  <div class="pp-nav">
+    <div class="pp-brand"><a href="index.html">Paradispartiet</a></div>
+    <nav>
+      <a href="index.html">Hjem</a>
+      <a href="manifest.html" aria-current="page">Manifest</a>
+      <a href="politikk.html">Politikk</a>
+      <a href="om.html">Om</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="pp-cta" href="meldinn.html">Meld inn</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pp-wrap">
+  <h1>Manifest – innholdsfortegnelse</h1>
+  <p class="pp-muted">Klikk på et kapittel for å lese. Kapitlene publiseres fortløpende.</p>
+  <div id="pp-grid" class="pp-grid"></div>
+</main>
+
+<a class="pp-fab" href="meldinn.html">Meld inn</a>
+
+<script src="chapters.js"></script>
+<script>
+(function(){
+  const grid = document.getElementById('pp-grid');
+  const chapters = (window.PP_CHAPTERS||[]);
+  chapters.forEach(c=>{
+    const card = document.createElement('a');
+    card.className = 'pp-card';
+    card.href = c.file;
+    card.innerHTML = `<div class="pp-card-title">${c.title}</div>
+                      <div class="pp-card-desc">Åpne kapittel</div>`;
+    grid.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>
