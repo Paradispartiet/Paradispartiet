@@ -11,4 +11,4 @@ Velkommen til Paradispartiets manifest. Her finner du våre visjoner, prinsipper
 
 ## Kapitler
 
-- [Kapittel 1 – Paradismodellen: Innledning og teoretisk grunnlag](manifest/kapittel-1/)
+- [Kapittel 1 – Paradismodellen: Innledning og teoretisk grunnlag]({ '{ site.baseurl }' }/manifest/kapittel-1/)

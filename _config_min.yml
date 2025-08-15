@@ -1,0 +1,5 @@
+# Minimal Jekyll config (safe for GitHub Pages)
+markdown: kramdown
+theme: minima
+# Uncomment and set if your site is served from a subpath (e.g. https://user.github.io/repo)
+# baseurl: "/REPO_NAME"
