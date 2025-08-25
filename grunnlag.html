@@ -1,60 +1,486 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grunnlag – Paradispartiet</title>
-  <link rel="icon" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paradispartiet – Teori / Grunnlagsdokument</title>
+  <meta name="description" content="Paradispartiets teoridokument: 60 kapitler med historisk, filosofisk og økologisk forankring av Paradismodellen." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-<header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo.svg" alt=""> <span>Paradispartiet</span></a>
-  <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
-  <nav class="site-nav" aria-label="Hovedmeny">
-    <a href="index.html">Hjem</a>
-    <a href="politikk.html">Politikk</a>
-    <a href="grunnlag.html" class="active">Grunnlag</a>
-    <a href="manifest.html">Manifest</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
-</header>
+<body class="page page--teori">
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">Paradispartiet</a>
+      <nav class="site-nav">
+        <a href="manifest.html">Manifest</a>
+        <a href="teori.html" aria-current="page">Teori</a>
+        <a href="prosjekter.html">Prosjekter</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="content">
-  <h1>Grunnlagsdokument (kortversjon)</h1>
+  <main class="container content">
+    <h1>Teori / Grunnlagsdokument</h1>
+    <p class="lead">Filosofien, historien og økologien bak Paradismodellen – 60 kapitler.</p>
 
-  <section id="diagnose">
-    <h2>Diagnose</h2>
-    <p>Når livsnødvendigheter styres av betalingsevne alene, får vi sosial utrygghet og økologisk overforbruk. Når alt styres sentralt, kveles frihet og innovasjon.</p>
-  </section>
+    <!-- INNHOLDSFORTEGNELSE -->
+    <section class="section toc">
+      <h2>Innhold</h2>
+      <ol>
+        <li><a href="#k1">Hvorfor et nytt grunnlag trengs</a></li>
+        <li><a href="#k2">Paradismodellen som idé og nødvendighet</a></li>
+        <li><a href="#k3">Diagnose: utrygghet + overforbruk</a></li>
+        <li><a href="#k4">Dagens blindveier: kapitalisme, planøkonomi, nyliberalisme</a></li>
 
-  <section id="dobbel-markedsstruktur">
-    <h2>Dobbel markedsstruktur</h2>
-    <p>Vi skiller mellom <strong>BasicMarked</strong> (grunnbehov) og <strong>FriMarked</strong> (alt utover). BasicMarked bruker arbeidstimer som inngangsbillett og åpen ressursstyring. FriMarked er fritt og innovasjonsdrevet.</p>
-  </section>
+        <li><a href="#k5">Føydalisme og fellesskapets oppløsning</a></li>
+        <li><a href="#k6">Enclosure Laws og urbaniseringens tvang</a></li>
+        <li><a href="#k7">Industrialisering og arbeidets epoke</a></li>
+        <li><a href="#k8">Marx og produksjonsmidlenes fellesskap</a></li>
+        <li><a href="#k9">Sosialismen og dens varianter</a></li>
+        <li><a href="#k10">Keynes og statens balanserende hånd</a></li>
+        <li><a href="#k11">Sosialdemokratiet og velferdsstaten</a></li>
+        <li><a href="#k12">Planøkonomiens blindveier</a></li>
+        <li><a href="#k13">Liberalismens kjerne – frihetens løfte</a></li>
 
-  <section id="grunnbehov">
-    <h2>Grunnbehov</h2>
-    <ul>
-      <li>Bolig: trygg, nøktern, innen økologiske rammer.</li>
-      <li>Mat: ernæringssikkerhet med lokal produksjon der det er mulig.</li>
-      <li>Helse: basistjenester sikres, utvidelser i FriMarked.</li>
-    </ul>
-  </section>
+        <li><a href="#k14">Naturens grenser – Georgescu-Roegen og Daly</a></li>
+        <li><a href="#k15">Økologisk økonomi og steady-state</a></li>
+        <li><a href="#k16">Allmenningens forvaltning – Elinor Ostrom</a></li>
+        <li><a href="#k17">Jord, vann, luft som felleseiendom</a></li>
+        <li><a href="#k18">Fra «null netto naturtap» til rett til bosetting i naturen</a></li>
 
-  <section id="styring">
-    <h2>Styring og åpenhet</h2>
-    <ul>
-      <li>Åpne produksjonsregistre og ressursregnskap.</li>
-      <li>Varsler mot overforbruk; sanksjoner ved misbruk.</li>
-      <li>Registrering av patenter/oppfinnelser – åpne og sporbare.</li>
-    </ul>
-  </section>
-</main>
+        <li><a href="#k19">Humanisme og menneskets verdi</a></li>
+        <li><a href="#k20">Sosial kontrakt-tenkning</a></li>
+        <li><a href="#k21">Eksistensialisme og frihetens ansvar</a></li>
+        <li><a href="#k22">Anarkisme og mutualisme – frivillige fellesskap</a></li>
+        <li><a href="#k23">Fellesskap og individualisme i spenning</a></li>
 
-<footer class="site-footer">
-  <p>© 2025 Paradispartiet</p>
-</footer>
-<script src="script.js"></script>
+        <li><a href="#k24">Nyliberalisme og globalisering</a></li>
+        <li><a href="#k25">Bolig som investeringsobjekt</a></li>
+        <li><a href="#k26">Mat som spekulasjon</a></li>
+        <li><a href="#k27">Helse som vare</a></li>
+        <li><a href="#k28">Teknologisk dominans og digital kapitalisme</a></li>
+        <li><a href="#k29">Arbeidslivets tomgang – meningsløshetens pris</a></li>
+
+        <li><a href="#k30">Rett til grunnbehov – bolig, mat, helse</a></li>
+        <li><a href="#k31">Post-pengemodellen – arbeidstid som valuta</a></li>
+        <li><a href="#k32">Grunnmarkedet (BasicMarked)</a></li>
+        <li><a href="#k33">Det frie markedet – rom for skaping</a></li>
+        <li><a href="#k34">Dobbel markedsstruktur</a></li>
+        <li><a href="#k35">Rett til spredt bosetting i naturen</a></li>
+        <li><a href="#k36">Globalt ressursregnskap og arealdisponering</a></li>
+
+        <li><a href="#k37">Staten som garantist, ikke eier</a></li>
+        <li><a href="#k38">Fellesskapskontroll vs. statlig kontroll</a></li>
+        <li><a href="#k39">Produksjonsfrihet med registrering og kvalitetskrav</a></li>
+        <li><a href="#k40">Patent og åpen kunnskap</a></li>
+        <li><a href="#k41">Rettsorden: straff begrenset til vold</a></li>
+        <li><a href="#k42">Erstatningsansvar og offentlig forsikring</a></li>
+        <li><a href="#k43">Delt politi – trygghet og konfliktløsning</a></li>
+
+        <li><a href="#k44">Mild revolusjon – uten kamp</a></li>
+        <li><a href="#k45">Forsoning som samfunnskraft</a></li>
+        <li><a href="#k46">Tillit som drivstoff</a></li>
+        <li><a href="#k47">Profesjonelt forsvar – ikke verneplikt</a></li>
+        <li><a href="#k48">Migrasjon, EØS og arbeidskraftens integrering</a></li>
+        <li><a href="#k49">Bilfri bykjerne og ny byutvikling</a></li>
+        <li><a href="#k50">Grønt bosettingsmønster og lokale allmenninger</a></li>
+
+        <li><a href="#k51">Paradismodellen i praksis – pilotprosjekter</a></li>
+        <li><a href="#k52">Lærdom fra kooperativer og alternative økonomier</a></li>
+        <li><a href="#k53">Digitalisering og AI som fellesskapsressurs</a></li>
+        <li><a href="#k54">Kunst, kultur og meningsdannelse</a></li>
+        <li><a href="#k55">Den nye samfunnskontrakten – rettferdighet og frihet</a></li>
+        <li><a href="#k56">Paradismodellen i globalt perspektiv</a></li>
+        <li><a href="#k57">En mild revolusjon som kan vokse parallelt</a></li>
+        <li><a href="#k58">Mennesket som godt vesen</a></li>
+        <li><a href="#k59">Paradiset som politisk horisont</a></li>
+        <li><a href="#k60">Konklusjon – fra diagnose til håp</a></li>
+      </ol>
+    </section>
+
+    <!-- DEL I -->
+    <section class="section">
+      <h2>Del I: Innledning og diagnose</h2>
+
+      <article id="k1" class="chapter">
+        <h3>1. Hvorfor et nytt grunnlag trengs</h3>
+        <p>Vi lever i det Ulrich Beck kalte et <em>risikosamfunn</em>: de største farene – klima, finansbobler, sosial utrygghet – skapes av systemene selv. Når grunnbehov behandles som handelsvarer og økonomien jager grenseløs vekst, produseres krisene kontinuerlig.</p>
+        <p>Hannah Arendt minnet om mennesket som «handlende vesen»; Karl Polanyi beskrev markedets <em>utleiring</em> av arbeid, jord og penger. Michel Foucault viste makt som biopolitikk, Bruno Latour at naturen aldri står utenfor politikken.</p>
+        <p><strong>Bertrand Russell</strong> tilfører kravet om klarhet og tvil: et legitimt system må tåle etterprøvbarhet – «fools and fanatics are always so certain…». <strong>Donella Meadows</strong> peker på at virkningsfulle endringer skjer når vi bytter <em>mål og paradigme</em>. Paradismodellen skifter fra vekst/varer til rettigheter/økologiske rammer.</p>
+      </article>
+
+      <article id="k2" class="chapter">
+        <h3>2. Paradismodellen som idé og nødvendighet</h3>
+        <p>Modellen viderefører Hobbes–Locke–Rousseau, men legger til en fjerde søyle: <strong>økologisk legitimitet</strong>. Grunnbehov tas ut av markedet; utover det åpnes fri skaping innen økologiske grenser.</p>
+        <p>John Rawls’ rettferdighet og Sen/Nussbaums <em>capabilities</em> gir rammen: reelle muligheter for alle. Piketty viser ulikhetens driv, Georgescu-Roegen og Daly naturens grenser. Derfor er modellen ikke bare idé, men nødvendighet.</p>
+      </article>
+
+      <article id="k3" class="chapter">
+        <h3>3. Diagnose: utrygghet + overforbruk</h3>
+        <p>Når bolig, mat og helse gjøres til varer, oppstår <em>varefetisjisme</em> (Marx): verdighet blir funksjon av pris. Samtidig driver vekstlogikken mot økologisk overskridelse (entropi, Georgescu-Roegen; planetgrenser).</p>
+        <p>Judith Butler beskriver <em>prekaritet</em> som allmenntilstand; Žižek om «katastrofekapitalisme». Løsningen må være dobbel: grunnsikring utenfor markedet + bindende rammer for ressursbruk.</p>
+      </article>
+
+      <article id="k4" class="chapter">
+        <h3>4. Dagens blindveier: kapitalisme, planøkonomi, nyliberalisme</h3>
+        <p>Kapitalismen lover frihet, men leverer valgfrihet uten trygghet (Piketty). Planøkonomien sikret trygghet, men kvelte frihet (Berlin). Nyliberalismen opphøyet markedet (Hayek/Thatcher) og ga deregulert utrygghet (Harvey).</p>
+        <p>Paradismodellen sikter mot <em>frihet med</em> – en frihet båret av rettigheter og naturgrenser – i Poppers ånd om et åpent samfunn og Arendts krav om mer lys, ikke mer tåke.</p>
+      </article>
+    </section>
+
+    <!-- DEL II -->
+    <section class="section">
+      <h2>Del II: Historiske linjer</h2>
+
+      <article id="k5" class="chapter">
+        <h3>5. Føydalisme og fellesskapets oppløsning</h3>
+        <p>Føydalismen bandt liv, jord og arbeid i gjensidighet. Undertrykkende, men med tilgang til allmenninger. Oppløsningen skapte både frihetens mulighet og utrygghetens byrde.</p>
+      </article>
+
+      <article id="k6" class="chapter">
+        <h3>6. Enclosure Laws og urbaniseringens tvang</h3>
+        <p>Gjerdelovene privatiserte allmenninger og presset mennesker inn i lønnsarbeid (E. P. Thompson). Foucaults disiplin og Agambens «bare life» hjelper å forstå tvangen.</p>
+        <p><strong>James C. Scott</strong> viser i <em>Seeing Like a State</em> hvordan kompleks livsverd forenkles for kontroll og profitt: enclosure er et mønster, ikke bare en hendelse.</p>
+      </article>
+
+      <article id="k7" class="chapter">
+        <h3>7. Industrialisering og arbeidets epoke</h3>
+        <p>Marx’ maskineri og Webers «jernbur» skapte velstand og fremmedgjøring. Arendt skilte arbeid/produksjon/handling; Sennett og Bauman beskriver fleksibilitet uten røtter.</p>
+      </article>
+
+      <article id="k8" class="chapter">
+        <h3>8. Marx og produksjonsmidlenes fellesskap</h3>
+        <p>Marx’ kritikk av kapitalens tvang og fremmedgjøring står støtt; Žižek og Harvey viser dagens sirkulasjon og bobler. Leksjon: fellesskap over grunnbehov, uten å gjenta planstatens feil.</p>
+      </article>
+
+      <article id="k9" class="chapter">
+        <h3>9. Sosialismen og dens varianter</h3>
+        <p>Fra Owen/Fourier til Bakunin/Kropotkin og sosialdemokrati: fellesskapets kontroll i ulike former. Ostrom bekrefter at allmenninger kan fungere; Paradismodellen kombinerer garantier med frivillig mangfold.</p>
+      </article>
+
+      <article id="k10" class="chapter">
+        <h3>10. Keynes og statens balanserende hånd</h3>
+        <p>Keynes stabiliserte etterspørsel; Stiglitz/Krugman minner om behovet. Men vekstparadigmet står – løser sosial utrygghet, ikke økologisk overskridelse. Paradismodellen utvider balansen til også å være økologisk.</p>
+      </article>
+
+      <article id="k11" class="chapter">
+        <h3>11. Sosialdemokratiet og velferdsstaten</h3>
+        <p>Marshall: sosiale rettigheter kompletterer sivile/politiske. Velferdsstaten ga stabilitet, men var vekstavhengig og ble undergravd av global finans (Klein).</p>
+        <p><strong>Jürgen Habermas</strong> minner om at legitimiteten krever en levende offentlighet og kommunikativ fornuft – økonomisk styring må være gjenstand for åpen debatt.</p>
+      </article>
+
+      <article id="k12" class="chapter">
+        <h3>12. Planøkonomiens blindveier</h3>
+        <p>Sentral plan ga grunnsikring, men kvelte frihet/innovasjon (Popper). Leksjon: sikring uten sentralisme – åpen registrering og desentral kvalitet fremfor lisens-byråkrati.</p>
+      </article>
+
+      <article id="k13" class="chapter">
+        <h3>13. Liberalismens kjerne – frihetens løfte</h3>
+        <p>Liberalismen gav rettssikkerhet og ytringsfrihet (Berlin), men overså materielle forutsetninger. Mill ville verne individet, men ulikhet undergraver reell frihet.</p>
+        <p><strong>Iris Marion Young</strong> viser strukturell urett uten «skurker». Universelle rettigheter til grunnbehov adresserer selve mekanismene som ekskluderer.</p>
+      </article>
+    </section>
+
+    <!-- DEL III -->
+    <section class="section">
+      <h2>Del III: Økologiske røtter</h2>
+
+      <article id="k14" class="chapter">
+        <h3>14. Naturens grenser – Georgescu-Roegen og Daly</h3>
+        <p>Entropi binder økonomien (Georgescu-Roegen); Daly foreslår steady-state. Planetary boundaries viser overskridelser.</p>
+        <p><strong>Donella Meadows</strong> og <em>Limits to Growth</em> plasserer økonomien som undersystem av biosfæren. <strong>Timothy Morton</strong> kaller klimaet et «hyperobjekt» – vi må svare ydmykt og kollektivt.</p>
+      </article>
+
+      <article id="k15" class="chapter">
+        <h3>15. Økologisk økonomi og steady-state</h3>
+        <p>Tim Jackson og Kate Raworth utfordrer BNP-fetisjismen; velstand måles i livskvalitet, ikke volum. Rettighetene må ikke være vekstavhengige.</p>
+        <p><strong>Jason Hickel</strong> og <strong>Giorgos Kallis</strong> argumenterer for <em>degrowth</em>. <strong>Raworths</strong> «smultring» konkretiserer sosial grunnmur + økologisk tak – identisk med modellens gulv/tak.</p>
+      </article>
+
+      <article id="k16" class="chapter">
+        <h3>16. Allmenningens forvaltning – Elinor Ostrom</h3>
+        <p>Ostrom dokumenterte vellykkede allmenninger: klare grenser, lokal overvåkning, graduert sanksjonering. Paradismodellen utvider dette til grunnbehovene.</p>
+        <p><strong>Yochai Benkler</strong> viser at commons-basert «peer production» virker i kunnskapsøkonomien; vi overfører logikken til materielle ressurser med åpen registrering.</p>
+      </article>
+
+      <article id="k17" class="chapter">
+        <h3>17. Jord, vann, luft som felleseiendom</h3>
+        <p>Lockes «nok og like godt» brytes i dag. Vandana Shiva viser frø/vann-privatisering; Latour minner om at vi er «jordbundne». Bruken må underlegges åpent regnskap.</p>
+      </article>
+
+      <article id="k18" class="chapter">
+        <h3>18. Fra «null netto naturtap» til rett til bosetting i naturen</h3>
+        <p>Ikke steng mennesker ute fra naturen; bosett spredt uten å forstyrre økosystemer. Arealregnskap: jordbruk og vill natur først, deretter soner for bosetting.</p>
+        <p>Donna Haraway: «bli i trøbbel» her – lære å leve bedre her, ikke drømme om en ny planet.</p>
+      </article>
+    </section>
+
+    <!-- DEL IV -->
+    <section class="section">
+      <h2>Del IV: Filosofiske grunnlag</h2>
+
+      <article id="k19" class="chapter">
+        <h3>19. Humanisme og menneskets verdi</h3>
+        <p>Kants imperativ: mennesket som mål, ikke middel. Fanon/Mbembe viser hvem som ekskluderes; Butler peker på sårbarhet og sørgbarhet.</p>
+        <p><strong>Carol Gilligan</strong> og <strong>Joan Tronto</strong> supplerer med omsorgsetikk: rettferdighet må organiseres rundt menneskelig avhengighet. Derfor er helse, mat og bolig grunnmur for reell frihet.</p>
+        <p><strong>Bertrand Russell</strong>: frihet og trygghet må forenes – «freedom without security… security without freedom…». Det er modellens kjerne.</p>
+      </article>
+
+      <article id="k20" class="chapter">
+        <h3>20. Sosial kontrakt-tenkning (Hobbes, Locke, Rousseau)</h3>
+        <p>Staten legitimeres ved å beskytte liv/frihet (Hobbes/Locke/Rousseau). 2025-krav: økologisk legitimitet. Latour/Haraway: kontrakt også med jorden.</p>
+        <p><strong>Cornelius Castoriadis</strong>: samfunn er <em>selvinstituering</em>. Paradismodellen er eksplisitt re-instituering – ny kontrakt, nye institusjoner, nye vaner.</p>
+      </article>
+
+      <article id="k21" class="chapter">
+        <h3>21. Eksistensialisme og frihetens ansvar</h3>
+        <p>Sartre: «dømt til frihet»; de Beauvoir: situert frihet. Frihet uten trygghet blir angst; trygghet uten frihet stagnasjon. Modellen gir grunnmur + rom.</p>
+        <p><strong>Hartmut Rosa</strong>: akselerasjon skaper fremmedgjøring; <em>resonans</em> oppstår når vi har tid/trygghet. Pliktinnsats + grunnsikring er en resonansstruktur.</p>
+      </article>
+
+      <article id="k22" class="chapter">
+        <h3>22. Anarkisme og mutualisme – frivillige fellesskap</h3>
+        <p>Kropotkins <em>Mutual Aid</em>: samarbeid er grunnkraft. Ostroms allmenninger bekrefter. Modellen kombinerer frivillighet med garantier.</p>
+        <p><strong>Ivan Illich</strong>: <em>convivial tools</em> – institusjoner som styrker handlekraft. Åpne standarder, registrering og lokale allmenninger er nettopp slike verktøy.</p>
+      </article>
+
+      <article id="k23" class="chapter">
+        <h3>23. Fellesskap og individualisme i spenning</h3>
+        <p>Tocqueville om balansen; Foucaults «entreprenør av seg selv»; Butler om avhengighet; Mbembe advarer mot ekskluderende fellesskap. Løsning: trygg grunnmur for individets blomstring.</p>
+      </article>
+    </section>
+
+    <!-- DEL V -->
+    <section class="section">
+      <h2>Del V: Samtidskritikken</h2>
+
+      <article id="k24" class="chapter">
+        <h3>24. Nyliberalisme og globalisering</h3>
+        <p>Hayek/Friedman → Thatcher/Reagan. Harvey: «akkumulasjon gjennom fratakelse»; Klein: sjokkdoktrine; Sassen: globale bynoder og utpressing.</p>
+        <p><strong>Quinn Slobodian</strong> viser hvordan Genève-skolen designet en global rettsorden som skjermet markedet fra demokratiet. Paradismodellen skjermer rettigheter fra markedssjokk.</p>
+      </article>
+
+      <article id="k25" class="chapter">
+        <h3>25. Bolig som investeringsobjekt</h3>
+        <p>Piketty: eiendom/kapital vokser raskere enn lønn; bolig blir ulikhetsmaskin. Lefebvre: retten til byen undergraves.</p>
+        <p><strong>Pierre Bourdieu</strong>: økonomisk, sosial og kulturell kapital forsterker arvede privilegier. Universell boligrett kutter reproduksjonen ved roten.</p>
+      </article>
+
+      <article id="k26" class="chapter">
+        <h3>26. Mat som spekulasjon</h3>
+        <p>Frøpatenter/monokulturer (Vandana Shiva) gjør bønder avhengige. Globale børser styrer mat; klima forsterker sårbarhet. BasicMarked gjør mat til rett, ikke råvare.</p>
+      </article>
+
+      <article id="k27" class="chapter">
+        <h3>27. Helse som vare</h3>
+        <p>Foucaults biopolitikk: kropp som markedsplass. Mbembes nekropolitikk: hvem får leve. Modellen gjør helse universelt.</p>
+        <p><strong>Eva Kittay</strong> (omsorgsetikk): rettferdighet må organiseres rundt avhengighet og omsorgsarbeid – ikke betalingsevne.</p>
+      </article>
+
+      <article id="k28" class="chapter">
+        <h3>28. Teknologisk dominans og digital kapitalisme</h3>
+        <p>Zuboff: overvåkingskapitalisme; Han: selvutnyttende prestasjonssamfunn; Stiegler: oppmerksomhetens erosjon. Offentlig AI som felleseie.</p>
+        <p><strong>Timnit Gebru</strong> og <strong>Joy Buolamwini</strong> dokumenterer algoritmisk skjevhet; derfor kreves åpne data/modeller og uavhengig revisjon.</p>
+      </article>
+
+      <article id="k29" class="chapter">
+        <h3>29. Arbeidslivets tomgang – meningsløshetens pris</h3>
+        <p>Graeber: «bullshit jobs». Arendt: handling krymper; Bauman/Sennett: fleksibel, men rotløs.</p>
+        <p><strong>André Gorz</strong>: tidsfrigjøring fremfor arbeidsfetisj. Grunnsikring mot begrenset innsats gjør livet stort igjen.</p>
+      </article>
+    </section>
+
+    <!-- DEL VI -->
+    <section class="section">
+      <h2>Del VI: Mot en ny samfunnskontrakt</h2>
+
+      <article id="k30" class="chapter">
+        <h3>30. Rett til grunnbehov – bolig, mat, helse</h3>
+        <p>Marshall + Kant + Sen/Nussbaum: rettigheter bygges inn som ufravikelig grunnmur. Regulering mot overforbruk, aldri tilbaketrekking av retten.</p>
+      </article>
+
+      <article id="k31" class="chapter">
+        <h3>31. Post-pengemodellen – arbeidstid som valuta</h3>
+        <p>10–15 timer felles innsats gir rett til grunnbehov; penger kan fortsatt brukes i frie markeder. Graeber: penger er sosiale relasjoner; modellen gjør relasjonen eksplisitt.</p>
+        <p><strong>John Dewey</strong>: demokrati som lærende praksis – arbeidstidsvaluta/BasicMarked testes, måles og justeres i åpen offentlighet.</p>
+      </article>
+
+      <article id="k32" class="chapter">
+        <h3>32. Grunnmarkedet (BasicMarked) – felles sikkerhet</h3>
+        <p>Universell tilgang, faste priser i tid, åpen registrering, varsler mot overforbruk. Ostroms prinsipper som praksis.</p>
+      </article>
+
+      <article id="k33" class="chapter">
+        <h3>33. Det frie markedet – rom for skaping</h3>
+        <p>Skapelse uten eksistensiell tvang. Schumpeters kreativitet uten destruksjon fordi grunnbehov er trygge. Miljørammer gjelder.</p>
+      </article>
+
+      <article id="k34" class="chapter">
+        <h3>34. Dobbel markedsstruktur</h3>
+        <p>BasicMarked + fri marked forener trygghet (Marx’ innsikt) og frihet (Mill/Berlin). Castells’ nettverk + Fraser sin «trippel bevegelse» (beskytte, frigjøre, bevare natur).</p>
+      </article>
+
+      <article id="k35" class="chapter">
+        <h3>35. Rett til spredt bosetting i naturen</h3>
+        <p>Opphev tvangsurbanisering; åpne for frivillig, spredt bosetting innen økogrensene. Shiva minner om jord/vann som felleseie; naturen blir hjem igjen.</p>
+      </article>
+
+      <article id="k36" class="chapter">
+        <h3>36. Globalt ressursregnskap og arealdisponering</h3>
+        <p>Åpent regnskap for jord, vann, energi, arealer – mot monopol og selvbedrag. Areal: jordbruk og vill natur først, så bosetting, bilfrie byer.</p>
+        <p><strong>Vaclav Smil</strong>: energi og materialstrømmer setter harde rammer – politikk i tråd med fysikk, ikke ønsketenkning.</p>
+      </article>
+    </section>
+
+    <!-- DEL VII -->
+    <section class="section">
+      <h2>Del VII: Institusjoner og rettstenkning</h2>
+
+      <article id="k37" class="chapter">
+        <h3>37. Staten som garantist, ikke eier</h3>
+        <p>Weber: legitim maktmonopol. Her: smal, klar rolle – garantere rettigheter og rammer. Foucaults advarsel møtes med åpenhet og begrenset makt.</p>
+        <p><strong>Stafford Beer</strong> (Viable System Model): polycentrisk styring og feedback. Staten setter standarder; beslutninger og læring skjer nær bruken.</p>
+      </article>
+
+      <article id="k38" class="chapter">
+        <h3>38. Fellesskapskontroll vs. statlig kontroll</h3>
+        <p>Ostroms desentral forvaltning: makt flyttes nedover, rammer sikres ovenfra. Ikke planstat, ikke privatisering – men allmenninger med åpenhet.</p>
+      </article>
+
+      <article id="k39" class="chapter">
+        <h3>39. Produksjonsfrihet med registrering og kvalitetskrav</h3>
+        <p>Total produksjonsfrihet; alt registreres åpent. Kvalitet og bærekraft følges i felles system – transparens blir regulering.</p>
+        <p><strong>Habermas</strong>: konflikter og standarder avgjøres i åpne, begrunnede prosesser – kommunikativ rasjonalitet, ikke lukket forvaltning.</p>
+      </article>
+
+      <article id="k40" class="chapter">
+        <h3>40. Patent og åpen kunnskap</h3>
+        <p>Lessig/free culture + Shiva mot frøpatenter: kunnskapsmonopoler hemmer. Paradismodellen: oppfinnelser som åpent felleseie; innovatører anerkjennes, ikke monopolisering.</p>
+      </article>
+
+      <article id="k41" class="chapter">
+        <h3>41. Rettsorden: straff begrenset til vold</h3>
+        <p>Straff reserveres for voldstrusler mot trygghet. Øvrige konflikter – kontrakter, skadeverk, økonomi – håndteres som erstatning.</p>
+        <p><strong>Howard Zehr</strong> og <strong>Nils Christie</strong>: gjenopprettende rett gir mindre skade og mer ansvar enn tradisjonell straff.</p>
+      </article>
+
+      <article id="k42" class="chapter">
+        <h3>42. Erstatningsansvar og offentlig forsikring</h3>
+        <p>Offentlig forsikring bærer uhell og skade; den skadelidte kompenseres. Ressursene flyttes fra hevn til gjenoppretting.</p>
+      </article>
+
+      <article id="k43" class="chapter">
+        <h3>43. Delt politi – trygghet og konfliktløsning</h3>
+        <p>To korps: trygghetspoliti (beskytte mot vold) og ressurspoliti (føre tilsyn med produksjon/ressurser). Underlagt åpenhet og demokratisk kontroll.</p>
+      </article>
+    </section>
+
+    <!-- DEL VIII -->
+    <section class="section">
+      <h2>Del VIII: Politisk og sosial dimensjon</h2>
+
+      <article id="k44" class="chapter">
+        <h3>44. Mild revolusjon – uten kamp</h3>
+        <p>Arendt: vold kan ikke skape legitim makt. Gramsci: posisjonskamp – bygg nye institusjoner som gjør de gamle overflødige.</p>
+        <p><strong>Frank W. Geels</strong> (MLP): nisje-innovasjoner vokser når regime presses. Pilot-BasicMarked er en nisje som kan bli norm.</p>
+      </article>
+
+      <article id="k45" class="chapter">
+        <h3>45. Forsoning som samfunnskraft</h3>
+        <p>Tutu/for-soningskommisjoner: gjenoppretting over hevn. Arendt: tilgivelse åpner ny begynnelse. Butler: felles sårbarhet.</p>
+      </article>
+
+      <article id="k46" class="chapter">
+        <h3>46. Tillit som drivstoff</h3>
+        <p>Fukuyama: høy tillit, gode institusjoner. Luhmann: tillit reduserer kompleksitet. Åpen registrering og universelle rettigheter reiser tillit.</p>
+      </article>
+
+      <article id="k47" class="chapter">
+        <h3>47. Profesjonelt forsvar – ikke verneplikt</h3>
+        <p>Profesjonelt, defensivt, med sivilt digitalt selvforsvar. Clausewitz: krig som politikk; her avpolitisert, rent beskyttende mandat.</p>
+      </article>
+
+      <article id="k48" class="chapter">
+        <h3>48. Migrasjon, EØS og arbeidskraftens integrering</h3>
+        <p>Mbembe: global apartheid. EØS: fri flyt uten sosial integrering gir lønnsdumping. Alle som arbeider, må ha like rettigheter til grunnbehov.</p>
+      </article>
+
+      <article id="k49" class="chapter">
+        <h3>49. Bilfri bykjerne og ny byutvikling</h3>
+        <p>Jane Jacobs’ levende gater; bilfrie kjerner for stillhet, trygghet, luft og møteplasser.</p>
+        <p><strong>Jan Gehl</strong>: planlegg for menneskelig skala – korte avstander, blandede funksjoner, gå/sykkel som norm.</p>
+      </article>
+
+      <article id="k50" class="chapter">
+        <h3>50. Grønt bosettingsmønster og lokale allmenninger</h3>
+        <p>Rett til spredt bosetting + lokale allmenninger (Ostrom). Grønne korridorer binder by og land.</p>
+        <p><strong>Arturo Escobar</strong> (plurivers) og <strong>Robin Wall Kimmerer</strong> (tradisjonell økologisk kunnskap) peker mot omsorgsfulle sted-relasjoner.</p>
+      </article>
+    </section>
+
+    <!-- DEL IX -->
+    <section class="section">
+      <h2>Del IX: Veien videre</h2>
+
+      <article id="k51" class="chapter">
+        <h3>51. Paradismodellen i praksis – eksperiment og pilotprosjekter</h3>
+        <p>Endring bygges i piloter: BasicMarked, ressursregnskap, arbeid som valuta – parallelt med dagens system. Kooperativer/andelslandbruk/energisamvirke viser at det virker.</p>
+        <p><strong>Mariana Mazzucato</strong>: staten som misjonsorientert – definer samfunnsoppdrag (bolig/mat/energi), mål og læring, ikke bare støtteordninger.</p>
+      </article>
+
+      <article id="k52" class="chapter">
+        <h3>52. Lærdom fra kooperativer og alternative økonomier</h3>
+        <p>Owen til dagens samvirker; Graeber: gjeld/penger som sosiale relasjoner; Ostrom: allmenninger. Forskjellen her er skalaen: fra unntak til orden.</p>
+      </article>
+
+      <article id="k53" class="chapter">
+        <h3>53. Digitalisering og AI som fellesskapsressurs</h3>
+        <p>Zuboff advarte mot overvåkingskapitalisme; samme teknologi kan gi åpen registrering, kollektiv læring og tillit. EchoNet: kollektiv hukommelse, anonymt og gjensidig.</p>
+        <p><strong>Yochai Benkler</strong> + <strong>Gebru/Buolamwini</strong>: offentlig AI må være åpen, reviderbar og demokratisk styrt – data som allmenning, ikke monopol.</p>
+      </article>
+
+      <article id="k54" class="chapter">
+        <h3>54. Kunst, kultur og meningsdannelse</h3>
+        <p>Adorno om kulturindustriens farer, men også kunstens kritiske kraft. Paviljonger, glasshus og lesebibliotek som steder for mening. Haraway: fortellinger former levemåter.</p>
+      </article>
+
+      <article id="k55" class="chapter">
+        <h3>55. Den nye samfunnskontrakten – rettferdighet og frihet</h3>
+        <p>Rousseau + Rawls + Fraser: beskytte mennesker, frigjøre individer, bevare natur. Paradismodellen samler trådene i én kontrakt.</p>
+      </article>
+
+      <article id="k56" class="chapter">
+        <h3>56. Paradismodellen i globalt perspektiv</h3>
+        <p>Mbembe: global ulikhet som nekropolitikk. Behov for globalt ressursregnskap og standarder.</p>
+        <p><strong>Thomas Pogge</strong>: institusjoner i rike land skaper fattigdom; rettferdig fordeling krever endring i spillereglene, ikke bare bistand.</p>
+      </article>
+
+      <article id="k57" class="chapter">
+        <h3>57. En mild revolusjon som kan vokse parallelt</h3>
+        <p>Voks fram parallelt: lokalsamfunn/kommuner prøver elementer; skaler på resultater. Arendt: handling skaper nye begynnelser – uten kamp, med utholdenhet.</p>
+      </article>
+
+      <article id="k58" class="chapter">
+        <h3>58. Mennesket som godt vesen</h3>
+        <p>Rousseau: mennesket fødes godt; Kropotkin: gjensidig hjelp. Ostrom: samarbeid virker når rammene er rettferdige. Antropologi for håp, ikke kynisme.</p>
+      </article>
+
+      <article id="k59" class="chapter">
+        <h3>59. Paradiset som politisk horisont</h3>
+        <p>Ernst Blochs utopiprinsipp: håp som drivkraft. Paradis er horisont – trygghet og frihet i balanse, innen naturens rammer. <strong>Bertrand Russell</strong> gir nøktern retning: et fornuftig mål bygget på kunnskap og samarbeid.</p>
+      </article>
+
+      <article id="k60" class="chapter">
+        <h3>60. Konklusjon – fra diagnose til håp</h3>
+        <p>Diagnose: sosial utrygghet + økologisk overskridelse. Blindveier: kapitalisme, planøkonomi, nyliberalisme. Løsning: dobbel markedsstruktur, post-penger, rett til grunnbehov, ny kontrakt.</p>
+        <p>Modellen er en retning, ikke en dogme. Den forener humanisme, eksistensialisme, økologisk økonomi, anarkistisk fellesskap og sosialdemokratisk garanti – og bygger på praksis som allerede virker.</p>
+      </article>
+    </section>
+
+    <footer class="site-footer">
+      <p>© Paradispartiet — Teori oppdatert <time datetime="2025-08-25">25. august 2025</time>.</p>
+    </footer>
+  </main>
 </body>
 </html>
