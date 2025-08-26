@@ -132,3 +132,16 @@ a { color: inherit; }
   margin: 0;
   line-height: 1.5;
 }
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #222;
+}
