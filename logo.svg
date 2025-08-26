@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="220" height="220">
+  <!-- Bakgrunnssirkel -->
+  <circle cx="200" cy="200" r="190" fill="#FFD400" stroke="#000" stroke-width="8"/>
+
+  <!-- Definer sirkelbaner for tekst -->
+  <defs>
+    <path id="topArc" d="M 50,200 A 150,150 0 0,1 350,200" />
+    <path id="bottomArc" d="M 350,200 A 150,150 0 0,1 50,200" />
+  </defs>
+
+  <!-- Tekst langs toppbue -->
+  <text font-size="28" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">PARADISPARTIET</textPath>
+  </text>
+
+  <!-- Tekst langs bunnebue -->
+  <text font-size="28" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">PARADISPARTIET</textPath>
+  </text>
+
+  <!-- Hus-symbol i midten -->
+  <polygon points="140,240 200,160 260,240" fill="#000"/>
+  <rect x="160" y="240" width="80" height="70" fill="#000"/>
+  <rect x="185" y="270" width="30" height="40" fill="#FFD400"/>
+</svg>
