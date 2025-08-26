@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <!-- Bakgrunnssirkel -->
+  <!-- Bakgrunn -->
   <circle cx="200" cy="200" r="190" fill="#FFD400" stroke="#000" stroke-width="8"/>
 
-  <!-- Tekstbaner -->
+  <!-- Buer for tekst (radius 115 gir lite luft rundt huset) -->
   <defs>
-    <!-- Øvre bue -->
-    <path id="topArc" d="M 80,200 A 120,120 0 0,1 320,200" />
-    <!-- Nedre bue (riktig vei) -->
-    <path id="bottomArc" d="M 320,200 A 120,120 0 0,1 80,200" />
+    <!-- Øvre bue: venstre -> høyre, øvre halvdel -->
+    <path id="topArc" d="M 85,200 A 115,115 0 0 1 315,200" />
+    <!-- Nedre bue: høyre -> venstre, NEDRE halvdel (sweep=0)  -->
+    <path id="bottomArc" d="M 315,200 A 115,115 0 0 0 85,200" />
   </defs>
 
-  <!-- Tekst topp -->
-  <text font-size="26" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+  <!-- Topptekst -->
+  <text font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#000">
     <textPath href="#topArc" startOffset="50%" text-anchor="middle">PARADISPARTIET</textPath>
   </text>
 
-  <!-- Tekst bunn -->
-  <text font-size="18" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+  <!-- Bunntekst (riktig vei, følger bunnen) -->
+  <text font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#000">
     <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">Felles trygghet, individuell frihet</textPath>
   </text>
 
-  <!-- Hus-symbol i midten -->
+  <!-- Hus i midten (balansert størrelse) -->
   <polygon points="140,230 200,140 260,230" fill="#000"/>
   <rect x="160" y="230" width="80" height="70" fill="#000"/>
-  <rect x="185" y="250" width="30" height="40" fill="#FFD400"/>
+  <rect x="185" y="252" width="30" height="40" fill="#FFD400"/>
 </svg>
