@@ -145,3 +145,10 @@ a { color: inherit; }
   margin-bottom: 1rem;
   color: #222;
 }
+
+.join { padding: 2rem 1rem; }
+.join h2 { margin-top: 0; }
+.join .note { margin:.75rem 0 1.25rem; font-size:.95rem; color:#444; }
+.join .paper-steps { margin: .5rem 0 1rem 1.25rem; }
+.join .paper-steps li { margin-bottom: .5rem; }
+.join .small { font-size: .9rem; color: #555; }
