@@ -2,14 +2,14 @@
   <!-- Bakgrunnssirkel -->
   <circle cx="200" cy="200" r="190" fill="#FFD400" stroke="#000" stroke-width="8"/>
 
-  <!-- Definer sirkelbaner for tekst (smalere buer for mindre luft) -->
+  <!-- Definer sirkelbaner for tekst (nær randen) -->
   <defs>
-    <path id="topArc" d="M 90,180 A 110,110 0 0,1 310,180" />
-    <path id="bottomArc" d="M 90,220 A 110,110 0 0,0 310,220" />
+    <path id="topArc" d="M 80,200 A 120,120 0 0,1 320,200" />
+    <path id="bottomArc" d="M 80,200 A 120,120 0 0,0 320,200" />
   </defs>
 
   <!-- Tekst langs toppbue -->
-  <text font-size="22" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+  <text font-size="24" font-family="Arial, sans-serif" font-weight="bold" fill="#000">
     <textPath href="#topArc" startOffset="50%" text-anchor="middle">PARADISPARTIET</textPath>
   </text>
 
@@ -18,8 +18,8 @@
     <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">Felles trygghet, individuell frihet</textPath>
   </text>
 
-  <!-- Hus-symbol i midten (flyttet opp) -->
-  <polygon points="150,220 200,150 250,220" fill="#000"/>
-  <rect x="165" y="220" width="70" height="60" fill="#000"/>
-  <rect x="185" y="245" width="30" height="35" fill="#FFD400"/>
+  <!-- Hus-symbol i midten (mindre og høyere) -->
+  <polygon points="160,220 200,170 240,220" fill="#000"/>
+  <rect x="170" y="220" width="60" height="50" fill="#000"/>
+  <rect x="185" y="235" width="30" height="35" fill="#FFD400"/>
 </svg>
