@@ -2,10 +2,12 @@
   <!-- Bakgrunnssirkel -->
   <circle cx="200" cy="200" r="190" fill="#FFD400" stroke="#000" stroke-width="8"/>
 
-  <!-- Definer buer for tekst (tett rundt huset) -->
+  <!-- Tekstbaner tett rundt huset -->
   <defs>
-    <path id="topArc" d="M 90,200 A 110,110 0 0,1 310,200" />
-    <path id="bottomArc" d="M 310,200 A 110,110 0 0,1 90,200" />
+    <!-- Topparc: tett over huset -->
+    <path id="topArc" d="M 80,200 A 120,120 0 0,1 320,200" />
+    <!-- Bottomarc: tett under huset -->
+    <path id="bottomArc" d="M 320,200 A 120,120 0 0,1 80,200" />
   </defs>
 
   <!-- Tekst topp -->
@@ -19,7 +21,7 @@
   </text>
 
   <!-- Hus-symbol i midten -->
-  <polygon points="140,230 200,140 260,230" fill="#000"/>
-  <rect x="160" y="230" width="80" height="70" fill="#000"/>
-  <rect x="185" y="250" width="30" height="40" fill="#FFD400"/>
+  <polygon points="130,220 200,120 270,220" fill="#000"/>
+  <rect x="150" y="220" width="100" height="80" fill="#000"/>
+  <rect x="185" y="250" width="30" height="50" fill="#FFD400"/>
 </svg>
