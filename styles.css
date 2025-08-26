@@ -62,3 +62,19 @@ a { color: inherit; }
 .manifest-list li { margin: .5rem 0; }
 
 .site-footer { border-top: 1px solid var(--border); padding: 1rem; text-align: center; color: var(--muted); }
+
+/* Slagord under hovedoverskrift */
+.tagline {
+  font-size: 1.25rem;
+  margin-top: .5rem;
+  color: #444;
+  font-weight: 400;
+}
+
+/* Gul meld-deg-inn knapp */
+.btn-yellow {
+  background: #ffd400;
+  border-color: #ffd400;
+  color: #222;
+  font-weight: 700;
+}
