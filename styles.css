@@ -152,3 +152,14 @@ a { color: inherit; }
 .join .paper-steps { margin: .5rem 0 1rem 1.25rem; }
 .join .paper-steps li { margin-bottom: .5rem; }
 .join .small { font-size: .9rem; color: #555; }
+
+.subtitle {
+  color: #f5f5f5;       /* nesten hvit, lett å lese */
+  font-size: 26px;      /* gjør teksten mer fremtredende */
+  font-weight: 300;     /* gir et lett og elegant uttrykk */
+  letter-spacing: 1px;  /* luftig typografi */
+  text-align: center;   /* midtstiller teksten */
+  margin-top: 10px;     /* avstand oppover */
+  margin-bottom: 20px;  /* avstand nedover */
+  opacity: 0.95;        /* liten mykhet i fargen */
+}
