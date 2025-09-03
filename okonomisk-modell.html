@@ -374,20 +374,177 @@
 </section>
 
   <!-- 2. Forutsetninger -->
-  <section id="forutsetninger">
-    <h2>2. Forutsetninger og parametre</h2>
+  <section id="kap2">
+  <h2>2. Forutsetninger og parametre (kvantifisert og utvidet)</h2>
+  <p>
+    Paradismodellen hviler på tallfestede rammer. Disse basisparametrene gjør modellen styrbar og etterprøvbar, og
+    brukes i beregninger av boligbehov, matforsyning, helseutgifter, energibruk og total arbeidskapasitet. Tallene kan
+    justeres i senere versjoner etter nye data eller politiske vedtak, men gir en robust start.
+  </p>
+
+  <!-- 2.1 Befolkning -->
+  <section id="befolkning">
+    <h3>2.1 Befolkning</h3>
+    <p>
+      Vi legger til grunn en befolkning på <strong>~5,5 millioner</strong> mennesker. Dette tallet brukes i samtlige
+      grunnberegninger – fra boligareal til kaloribehov.
+    </p>
     <details open>
-      <summary>Basisantakelser (kan justeres i senere versjoner)</summary>
+      <summary>Følsomhet og avledede størrelser</summary>
       <ul>
-        <li>Befolkning (Norge): <strong>~5,5 millioner</strong>.</li>
-        <li>Bidragspliktige (arbeidsføre/tilpasset innsats): <strong>~3,2–3,6 millioner</strong>.</li>
-        <li>Arbeidsinnsats i modellen: <strong>10–15 timer/uke</strong> pr. bidragspliktig (tilpasses livsfase/helse).</li>
-        <li>Boligrett: <strong>60 m²</strong> pr. person (privat + kvalifiserte fellesarealer).</li>
-        <li>Helsegrunnsikring: <strong>40 000 NOK</strong> pr. person/år (rettighetsnivå).</li>
-        <li>Mat: ernæringsdekning ~<strong>2 300–2 600 kcal/dag</strong> pr. person (sesong/variasjon ivaretas).</li>
+        <li>Totalt boligbehov: <strong>330 mill. m²</strong> (<code>60 m² × 5,5 mill.</code>).</li>
+        <li>Totalt helsebudsjett: <strong>220 mrd. NOK/år</strong> (<code>40 000 × 5,5 mill.</code>).</li>
+        <li>Totalt energibehov mat: <strong>~4,8 billioner kcal/år</strong>.</li>
+        <li>+100 000 innbyggere → +<strong>6 mill. m²</strong> bolig, +<strong>4 mrd. NOK</strong> helse.</li>
+        <li>−100 000 innbyggere → −<strong>6 mill. m²</strong> bolig, −<strong>4 mrd. NOK</strong> helse.</li>
       </ul>
     </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
   </section>
+
+  <!-- 2.2 Bidragspliktige -->
+  <section id="bidragspliktige">
+    <h3>2.2 Bidragspliktige</h3>
+    <p>
+      Av totalbefolkningen regnes <strong>~3,2–3,6 millioner</strong> som bidragspliktige (arbeidsføre eller med tilpasset innsats).
+      Resten – barn, elever, pensjonister og uføre – er fritatt eller har redusert kvote. Omsorg i hjemmet og opplæring
+      kan krediteres som innsats.
+    </p>
+    <details>
+      <summary>Nøkkeltall</summary>
+      <ul>
+        <li>Andel av befolkningen: <strong>~58–65 %</strong>.</li>
+        <li>Fleksibilitet: fritak/tilpasning sikrer rettferdig byrdefordeling, uten å svekke total volum av timer.</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- 2.3 Arbeidsinnsats -->
+  <section id="arbeidsinnsats">
+    <h3>2.3 Arbeidsinnsats</h3>
+    <p>
+      Standardinnsats er <strong>10–15 timer per uke per bidragspliktig</strong>. Dette volumet skal finansiere grunnbehovene og gir
+      samtidig rom for lønnet arbeid, frimarked, frivillighet og fritid.
+    </p>
+    <p>
+      Formel for årlig kapasitet: <code>T_{år} = timer/uke × 52 × bidragspliktige</code>.
+    </p>
+    <details open>
+      <summary>Beregningseksempel (3,4 mill. bidragspliktige)</summary>
+      <ul>
+        <li><strong>10 t/uke</strong> → <strong>≈1,77 mrd. timer/år</strong>.</li>
+        <li><strong>15 t/uke</strong> → <strong>≈2,66 mrd. timer/år</strong>.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Allokering (eksempelbudsjettering av tid)</summary>
+      <ul>
+        <li>Boligvedlikehold/rehab/logistikk: <strong>20–25 %</strong> → <strong>350–660 mill. timer</strong>.</li>
+        <li>Mat (produksjon, huber, distribusjon): <strong>20–25 %</strong> → <strong>350–660 mill. timer</strong>.</li>
+        <li>Helse/omsorg: <strong>25–30 %</strong> → <strong>440–800 mill. timer</strong>.</li>
+        <li>Utdanning/kompetanse (inkl. opplæring som teller): <strong>10–15 %</strong> → <strong>175–400 mill. timer</strong>.</li>
+        <li>Drift/beredskap/administrasjon/IT: <strong>10–15 %</strong> → <strong>175–400 mill. timer</strong>.</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- 2.4 Bolig -->
+  <section id="bolig-forutsetning">
+    <h3>2.4 Bolig</h3>
+    <p>
+      Rettighetsnivået er <strong>60 m² per person</strong>, som kan realiseres som privat enhet eller som kombinasjon privat +
+      kvalifiserte fellesarealer.
+    </p>
+    <p>
+      Formel: <code>A_{mål} = 60 m² × befolkning</code> → med 5,5 mill. gir dette <strong>330 mill. m²</strong>.
+    </p>
+    <details open>
+      <summary>Gap, leveranse og klima/energi-rammer</summary>
+      <ul>
+        <li>Dagens anslag: <strong>302,5 mill. m²</strong>.</li>
+        <li>Gap: <strong>27,5 mill. m²</strong> over <strong>10 år</strong>.</li>
+        <li>Leveranse: <strong>2,75 mill. m²/år</strong> (~<strong>45 000</strong> enheter à <strong>60 m²</strong>).</li>
+        <li>Karbonramme (embodied): maks <strong>0,69 Mt CO₂e/år</strong> ved miks <strong>60 %</strong> rehab × <strong>150 kg CO₂e/m²</strong> og <strong>40 %</strong> nybygg × <strong>400 kg CO₂e/m²</strong>, med årlig innstramming <strong>5–10 %</strong>.</li>
+        <li>Energi i drift (rettighetsbolig): <strong>≤60 kWh/m²·år</strong> → for <strong>60 m²</strong> = <strong>3 600 kWh/år/person</strong>.</li>
+        <li>Nasjonalt energibehov boligdrift: ~<strong>19,8 TWh/år</strong> (≈ 15 % av kraftproduksjon).</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- 2.5 Helse -->
+  <section id="helse-forutsetning">
+    <h3>2.5 Helse</h3>
+    <p>
+      Helsegrunnsikringen er <strong>40 000 NOK per person per år</strong>, som gir et nasjonalt budsjett på
+      <strong>220 mrd. NOK/år</strong>. Dette dekker allmennhelse, akutt, kronisk oppfølging, psykisk helse og rehab/habilitering.
+    </p>
+    <details open>
+      <summary>Service-nivåer (SLA) og arbeidsinnsats</summary>
+      <ul>
+        <li>Akutt helsehjelp: <strong>≤4 timer</strong>.</li>
+        <li>Fastlege førstegangsvurdering: <strong>≤7 dager</strong>.</li>
+        <li>Psykisk helse lavterskel: <strong>≤14 dager</strong>.</li>
+        <li>Allokert arbeidstid: <strong>25–30 %</strong> av totalen → <strong>440–800 mill. timer/år</strong>.</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- 2.6 Mat -->
+  <section id="mat-forutsetning">
+    <h3>2.6 Mat</h3>
+    <p>
+      Ernæringsdekningen er <strong>2 300–2 600 kcal per dag per person</strong> → <strong>0,84–0,95 mill. kcal/person/år</strong>.
+      For hele befolkningen utgjør dette <strong>~4,8 billioner kcal/år</strong>, som tilsvarer <strong>~1,33 mrd. kg korn-ekvivalenter</strong>
+      ved <strong>3 600 kcal/kg</strong>.
+    </p>
+    <details open>
+      <summary>Klimaramme, svinn og arbeidstimer</summary>
+      <ul>
+        <li>Klimaramme: <strong>0,8–1,6 t CO₂e/person/år</strong> (styres via meny, sesong, lokal produksjon).</li>
+        <li>Matsvinn: <strong>&lt;10 %</strong> (år 3 piloter), <strong>&lt;7 %</strong> (år 5 nasjonalt).</li>
+        <li>Allokert arbeidstid: <strong>20–25 %</strong> → <strong>350–660 mill. timer/år</strong>.</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- 2.7 Rural tomt -->
+  <section id="rural-tomt">
+    <h3>2.7 Rural tomt</h3>
+    <p>
+      Alle borgere har rett til én rural tomt under arealregnskapet. Tomter tildeles med minstavstand for å unngå
+      fragmentering av naturen, og i tråd med rekkefølgeprinsippet for areal.
+    </p>
+    <details open>
+      <summary>Parametre</summary>
+      <ul>
+        <li>Minstavstand: <strong>250–500 m</strong> mellom tomter.</li>
+        <li>Årlig netto nytt bakkefotavtrykk fra boliggapet: <strong>~2,6 km²/år</strong> (<strong>27,5 mill. m²</strong> over 10 år).</li>
+        <li>Rekkefølge: jordbruk og vill natur først, deretter bosettingssoner.</li>
+      </ul>
+    </details>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+
+  <!-- Oppsummering -->
+  <section id="oppsummering-kap2">
+    <h3>Oppsummering av parametre (Norge-eksempel)</h3>
+    <ul>
+      <li>Befolkning: <strong>5,5 mill.</strong></li>
+      <li>Bidragspliktige: <strong>3,2–3,6 mill.</strong></li>
+      <li>Arbeidsinnsats: <strong>10–15 t/uke</strong> → <strong>1,77–2,66 mrd. timer/år</strong></li>
+      <li>Bolig: <strong>330 mill. m²</strong> mål, gap <strong>27,5 mill. m²</strong>, årlig leveranse <strong>2,75 mill. m²</strong>, karbonramme <strong>0,69 Mt CO₂e/år</strong>, energiramme <strong>19,8 TWh/år</strong></li>
+      <li>Helse: <strong>40 000 NOK/person/år</strong>, totalt <strong>220 mrd. NOK/år</strong>, SLA: akutt <strong>≤4 t</strong>, fastlege <strong>≤7 d</strong>, psykisk helse <strong>≤14 d</strong></li>
+      <li>Mat: <strong>2 300–2 600 kcal/dag/person</strong>, totalt <strong>4,8 billioner kcal/år</strong>, matsvinn <strong>&lt;7 %</strong>, klimaramme <strong>0,8–1,6 t CO₂e/person/år</strong></li>
+      <li>Rural tomt: én tomt pr. borger, minstavstand <strong>250–500 m</strong>, årlig fotavtrykk <strong>~2,6 km²</strong></li>
+    </ul>
+    <p class="back"><a href="#top">↑ Til toppen</a></p>
+  </section>
+</section>
 
   <!-- 3. Ressursregnskap -->
   <section id="ressursregnskap">
