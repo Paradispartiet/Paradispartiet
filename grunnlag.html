@@ -27,6 +27,250 @@
     <p class="lead">Filosofien, historien og økologien bak Paradismodellen – 60 kapitler.</p>
 
 
+  <!-- INNHOLDSFORTEGNELSE MED SCROLL -->
+<nav id="toc" aria-label="Innholdsfortegnelse">
+  <h2>Innhold</h2>
+  <div id="toc-search-wrap">
+    <input id="toc-search" type="search" placeholder="Søk i kapitler …" aria-label="Søk i innholdsfortegnelse" />
+  </div>
+  <ol id="toc-list"></ol>
+  <div id="toc-controls">
+    <button id="toc-top" type="button" title="Til toppen">↑</button>
+    <button id="toc-bottom" type="button" title="Til bunnen">↓</button>
+  </div>
+</nav>
+
+<!-- Scroll-progresjon (øverst på siden) -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<style>
+  /* Layout */
+  #toc {
+    position: sticky; top: 1rem; max-height: calc(100vh - 2rem);
+    overflow: auto; padding: 1rem 1.25rem; border: 1px solid #e5e7eb;
+    border-radius: 10px; background: #fafafa; font-size: 0.95rem;
+    scroll-behavior: smooth; /* autoscroll i selve TOC-panelet */
+  }
+  #toc h2 { margin: 0 0 .5rem 0; font-size: 1.05rem; letter-spacing: .3px; }
+  #toc-search-wrap { position: sticky; top: 0; background: #fafafa; padding-bottom: .5rem; }
+  #toc-search {
+    width: 100%; padding: .5rem .6rem; border: 1px solid #d1d5db; border-radius: 6px;
+    outline: none; font-size: .95rem;
+  }
+  #toc-list, #toc-list ol { list-style: decimal; padding-left: 1.1rem; margin: .5rem 0; }
+  #toc-list li { margin: .15rem 0; line-height: 1.35; }
+  #toc-list a { text-decoration: none; color: #1f2937; }
+  #toc-list a:hover { text-decoration: underline; }
+  .toc-level-1 > a { font-weight: 700; }
+  .toc-level-2 > a { font-weight: 600; }
+  .toc-level-3 > a, .toc-level-4 > a { font-weight: 500; }
+
+  /* Kollapsbare noder */
+  details.toc-collapsible { margin: .1rem 0; }
+  summary.toc-summary { cursor: pointer; list-style: none; }
+  summary.toc-summary::-webkit-details-marker { display: none; }
+
+  /* Aktiv lenke under scroll */
+  #toc-list a.is-active { color: #0ea5e9; text-decoration: underline; }
+
+  /* TOC-kontroller */
+  #toc-controls { display: flex; gap: .4rem; margin-top: .6rem; }
+  #toc-controls button {
+    cursor: pointer; border: 1px solid #d1d5db; background: white; border-radius: 6px;
+    padding: .25rem .45rem; font-size: .9rem;
+  }
+  #toc-controls button:hover { background: #f3f4f6; }
+
+  /* Scroll-progresjonslinje */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: linear-gradient(90deg, #0ea5e9, #34d399);
+    z-index: 9999; transition: width .1s linear;
+  }
+
+  /* Smooth scroll for hele dokumentet (fallback) */
+  html { scroll-behavior: smooth; }
+</style>
+
+<script>
+(() => {
+  // Hvilke overskrifter som blir kapitler i TOC
+  const SELECTORS = [
+    'article[id^="k"] > h1, article[id^="k"] > h2, article[id^="k"] > h3, article[id^="k"] > h4',
+    'main h1, main h2, main h3, main h4',
+    'h1, h2, h3, h4'
+  ].join(',');
+
+  const norm = s => (s || '').replace(/\s+/g, ' ').trim();
+
+  const headers = Array.from(document.querySelectorAll(SELECTORS))
+    .filter(h => norm(h.textContent).length > 0)
+    .filter(h => !h.closest('#toc'));
+
+  // Gi alle overskrifter en id (for ankerlenker)
+  headers.forEach(h => {
+    if (!h.id) {
+      const base = norm(h.textContent)
+        .toLowerCase()
+        .replace(/[^\w\s\-åøæ]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/[å]/g, 'a').replace(/[ø]/g, 'o').replace(/[æ]/g, 'ae');
+      let id = base || 'kapittel';
+      let i = 2;
+      while (document.getElementById(id)) id = `${base}-${i++}`;
+      h.id = id;
+    }
+  });
+
+  const levelOf = h => parseInt(h.tagName.replace('H',''), 10);
+
+  // Bygg trestruktur
+  const root = [];
+  const stack = [{ level: 0, children: root }];
+  headers.forEach(h => {
+    const item = { el: h, title: norm(h.textContent), level: levelOf(h), children: [] };
+    while (stack.length && item.level <= stack[stack.length - 1].level) stack.pop();
+    stack[stack.length - 1].children.push(item);
+    stack.push(item);
+  });
+
+  const tocList = document.getElementById('toc-list');
+
+  function mkLink(item) {
+    const a = document.createElement('a');
+    a.href = `#${item.el.id}`;
+    a.textContent = item.title;
+    a.className = `toc-level-${Math.min(4, Math.max(1, item.level))}`;
+    return a;
+  }
+
+  function render(items) {
+    const ol = document.createElement('ol');
+    items.forEach(item => {
+      const li = document.createElement('li');
+      if (item.children?.length && item.level <= 2) {
+        const details = document.createElement('details');
+        details.className = 'toc-collapsible';
+        const summary = document.createElement('summary');
+        summary.className = 'toc-summary';
+        summary.appendChild(mkLink(item));
+        details.appendChild(summary);
+        details.appendChild(render(item.children));
+        details.open = item.level === 1; // åpne topplag
+        li.appendChild(details);
+      } else {
+        li.appendChild(mkLink(item));
+        if (item.children?.length) li.appendChild(render(item.children));
+      }
+      ol.appendChild(li);
+    });
+    return ol;
+  }
+
+  // Sett inn
+  tocList.innerHTML = '';
+  tocList.appendChild(render(root));
+
+  // Søk
+  const search = document.getElementById('toc-search');
+  search?.addEventListener('input', e => {
+    const q = norm(e.target.value).toLowerCase();
+    tocList.querySelectorAll('li').forEach(li => {
+      const txt = norm(li.textContent).toLowerCase();
+      li.style.display = q && !txt.includes(q) ? 'none' : '';
+    });
+  });
+
+  // Scroll-spy: marker aktiv seksjon, auto-åpne foreldre, og autoscroll TOC
+  const links = Array.from(tocList.querySelectorAll('a'));
+  const mapIdToLink = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+
+  let tops = [];
+  function recomputeTops() {
+    tops = headers.map(h => ({
+      id: h.id,
+      top: h.getBoundingClientRect().top + window.scrollY
+    })).sort((a,b) => a.top - b.top);
+  }
+  recomputeTops();
+
+  const ACTIVE = 'is-active';
+  const tocEl = document.getElementById('toc');
+
+  function openParentsOf(linkEl) {
+    let el = linkEl?.parentElement;
+    while (el) {
+      if (el.tagName === 'DETAILS') el.open = true;
+      el = el.parentElement;
+    }
+  }
+  function scrollActiveIntoView(linkEl) {
+    if (!linkEl) return;
+    const linkTop = linkEl.getBoundingClientRect().top;
+    const tocTop = tocEl.getBoundingClientRect().top;
+    const tocH   = tocEl.clientHeight;
+    // Hvis aktiv lenke er utenfor synlig område i TOC, scroll den inn
+    if (linkTop < tocTop + 60 || linkTop > tocTop + tocH - 60) {
+      const offset = linkEl.offsetTop - tocH / 2;
+      tocEl.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
+    }
+  }
+
+  function setActiveByScroll() {
+    const y = window.scrollY + 120; // offset så vi ikke hopper
+    let cur = tops[0];
+    for (const t of tops) if (t.top <= y) cur = t; else break;
+    links.forEach(a => a.classList.remove(ACTIVE));
+    const link = mapIdToLink.get(cur?.id);
+    if (link) {
+      link.classList.add(ACTIVE);
+      openParentsOf(link);
+      scrollActiveIntoView(link);
+    }
+  }
+
+  // Oppdater ved scroll og resize
+  window.addEventListener('scroll', setActiveByScroll, { passive: true });
+  window.addEventListener('resize', () => { recomputeTops(); setActiveByScroll(); });
+  // Init
+  setActiveByScroll();
+
+  // Smooth scroll til mål ved klikk (og justér offset)
+  tocList.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      const y = target.getBoundingClientRect().top + window.scrollY - 16;
+      window.history.pushState(null, '', `#${id}`);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+
+  // Top/bunn-knapper
+  document.getElementById('toc-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  document.getElementById('toc-bottom')?.addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
+
+  // Progresjonslinje
+  const progress = document.getElementById('scroll-progress');
+  function setProgress() {
+    const h = document.documentElement;
+    const scrollTop = h.scrollTop || document.body.scrollTop;
+    const scrollHeight = (h.scrollHeight - h.clientHeight) || 1;
+    const pct = Math.max(0, Math.min(1, scrollTop / scrollHeight));
+    progress.style.width = (pct * 100) + '%';
+  }
+  window.addEventListener('scroll', setProgress, { passive: true });
+  window.addEventListener('resize', setProgress);
+  setProgress();
+
+  // Recompute anchors etter bilder/lazy-innhold
+  window.addEventListener('load', () => { recomputeTops(); setActiveByScroll(); });
+})();
+</script>
+
 <article id="k1" class="chapter">
   <h2>Kapittel 1 – Grunnlag og diagnose</h2>
 
