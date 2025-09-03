@@ -24,59 +24,208 @@
   <h1>Vår politikk</h1>
   <p>Paradispartiet bygger på en enkel idé: Grunnbehov skal aldri være avhengig av betalingsevne, men sikres gjennom fellesskapet. Alt utover dette skal være fritt – for skaping, handel og livsutfoldelse.</p>
 
-  <section>
-    <h2>Grunnbehov og marked</h2>
-    <ul>
-      <li><strong>BasicMarked:</strong> Bolig, mat og helsehjelp sikres gjennom 10–15 timer samfunnsarbeid per uke.</li>
-      <li><strong>FriMarked:</strong> Alt utover grunnbehovene skjer i et fritt marked, åpent for initiativ og mangfold.</li>
-      <li><strong>ParadiseCoin:</strong> Arbeidstid brukes som valuta i BasicMarkedet, mens fri valuta gjelder i FriMarkedet.</li>
-    </ul>
-  </section>
+  <!-- PARADISPARTIET – POLITIKK (tillegg/utvidelse). Lim under eksisterende innhold. -->
+<section id="politikk-fulltekst" class="pp-politikk" aria-labelledby="pp-politikk-tittel">
 
-  <section>
-    <h2>Bolig og bosetting</h2>
-    <ul>
-      <li><strong>Rett til bolig:</strong> Alle har rett til et hjem på minst 40 m² per person.</li>
-      <li><strong>Spredt bosetting:</strong> Ingen eier naturen. Folk har rett til å bosette seg fritt i naturen, så lenge den ikke forstyrres.</li>
-      <li><strong>Byutvikling:</strong> Bilfrie bysentrum med grønne korridorer og fellesskapsarenaer.</li>
-    </ul>
-  </section>
+  <style>
+    /* Lokal styling – avgrenset til .pp-politikk */
+    .pp-politikk { --fs: clamp(18px, 1.6vw, 20px); --lh: 1.65; --maxw: 900px; }
+    .pp-politikk * { box-sizing: border-box; }
+    .pp-politikk .wrap { max-width: var(--maxw); margin: 0 auto; padding: 1.5rem; }
+    .pp-politikk p, .pp-politikk li { font-size: var(--fs); line-height: var(--lh); }
+    .pp-politikk h1, .pp-politikk h2, .pp-politikk h3 { line-height: 1.2; margin: 2.2rem 0 .8rem; }
+    .pp-politikk h1 { font-size: clamp(28px, 3.2vw, 40px); margin-top: 1rem; }
+    .pp-politikk h2 { font-size: clamp(22px, 2.4vw, 28px); }
+    .pp-politikk h3 { font-size: clamp(20px, 2vw, 24px); }
+    .pp-politikk section { margin: 2.2rem 0 2.2rem; padding-top: .2rem; border-top: 1px solid rgba(0,0,0,.06); }
+    .pp-politikk .topbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: .75rem 1.5rem; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 5; }
+    .pp-politikk .crumbs a, .pp-politikk .nav a { text-decoration: none; }
+    .pp-politikk .crumbs { font-size: .95rem; opacity: .9; }
+    .pp-politikk .nav { display: flex; flex-wrap: wrap; gap: .75rem 1rem; }
+    .pp-politikk .nav a { padding: .4rem .7rem; border: 1px solid #e6e6e6; border-radius: .5rem; font-size: .95rem; }
+    .pp-politikk .callout { border: 1px solid #e6e6e6; border-left: 4px solid #111; padding: 1rem 1.1rem; border-radius: .5rem; background: #fafafa; }
+    .pp-politikk ul { margin: .6rem 0 .6rem 1.25rem; }
+    .pp-politikk .meta { font-size: .9rem; opacity: .8; margin-top: .5rem; }
+    @media (max-width: 640px){
+      .pp-politikk .topbar { display: block; }
+      .pp-politikk .nav { margin-top: .5rem; }
+    }
+  </style>
 
-  <section>
-    <h2>Produksjon og arbeid</h2>
-    <ul>
-      <li><strong>Produksjonsfrihet:</strong> Alle kan produsere varer og tjenester – men alt registreres og kvalitetssikres åpent.</li>
-      <li><strong>Arbeid som rett:</strong> Ingen skal stenges ute fra samfunnet. Alle bidrar etter evne.</li>
-      <li><strong>Tidsøkonomi:</strong> Fellesskapsarbeid måles i timer, ikke penger.</li>
-    </ul>
-  </section>
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="/Paradispartiet/">← Tilbake til Paradispartiet</a>
+      &nbsp;·&nbsp;<a href="/Paradispartiet/grunnlagsdokument.html">Grunnlagsdokument</a>
+      &nbsp;·&nbsp;<a href="/Paradispartiet/okonomisk-modell.html">Økonomisk modell</a>
+      &nbsp;·&nbsp;<a href="/Paradispartiet/manifest.html">Manifest</a>
+    </div>
+    <nav class="nav" aria-label="Innholdsmeny">
+      <a href="#okonomi">Økonomi</a>
+      <a href="#bolig">Bolig</a>
+      <a href="#mat">Mat</a>
+      <a href="#helse">Helse og omsorg</a>
+      <a href="#utdanning">Utdanning</a>
+      <a href="#arbeidsliv">Arbeidsliv</a>
+      <a href="#miljo">Miljø og natur</a>
+      <a href="#transport">Transport</a>
+      <a href="#styring-rett">Styring & rett</a>
+      <a href="#forsvar">Forsvar</a>
+      <a href="#livsstil">Helse, miljø & livsstil</a>
+      <a href="#kultur">Kultur</a>
+      <a href="#internasjonalt">Internasjonalt</a>
+      <a href="#filosofi">Filosofi</a>
+    </nav>
+  </div>
 
-  <section>
-    <h2>Helse og utdanning</h2>
-    <ul>
-      <li><strong>Helse som rettighet:</strong> Alle får tilgang til nødvendig helsehjelp uten betalingsevne som barriere.</li>
-      <li><strong>Utdanning for alle:</strong> Gratis, livslang utdanning, tilgjengelig dag og natt.</li>
-      <li><strong>Forebygging:</strong> Fokus på fellesskap, aktivitet og psykisk helse.</li>
-    </ul>
-  </section>
+  <div class="wrap">
+    <header>
+      <h1 id="pp-politikk-tittel">Politikk</h1>
+      <p><strong>Paradispartiet vil bygge et samfunn der trygghet og frihet er to sider av samme kontrakt.</strong> Vårt program bygger på <em>Paradismodellen</em>: alle har rett til bolig, mat, helse og utdanning; utover grunnbehovene åpnes det for frihet, skapelse og initiativ.</p>
+      <p class="meta">Sist oppdatert: 3. september 2025</p>
+      <div class="callout">
+        <strong>Kjernegrep:</strong> Post-pengemodell · Dobbel markedsstruktur (BasicMarked + FriMarked) · Arbeidstid som valuta (10–15 t/uke) · Åpent ressursregnskap · Rett til spredt bosetting (med arealregnskap).
+      </div>
+    </header>
 
-  <section>
-    <h2>Miljø og natur</h2>
-    <ul>
-      <li><strong>Rett til spredt bosetting:</strong> Folk kan bo i naturen så lenge den ikke forstyrres. Først jordbruk og vill natur, deretter bosetting.</li>
-      <li><strong>Arealregnskap:</strong> Rettferdig fordeling av arealer mellom natur, jordbruk og bosetting.</li>
-      <li><strong>Bilfrie byer:</strong> Mindre forurensning, mer rom for mennesker.</li>
-    </ul>
-  </section>
+    <section id="okonomi" aria-labelledby="okonomi-t">
+      <h2 id="okonomi-t">Økonomi</h2>
+      <p>Grunnlaget er <em>post-pengemodellen</em> med dobbel markedsstruktur:</p>
+      <ul>
+        <li><strong>BasicMarked:</strong> fellesskapsstyrt dekning av grunnbehov (bolig, mat, helse, utdanning, kollektivtransport).</li>
+        <li><strong>FriMarked:</strong> åpent rom for privat produksjon, teknologi, kunst og overskudd.</li>
+      </ul>
+      <ul>
+        <li><strong>Arbeidstid som valuta:</strong> 10–15 timer per uke fra hver bidragspliktig, tilpasset helse og livsfase.</li>
+        <li><strong>Produksjonsfrihet:</strong> alle kan produsere og selge; alt registreres og kvalitetssikres.</li>
+        <li><strong>Overforbruk ikke tillatt i BasicMarked:</strong> fri tilgang er normen, men misbruk/hamstring reguleres.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Demokrati og samfunn</h2>
-    <ul>
-      <li><strong>Åpenhet:</strong> All produksjon, ressursbruk og styring skal være gjennomsiktig.</li>
-      <li><strong>Lokaldemokrati:</strong> Nærmiljøene bestemmer over sine ressurser.</li>
-      <li><strong>Global solidaritet:</strong> «The Caravan» – grønne korridorer for fri ferdsel på tvers av grenser.</li>
-    </ul>
-  </section>
+    <section id="bolig" aria-labelledby="bolig-t">
+      <h2 id="bolig-t">Bolig</h2>
+      <ul>
+        <li><strong>Bolig som rettighet:</strong> 60 m² per person (med kvalifiserte fellesarealer).</li>
+        <li><strong>Anti-spekulasjon:</strong> bolig er ikke et investeringsobjekt.</li>
+        <li><strong>Spredt bosetting i naturen:</strong> muliggjøres gjennom arealregnskap der jordbruk og vill natur prioriteres før bosettingssoner fastsettes.</li>
+        <li><em>Historisk korreksjon:</em> etter «enclosure»-lovene som presset folk inn i byene, åpner vi for frivillig utflytting.</li>
+      </ul>
+    </section>
+
+    <section id="mat" aria-labelledby="mat-t">
+      <h2 id="mat-t">Mat</h2>
+      <ul>
+        <li><strong>Ernæringsrett:</strong> 2&nbsp;300–2&nbsp;600 kcal/dag per person, med sesongvariasjon.</li>
+        <li><strong>Lokal og bærekraftig produksjon</strong> innenfor naturens tålegrenser.</li>
+        <li><strong>Matsikkerhet</strong> som offentlig ansvar, med rom for privat utfylling.</li>
+      </ul>
+    </section>
+
+    <section id="helse" aria-labelledby="helse-t">
+      <h2 id="helse-t">Helse og omsorg</h2>
+      <ul>
+        <li><strong>Grunnsikring:</strong> 40&nbsp;000&nbsp;kr per person per år.</li>
+        <li><strong>Offentlig forankring</strong> med mulighet for supplerende private tilbud.</li>
+        <li><strong>Helhetlig helse:</strong> fysisk, psykisk og sosial trygghet ses samlet.</li>
+      </ul>
+    </section>
+
+    <section id="utdanning" aria-labelledby="utdanning-t">
+      <h2 id="utdanning-t">Utdanning</h2>
+      <ul>
+        <li><strong>Fellesgode:</strong> en del av BasicMarked.</li>
+        <li><strong>Åpne verksteder og livslang læring</strong> i tillegg til skole og universitet.</li>
+        <li><strong>Praksis + teori:</strong> skapende arbeid gis samme tyngde som teoretisk læring.</li>
+      </ul>
+    </section>
+
+    <section id="arbeidsliv" aria-labelledby="arbeidsliv-t">
+      <h2 id="arbeidsliv-t">Arbeidsliv</h2>
+      <ul>
+        <li><strong>Bidrag etter evne:</strong> 10–15 timer/uke til grunnfunksjoner.</li>
+        <li><strong>Resten av tiden:</strong> fri til lønnsarbeid, frivillighet, kunst eller fritid.</li>
+        <li><strong>Fleksibilitet:</strong> tilpasses helse, omsorgsansvar og livsfase.</li>
+      </ul>
+    </section>
+
+    <section id="miljo" aria-labelledby="miljo-t">
+      <h2 id="miljo-t">Miljø og natur</h2>
+      <ul>
+        <li><strong>Ny linje:</strong> vi erstatter «null netto naturtap» med <em>rett til spredt bosetting</em> uten å forstyrre naturen.</li>
+        <li><strong>Arealregnskap:</strong> jordbruk og vill natur har alltid forrang.</li>
+        <li><strong>Bilfri by:</strong> byer skal gradvis gjøres bilfrie (uten å angi arealstørrelse); gange, sykkel og kollektiv prioriteres.</li>
+      </ul>
+    </section>
+
+    <section id="transport" aria-labelledby="transport-t">
+      <h2 id="transport-t">Transport og infrastruktur</h2>
+      <ul>
+        <li><strong>Kollektivtransport</strong> inngår i BasicMarked.</li>
+        <li><strong>Bilfrie bykjerner</strong> som målrettet utvikling.</li>
+        <li><strong>«The Caravan»:</strong> grønne korridorer for bærekraftig, fri ferdsel over landegrenser.</li>
+      </ul>
+    </section>
+
+    <section id="styring-rett" aria-labelledby="styring-rett-t">
+      <h2 id="styring-rett-t">Samfunnsstyring og rett</h2>
+      <ul>
+        <li><strong>Åpent ressursregnskap</strong> og gjennomsiktig forvaltning.</li>
+        <li><strong>Delt politi:</strong> volds- og beredskapspoliti <em>(strafferett for vold)</em> + sivilt forvaltningspoliti <em>(erstatningssaker)</em>.</li>
+        <li><strong>Strafferett begrenses til vold;</strong> øvrige saker behandles som <strong>erstatningsansvar</strong>.</li>
+        <li><strong>Offentlig erstatningsfond</strong> når skadevolder ikke kan betale.</li>
+      </ul>
+    </section>
+
+    <section id="forsvar" aria-labelledby="forsvar-t">
+      <h2 id="forsvar-t">Forsvar</h2>
+      <ul>
+        <li><strong>Profesjonelt forsvar:</strong> ingen verneplikt; kun profesjonelle soldater bærer våpen.</li>
+        <li><strong>Mandat:</strong> beskyttelse, ikke angrep.</li>
+      </ul>
+    </section>
+
+    <section id="livsstil" aria-labelledby="livsstil-t">
+      <h2 id="livsstil-t">Helse, miljø og livsstil</h2>
+      <ul>
+        <li><strong>Røykeforbud</strong> på skoleveier og i sentrale byrom.</li>
+        <li><strong>Tilrettelegging</strong> for fysisk aktivitet og hverdagsnær kultur.</li>
+      </ul>
+    </section>
+
+    <section id="kultur" aria-labelledby="kultur-t">
+      <h2 id="kultur-t">Kultur og fellesskap</h2>
+      <ul>
+        <li><strong>Kultur som grunnbehov:</strong> ikke luksus.</li>
+        <li><strong>Offentlige verksteder, scener, atelier og møteplasser</strong> tilgjengelig for alle.</li>
+        <li><strong>Kulturarv + nye uttrykk</strong> bæres av fellesskapet.</li>
+      </ul>
+    </section>
+
+    <section id="internasjonalt" aria-labelledby="internasjonalt-t">
+      <h2 id="internasjonalt-t">Internasjonal politikk</h2>
+      <ul>
+        <li><strong>The Caravan:</strong> grønn, trygg og fri ferdsel globalt.</li>
+        <li><strong>Kritikk av EØS-praksis:</strong> særlig uregulert mobil arbeidskraft uten integrering og sosiale rettigheter.</li>
+        <li><strong>Global rettferdighet:</strong> ressursuttak i sør skal ikke skje på bekostning av grunnleggende behov.</li>
+      </ul>
+    </section>
+
+    <section id="filosofi" aria-labelledby="filosofi-t">
+      <h2 id="filosofi-t">Filosofi og retning</h2>
+      <p><em>Paradismodellen</em> er en <strong>real utopi</strong>: håp konkretisert i institusjoner som virker (Bloch, Wright). Vi bygger på Polanyis innsikt om markedets dobbelbevegelse: frihet må balanseres av beskyttelse. Paradispartiet institusjonaliserer denne balansen – <strong>trygghet og frihet, sammen</strong>.</p>
+    </section>
+
+    <section id="lenker" aria-labelledby="lenker-t">
+      <h3 id="lenker-t">Videre lesning</h3>
+      <ul>
+        <li><a href="/Paradispartiet/manifest.html">Manifest (fulltekst)</a></li>
+        <li><a href="/Paradispartiet/okonomisk-modell.html">Økonomisk modell</a></li>
+        <li><a href="/Paradispartiet/grunnlagsdokument.html">Grunnlagsdokument</a></li>
+      </ul>
+      <!-- Oppdater filnavn i lenkene over dersom sidene dine heter noe annet. -->
+    </section>
+
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
