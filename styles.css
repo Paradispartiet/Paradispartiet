@@ -163,3 +163,6 @@ a { color: inherit; }
   margin-bottom: 20px;  /* avstand nedover */
   opacity: 0.95;        /* liten mykhet i fargen */
 }
+.hero-subheading {
+  color: #ffffff;
+}
