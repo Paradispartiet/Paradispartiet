@@ -37,12 +37,23 @@
   <section class="project-grid">
 
     <article class="project">
-      <img src="assets/oslo-old-boys.jpg" alt="Oslo Old Boys">
+      <img src="assets/paradisavisa.jpg" alt="Paradisavisa">
       <div class="project-body">
-        <h2>Oslo Old Boys</h2>
-        <p>En sosial sportsklubb der idrett og fellesskap møtes.  
-        Trening, lek og aktivitet uten press eller konkurranse – for alle som ønsker bevegelse, samhold og rytme i hverdagen.  
-        <a href="https://paradisavisa.no/posts/2025-09-12-oslo-old-boys.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+        <h2>Paradisavisa</h2>
+        <p>En uavhengig avis for idédebatt, kultur og samfunn.  
+        Dokumenterer overgangen mot en ny samfunnsmodell – gjennom artikler, bilder og analyser.  
+        <a href="https://paradisavisa.no" target="_blank">Besøk Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/echonet.jpg" alt="AHA EchoNet">
+      <div class="project-body">
+        <h2>AHA EchoNet</h2>
+        <p>Et samfunnsnyttig prosjekt for kollektiv læring og informasjonsdeling.  
+        EchoNet kobler mennesker og kunstig intelligens i en felles læringsmodell,  
+        der kunnskap sirkulerer og vokser i fellesskap.  
+        <a href="https://paradisavisa.no/posts/2025-09-28-echonet.html" target="_blank">Les mer i Paradisavisa</a>.</p>
       </div>
     </article>
 
@@ -58,13 +69,12 @@
     </article>
 
     <article class="project">
-      <img src="assets/bilfri-by.jpg" alt="Bilfri by">
+      <img src="assets/oslo-old-boys.jpg" alt="Oslo Old Boys">
       <div class="project-body">
-        <h2>Bilfri by</h2>
-        <p>Byen tilhører mennesker, ikke maskiner.  
-        Dette prosjektet handler om å frigjøre byrommene – gjøre gatene stille, grønne og trygge.  
-        En pilot for et nytt urbant liv.  
-        <a href="https://paradisavisa.no/posts/2025-09-25-paradis-modellen.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+        <h2>Oslo Old Boys</h2>
+        <p>En sosial sportsklubb der idrett og fellesskap møtes.  
+        Trening, lek og aktivitet uten press eller konkurranse – for alle som ønsker bevegelse, samhold og rytme i hverdagen.  
+        <a href="https://paradisavisa.no/posts/2025-09-12-oslo-old-boys.html" target="_blank">Les mer i Paradisavisa</a>.</p>
       </div>
     </article>
 
@@ -79,32 +89,23 @@
     </article>
 
     <article class="project">
+      <img src="assets/bilfri-by.jpg" alt="Bilfri by">
+      <div class="project-body">
+        <h2>Bilfri by</h2>
+        <p>Byen tilhører mennesker, ikke maskiner.  
+        Dette prosjektet handler om å frigjøre byrommene – gjøre gatene stille, grønne og trygge.  
+        En pilot for et nytt urbant liv.  
+        <a href="https://paradisavisa.no/posts/2025-09-25-paradis-modellen.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
       <img src="assets/caravan.jpg" alt="The Caravan – Grønne korridorer">
       <div class="project-body">
         <h2>The Caravan – Grønne korridorer</h2>
         <p>Et internasjonalt nettverk av grønne stier og korridorer der folk kan ferdes fritt til fots, på sykkel eller til hest.  
         En visjon om sammenheng mellom natur, kultur og menneskelig frihet.  
         <span class="status">Under utvikling</span></p>
-      </div>
-    </article>
-
-    <article class="project">
-      <img src="assets/teorien-om-lyset.jpg" alt="Teorien om lyset">
-      <div class="project-body">
-        <h2>Teorien om lyset</h2>
-        <p>Et filosofisk og kunstnerisk prosjekt som utforsker lyset som livets bærer og menneskelig klarhet som samfunnets mål.  
-        En tenkning som preger hele Paradismodellen.  
-        <a href="https://paradisavisa.no/posts/2025-09-30-lyset.html" target="_blank">Les mer i Paradisavisa</a>.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <img src="assets/paradisavisa.jpg" alt="Paradisavisa">
-      <div class="project-body">
-        <h2>Paradisavisa</h2>
-        <p>En uavhengig avis for idédebatt, kultur og samfunn.  
-        Dokumenterer overgangen mot en ny samfunnsmodell – gjennom artikler, bilder og analyser.  
-        <a href="https://paradisavisa.no" target="_blank">Besøk Paradisavisa</a>.</p>
       </div>
     </article>
 
@@ -118,12 +119,49 @@
       </div>
     </article>
 
+    <article class="project">
+      <img src="assets/teorien-om-lyset.jpg" alt="Teorien om lyset">
+      <div class="project-body">
+        <h2>Teorien om lyset</h2>
+        <p>Et filosofisk og kunstnerisk prosjekt som utforsker lyset som livets bærer og menneskelig klarhet som samfunnets mål.  
+        En tenkning som preger hele Paradismodellen.  
+        <a href="https://paradisavisa.no/posts/2025-09-30-lyset.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
   </section>
+
+  <section class="avisa">
+    <div class="avisa-top">
+      <h2>Siste fra <a href="https://paradisavisa.no" target="_blank">Paradisavisa</a></h2>
+    </div>
+    <div class="avisa-grid" id="paradisavisa-feed"></div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <p>© 2025 Paradispartiet</p>
 </footer>
+
+<script>
+fetch('https://paradispartiet.github.io/Paradisavisa/posts.json')
+  .then(r=>r.json())
+  .then(items=>{
+    const grid=document.getElementById('paradisavisa-feed');
+    if(!grid)return;
+    grid.innerHTML = items.slice(0,3).map(p=>`
+      <div class="avisa-card">
+        <img src="${p.image||'assets/placeholder.jpg'}" class="avisa-img" alt="">
+        <div class="avisa-body">
+          <h3 class="avisa-title"><a href="https://paradispartiet.github.io/Paradisavisa/${p.url}" target="_blank">${p.title}</a></h3>
+          <p class="avisa-excerpt">${p.excerpt}</p>
+          <p class="avisa-meta">${p.date}</p>
+        </div>
+      </div>`).join('');
+  })
+  .catch(()=>console.warn('Klarte ikke hente feed'));
+</script>
 
 </body>
 </html>
