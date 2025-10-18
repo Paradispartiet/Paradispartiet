@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oslo Old Boys | Paradispartiet</title>
+  <meta name="description" content="Oslo Old Boys – en sosial sportsklubb og møteplass for fellesskap, helse og inkludering.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page page--prosjekt">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Paradispartiet">
+      <img src="assets/logo.svg" alt="Paradispartiet logo">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Hjem</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html" class="active">Prosjekter</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="om.html">Om</a>
+    </nav>
+  </header>
+
+  <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
+    <div class="project-banner-inner">
+      <div class="project-banner-text">
+        <h1>Oslo Old Boys</h1>
+        <p>En sosial sportsklubb for fellesskap, aktivitet og psykisk helse – åpen for alle voksne som vil være med.</p>
+      </div>
+      <div class="project-banner-icon">
+        <img src="assets/logo.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <main class="project-page">
+
+    <section class="project-content">
+      <p>
+        Oslo Old Boys er et inkluderende fellesskap for voksne menn og kvinner som ønsker å være aktive,
+        sosiale og del av et miljø uten press eller prestasjonskrav.
+        Klubben bygger på idéen om at fysisk aktivitet og sosial tilhørighet hører sammen.
+      </p>
+
+      <p>
+        Treningene er like mye et møtepunkt som en idrettsarena – et sted å prate, le, spille og kjenne kroppen i bevegelse.
+        Det handler ikke om å vinne, men om å komme seg ut, treffe folk og kjenne på fellesskapets energi.
+      </p>
+
+      <h2>Formål</h2>
+      <ul>
+        <li>Fremme fysisk og psykisk helse gjennom aktivitet og fellesskap.</li>
+        <li>Gi voksne et sosialt nettverk utenfor arbeidsliv og familie.</li>
+        <li>Skape lavterskel tilbud på dagtid for alle som ønsker å delta.</li>
+        <li>Motvirke ensomhet og passivitet – gjennom humor, bevegelse og lagfølelse.</li>
+      </ul>
+
+      <h2>Organisering</h2>
+      <p>
+        Old Boys drives som en frivillig, åpen klubb med ukentlige treninger og sosiale arrangementer.
+        På vinterstid benyttes innendørshaller som Valhall, mens sommeren tilbringes i parker og på grusbaner.
+        Klubben samarbeider med lokale lag, frivillige trenere og helsearbeidere.
+      </p>
+
+      <h2>Et fellesskap for alle</h2>
+      <p>
+        Mange som deltar har stått utenfor arbeidslivet, bor alene, eller savner faste sosiale arenaer.
+        Old Boys er et sted for å bli sett, være del av et lag, og kjenne at man betyr noe.
+        Det er også en påminnelse om at helse ikke bare handler om kroppen – men om kontakt, latter og rytme.
+      </p>
+    </section>
+
+    <section class="project-links">
+      <h3>Relaterte prosjekter</h3>
+      <ul>
+        <li><a href="lesebiblioteket.html">Lesebiblioteket – åpent kunnskapsrom</a></li>
+        <li><a href="parkliv.html">Parkliv – sosiale byrom</a></li>
+        <li><a href="echonet.html">AHA EchoNet – kollektiv læring</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html">Hjem</a>
+    <a href="manifest.html">Manifest</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="prosjekter.html" class="active">Prosjekter</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="om.html">Om</a>
+  </nav>
+
+  <footer class="site-footer">
+    <p>© 2025 Paradispartiet</p>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Til toppen">
+    <svg viewBox="0 0 24 24" class="scroll-icon">
+      <path d="M12 19V5m0 0l-6 6m6-6l6 6"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
