@@ -1,168 +1,319 @@
-/* Reset-ish */
+/* =======================================
+   PARADISPARTIET – STILARK
+   Strukturert, mørk base med gullaksenter
+   ======================================= */
+
+/* === Farger og basis === */
+:root {
+  --bg: #000;
+  --card: #0e0e0e;
+  --border: rgba(255,255,255,0.08);
+  --fg: #f3f3f3;
+  --muted: #9a9a9a;
+  --accent: #ffd600;
+}
+
+/* === Reset og generelt === */
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; height: 100%; }
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--fg);
+  line-height: 1.7;
 }
 
-/* Theme */
-:root {
-  --bg: #0b0b0c;
-  --fg: #eaeaea;
-  --muted: #b7b7b7;
-  --accent: #ffd100; /* varm gul */
-  --card: #141416;
-  --border: #2a2a2e;
-}
-@media (prefers-color-scheme: light) {
-  :root { --bg: #ffffff; --fg: #0b0b0c; --muted: #555; --card: #f6f6f8; --border: #e2e2e6; }
-}
+/* === Lenker og knapper === */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-a { color: inherit; }
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.3rem;
+  border-radius: 5px;
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.btn:hover { background: #111; }
+.btn-yellow { background: var(--accent); color: #000; border: none; }
+.btn-yellow:hover { background: #ffcc00; }
+.btn-outline { background: transparent; border: 1px solid var(--accent); }
+
+/* === Header og navigasjon === */
 .site-header {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; background: var(--bg); z-index: 50;
-}
-.brand { display: flex; align-items: center; gap: .5rem; text-decoration: none; font-weight: 700; }
-.brand img { height: 28px; width: 28px; }
-
-.site-nav { display: flex; gap: 1rem; }
-.site-nav a { text-decoration: none; padding: .5rem .75rem; border-radius: .5rem; }
-.site-nav a.active, .site-nav a:hover { background: var(--card); border: 1px solid var(--border); }
-
-.nav-toggle { display: none; font-size: 1.25rem; background: transparent; border: 0; color: var(--fg); }
-@media (max-width: 800px) {
-  .site-nav { display: none; position: absolute; top: 56px; right: 8px; flex-direction: column; background: var(--card); padding: .5rem; border: 1px solid var(--border); border-radius: .5rem; }
-  .site-nav.open { display: flex; }
-  .nav-toggle { display: inline-block; }
-}
-
-.hero { padding: clamp(2rem, 4vw, 4rem) 1rem; text-align: center; }
-.hero h1 { font-size: clamp(1.8rem, 2.4rem + 1vw, 3rem); line-height: 1.1; margin-bottom: .5rem; }
-.hero p { max-width: 900px; margin: .5rem auto 1.25rem; color: var(--muted); }
-
-.cta { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
-.btn { display: inline-block; padding: .7rem 1rem; border: 1px solid var(--border); border-radius: .6rem; text-decoration: none; }
-.btn.primary { background: var(--accent); color: #111; border-color: #111; font-weight: 700; }
-
-.highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding: 1rem; max-width: 1100px; margin: 0 auto 2rem; }
-.highlights article { background: var(--card); border: 1px solid var(--border); border-radius: .8rem; padding: 1rem; }
-.highlights h2 { margin-top: .2rem; }
-.more { display: inline-block; margin-top: .5rem; color: var(--accent); text-decoration: none; }
-
-.content { padding: 1rem; max-width: 900px; margin: 0 auto; }
-.content h1 { margin-top: 1rem; }
-.content h2 { margin-top: 1.5rem; }
-
-.manifest-list { padding-left: 1rem; }
-.manifest-list li { margin: .5rem 0; }
-
-.site-footer { border-top: 1px solid var(--border); padding: 1rem; text-align: center; color: var(--muted); }
-
-/* Slagord under hovedoverskrift */
-.tagline {
-  font-size: 1.25rem;
-  margin-top: .5rem;
-  color: #444;
-  font-weight: 400;
-}
-
-/* Gul meld-deg-inn knapp */
-.btn-yellow {
-  background: #ffd400;
-  border-color: #ffd400;
-  color: #222;
-  font-weight: 700;
-}
-.cards {
-  padding: 2rem 1rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.card {
-  background: #fff;
-  color: #000;
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  padding: 1.25rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+}
+.brand {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-weight: 600; color: var(--accent); text-decoration: none;
+}
+.brand img { height: 26px; width: auto; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.site-nav a { color: var(--fg); opacity: 0.8; font-size: 0.95rem; }
+.site-nav a:hover, .site-nav a.active { opacity: 1; color: var(--accent); }
+.nav-toggle { display: none; }
+
+/* === Hero === */
+.hero {
+  padding: clamp(2.5rem, 6vw, 5rem) 1rem;
+  text-align: center;
+  background: radial-gradient(1200px 500px at 50% -200px, rgba(255,209,0,.10), transparent 60%);
+}
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); color: #fff; margin: 0; }
+.hero-subheading { color: #fff; opacity: 0.96; font-weight: 400; margin-top: .3rem; }
+.tagline { color: var(--muted); max-width: 700px; margin: 1rem auto 2rem; line-height: 1.6; }
+.cta-row { display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
+
+/* === Intro === */
+.intro-soft {
+  max-width: 860px;
+  margin: 0 auto 1rem;
+  padding: 0 1rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
 }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: .5rem;
-  font-size: 1.2rem;
-}
-
-.card p {
-  margin: 0;
-  line-height: 1.5;
-}
+/* === Kortene (grunnprinsipper) === */
 .cards {
-  padding: 2rem 1rem;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
 }
-
 .card {
-  background: #fff;
-  color: #000;
-  border: 1px solid #e2e2e2;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 1.25rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  padding: 1.5rem;
+}
+.card h3 { color: var(--accent); margin-top: 0; }
+
+/* === Idégrunnlag === */
+.foundation {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: var(--bg);
+  color: var(--fg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+.foundation article {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+}
+.foundation h3 a { color: var(--accent); text-decoration: none; }
+.pdf-link { margin-top: 0.8rem; }
+.pdf-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: text-bottom;
+  opacity: 0.85;
 }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: .5rem;
-  font-size: 1.2rem;
+/* === Dokumentarkiv === */
+.document-archive {
+  padding: 4rem 1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.archive-intro {
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+.archive-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 720px;
+  text-align: left;
+}
+.archive-list li {
+  margin-bottom: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.archive-list a {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.archive-list span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
 }
 
-.card p {
-  margin: 0;
+/* === Prosjekter på forsiden === */
+.projects {
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+}
+.projects-intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  color: var(--muted);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.project {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 22px rgba(0,0,0,.35);
+}
+.project img { width: 100%; height: 220px; object-fit: cover; }
+.project-body { padding: 1.25rem 1.25rem 1.4rem; }
+.project h3 a { color: var(--accent); text-decoration: none; }
+
+/* === Relatert note under prosjekter === */
+.related-note {
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--muted);
   line-height: 1.5;
 }
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
+.related-note a { color: var(--accent); }
+
+/* === Paradisavisa-feed === */
+.avisa {
+  padding: 3rem 1rem;
+}
+.avisa-top {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.avisa-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 1rem;
+}
+.avisa-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display:flex; flex-direction:column;
+}
+.avisa-img { width: 100%; height: 140px; object-fit: cover; background: #111; }
+.avisa-body { padding: 0.9rem 1rem 1.1rem; }
+.avisa-title { margin: 0 0 .3rem; font-size: 1.05rem; }
+.avisa-meta { color: var(--muted); font-size: .9rem; }
+.avisa-excerpt { color: var(--fg); opacity: .9; margin-top: .35rem; }
+
+/* === Om-seksjon (på forsiden og om.html) === */
+.about {
+  padding: 4rem 1rem 5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.about-lead {
+  max-width: 750px;
+  margin: 0 auto 3rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.about-contact p { margin-bottom: 1rem; color: var(--muted); }
+
+/* === Bunnnavigasjon === */
+.bottom-nav {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+}
+.bottom-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.bottom-nav a:hover { color: var(--accent); }
+
+/* === Footer === */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-.hero h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #222;
+/* === Til toppen-knapp === */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  background: radial-gradient(circle at 30% 30%, #ffe15a, #ffbf00 60%, #e0a000 90%);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 46px; height: 46px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.3s ease;
+  z-index: 100;
 }
-
-.join { padding: 2rem 1rem; }
-.join h2 { margin-top: 0; }
-.join .note { margin:.75rem 0 1.25rem; font-size:.95rem; color:#444; }
-.join .paper-steps { margin: .5rem 0 1rem 1.25rem; }
-.join .paper-steps li { margin-bottom: .5rem; }
-.join .small { font-size: .9rem; color: #555; }
-
-.subtitle {
-  color: #f5f5f5;       /* nesten hvit, lett å lese */
-  font-size: 26px;      /* gjør teksten mer fremtredende */
-  font-weight: 300;     /* gir et lett og elegant uttrykk */
-  letter-spacing: 1px;  /* luftig typografi */
-  text-align: center;   /* midtstiller teksten */
-  margin-top: 10px;     /* avstand oppover */
-  margin-bottom: 20px;  /* avstand nedover */
-  opacity: 0.95;        /* liten mykhet i fargen */
+#scrollTopBtn.show {
+  opacity: 0.95; visibility: visible; transform: translateY(0);
 }
-.hero-subheading {
-  color: #ffffff;
+#scrollTopBtn:hover { box-shadow: 0 0 20px rgba(255, 225, 100, 0.6); }
+.scroll-icon { width: 24px; height: 24px; margin-top: 1px; }
+
+@media (max-width: 640px) {
+  .site-nav { display: none; }
+  .nav-toggle { display: block; background: none; border: none; color: var(--fg); font-size: 1.5rem; }
+  .bottom-nav { gap: 1rem; font-size: 0.9rem; }
+  #scrollTopBtn { bottom: 1rem; right: 1rem; width: 42px; height: 42px; }
 }
