@@ -4,101 +4,126 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prosjekter | Paradispartiet</title>
-  <meta name="description" content="Paradispartiets prosjekter – der politikk leves i praksis. Lesebiblioteket, Oslo Old Boys, Parkliv og AHA EchoNet.">
+  <meta name="description" content="Paradispartiets prosjekter – levende eksempler på et samfunn bygget på fellesskap, kunnskap og frihet.">
+  <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body class="page page--prosjekter">
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Paradispartiet">
-      <img src="assets/logo.svg" alt="Paradispartiet logo">
-      <span>Paradispartiet</span>
-    </a>
-    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
-    <nav class="site-nav">
-      <a href="index.html">Hjem</a>
-      <a href="manifest.html">Manifest</a>
-      <a href="grunnlag.html">Grunnlag</a>
-      <a href="prosjekter.html" class="active">Prosjekter</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="om.html">Om</a>
-    </nav>
-  </header>
-
-  <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
-    <div class="project-banner-inner">
-      <div class="project-banner-text">
-        <h1>Prosjekter</h1>
-        <p>Paradispartiets politikk leves i praksis – gjennom åpne møteplasser, fellesskap og ny teknologi for kunnskapsdeling.</p>
-      </div>
-      <div class="project-banner-icon">
-        <img src="assets/logo.svg" alt="">
-      </div>
-    </div>
-  </section>
-
-  <main class="project-page">
-
-    <section class="project-item">
-      <h2>Lesebiblioteket</h2>
-      <p>
-        Et åpent rom for lesing, samtale og læring – uten krav om kjøp eller medlemskap.  
-        Lesebiblioteket bygger på ideen om at kunnskap er en kollektiv ressurs.  
-        Her kan folk møtes, lese, skrive, dele erfaringer og finne ro i fellesskapet.
-      </p>
-      <p><a href="lesebiblioteket.html" class="btn btn-yellow">Les mer</a></p>
-    </section>
-
-    <section class="project-item">
-      <h2>Oslo Old Boys</h2>
-      <p>
-        En sosial sportsklubb for voksne – med fotball, pingpong, trening og fellesskap.  
-        Old Boys er mer enn sport: det er en møteplass for inkludering, trivsel og fysisk aktivitet, uavhengig av bakgrunn eller nivå.
-      </p>
-      <p><a href="oldboys.html" class="btn btn-yellow">Les mer</a></p>
-    </section>
-
-    <section class="project-item">
-      <h2>Parkliv</h2>
-      <p>
-        Et grønt initiativ for å gjøre byens parker til levende sosiale rom.  
-        Små paviljonger, benker og møteplasser skaper nærmiljø der mennesker kan møtes, dele mat, musikk og samtaler – uten kommersielt press.
-      </p>
-      <p><a href="parkliv.html" class="btn btn-yellow">Les mer</a></p>
-    </section>
-
-    <section class="project-item">
-      <h2>AHA EchoNet</h2>
-      <p>
-        Et prosjekt for samfunnsnyttig informasjonsbehandling og kollektiv læring.  
-        EchoNet utvikler teknologi der mennesker og AI lærer sammen –  
-        for å styrke kunnskapsdeling, refleksjon og sosial forståelse.
-      </p>
-      <p><a href="echonet.html" class="btn btn-yellow">Les mer</a></p>
-    </section>
-
-  </main>
-
-  <nav class="bottom-nav">
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.svg" alt="Paradispartiet logo">
+    <span>Paradispartiet</span>
+  </a>
+  <nav class="site-nav">
     <a href="index.html">Hjem</a>
+    <a href="politikk.html">Politikk</a>
     <a href="manifest.html">Manifest</a>
-    <a href="grunnlag.html">Grunnlag</a>
     <a href="prosjekter.html" class="active">Prosjekter</a>
     <a href="kontakt.html">Kontakt</a>
-    <a href="om.html">Om</a>
   </nav>
+</header>
 
-  <footer class="site-footer">
-    <p>© 2025 Paradispartiet</p>
-  </footer>
+<main class="projects-page">
+  <section class="intro">
+    <h1>Prosjekter</h1>
+    <p>
+      Paradispartiets prosjekter er små, konkrete forsøk på å bygge det samfunnet vi snakker om.  
+      Ikke teorier, men steder der fellesskap får form – i biblioteket, på banen, i byen og i naturen.  
+      Her finner du både pågående initiativer og ideer som er under utvikling.
+    </p>
+  </section>
 
-  <button id="scrollTopBtn" aria-label="Til toppen">
-    <svg viewBox="0 0 24 24" class="scroll-icon">
-      <path d="M12 19V5m0 0l-6 6m6-6l6 6"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
+  <section class="project-grid">
 
-  <script src="script.js"></script>
+    <article class="project">
+      <img src="assets/oslo-old-boys.jpg" alt="Oslo Old Boys">
+      <div class="project-body">
+        <h2>Oslo Old Boys</h2>
+        <p>En sosial sportsklubb der idrett og fellesskap møtes.  
+        Trening, lek og aktivitet uten press eller konkurranse – for alle som ønsker bevegelse, samhold og rytme i hverdagen.  
+        <a href="https://paradisavisa.no/posts/2025-09-12-oslo-old-boys.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/lesebiblioteket.jpg" alt="Lesebiblioteket">
+      <div class="project-body">
+        <h2>Lesebiblioteket</h2>
+        <p>Et åpent rom for kunnskap og ro.  
+        Et sted der man kan lese, tenke og snakke sammen – uten kjøpspress eller krav.  
+        En stille institusjon midt i byen, bygget på idéen om fellesskap og fri tilgang til innsikt.  
+        <a href="https://paradisavisa.no/posts/2025-10-15-lesebiblioteket.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/bilfri-by.jpg" alt="Bilfri by">
+      <div class="project-body">
+        <h2>Bilfri by</h2>
+        <p>Byen tilhører mennesker, ikke maskiner.  
+        Dette prosjektet handler om å frigjøre byrommene – gjøre gatene stille, grønne og trygge.  
+        En pilot for et nytt urbant liv.  
+        <a href="https://paradisavisa.no/posts/2025-09-25-paradis-modellen.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/parkliv.jpg" alt="Parkliv">
+      <div class="project-body">
+        <h2>Parkliv</h2>
+        <p>Små paviljonger og oppvarmede glasshus i parker og byrom – steder å lese, møtes og bare være.  
+        Parkliv er et prosjekt for å gjøre byen varmere og grønnere, et nett av åpne rom der folk kan søke ly, lys og stillhet gjennom hele året.  
+        <span class="status">Planlagt pilot 2026</span></p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/caravan.jpg" alt="The Caravan – Grønne korridorer">
+      <div class="project-body">
+        <h2>The Caravan – Grønne korridorer</h2>
+        <p>Et internasjonalt nettverk av grønne stier og korridorer der folk kan ferdes fritt til fots, på sykkel eller til hest.  
+        En visjon om sammenheng mellom natur, kultur og menneskelig frihet.  
+        <span class="status">Under utvikling</span></p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/teorien-om-lyset.jpg" alt="Teorien om lyset">
+      <div class="project-body">
+        <h2>Teorien om lyset</h2>
+        <p>Et filosofisk og kunstnerisk prosjekt som utforsker lyset som livets bærer og menneskelig klarhet som samfunnets mål.  
+        En tenkning som preger hele Paradismodellen.  
+        <a href="https://paradisavisa.no/posts/2025-09-30-lyset.html" target="_blank">Les mer i Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/paradisavisa.jpg" alt="Paradisavisa">
+      <div class="project-body">
+        <h2>Paradisavisa</h2>
+        <p>En uavhengig avis for idédebatt, kultur og samfunn.  
+        Dokumenterer overgangen mot en ny samfunnsmodell – gjennom artikler, bilder og analyser.  
+        <a href="https://paradisavisa.no" target="_blank">Besøk Paradisavisa</a>.</p>
+      </div>
+    </article>
+
+    <article class="project">
+      <img src="assets/basicmarked.jpg" alt="BasicMarked-piloten">
+      <div class="project-body">
+        <h2>BasicMarked-piloten</h2>
+        <p>Et fremtidig eksperiment der mennesker bidrar med 10–15 timer i fellesskapet for å sikre rett til bolig, mat og helse.  
+        En konkret test av Paradismodellens kjerne.  
+        <span class="status">Under planlegging</span></p>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© 2025 Paradispartiet</p>
+</footer>
+
 </body>
 </html>
