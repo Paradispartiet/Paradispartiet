@@ -1,6 +1,7 @@
 /* =======================================
-   PARADISPARTIET – STILARK
-   Strukturert, mørk base med gullaksenter
+   PARADISPARTIET – STILARK 2025
+   Mørk base + gullaksenter
+   Kombinert fra original og nyere tillegg
    ======================================= */
 
 /* === Farger og basis === */
@@ -22,11 +23,12 @@ body {
   color: var(--fg);
   line-height: 1.7;
 }
-
-/* === Lenker og knapper === */
+h1, h2, h3 { color: #fff; line-height: 1.3; }
+p { margin: 0 0 1rem; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* === Knapper === */
 .btn {
   display: inline-block;
   padding: 0.6rem 1.3rem;
@@ -67,12 +69,12 @@ a:hover { text-decoration: underline; }
   text-align: center;
   background: radial-gradient(1200px 500px at 50% -200px, rgba(255,209,0,.10), transparent 60%);
 }
-.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); color: #fff; margin: 0; }
-.hero-subheading { color: #fff; opacity: 0.96; font-weight: 400; margin-top: .3rem; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; }
+.hero-subheading { opacity: 0.96; font-weight: 400; margin-top: .3rem; }
 .tagline { color: var(--muted); max-width: 700px; margin: 1rem auto 2rem; line-height: 1.6; }
 .cta-row { display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
 
-/* === Intro === */
+/* === Seksjon: Intro === */
 .intro-soft {
   max-width: 860px;
   margin: 0 auto 1rem;
@@ -81,7 +83,7 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
 }
 
-/* === Kortene (grunnprinsipper) === */
+/* === Kort / grunnprinsipper === */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -92,7 +94,6 @@ a:hover { text-decoration: underline; }
 }
 .card {
   background: var(--card);
-  color: var(--fg);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
@@ -104,8 +105,6 @@ a:hover { text-decoration: underline; }
 .foundation {
   padding: 4rem 1rem;
   text-align: center;
-  background: var(--bg);
-  color: var(--fg);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -124,13 +123,6 @@ a:hover { text-decoration: underline; }
 }
 .foundation h3 a { color: var(--accent); text-decoration: none; }
 .pdf-link { margin-top: 0.8rem; }
-.pdf-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 6px;
-  vertical-align: text-bottom;
-  opacity: 0.85;
-}
 
 /* === Dokumentarkiv === */
 .document-archive {
@@ -163,7 +155,6 @@ a:hover { text-decoration: underline; }
 .archive-list a {
   font-weight: 600;
   color: var(--accent);
-  text-decoration: none;
 }
 .archive-list span {
   display: block;
@@ -176,11 +167,6 @@ a:hover { text-decoration: underline; }
 .projects {
   padding: 4rem 1rem 3rem;
   text-align: center;
-}
-.projects-intro {
-  max-width: 720px;
-  margin: 0 auto 2rem;
-  color: var(--muted);
 }
 .project-grid {
   display: grid;
@@ -204,64 +190,100 @@ a:hover { text-decoration: underline; }
 }
 .project img { width: 100%; height: 220px; object-fit: cover; }
 .project-body { padding: 1.25rem 1.25rem 1.4rem; }
-.project h3 a { color: var(--accent); text-decoration: none; }
+.project h3 a { color: var(--accent); }
 
-/* === Relatert note under prosjekter === */
-.related-note {
-  max-width: 800px;
-  margin: 2.5rem auto 0;
-  font-size: 0.95rem;
+/* === Prosjektsider (undersider) === */
+.page--prosjekt main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem 4rem;
+}
+.project-banner {
+  background: radial-gradient(800px 400px at 50% -150px, rgba(255,215,0,0.08), transparent 70%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1rem 2rem;
   text-align: center;
+}
+.project-banner-text h1 {
+  font-size: 2.1rem;
+  margin-bottom: .5rem;
+  color: var(--accent);
+}
+.project-banner-text p {
   color: var(--muted);
-  line-height: 1.5;
-}
-.related-note a { color: var(--accent); }
-
-/* === Paradisavisa-feed === */
-.avisa {
-  padding: 3rem 1rem;
-}
-.avisa-top {
-  max-width: 1100px;
-  margin: 0 auto 1rem;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.avisa-grid {
-  max-width: 1100px;
+  max-width: 600px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
-.avisa-card {
+.project-content h2 {
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .3rem;
+}
+.project-links {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+.project-links ul { list-style: none; padding: 0; margin: 0; }
+.project-links li { margin: .4rem 0; }
+.project-links a:hover { text-decoration: underline; }
+
+/* === Feed fra Paradisavisa === */
+.project-feed {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding-top: 2rem;
+}
+.feed-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.feed-item a {
+  display: block;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  display:flex; flex-direction:column;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: var(--fg);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
-.avisa-img { width: 100%; height: 140px; object-fit: cover; background: #111; }
-.avisa-body { padding: 0.9rem 1rem 1.1rem; }
-.avisa-title { margin: 0 0 .3rem; font-size: 1.05rem; }
-.avisa-meta { color: var(--muted); font-size: .9rem; }
-.avisa-excerpt { color: var(--fg); opacity: .9; margin-top: .35rem; }
-
-/* === Om-seksjon (på forsiden og om.html) === */
-.about {
-  padding: 4rem 1rem 5rem;
-  border-top: 1px solid var(--border);
-  text-align: center;
+.feed-item a:hover {
+  background: #111;
+  border-color: var(--accent);
 }
-.about-lead {
-  max-width: 750px;
-  margin: 0 auto 3rem;
+.feed-item h3 {
+  margin: 0 0 0.3rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.feed-item p {
+  margin: 0;
   color: var(--muted);
-  line-height: 1.7;
+  font-size: 0.95rem;
 }
-.about-contact p { margin-bottom: 1rem; color: var(--muted); }
+.feed-item .date {
+  display: block;
+  margin-top: 0.4rem;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+/* === Manifest og Grunnlagsdokument === */
+.page--manifest .content {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem 1rem 5rem;
+}
+.page--manifest h2 {
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .3rem;
+}
+.chapter { margin-bottom: 1.8rem; }
+.chapter p { margin-bottom: .8rem; }
 
 /* === Bunnnavigasjon === */
 .bottom-nav {
@@ -276,9 +298,9 @@ a:hover { text-decoration: underline; }
 }
 .bottom-nav a {
   color: var(--muted);
-  text-decoration: none;
 }
-.bottom-nav a:hover { color: var(--accent); }
+.bottom-nav a:hover,
+.bottom-nav a.active { color: var(--accent); }
 
 /* === Footer === */
 .site-footer {
