@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AHA EchoNet | Paradispartiet</title>
+  <meta name="description" content="AHA EchoNet – et system for samfunnsnyttig informasjonsbehandling og kollektiv læring.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page page--prosjekt">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Paradispartiet">
+      <img src="assets/logo.svg" alt="Paradispartiet logo">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Hjem</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html" class="active">Prosjekter</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="om.html">Om</a>
+    </nav>
+  </header>
+
+  <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
+    <div class="project-banner-inner">
+      <div class="project-banner-text">
+        <h1>AHA EchoNet</h1>
+        <p>Et samfunnsteknologisk prosjekt for kollektiv læring, kunnskapsdeling og ansvarlig bruk av kunstig intelligens.</p>
+      </div>
+      <div class="project-banner-icon">
+        <img src="assets/logo.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <main class="project-page">
+
+    <section class="project-content">
+      <p>
+        AHA EchoNet er en modell for samfunnsnyttig informasjonsbehandling.
+        Den bygger på idéen om at kunnskap ikke bør samles som eiendom, men som fellesskapets levende hukommelse.
+        Systemet gjør det mulig for mennesker og kunstig intelligens å lære av hverandre – uten at noen mister eierskap til sine egne tanker.
+      </p>
+
+      <p>
+        EchoNet består av små, personlige samtaleenheter (AI-agenter) som lærer anonymt av brukerne.
+        Når mennesker deler erfaringer, samles innsiktene i et felles læringsnettverk der alt blir tilgjengelig som åpen kunnskap.
+        Det er et system som forvandler samtaler til innsikt – og innsikt til felles læring.
+      </p>
+
+      <h2>Grunntanke</h2>
+      <ul>
+        <li>All kunnskap er felles, men all erfaring er individuell.</li>
+        <li>Læring skal styrke fellesskapet, ikke overvåke individet.</li>
+        <li>Teknologi skal være gjennomsiktig, ikke manipulerende.</li>
+      </ul>
+
+      <h2>Hvordan det fungerer</h2>
+      <p>
+        Brukerne får egne, lokale AI-agenter som lærer av samtaler, tekster og samarbeid.
+        Når mange deltar, skapes et kollektivt mønster av kunnskap – et ekko av fellesskapets erfaringer.
+        Systemet oppsummerer, strukturerer og formidler dette som forståelige innsikter, som igjen kan brukes i skole, kultur og politikk.
+      </p>
+
+      <p>
+        Alle data behandles etisk og desentralisert.  
+        EchoNet bruker åpne protokoller for læring, slik at kunnskap kan deles uten at personlige spor lagres.
+      </p>
+
+      <h2>Formål</h2>
+      <ul>
+        <li>Utvikle en kollektiv intelligens som støtter menneskelig innsikt, ikke erstatter den.</li>
+        <li>Bygge åpen, demokratisk teknologi for kunnskapsdeling.</li>
+        <li>Gjøre samfunnsdata til felles verktøy for forståelse og forbedring.</li>
+      </ul>
+
+      <h2>Samfunnsnytte</h2>
+      <p>
+        EchoNet skal bidra til å gjenoppbygge offentlig kunnskap som tillitsverdi.
+        Når læring skjer i fellesskap, kan teknologien brukes til å løse problemer
+        som tidligere ble overlatt til markedet eller tilfeldige algoritmer.
+        Prosjektet kan brukes i skoler, kommuner, organisasjoner og forskningsmiljøer – som en plattform for felles forståelse.
+      </p>
+    </section>
+
+    <section class="project-links">
+      <h3>Relaterte prosjekter</h3>
+      <ul>
+        <li><a href="lesebiblioteket.html">Lesebiblioteket – åpent kunnskapsrom</a></li>
+        <li><a href="parkliv.html">Parkliv – sosiale byrom</a></li>
+        <li><a href="oldboys.html">Oslo Old Boys – sosial sportsklubb</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html">Hjem</a>
+    <a href="manifest.html">Manifest</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="prosjekter.html" class="active">Prosjekter</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="om.html">Om</a>
+  </nav>
+
+  <footer class="site-footer">
+    <p>© 2025 Paradispartiet</p>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Til toppen">
+    <svg viewBox="0 0 24 24" class="scroll-icon">
+      <path d="M12 19V5m0 0l-6 6m6-6l6 6"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
