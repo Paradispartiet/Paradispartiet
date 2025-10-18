@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paradisavisa | Paradispartiet</title>
+  <meta name="description" content="Paradisavisa – et redaksjonelt rom for idé, samfunn og politikk.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page page--prosjekt">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Paradispartiet">
+      <img src="assets/logo.svg" alt="Paradispartiet logo">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Hjem</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html" class="active">Prosjekter</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="om.html">Om</a>
+    </nav>
+  </header>
+
+  <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
+    <div class="project-banner-inner">
+      <div class="project-banner-text">
+        <h1>Paradisavisa</h1>
+        <p>Et redaksjonelt rom for idé, samfunn og politikk – uavhengig, men forankret i Paradismodellens verdier.</p>
+      </div>
+      <div class="project-banner-icon">
+        <img src="assets/logo.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <main class="project-page">
+
+    <section class="project-content">
+      <p>
+        Paradisavisa er en uavhengig avis og idéplattform som løfter frem spørsmål om samfunn, kunst og filosofi.
+        Den er ikke et partiorgan, men springer ut av den samme tanken som Paradismodellen: at offentligheten må fornyes,
+        språket må åpnes, og folk må kunne tenke sammen – uten reklame, hastverk eller maktspråk.
+      </p>
+
+      <p>
+        Avisa fungerer som en bro mellom politikk og kultur.  
+        Artikler, debatter og analyser skrives av mennesker med ulike perspektiver, men med et felles mål:
+        å utforske hvordan samfunnet kan bygges på trygghet, frihet og fellesskap.
+      </p>
+
+      <h2>Formål</h2>
+      <ul>
+        <li>Utvikle et nytt språk for samfunnsdebatt og idéutveksling.</li>
+        <li>Gi rom for tekster som faller utenfor tradisjonelle medier.</li>
+        <li>Knytte sammen filosofi, politikk og kultur som gjensidige krefter.</li>
+        <li>Støtte kunstnere, skribenter og tenkere som vil skrive for fellesskapet, ikke markedet.</li>
+      </ul>
+
+      <h2>Drift og struktur</h2>
+      <p>
+        Paradisavisa drives ideelt, uten annonser eller betalte vegger.  
+        Innholdet publiseres på 
+        <a href="https://paradispartiet.github.io/Paradisavisa/" target="_blank">
+          paradispartiet.github.io/Paradisavisa
+        </a> 
+        og kobles direkte til Paradispartiets nettsted som et åpent redaksjonelt arkiv.
+      </p>
+
+      <p>
+        Redaksjonen består av frivillige skribenter, samfunnsdebattanter og fagpersoner som deler et felles engasjement:
+        å skape en sakte, åpen offentlighet – der tanken får plass.
+      </p>
+
+      <h2>Videre arbeid</h2>
+      <p>
+        Avisa planlegger å utvide med flere faste spalter og temanumre.  
+        Den skal også fungere som dokumentasjon for partiets idéutvikling, manifestarbeid og sosiale initiativer,
+        uten å være bundet av partilinje.
+      </p>
+    </section>
+
+    <section class="project-links">
+      <h3>Relaterte prosjekter</h3>
+      <ul>
+        <li><a href="lesebiblioteket.html">Lesebiblioteket – åpent kunnskapsrom</a></li>
+        <li><a href="echonet.html">AHA EchoNet – kollektiv læring</a></li>
+        <li><a href="teorien-om-lyset.html">Teorien om lyset – filosofisk verk</a></li>
+      </ul>
+    </section>
+
+    <!-- Ny feed-seksjon -->
+    <section class="project-feed">
+      <h2>Fra Paradisavisa</h2>
+      <div id="avisa-feed" class="feed-grid"></div>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html">Hjem</a>
+    <a href="manifest.html">Manifest</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="prosjekter.html" class="active">Prosjekter</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="om.html">Om</a>
+  </nav>
+
+  <footer class="site-footer">
+    <p>© 2025 Paradispartiet</p>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Til toppen">
+    <svg viewBox="0 0 24 24" class="scroll-icon">
+      <path d="M12 19V5m0 0l-6 6m6-6l6 6"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+
+  <!-- Feed-script -->
+  <script>
+  fetch("https://paradispartiet.github.io/Paradisavisa/posts.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(posts => {
+      const feed = document.getElementById("avisa-feed");
+      if (!feed) return;
+      posts.slice(0, 3).forEach(post => {
+        const article = document.createElement("article");
+        article.className = "feed-item";
+        article.innerHTML = `
+          <a href="https://paradispartiet.github.io/Paradisavisa/${post.url}" target="_blank">
+            <h3>${post.title}</h3>
+            <p>${post.excerpt}</p>
+            <span class="date">${post.date}</span>
+          </a>`;
+        feed.appendChild(article);
+      });
+    })
+    .catch(err => console.error("Kunne ikke laste feed:", err));
+  </script>
+</body>
+</html>
