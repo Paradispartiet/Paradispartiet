@@ -1,7 +1,7 @@
 /* =======================================
    PARADISPARTIET – STILARK 2025
-   Mørk base + gullaksenter
-   Kombinert fra original og nyere tillegg
+   Mørk base + gullaksent
+   Helhetlig versjon m/fargetoner for prosjekter
    ======================================= */
 
 /* === Farger og basis === */
@@ -28,22 +28,6 @@ p { margin: 0 0 1rem; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* === Knapper === */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.3rem;
-  border-radius: 5px;
-  background: #1a1a1a;
-  border: 1px solid var(--border);
-  color: var(--fg);
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-.btn:hover { background: #111; }
-.btn-yellow { background: var(--accent); color: #000; border: none; }
-.btn-yellow:hover { background: #ffcc00; }
-.btn-outline { background: transparent; border: 1px solid var(--accent); }
-
 /* === Header og navigasjon === */
 .site-header {
   background: var(--bg);
@@ -55,13 +39,12 @@ a:hover { text-decoration: underline; }
 }
 .brand {
   display: flex; align-items: center; gap: 0.5rem;
-  font-weight: 600; color: var(--accent); text-decoration: none;
+  font-weight: 600; color: var(--accent);
 }
 .brand img { height: 26px; width: auto; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 .site-nav a { color: var(--fg); opacity: 0.8; font-size: 0.95rem; }
 .site-nav a:hover, .site-nav a.active { opacity: 1; color: var(--accent); }
-.nav-toggle { display: none; }
 
 /* === Hero === */
 .hero {
@@ -69,7 +52,7 @@ a:hover { text-decoration: underline; }
   text-align: center;
   background: radial-gradient(1200px 500px at 50% -200px, rgba(255,209,0,.10), transparent 60%);
 }
-.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; color: #fff; }
 .hero-subheading { opacity: 0.96; font-weight: 400; margin-top: .3rem; }
 .tagline { color: var(--muted); max-width: 700px; margin: 1rem auto 2rem; line-height: 1.6; }
 .cta-row { display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap; }
@@ -101,78 +84,24 @@ a:hover { text-decoration: underline; }
 }
 .card h3 { color: var(--accent); margin-top: 0; }
 
-/* === Idégrunnlag === */
-.foundation {
-  padding: 4rem 1rem;
+/* === Prosjektside === */
+.projects-page {
+  padding: 3rem 1rem 4rem;
+}
+.projects-page .intro {
+  max-width: 850px;
+  margin: 0 auto 3rem;
   text-align: center;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.foundation-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto 0;
-}
-.foundation article {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 14px rgba(0,0,0,.25);
-}
-.foundation h3 a { color: var(--accent); text-decoration: none; }
-.pdf-link { margin-top: 0.8rem; }
-
-/* === Dokumentarkiv === */
-.document-archive {
-  padding: 4rem 1rem;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-}
-.archive-intro {
   color: var(--muted);
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-}
-.archive-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 720px;
-  text-align: left;
-}
-.archive-list li {
-  margin-bottom: 1rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-.archive-list a {
-  font-weight: 600;
-  color: var(--accent);
-}
-.archive-list span {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: 0.25rem;
+  line-height: 1.7;
 }
 
-/* === Prosjekter på forsiden === */
-.projects {
-  padding: 4rem 1rem 3rem;
-  text-align: center;
-}
+/* === Prosjektkort === */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 .project {
@@ -188,90 +117,78 @@ a:hover { text-decoration: underline; }
   transform: translateY(-3px);
   box-shadow: 0 12px 22px rgba(0,0,0,.35);
 }
-.project img { width: 100%; height: 220px; object-fit: cover; }
-.project-body { padding: 1.25rem 1.25rem 1.4rem; }
-.project h3 a { color: var(--accent); }
+.project img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.05);
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+.project:hover img {
+  filter: brightness(1) contrast(1.15) saturate(1.1);
+  transform: scale(1.02);
+}
+.project-body { padding: 1.3rem 1.4rem 1.6rem; line-height: 1.6; }
+.project-body h2 { margin-top: 0; margin-bottom: 0.6rem; color: var(--accent); font-size: 1.3rem; }
+.project-body p { color: var(--fg); opacity: 0.92; margin-bottom: 0.4rem; }
 
-/* === Prosjektsider (undersider) === */
-.page--prosjekt main {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem 1rem 4rem;
-}
-.project-banner {
-  background: radial-gradient(800px 400px at 50% -150px, rgba(255,215,0,0.08), transparent 70%);
-  border-bottom: 1px solid var(--border);
-  padding: 3rem 1rem 2rem;
-  text-align: center;
-}
-.project-banner-text h1 {
-  font-size: 2.1rem;
-  margin-bottom: .5rem;
+/* === Statusetiketter === */
+.status {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  background: rgba(255,214,0,0.12);
   color: var(--accent);
+  border: 1px solid rgba(255,214,0,0.25);
 }
-.project-banner-text p {
-  color: var(--muted);
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-.project-content h2 {
-  margin-top: 2rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: .3rem;
-}
-.project-links {
-  border-top: 1px solid var(--border);
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-}
-.project-links ul { list-style: none; padding: 0; margin: 0; }
-.project-links li { margin: .4rem 0; }
-.project-links a:hover { text-decoration: underline; }
+
+/* === Fargetoner for prosjekter === */
+.project img[alt*="Old Boys"] { filter: brightness(0.85) sepia(0.1) hue-rotate(45deg) saturate(1.2); } /* grønn tone */
+.project img[alt*="Lesebiblioteket"] { filter: brightness(0.9) sepia(0.25) hue-rotate(20deg) saturate(1.1); } /* beige tone */
+.project img[alt*="Parkliv"] { filter: brightness(0.9) sepia(0.3) hue-rotate(70deg) saturate(1.2); } /* grønn-ravgul tone */
+.project img[alt*="EchoNet"] { filter: brightness(0.9) saturate(1.1) hue-rotate(190deg); } /* blå-gul tone */
+.project img[alt*="Paradisavisa"] { filter: brightness(0.8) grayscale(0.2) contrast(1.1); } /* avisdempet */
+.project img[alt*="Teorien"] { filter: brightness(0.85) contrast(1.2) hue-rotate(220deg) saturate(1.3); } /* lys blå */
 
 /* === Feed fra Paradisavisa === */
-.project-feed {
+.avisa {
+  padding: 4rem 1rem 5rem;
   border-top: 1px solid var(--border);
-  margin-top: 4rem;
-  padding-top: 2rem;
 }
-.feed-grid {
+.avisa-top h2 {
+  color: var(--accent);
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.avisa-grid {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
-.feed-item a {
-  display: block;
+.avisa-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  text-decoration: none;
-  color: var(--fg);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.feed-item a:hover {
-  background: #111;
-  border-color: var(--accent);
+.avisa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.35);
 }
-.feed-item h3 {
-  margin: 0 0 0.3rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-.feed-item p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-.feed-item .date {
-  display: block;
-  margin-top: 0.4rem;
-  color: #777;
-  font-size: 0.8rem;
-}
+.avisa-img { width: 100%; height: 150px; object-fit: cover; background: #111; }
+.avisa-body { padding: 1rem 1.1rem 1.3rem; }
+.avisa-title a { color: var(--accent); font-weight: 600; }
+.avisa-excerpt { color: #ddd; margin: .4rem 0 .6rem; }
+.avisa-meta { color: var(--muted); font-size: .85rem; }
 
-/* === Manifest og Grunnlagsdokument === */
+/* === Manifest og Grunnlag === */
 .page--manifest .content {
   max-width: 800px;
   margin: auto;
@@ -285,7 +202,7 @@ a:hover { text-decoration: underline; }
 .chapter { margin-bottom: 1.8rem; }
 .chapter p { margin-bottom: .8rem; }
 
-/* === Bunnnavigasjon === */
+/* === Footer og bunnnavigasjon === */
 .bottom-nav {
   background: var(--bg);
   border-top: 1px solid var(--border);
@@ -296,13 +213,9 @@ a:hover { text-decoration: underline; }
   padding: 1.5rem 1rem;
   font-size: 0.95rem;
 }
-.bottom-nav a {
-  color: var(--muted);
-}
-.bottom-nav a:hover,
-.bottom-nav a.active { color: var(--accent); }
+.bottom-nav a { color: var(--muted); }
+.bottom-nav a:hover, .bottom-nav a.active { color: var(--accent); }
 
-/* === Footer === */
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.5rem 1rem;
@@ -333,9 +246,12 @@ a:hover { text-decoration: underline; }
 #scrollTopBtn:hover { box-shadow: 0 0 20px rgba(255, 225, 100, 0.6); }
 .scroll-icon { width: 24px; height: 24px; margin-top: 1px; }
 
-@media (max-width: 640px) {
+/* === Responsiv justering === */
+@media (max-width: 700px) {
   .site-nav { display: none; }
-  .nav-toggle { display: block; background: none; border: none; color: var(--fg); font-size: 1.5rem; }
   .bottom-nav { gap: 1rem; font-size: 0.9rem; }
   #scrollTopBtn { bottom: 1rem; right: 1rem; width: 42px; height: 42px; }
+  .project img { height: 180px; }
+  .project-body { padding: 1rem 1.1rem 1.3rem; }
+  .avisa-top h2 { font-size: 1.3rem; }
 }
