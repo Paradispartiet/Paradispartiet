@@ -283,3 +283,10 @@ a:hover { text-decoration: underline; }
   .project-body { padding: 1rem 1.1rem 1.3rem; }
   .avisa-top h2 { font-size: 1.3rem; }
 }
+/* === Ikoner og PDF-bilder i grunnlagsdelen === */
+.pdf-icon {
+  width: 42px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
