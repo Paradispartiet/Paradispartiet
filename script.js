@@ -56,23 +56,31 @@ function loadAvisaFeed() {
     });
 }
 
-function renderFeed(posts, container, isSearch = false) {
-  const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
+const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
 
+function renderFeed(posts, container, isSearch = false) {
   container.innerHTML = "";
+
   if (!posts || posts.length === 0) {
     container.innerHTML = `<p style="color:#999;text-align:center;">Ingen resultater.</p>`;
     return;
   }
 
-  posts.forEach((p) => {
+  // Sorter nyeste først
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  posts.slice(0, 3).forEach((p) => {
     const item = document.createElement("article");
     item.className = "avisa-card";
     item.innerHTML = `
-      <img src="${p.image || 'assets/placeholder.jpg'}" class="avisa-img" alt="${p.title}">
+      <img src="${AVISA_BASE + (p.image || 'assets/placeholder.jpg')}" 
+           class="avisa-img" 
+           alt="${p.title}">
       <div class="avisa-body">
         <h3 class="avisa-title">
-          <a href="${AVISA_BASE + p.url}" target="_blank">${p.title}</a>
+          <a href="${AVISA_BASE + p.url}" target="_blank" rel="noopener">
+            ${p.title}
+          </a>
         </h3>
         <p class="avisa-excerpt">${p.excerpt || ""}</p>
         <p class="avisa-meta">${p.date || ""}</p>
