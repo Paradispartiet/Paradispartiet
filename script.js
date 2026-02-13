@@ -58,8 +58,6 @@ function loadAvisaFeed() {
 
 const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
 
-const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
-
 function resolveAvisaUrl(path) {
   const p = String(path || "").trim();
   if (!p) return "";
