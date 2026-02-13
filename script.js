@@ -17,38 +17,26 @@ function loadAvisaFeed() {
     document.querySelector(".project-feed .feed-grid");
   if (!feedContainer) return;
 
-  // Legg til søkefelt
-  const searchBox = document.createElement("div");
-  searchBox.className = "feed-search";
-  searchBox.innerHTML = `
-    <input type="text" id="feedSearch" placeholder="Søk i Paradisavisa..." autocomplete="off" />
-  `;
-  feedContainer.parentElement.insertBefore(searchBox, feedContainer);
-
   fetch("https://paradispartiet.github.io/Paradisavisa/posts.json", { cache: "no-store" })
     .then((response) => {
       if (!response.ok) throw new Error("Klarte ikke å hente feed.");
       return response.json();
     })
     .then((posts) => {
-      allPosts = posts;
-      renderFeed(posts.slice(0, 3), feedContainer);
+      if (!Array.isArray(posts) || posts.length === 0) {
+        feedContainer.innerHTML = `<p style="color:#999;text-align:center;">Ingen saker tilgjengelig.</p>`;
+        return;
+      }
 
-      // Koble søket
-      const searchInput = document.getElementById("feedSearch");
-      searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase();
-        if (query.trim() === "") {
-          renderFeed(posts.slice(0, 3), feedContainer);
-          return;
-        }
-        const results = posts.filter(
-          (p) =>
-            p.title.toLowerCase().includes(query) ||
-            (p.excerpt && p.excerpt.toLowerCase().includes(query))
-        );
-        renderFeed(results, feedContainer, true);
-      });
+      allPosts = posts;
+
+      // Sorter etter dato (nyeste først)
+      const sorted = [...posts].sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+
+      // Vis de 3 nyeste uansett kategori
+      renderFeed(sorted.slice(0, 3), feedContainer);
     })
     .catch((err) => {
       console.error("Feil ved lasting av Paradisavisa-feed:", err);
