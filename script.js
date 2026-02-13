@@ -19,12 +19,14 @@ async function loadAvisaFeed() {
   if (!feedContainer) return;
 
   try {
-    const sources = [
-      "https://paradispartiet.github.io/Paradisavisa/posts.json",
-      "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul.json",
-      "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul2.json",
-      "https://paradispartiet.github.io/Paradisavisa/Kulturhjul.json"
-    ];
+   const sources = [
+     "https://paradispartiet.github.io/Paradisavisa/posts.json",
+     "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul.json",
+     "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul2.json",
+     "https://paradispartiet.github.io/Paradisavisa/Kulturhjul.json",
+     "https://paradispartiet.github.io/Paradisavisa/debatt.json",
+     "https://paradispartiet.github.io/Paradisavisa/kommentarer.json"
+   ];
 
     const responses = await Promise.all(
       sources.map(url => fetch(url, { cache: "no-store" }).then(r => r.json()))
