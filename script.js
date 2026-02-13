@@ -64,19 +64,14 @@ function renderFeed(posts, container) {
   container.innerHTML = "";
   if (!posts || posts.length === 0) return;
 
-  const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  const nyhet = sorted.find(p => normCat(p.category) === "nyheter");
-  const kommentar = sorted.find(p => normCat(p.category) === "kommentar");
-  const debatt = sorted.find(p => normCat(p.category) === "debatt");
-
-  const selected = [nyhet, kommentar, debatt].filter(Boolean);
-
-  selected.forEach(p => {
+  posts.forEach(p => {
     const item = document.createElement("article");
     item.className = "avisa-card";
 
-    const imgSrc = p.image ? resolveAvisaUrl(p.image) : "assets/placeholder.jpg";
+    const imgSrc = p.image
+      ? resolveAvisaUrl(p.image)
+      : "assets/placeholder.jpg";
+
     const href = resolveAvisaUrl(p.url);
 
     item.innerHTML = `
@@ -89,6 +84,7 @@ function renderFeed(posts, container) {
         <p class="avisa-meta">${p.date || ""} · ${p.category || ""}</p>
       </div>
     `;
+
     container.appendChild(item);
   });
 }
