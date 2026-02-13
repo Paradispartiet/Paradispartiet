@@ -65,7 +65,6 @@ function renderFeed(posts, container) {
   // Sorter nyeste først
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Finn én av hver kategori
   const nyhet = posts.find(p => p.category === "nyheter");
   const kommentar = posts.find(p => p.category === "kommentar");
   const debatt = posts.find(p => p.category === "debatt");
@@ -93,17 +92,6 @@ function renderFeed(posts, container) {
   });
 }
 
-  // Hvis det er et søk, vis antall treff
-  if (isSearch) {
-    const count = document.createElement("p");
-    count.className = "feed-count";
-    count.textContent = `${posts.length} treff`;
-    container.insertAdjacentElement("beforebegin", count);
-  } else {
-    const oldCount = document.querySelector(".feed-count");
-    if (oldCount) oldCount.remove();
-  }
-}
 
 /* === Til toppen-knapp === */
 function initScrollTopButton() {
