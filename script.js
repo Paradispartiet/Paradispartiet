@@ -11,37 +11,38 @@ document.addEventListener("DOMContentLoaded", () => {
 /* === Feed fra Paradisavisa === */
 let allPosts = [];
 
-function loadAvisaFeed() {
+async function loadAvisaFeed() {
   const feedContainer =
     document.querySelector(".avisa-grid") ||
     document.querySelector(".project-feed .feed-grid");
+
   if (!feedContainer) return;
 
-  fetch("https://paradispartiet.github.io/Paradisavisa/posts.json", { cache: "no-store" })
-    .then((response) => {
-      if (!response.ok) throw new Error("Klarte ikke å hente feed.");
-      return response.json();
-    })
-    .then((posts) => {
-      if (!Array.isArray(posts) || posts.length === 0) {
-        feedContainer.innerHTML = `<p style="color:#999;text-align:center;">Ingen saker tilgjengelig.</p>`;
-        return;
-      }
+  try {
+    const sources = [
+      "https://paradispartiet.github.io/Paradisavisa/posts.json",
+      "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul.json",
+      "https://paradispartiet.github.io/Paradisavisa/Nyhetshjul2.json",
+      "https://paradispartiet.github.io/Paradisavisa/Kulturhjul.json"
+    ];
 
-      allPosts = posts;
+    const responses = await Promise.all(
+      sources.map(url => fetch(url, { cache: "no-store" }).then(r => r.json()))
+    );
 
-      // Sorter etter dato (nyeste først)
-      const sorted = [...posts].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
+    const all = responses.flat();
 
-      // Vis de 3 nyeste uansett kategori
-      renderFeed(sorted.slice(0, 3), feedContainer);
-    })
-    .catch((err) => {
-      console.error("Feil ved lasting av Paradisavisa-feed:", err);
-      feedContainer.innerHTML = `<p style="color:#999;text-align:center;">Klarte ikke laste nyheter akkurat nå.</p>`;
-    });
+    const sorted = all.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
+    renderFeed(sorted.slice(0, 10), feedContainer);
+
+  } catch (err) {
+    console.error("Feed-feil:", err);
+    feedContainer.innerHTML =
+      `<p style="color:#999;text-align:center;">Klarte ikke laste nyheter akkurat nå.</p>`;
+  }
 }
 
 const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
