@@ -57,6 +57,8 @@ function loadAvisaFeed() {
 }
 
 function renderFeed(posts, container, isSearch = false) {
+  const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
+
   container.innerHTML = "";
   if (!posts || posts.length === 0) {
     container.innerHTML = `<p style="color:#999;text-align:center;">Ingen resultater.</p>`;
@@ -69,13 +71,16 @@ function renderFeed(posts, container, isSearch = false) {
     item.innerHTML = `
       <img src="${p.image || 'assets/placeholder.jpg'}" class="avisa-img" alt="${p.title}">
       <div class="avisa-body">
-        <h3 class="avisa-title"><a href="${p.url}" target="_blank">${p.title}</a></h3>
+        <h3 class="avisa-title">
+          <a href="${AVISA_BASE + p.url}" target="_blank">${p.title}</a>
+        </h3>
         <p class="avisa-excerpt">${p.excerpt || ""}</p>
         <p class="avisa-meta">${p.date || ""}</p>
       </div>
     `;
     container.appendChild(item);
   });
+}
 
   // Hvis det er et søk, vis antall treff
   if (isSearch) {
