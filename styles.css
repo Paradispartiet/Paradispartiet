@@ -73,6 +73,73 @@ a:hover { text-decoration: underline; }
 }
 .card h3 { color: var(--accent); margin-top: 0; }
 
+
+/* === Idégrunnlag === */
+.foundation {
+  padding: 3.5rem 1rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.foundation h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.foundation > p {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.foundation-grid article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.6rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.foundation-grid article:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 214, 0, 0.4);
+}
+
+.foundation-grid h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.foundation-grid h3 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.foundation-grid h3 a:hover {
+  text-decoration: underline;
+}
+
+.foundation-grid p {
+  color: var(--fg);
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+
+
 /* === Prosjektside === */
 .projects-page {
   padding: 3rem 1rem 4rem;
@@ -292,65 +359,3 @@ a:hover { text-decoration: underline; }
 }
 
 
-/* === Idégrunnlag === */
-.foundation {
-  padding: 3.5rem 1rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.foundation h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 0.7rem;
-}
-
-.foundation > p {
-  max-width: 720px;
-  margin: 0 auto 2.5rem;
-  text-align: center;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.foundation-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.foundation-grid article {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.6rem;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.foundation-grid article:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 214, 0, 0.4);
-}
-
-.foundation-grid h3 {
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
-}
-
-.foundation-grid h3 a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.foundation-grid h3 a:hover {
-  text-decoration: underline;
-}
-
-.foundation-grid p {
-  color: var(--fg);
-  opacity: 0.9;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
