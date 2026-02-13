@@ -56,26 +56,37 @@ function loadAvisaFeed() {
     });
 }
 
-function renderFeed(posts, container, isSearch = false) {
-  const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
+const AVISA_BASE = "https://paradispartiet.github.io/Paradisavisa/";
 
+function renderFeed(posts, container) {
   container.innerHTML = "";
-  if (!posts || posts.length === 0) {
-    container.innerHTML = `<p style="color:#999;text-align:center;">Ingen resultater.</p>`;
-    return;
-  }
+  if (!posts || posts.length === 0) return;
 
-  posts.forEach((p) => {
+  // Sorter nyeste først
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Finn én av hver kategori
+  const nyhet = posts.find(p => p.category === "nyheter");
+  const kommentar = posts.find(p => p.category === "kommentar");
+  const debatt = posts.find(p => p.category === "debatt");
+
+  const selected = [nyhet, kommentar, debatt].filter(Boolean);
+
+  selected.forEach(p => {
     const item = document.createElement("article");
     item.className = "avisa-card";
     item.innerHTML = `
-      <img src="${p.image || 'assets/placeholder.jpg'}" class="avisa-img" alt="${p.title}">
+      <img src="${AVISA_BASE + (p.image || 'assets/placeholder.jpg')}" 
+           class="avisa-img" 
+           alt="${p.title}">
       <div class="avisa-body">
         <h3 class="avisa-title">
-          <a href="${AVISA_BASE + p.url}" target="_blank">${p.title}</a>
+          <a href="${AVISA_BASE + p.url}" target="_blank" rel="noopener">
+            ${p.title}
+          </a>
         </h3>
         <p class="avisa-excerpt">${p.excerpt || ""}</p>
-        <p class="avisa-meta">${p.date || ""}</p>
+        <p class="avisa-meta">${p.date || ""} · ${p.category}</p>
       </div>
     `;
     container.appendChild(item);
