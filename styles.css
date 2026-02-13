@@ -258,7 +258,7 @@ a:hover { text-decoration: underline; }
 }
 
 .avisa-card {
-  flex: 0 0 320px;
+  flex: 0 0 275px;
 
   background: #111;
   border: 1px solid rgba(255, 214, 0, 0.15);
