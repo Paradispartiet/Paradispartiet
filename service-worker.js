@@ -3,7 +3,7 @@
    Stabil utvikling + trygg produksjon
    ========================================= */
 
-const CACHE_VERSION = "v1.1.104";
+const CACHE_VERSION = "v1.1.105";
 const STATIC_CACHE = `static-${CACHE_VERSION}`;
 const ASSET_CACHE = `assets-${CACHE_VERSION}`;
 
