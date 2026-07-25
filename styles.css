@@ -390,3 +390,42 @@ a:hover { text-decoration: underline; }
 }
 
 
+
+
+/* Manifest: innholdsfortegnelse og grunnprinsipper */
+.manifest-toc,
+.principle-box {
+  max-width: 860px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+}
+
+.manifest-toc ol {
+  columns: 2;
+  gap: 2rem;
+  padding-left: 1.4rem;
+}
+
+.manifest-toc li,
+.rights-list li {
+  margin: 0.35rem 0;
+}
+
+.principle-box h3,
+.principle-box p,
+.principle-box ul {
+  max-width: 760px;
+}
+
+.rights-list {
+  padding-left: 1.4rem;
+  margin: 0.8rem 0 1rem;
+}
+
+@media (max-width: 700px) {
+  .manifest-toc ol {
+    columns: 1;
+  }
+}
