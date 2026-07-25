@@ -1,0 +1,66 @@
+name: Apply menneskesyn on pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Run the one-time document patch
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          workflow = Path('.github/workflows/apply-menneskesyn-og-maktvern.yml').read_text(encoding='utf-8')
+          marker_start = "          python - <<'PY'\n"
+          marker_end = "\n          PY\n\n      - name: Validate generated HTML"
+          if marker_start not in workflow or marker_end not in workflow:
+              raise SystemExit('Could not locate embedded patch script')
+          embedded = workflow.split(marker_start, 1)[1].split(marker_end, 1)[0]
+          code = textwrap.dedent(embedded)
+          exec(compile(code, 'apply-menneskesyn.py', 'exec'), {})
+          PY
+
+      - name: Validate the updated HTML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          for name in ('manifest.html', 'grunnlag.html'):
+              data = Path(name).read_text(encoding='utf-8')
+              parser = HTMLParser(convert_charrefs=True)
+              parser.feed(data)
+              parser.close()
+              if not data.lstrip().lower().startswith('<!doctype html>'):
+                  raise SystemExit(f'{name} lost its doctype')
+              if '</html>' not in data.lower():
+                  raise SystemExit(f'{name} lost its closing html tag')
+          PY
+
+      - name: Commit document changes and remove temporary automation
+        shell: bash
+        run: |
+          rm -f .github/workflows/apply-menneskesyn-og-maktvern.yml
+          rm -f .github/workflows/apply-menneskesyn-on-pr.yml
+          rm -f .github/apply-menneskesyn.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.html grunnlag.html .github/workflows .github/apply-menneskesyn.trigger
+          git commit -m "Forankre menneskesyn og maktvern"
+          git push origin HEAD:${{ github.head_ref }}
