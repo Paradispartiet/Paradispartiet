@@ -1,0 +1,43 @@
+name: Standardize Paradismodellen terms
+
+on:
+  push:
+    branches:
+      - agent/ufravikelige-rettigheter-og-maktvern
+
+permissions:
+  contents: write
+
+jobs:
+  standardize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/ufravikelige-rettigheter-og-maktvern
+          fetch-depth: 0
+      - name: Standardize terms
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          for name in ('manifest.html', 'grunnlag.html'):
+              path = Path(name)
+              text = path.read_text(encoding='utf-8')
+              text = re.sub(r'\bBasicMarked\b', 'BasicMarkedet', text)
+              text = text.replace('basis-marked', 'BasicMarkedet')
+              text = text.replace('fri marked', 'fritt marked')
+              path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit and remove workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/standardize-paradismodellen-terms.yml .github/trigger-standardize-terms.txt
+          git add manifest.html grunnlag.html
+          git commit -m "Standardiser Paradismodellen-begreper"
+          git push origin HEAD:agent/ufravikelige-rettigheter-og-maktvern
