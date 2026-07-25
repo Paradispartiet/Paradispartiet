@@ -23,13 +23,13 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import textwrap
 
           workflow = Path('.github/workflows/apply-ten-points.yml').read_text(encoding='utf-8')
           marker = "          python - <<'PY'\n"
           start = workflow.index(marker) + len(marker)
           end = workflow.index("\n          PY", start)
-          code = textwrap.dedent(workflow[start:end])
+          raw = workflow[start:end]
+          code = "\n".join(line[10:] if line.startswith("          ") else line for line in raw.splitlines())
           compile(code, 'apply-ten-points.py', 'exec')
           exec(code, {'__name__': '__main__'})
           PY
@@ -64,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm .github/workflows/apply-ten-points.yml .github/workflows/run-ten-points-on-pr.yml .github/trigger-ten-points.txt
+          git rm .github/workflows/apply-ten-points.yml .github/workflows/run-ten-points-on-pr.yml .github/workflows/debug-ten-points.yml .github/trigger-ten-points.txt debug-ten-points.txt
           git add manifest.html grunnlag.html styles.css
           git commit -m "Forankre ufravikelige rettigheter og maktvern"
           git push origin HEAD:agent/ufravikelige-rettigheter-og-maktvern
