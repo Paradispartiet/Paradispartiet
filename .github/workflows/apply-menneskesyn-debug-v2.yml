@@ -1,0 +1,79 @@
+name: Apply menneskesyn debug v2
+
+on:
+  pull_request:
+    types: [synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Apply and commit, or preserve the exact error
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import traceback
+
+          error_path = Path('.github/menneskesyn-error.txt')
+          success = False
+          try:
+              workflow = Path('.github/workflows/apply-menneskesyn-og-maktvern.yml').read_text(encoding='utf-8')
+              marker_start = "          python - <<'PY'\n"
+              marker_end = "\n          PY\n\n      - name: Validate generated HTML"
+              if marker_start not in workflow or marker_end not in workflow:
+                  raise RuntimeError('Could not locate embedded patch script')
+              embedded = workflow.split(marker_start, 1)[1].split(marker_end, 1)[0]
+              code = '\n'.join(
+                  line[10:] if line.startswith('          ') else line
+                  for line in embedded.splitlines()
+              )
+              exec(compile(code, 'apply-menneskesyn.py', 'exec'), {})
+
+              for name in ('manifest.html', 'grunnlag.html'):
+                  data = Path(name).read_text(encoding='utf-8')
+                  parser = HTMLParser(convert_charrefs=True)
+                  parser.feed(data)
+                  parser.close()
+                  if not data.lstrip().lower().startswith('<!doctype html>'):
+                      raise RuntimeError(f'{name} lost its doctype')
+                  if '</html>' not in data.lower():
+                      raise RuntimeError(f'{name} lost its closing html tag')
+              success = True
+              error_path.unlink(missing_ok=True)
+          except BaseException:
+              error_path.write_text(traceback.format_exc(), encoding='utf-8')
+
+          Path('.github/apply-menneskesyn-success').write_text('yes\n' if success else 'no\n', encoding='utf-8')
+          PY
+
+          success="$(cat .github/apply-menneskesyn-success)"
+          rm -f .github/apply-menneskesyn-success
+          rm -f .github/workflows/apply-menneskesyn-debug-v2.yml
+
+          if [ "$success" = "yes" ]; then
+            rm -f .github/workflows/apply-menneskesyn-og-maktvern.yml
+            rm -f .github/apply-menneskesyn.trigger
+            rm -f .github/menneskesyn-error.txt
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if [ "$success" = "yes" ]; then
+            git commit -m "Forankre menneskesyn og maktvern"
+          else
+            git commit -m "Oppdater feil i dokumentoppdatering"
+          fi
+          git push origin HEAD:${{ github.head_ref }}
