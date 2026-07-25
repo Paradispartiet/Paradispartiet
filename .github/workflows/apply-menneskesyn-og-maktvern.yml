@@ -1,0 +1,243 @@
+name: Apply menneskesyn og maktvern
+
+on:
+  push:
+    branches:
+      - agent/menneskesyn-og-maktvern
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update manifest and foundation document
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              file_path = Path(path)
+              text = file_path.read_text(encoding="utf-8")
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"Expected exactly one match in {path}, found {count}: {old[:90]!r}")
+              file_path.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          # Manifest: make the human view and the protection mandate explicit.
+          replace_once(
+              "manifest.html",
+              """    <p>Paradismodellen er ikke et dristig eksperiment uten forankring, men et nødvendig svar på dagens kriser: økonomisk ulikhet, klimakollaps, sosial utrygghet. Den viser en vei der trygghet og frihet kan eksistere side om side, uten å spise hverandre opp.</p>""",
+              """    <p>Paradismodellen er ikke et dristig eksperiment uten forankring, men et nødvendig svar på dagens kriser: økonomisk ulikhet, klimakollaps og sosial utrygghet. Den viser en vei der trygghet og frihet kan eksistere side om side, uten å spise hverandre opp.</p>
+    <h4>Menneskesyn: trygghet fremfor kontroll</h4>
+    <p>Paradismodellen avviser forestillingen om at mennesket grunnleggende må holdes nede av en overordnet makt. De fleste mennesker ønsker ikke å herske over andre. De ønsker et trygt og godt liv, omsorg for sine nærmeste, tilhørighet, mening og frihet til å forme sin egen hverdag.</p>
+    <p>Det Hobbes fremstiller som en fast menneskenatur – frykt, rivalisering, konkurranse og maktbegjær – oppstår og forsterkes i samfunn der mennesker må kjempe om bolig, mat, arbeid, status og selve livsgrunnlaget. Et samfunn som skaper utrygghet, frembringer også den frykten det senere bruker som begrunnelse for mer kontroll.</p>
+    <p>Dette betyr ikke at alle alltid handler godt. Enkeltpersoner, selskaper og institusjoner kan bruke vold, utnytte andre eller samle uforholdsmessig mye makt. Derfor må samfunnets hovedoppgave være å beskytte flertallet og de sårbare mot de få som forsøker å dominere.</p>
+    <p>Politisk makt er bare legitim som begrenset beskyttelsesmakt: makt til å verne mennesker, dyr, natur og fremtidige generasjoners livsgrunnlag – aldri en generell makt over menneskers liv. <strong>Trygghet for alle. Makt over ingen.</strong></p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <p>Vold håndteres gjennom straff, alt annet gjennom erstatning. Samfunnet har en offentlig forsikringsordning som dekker uhell og urett, slik at rettferdighet ivaretas uten unødvendig straff.</p>""",
+              """        <p>Straff og tvangsmidler skal forbeholdes handlinger som alvorlig krenker liv, kropp, frihet eller felles livsgrunnlag. Andre konflikter, uhell og mindre skader skal som hovedregel møtes med ansvar, mekling, gjenoppretting, erstatning og offentlig forsikring. Målet er beskyttelse og reparasjon, ikke unødvendig straff.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>37. Strafferett begrenset til vold</h3>
+        <p>Kun voldshandlinger straffes. Andre lovbrudd håndteres som erstatningssaker. Dette reduserer fengsling og setter ressursene inn der tryggheten trues mest.</p>""",
+              """        <h3>37. Beskyttende rettsorden</h3>
+        <p>Rettsordenens oppgave er å beskytte mennesker, dyr, natur og felles livsgrunnlag mot alvorlig skade. Den skal ikke styre fredelige livsvalg eller gjøre lydighet til et mål i seg selv.</p>
+        <p>Straff og nødvendige tvangsmidler kan brukes mot vold, alvorlige trusler, tvang, frihetsberøvelse, seksuelle og andre grove overgrep, menneskehandel, grov utnyttelse, alvorlig korrupsjon, systematisk dyremishandling og bevisst ødeleggelse av naturgrunnlaget.</p>
+        <p>Vanlige tvister, kontraktsbrudd, uhell og mindre skader skal som hovedregel løses gjennom mekling, ansvar, gjenoppretting og erstatning. Rettsordenens formål er vern og reparasjon – ikke hevn eller kontroll av flertallet.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>38. Todelt politi: trygghet + ressurskontroll</h3>
+        <p>Politirollen deles i to: et korps for å beskytte mennesker mot vold, og et korps for å føre tilsyn med ressurser, regnskap og miljø.</p>""",
+              """        <h3>38. Beskyttelsesinstitusjoner under folkets kontroll</h3>
+        <p>Beskyttelsesoppgavene deles mellom institusjoner for akutt vern mot vold og overgrep, uavhengig etterforskning og tilsyn med ressurser, dyrevelferd og miljø. Ingen institusjon skal samtidig lage reglene, håndheve dem og kontrollere seg selv.</p>
+        <p>All myndighetsutøvelse skal være avgrenset, åpen og etterprøvbar. Maktposisjoner skal kunne tilbakekalles, varsling skal beskyttes, og overgrep begått av myndighetene skal møtes av uavhengig kontroll.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>39. Demokrati og deltakelse</h3>
+        <p>Alle borgere har rett til å delta i beslutninger. Digitale plattformer gir mulighet for bred deltakelse og hyppigere folkeavstemninger.</p>""",
+              """        <h3>39. Demokrati, maktfordeling og deltakelse</h3>
+        <p>Alle borgere har rett til å delta i beslutninger. Digitale plattformer gir mulighet for bred deltakelse og hyppigere folkeavstemninger.</p>
+        <p>Makt skal fordeles mellom nivåer og institusjoner, utøves så nær de berørte som mulig og kunne trekkes tilbake når mandatet misbrukes. Fordi noen få kan søke makt over mange, skal ingen få samle ubegrenset politisk, økonomisk eller teknologisk kontroll.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>46. Paradismodellen som samfunnskontrakt</h3>
+        <p>Modellen er en ny kontrakt mellom mennesker: trygghet for alle mot en begrenset innsats i fellesskapet. Denne kontrakten gjør både frihet og solidaritet mulig.</p>""",
+              """        <h3>46. Paradismodellens omvendte samfunnskontrakt</h3>
+        <p>Folket skal ikke gi fra seg en omfattende frihet til en suveren for å bli beskyttet mot seg selv. Fellesskapet delegerer bestemte, begrensede og tilbakekallelige beskyttelsesoppgaver til institusjoner som står under demokratisk kontroll.</p>
+        <p>Kontrakten bygger på en formodning om alminnelig fredelighet: De fleste ønsker et trygt og godt liv og vil samarbeide når grunnvilkårene er rettferdige. Samtidig skal samfunnet beskytte mennesker og andre sårbare liv mot dem som bruker vold, overgrep, eierskap, teknologi eller embeter til å dominere.</p>
+        <p>Samfunnskontrakten omfatter også barn, dyr, økosystemer og fremtidige generasjoner, som ikke alltid kan forsvare sine egne interesser i dagens beslutninger. Den er derfor ikke en avtale om lydighet, men om gjensidig trygghet, maktbegrensning og felles forvaltning av livet.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>51. Filosofisk grunnlag</h3>
+        <p>Mennesket er både biologisk og kulturelt, bundet av natur men skapt av språk og symboler. Filosofien bak Paradismodellen er å forene materielle rettigheter med åndelig frihet.</p>""",
+              """        <h3>51. Menneskesyn og filosofisk grunnlag</h3>
+        <p>Mennesket er sosialt, sårbart og gjensidig avhengig. Vi utvikler oss gjennom omsorg, samarbeid, språk, tillit og fellesskap. Mennesket er ikke fullkomment, men heller ikke grunnleggende ondt; samfunnets vilkår kan fremme både omsorg og frykt, samarbeid og konkurranse.</p>
+        <p>Paradismodellen skal derfor ikke bygge på blind tillit, men heller ikke på generell mistanke. Den sikrer gode livsbetingelser for flertallet og fordeler makten slik at menneskelig feilbarlighet aldri kan bli til ubegrenset herredømme.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <h3>56. Hva vi vil redde</h3>
+        <p>Vi vil redde det som er truet: natur, fellesskap og trygghet. Fremtidens samfunn må beskytte livets grunnlag før alt annet.</p>""",
+              """        <h3>56. Hva vi vil beskytte</h3>
+        <p>Vi vil beskytte mennesker mot vold og overgrep, dyr mot lidelse, naturen mot ødeleggelse og fremtidige generasjoner mot at livsgrunnlaget deres forbrukes i dag. Fremtidens samfunn må verne livet før makten, profitten og systemet.</p>""",
+          )
+
+          replace_once(
+              "manifest.html",
+              """        <p>Dette manifestet er et løfte om et nytt grunnlag. Ikke en ferdig plan, men en retning: mot trygghet, frihet og fellesskap i balanse med naturen.</p>""",
+              """        <p>Dette manifestet er et løfte om et nytt grunnlag. Ikke en ferdig plan, men en retning: mot trygghet, frihet og fellesskap i balanse med naturen. Makt skal beskytte livet, aldri herske over det.</p>""",
+          )
+
+          # Foundation document: make Hobbes a contrast and state the reversed contract.
+          replace_once(
+              "grunnlag.html",
+              """<p>Politikk er imidlertid mer enn fordelingsteori. Niccolò Machiavelli minner oss om at makt også er strategi, ikke bare idealer. Denne realismen komplimenterer Marx’ strukturelle analyse: institusjoner må utformes slik at makt verken romantiseres eller samler seg uhemmet. Thomas Hobbes viser hvorfor rammer trengs – uten en samfunnskontrakt risikerer vi alles krig mot alle – mens Rousseau insisterer på at kontrakten må forankres i borgernes vilje. Paradismodellen trekker på begge: trygghet krever robuste rammer, frihet krever et handlende fellesskap. Edmund Burke advarer samtidig mot å rive ned institusjoner raskere enn man kan bygge bærekraftige alternativer, mens Ernst Bloch minner oss om at håp – «utopiens prinsipp» – driver historien fremover. Dermed følger modellen en dobbel linje: gradvise, demokratiske endringer, båret av et forpliktende håp.</p>""",
+              """<section id="k1-menneskesyn-og-makt">
+  <h3>Menneskesyn: trygghet fremfor kontroll</h3>
+  <p>Politikk er mer enn fordelingsteori. Niccolò Machiavelli minner oss om at makt også er strategi, ikke bare idealer. Denne realismen kompletterer Marx’ strukturelle analyse: institusjoner må utformes slik at makt verken romantiseres eller får samle seg uhemmet.</p>
+  <p>Thomas Hobbes er en nødvendig kontrast til Paradismodellen, men ikke en del av dens menneskesyn. Han tok erfaringer av borgerkrig, frykt og politisk maktkamp og gjorde dem til en teori om hva mennesker vil være uten en suveren. Men en borgerkrig er ikke en førpolitisk naturtilstand. Den består av organiserte hærer, ledere, eiendomsinteresser, religioner og konkurrerende krav på statsmakten. At maktgrupper kan produsere krig, beviser ikke at folk flest naturlig søker alles krig mot alle.</p>
+  <p>Paradismodellen tar i stedet utgangspunkt i mennesket som sosialt, sårbart og gjensidig avhengig. De fleste mennesker ønsker ikke herredømme. De ønsker trygghet, kjærlighet, tilhørighet, mening og frihet til å forme et godt liv. Omsorg og samarbeid kommer før både markedet og staten: alle mennesker overlever sine første år fordi andre tar ansvar for dem.</p>
+  <p>Frykt, rivalisering, statuskamp og maktbegjær er derfor ikke tilstrekkelige beskrivelser av en uforanderlig natur. De oppstår og forsterkes når bolig, mat, arbeid, helse, anerkjennelse og sosial tilhørighet gjøres usikre. Det Hobbes tolker som menneskets grunnproblem, kan i stor grad være menneskets reaksjon på knapphet, hierarki og samfunnsmessig press.</p>
+  <p>Dette er ikke en påstand om at alle alltid handler godt. Enkelte mennesker, selskaper og institusjoner vil forsøke å bruke vold, ressurser, teknologi eller embeter til å dominere andre. Paradismodellen snur derfor Hobbes på hodet: Samfunnets hovedoppgave er ikke å kontrollere flertallet, men å beskytte mennesker, dyr, natur og fremtidige generasjoner mot de få som samler og misbruker makt.</p>
+  <p>Politisk myndighet er bare legitim som avgrenset beskyttelsesmakt. Den skal være fordelt, åpen, etterprøvbar og mulig å trekke tilbake. Edmund Burke minner oss samtidig om at institusjoner ikke bør rives ned raskere enn bærekraftige alternativer kan bygges, mens Ernst Bloch minner oss om at håp – «utopiens prinsipp» – driver historien fremover. Dermed følger modellen en dobbel linje: gradvise, demokratiske endringer og et klart brudd med ideen om at trygghet krever herredømme.</p>
+</section>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """<p>Konklusjonen følger: Vi trenger et nytt grunnlag fordi dagens økonomi produserer både utrygghet og økologisk overskridelse; fordi de historiske systemene har vist seg som blindveier; og fordi menneskelig verdighet krever en samfunnskontrakt som sikrer grunnbehov, respekterer naturens grenser og åpner rom for frihet og skapelse. Paradismodellen er et slikt forsøk: en orden som forener trygghet, frihet og bærekraft i én sammenhengende helhet.</p></article>""",
+              """<p>Konklusjonen følger: Vi trenger et nytt grunnlag fordi dagens økonomi produserer både utrygghet og økologisk overskridelse; fordi de historiske systemene har vist seg som blindveier; og fordi menneskelig verdighet krever en samfunnskontrakt som sikrer grunnbehov, respekterer naturens grenser og åpner rom for frihet og skapelse. Paradismodellen er et slikt forsøk: en orden som tar alminnelig fredelighet som utgangspunkt, beskytter livet mot konsentrert makt og forener trygghet, frihet og bærekraft i én sammenhengende helhet.</p></article>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """  <h2>Kapittel 20 – Sosial kontrakt-tenkning</h2>""",
+              """  <h2>Kapittel 20 – Samfunnskontrakten vendt om</h2>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """    <p>Ideen om en sosial kontrakt er blant politisk filosofis mest grunnleggende. Staten henter sin legitimitet fra at mennesker avstår noe av sin frihet i bytte mot beskyttelse og orden. Hos Thomas Hobbes oppstår legitimiteten når staten garanterer liv mot kaos – uten Leviathan ville mennesket være prisgitt «alles krig mot alle». John Locke formulerte en mer liberal variant: statens oppgave er først og fremst å beskytte liv, frihet og eiendom, og makten må alltid begrenses av rettigheter. Jean-Jacques Rousseau flyttet tyngdepunktet: kontrakten blir her et fellesskapets løfte, forankret i allmennviljen, og gir borgerne en høyere frihet enn den de hadde isolert. Til sammen utgjør disse tre et rammeverk der statens legitimitet hviler på vern av liv og frihet, men med ulike betoning av grenser og verdier.</p>""",
+              """    <p>Ideen om en sosial kontrakt er blant politisk filosofis mest grunnleggende. Hos Thomas Hobbes oppstår legitimiteten når mennesker avstår omfattende myndighet til en suveren som garanterer liv mot kaos – uten Leviathan ville mennesket være prisgitt «alles krig mot alle». John Locke formulerte en mer liberal variant: statens oppgave er først og fremst å beskytte liv, frihet og eiendom, og makten må begrenses av rettigheter. Jean-Jacques Rousseau flyttet tyngdepunktet til allmennviljen og kontrakten som et fellesskapets løfte. Paradismodellen bruker denne tradisjonen kritisk: Locke og Rousseau bidrar med rettighetsvern og demokratisk legitimitet, mens Hobbes tydeliggjør den samfunnsforståelsen modellen bryter med.</p>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """  <section id="kap20-paradismodellen">
+    <h3>Paradismodellens kontrakt</h3>
+    <p>Paradismodellen trekker på hele denne arven. Den bygger på Hobbes, Locke og Rousseau – liv, frihet, eiendom og allmennvilje – men utvider horisonten med Serres, Latour og Haraway: jord, vann, luft og økosystemer må være med. Den tar inn Mills, Pateman og Butler: kontrakten må favne de liv som historisk ble ekskludert. Den inkluderer Rawls, Sen og Nussbaum: rettferdighet er ikke bare likebehandling, men reelle muligheter. Og den henter kraft fra Castoriadis: kontrakten er en selvinstituering vi må våge å gjennomføre på nytt.</p>
+  </section>""",
+              """  <section id="kap20-paradismodellen">
+    <h3>Paradismodellens omvendte kontrakt</h3>
+    <p>Paradismodellen viderefører ikke Hobbes’ kontrakt, men vender den om. Menneskene gir ikke fra seg en omfattende frihet til en suveren for å bli beskyttet mot hverandre. De delegerer bestemte, begrensede og tilbakekallelige beskyttelsesoppgaver til institusjoner de selv kontrollerer.</p>
+    <p>Kontrakten bygger på en formodning om alminnelig fredelighet. De fleste mennesker ønsker et trygt og godt liv og vil samarbeide når grunnvilkårene er rettferdige. Frykt og konkurranse behandles ikke som uforanderlige naturlover, men som reaksjoner som kan frembringes og forsterkes av knapphet, ulikhet, hierarkier og avhengighet.</p>
+    <p>Samtidig erkjenner modellen at enkelte aktører kan bruke vold, eierskap, teknologi, kunnskap eller offentlige embeter til å samle makt. Institusjonenes kjerneoppgave er derfor å beskytte flertallet og de sårbare mot dominans – ikke å behandle hele befolkningen som et problem som må disiplineres.</p>
+    <p>Beskyttelsesmandatet omfatter vold, trusler, tvang, overgrep, grov utnyttelse, korrupsjon, dyremishandling og alvorlig ødeleggelse av felles livsgrunnlag. Det omfatter mennesker, barn, dyr, økosystemer og fremtidige generasjoner, også når de ikke selv kan møte i dagens politiske organer.</p>
+    <p>Makt må derfor deles, tidsbegrenses, synliggjøres og kunne trekkes tilbake. Ingen institusjon skal både lage regler, håndheve dem og kontrollere seg selv. Barn, dyr, natur og fremtidige generasjoner skal ha uavhengig representasjon, og tilgang til grunnbehov skal aldri kunne brukes som straff eller pressmiddel.</p>
+    <p>Slik kombinerer Paradismodellen Lockes rettighetsvern, Rousseaus demokratiske forankring, Mills skadeprinsipp, Rawls’, Sens og Nussbaums krav om reelle muligheter, og Serres’, Latours og Haraways utvidelse av fellesskapet til jord, vann, luft og andre arter. Med Castoriadis forstås kontrakten som en demokratisk selvinstituering som alltid må kunne prøves på nytt.</p>
+  </section>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """    <p>Sosial kontrakt-tenkning har beveget seg fra Hobbes’ frykt for anarki, via Lockes rettigheter og Rousseaus allmennvilje, til dagens krav om en økologisk pakt med jorden. Den har både ekskludert og inkludert, blitt kritisert og fornyet. Paradismodellen samler trådene: en ny sosial kontrakt for det 21. århundre som forener liv, frihet, rettferdighet og økologisk ansvar. Den er ikke bare et filosofisk ideal, men et løfte om institusjoner som kan holde både mennesker og natur i live.</p>""",
+              """    <p>Sosial kontrakt-tenkning har beveget seg fra Hobbes’ frykt for anarki, via Lockes rettigheter og Rousseaus allmennvilje, til dagens krav om en økologisk pakt med jorden. Paradismodellen samler trådene, men endrer kontraktens retning: Folket skal ikke underordnes en suveren for å beskyttes mot seg selv. Fellesskapet skal sikre grunntrygghet og opprette kontrollerte institusjoner som beskytter mennesker, dyr, natur og fremtidige generasjoner mot vold, overgrep og konsentrert makt. Kontrakten er ikke en avtale om lydighet, men om gjensidig trygghet, maktbegrensning og felles forvaltning av livet.</p>""",
+          )
+
+          replace_once(
+              "grunnlag.html",
+              """    <p>Anarkismen står i direkte kontrast til Hobbes’ bilde av naturtilstanden som alles krig mot alle. For Kropotkin og mutualistene er samarbeid ikke et unntak, men regelen. Moderne spillteori bekrefter dette: Axelrods turneringer viste at strategien «Tit for Tat» – samarbeid så lenge motparten samarbeider – er den mest stabile over tid. Også sosialpsykologien gir støtte: tillit, gjensidighet og anerkjennelse er grunnleggende behov, ikke luksus.</p>""",
+              """    <p>Paradismodellen står i direkte kontrast til Hobbes’ bilde av naturtilstanden som alles krig mot alle. For Kropotkin og mutualistene er samarbeid ikke et sjeldent avvik, men en grunnkraft i sosialt liv. Moderne spillteori viser hvordan gjensidig samarbeid kan være stabilt over tid, og sosialpsykologien fremhever tillit, tilhørighet og anerkjennelse som grunnleggende behov. Hobbes’ konfliktbilde kan derfor leses som en beskrivelse av mennesker under utrygghet og maktkamp, ikke som et endelig bevis på hva mennesket er.</p>""",
+          )
+
+          manifest = Path("manifest.html").read_text(encoding="utf-8")
+          foundation = Path("grunnlag.html").read_text(encoding="utf-8")
+
+          required_manifest = [
+              "Trygghet for alle. Makt over ingen.",
+              "37. Beskyttende rettsorden",
+              "46. Paradismodellens omvendte samfunnskontrakt",
+              "Makt skal beskytte livet, aldri herske over det.",
+          ]
+          required_foundation = [
+              "Thomas Hobbes er en nødvendig kontrast til Paradismodellen",
+              "Kapittel 20 – Samfunnskontrakten vendt om",
+              "Paradismodellens omvendte kontrakt",
+              "Kontrakten er ikke en avtale om lydighet",
+          ]
+          for phrase in required_manifest:
+              if phrase not in manifest:
+                  raise SystemExit(f"Missing manifest phrase: {phrase}")
+          for phrase in required_foundation:
+              if phrase not in foundation:
+                  raise SystemExit(f"Missing foundation phrase: {phrase}")
+
+          forbidden = [
+              "Thomas Hobbes viser hvorfor rammer trengs",
+              "Paradismodellen bygger på Hobbes, Locke og Rousseau",
+              "Kun voldshandlinger straffes",
+          ]
+          combined = manifest + "\n" + foundation
+          for phrase in forbidden:
+              if phrase in combined:
+                  raise SystemExit(f"Outdated formulation remains: {phrase}")
+
+          if manifest.count('id="k1-menneskesyn-og-makt"'):
+              raise SystemExit("Foundation-only id leaked into manifest")
+          if foundation.count('id="k1-menneskesyn-og-makt"') != 1:
+              raise SystemExit("Expected exactly one human-view section in foundation")
+          PY
+
+      - name: Validate generated HTML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Parser(HTMLParser):
+              pass
+
+          for name in ("manifest.html", "grunnlag.html"):
+              data = Path(name).read_text(encoding="utf-8")
+              parser = Parser(convert_charrefs=True)
+              parser.feed(data)
+              parser.close()
+              if not data.lstrip().lower().startswith("<!doctype html>"):
+                  raise SystemExit(f"{name} lost its doctype")
+              if "</html>" not in data.lower():
+                  raise SystemExit(f"{name} lost its closing html tag")
+          PY
+
+      - name: Commit the document changes and remove this one-time workflow
+        shell: bash
+        run: |
+          rm .github/workflows/apply-menneskesyn-og-maktvern.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.html grunnlag.html .github/workflows/apply-menneskesyn-og-maktvern.yml
+          git commit -m "Forankre menneskesyn og maktvern"
+          git push
