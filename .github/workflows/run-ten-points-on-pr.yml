@@ -1,0 +1,70 @@
+name: Run ten-point revision on pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.head_ref == 'agent/ufravikelige-rettigheter-og-maktvern'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/ufravikelige-rettigheter-og-maktvern
+          fetch-depth: 0
+
+      - name: Run patch embedded in the one-time workflow
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          workflow = Path('.github/workflows/apply-ten-points.yml').read_text(encoding='utf-8')
+          marker = "          python - <<'PY'\n"
+          start = workflow.index(marker) + len(marker)
+          end = workflow.index("\n          PY", start)
+          code = textwrap.dedent(workflow[start:end])
+          compile(code, 'apply-ten-points.py', 'exec')
+          exec(code, {'__name__': '__main__'})
+          PY
+
+      - name: Validate key additions
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          manifest = Path('manifest.html').read_text(encoding='utf-8')
+          foundation = Path('grunnlag.html').read_text(encoding='utf-8')
+          for marker in (
+              'id="ufravikelige-rettigheter"',
+              'id="skadeprinsippet"',
+              'id="vern-mot-dominans"',
+              'id="livets-rettigheter"',
+              'id="sikkert-digitalt-demokrati"',
+              'id="grunnlag-ufravikelige-rettigheter"',
+              'id="grunnlag-skadeprinsipp-og-dominans"',
+          ):
+              if marker not in manifest + foundation:
+                  raise SystemExit(f'Missing marker: {marker}')
+          numbers = sorted(set(int(n) for n in re.findall(r'<h3>\s*(\d+)\.', manifest)))
+          if numbers != list(range(1, 61)):
+              raise SystemExit(f'Chapter numbering changed: {numbers}')
+          PY
+
+      - name: Commit changes and remove temporary files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-ten-points.yml .github/workflows/run-ten-points-on-pr.yml .github/trigger-ten-points.txt
+          git add manifest.html grunnlag.html styles.css
+          git commit -m "Forankre ufravikelige rettigheter og maktvern"
+          git push origin HEAD:agent/ufravikelige-rettigheter-og-maktvern
