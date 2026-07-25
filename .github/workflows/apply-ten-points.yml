@@ -1,0 +1,543 @@
+name: Apply ten-point manifest revision
+
+on:
+  push:
+    branches:
+      - agent/ufravikelige-rettigheter-og-maktvern
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/ufravikelige-rettigheter-og-maktvern
+          fetch-depth: 0
+
+      - name: Apply additions and structural corrections
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          def add_after(text, needle, addition, marker):
+              if marker in text:
+                  return text
+              if needle not in text:
+                  raise SystemExit(f"Missing anchor for {marker}: {needle[:100]!r}")
+              return text.replace(needle, needle + addition, 1)
+
+          def add_to_article(text, heading_fragment, addition, marker):
+              if marker in text:
+                  return text
+              pos = text.find(heading_fragment)
+              if pos < 0:
+                  raise SystemExit(f"Missing chapter heading for {marker}: {heading_fragment!r}")
+              start = text.rfind("<article", 0, pos)
+              end = text.find("</article>", pos)
+              if start < 0 or end < 0:
+                  raise SystemExit(f"Could not resolve article for {marker}")
+              return text[:end] + addition + text[end:]
+
+          def add_to_section(text, section_id, addition, marker):
+              if marker in text:
+                  return text
+              start = text.find(f'<section id="{section_id}"')
+              if start < 0:
+                  raise SystemExit(f"Missing section {section_id} for {marker}")
+              end = text.find("</section>", start)
+              if end < 0:
+                  raise SystemExit(f"Could not resolve section {section_id} for {marker}")
+              return text[:end] + addition + text[end:]
+
+          manifest_path = Path("manifest.html")
+          manifest = manifest_path.read_text(encoding="utf-8")
+
+          manifest = manifest.replace(
+              '<meta name="description" content="Paradispartiets Manifest – 60 kapitler med korttekst under hvert punkt.">',
+              '<meta name="description" content="Paradispartiets manifest: ufravikelige rettigheter, Paradismodellen, BasicMarkedet, frihet, trygghet, naturvern og demokratisk maktbegrensning.">',
+              1,
+          )
+
+          toc = '''
+
+    <nav id="manifest-innhold" class="manifest-toc" aria-label="Innholdsfortegnelse">
+      <h2>Innhold</h2>
+      <ol>
+        <li><a href="#del1">Innledning og diagnose</a></li>
+        <li><a href="#del2">Historiske linjer</a></li>
+        <li><a href="#del3">Grunnprinsipper</a></li>
+        <li><a href="#ufravikelige-rettigheter">Ufravikelige rettigheter</a></li>
+        <li><a href="#del4">Økonomiske institusjoner</a></li>
+        <li><a href="#del5">Sosiale institusjoner</a></li>
+        <li><a href="#del6">Miljø og bosetting</a></li>
+        <li><a href="#del7">Politikk og rett</a></li>
+        <li><a href="#del8">Forsvar og sikkerhet</a></li>
+        <li><a href="#del9">Fremtid og transformasjon</a></li>
+        <li><a href="#del10">Menneske og lys</a></li>
+        <li><a href="#del11">Avslutning</a></li>
+      </ol>
+    </nav>'''
+          manifest = add_after(
+              manifest,
+              "    <h1>Paradispartiets Manifest</h1>",
+              toc,
+              'id="manifest-innhold"',
+          )
+
+          # Hold hele Del II samlet rundt kapittel 5–9.
+          manifest = manifest.replace(
+              "  </section>\n</section>\n    \n  <section id=\"kap6\">",
+              "  </section>\n    \n  <section id=\"kap6\">",
+              1,
+          )
+
+          # Gi alle hoveddeler stabile mål for innholdsfortegnelsen.
+          for number in range(3, 12):
+              old = f"    <!-- Del {['I','II','III','IV','V','VI','VII','VIII','IX','X','XI'][number-1]} -->\n    <section class=\"section\">"
+              new = f"    <!-- Del {['I','II','III','IV','V','VI','VII','VIII','IX','X','XI'][number-1]} -->\n    <section id=\"del{number}\" class=\"section\">"
+              if old in manifest:
+                  manifest = manifest.replace(old, new, 1)
+
+          # Gi nummererte artikler stabile kapittel-ID-er uten å endre teksten.
+          manifest = re.sub(
+              r'<article class="chapter">(\s*<h3>\s*(\d+)\.)',
+              lambda match: f'<article id="kap{match.group(2)}" class="chapter">{match.group(1)}',
+              manifest,
+          )
+
+          rights_box = '''
+
+      <aside id="ufravikelige-rettigheter" class="principle-box" aria-labelledby="ufravikelige-tittel">
+        <h3 id="ufravikelige-tittel">Paradismodellens ufravikelige rettigheter</h3>
+        <p>Disse rettighetene er selve grunnlaget for Paradismodellen. De er ikke forsøksparametere og skal ikke svekkes dersom en bestemt teknisk eller administrativ løsning må forbedres.</p>
+        <ul class="rights-list">
+          <li>Alle har rett til minst 60 m² bolig per person.</li>
+          <li>Alle har rett til en rural tomt, virkeliggjort innenfor arealregnskapets økologiske rammer.</li>
+          <li>Alle har rett til mat, helse, utdanning og andre nødvendige grunnbehov.</li>
+          <li>Nødvendig samfunnsinnsats skal være begrenset til 10–15 timer per uke for dem som har evne til å bidra.</li>
+          <li>Resten av menneskets tid tilhører mennesket selv og kan brukes til omsorg, læring, hvile, fellesskap, arbeid og fri skaping.</li>
+          <li>Grunnbehov skal aldri brukes som middel for økonomisk utpressing, vilkårlig straff, politisk lydighet eller sosial kontroll.</li>
+          <li>Mennesker, dyr, natur og fremtidige generasjoners livsgrunnlag har krav på reelt vern.</li>
+        </ul>
+        <p>Institusjonene, teknologien og overgangsordningene skal kunne forbedres. Forbedringen skal alltid handle om hvordan rettighetene oppfylles bedre, aldri om hvorvidt de skal bestå.</p>
+      </aside>'''
+          manifest = add_after(
+              manifest,
+              "      <h2>Del III: Grunnprinsipper</h2>",
+              rights_box,
+              'id="ufravikelige-rettigheter"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "12. Post-pengemodellen",
+              '''
+        <p id="arbeidstid-som-rettighet"><strong>Arbeidstidsgrensen er en rettighet.</strong> Rammen på 10–15 timer er ikke et foreløpig mål eller en forsøksparameter, men samfunnets øvre krav til den enkeltes nødvendige fellesinnsats. Samfunnet skal organisere produksjon, omsorg, teknologi og fordeling slik at grunnbehovene kan bæres innenfor denne rammen.</p>
+        <p>Den frigjorte tiden er en del av modellens frihetsløfte. Den skal ikke automatisk fylles med nye plikter, kontrollkrav eller prestasjonsmål.</p>
+              ''',
+              'id="arbeidstid-som-rettighet"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "13. Produksjonsfrihet med registrering og kvalitetskontroll",
+              '''
+        <p id="avgrenset-registrering">Registreringsplikten gjelder produksjon i BasicMarkedet, kommersiell omsetning, kritisk infrastruktur og virksomhet med vesentlig sikkerhets-, helse- eller miljørisiko. Privat skaping, hobbyvirksomhet og produksjon til eget bruk skal ikke registreres eller forhåndsgodkjennes uten konkret skadefare.</p>
+        <p>Kravene skal følge risikoen: jo større mulig skade, desto sterkere krav til dokumentasjon og kontroll. Fredelig aktivitet med liten risiko skal møtes med frihet og tillit.</p>
+              ''',
+              'id="avgrenset-registrering"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "14. Ressursregnskap og åpenhet",
+              '''
+        <p id="ressurser-ikke-personer">Ressursregnskapet skal først og fremst følge materialer, energi, areal, utslipp og varestrømmer. Det skal ikke bli et system for detaljovervåkning av menneskers privatliv. Dataminimering, formålsbegrensning og uavhengig kontroll er grunnkrav.</p>
+              ''',
+              'id="ressurser-ikke-personer"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "15. Rett til bolig",
+              '''
+        <p id="boligrett-ikke-malsetting">Retten til minst 60 m² er en konkret minstestandard for privatliv, omsorg, hvile, læring og skapelse. Den er ikke bare en politisk målsetting. Areal-, bygge- og overgangsplanleggingen skal innrettes mot full oppfyllelse av retten.</p>
+              ''',
+              'id="boligrett-ikke-malsetting"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "18. Arbeid som valuta",
+              '''
+        <p id="innsats-etter-evne">Samfunnsinnsatsen gjelder etter evne og livssituasjon. Barn, eldre, syke og personer som på grunn av funksjonsnedsettelse ikke kan utføre ordinære oppgaver, beholder hele grunntryggheten. Omsorg for barn, eldre og syke, utdanning, beredskap og annet nødvendig fellesskapsarbeid skal kunne regnes som bidrag.</p>
+        <p>Ingen skal fratas mat, bolig, nødvendig helsehjelp eller menneskeverdige livsbetingelser. Ved uenighet om bidrag skal samfunnet bruke dialog, tilrettelegging, alternative oppgaver og rettssikre prosedyrer – aldri eksistensiell nød som tvangsmiddel.</p>
+              ''',
+              'id="innsats-etter-evne"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "21. Registrering av produksjon",
+              '''
+        <p id="produksjonsregisterets-grense">Produksjonsregisteret skal dokumentere ansvar, ressursbruk, sikkerhet og rettigheter der virksomheten påvirker andre. Det skal ikke kreve registrering av enhver privat idé, gjenstand eller skapende handling.</p>
+              ''',
+              'id="produksjonsregisterets-grense"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "22. Kvalitetskontroll og felles databaser",
+              '''
+        <p id="forholdsmessig-kvalitetskontroll">Kvalitetskontrollen skal være forholdsmessig. Legemidler, bygg, matproduksjon og kritiske systemer krever streng kontroll, mens lavrisikoaktiviteter skal kunne gjennomføres uten tung forhåndsgodkjenning.</p>
+              ''',
+              'id="forholdsmessig-kvalitetskontroll"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "23. Regulert overforbruk",
+              '''
+        <p id="rettssikker-ressursbegrensning">Restriksjoner skal bygge på åpne og etterprøvbare terskler. Den berørte skal varsles, få innsyn i grunnlaget, kunne uttale seg og kunne klage til en uavhengig instans. Tiltak skal først rettes mot sløsing i produksjon og distribusjon, ikke mot unødvendig detaljkontroll av privatlivet.</p>
+              ''',
+              'id="rettssikker-ressursbegrensning"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "24. Offentlig forsikring og erstatningsansvar",
+              '''
+        <p id="forsikringens-avgrensning">Dette punktet regulerer reparasjon, erstatning og fordeling av tap etter skade. Grensene for straff, tvangsmidler og myndighetsinngrep reguleres særskilt av den beskyttende rettsordenen i kapittel 37.</p>
+              ''',
+              'id="forsikringens-avgrensning"',
+          )
+
+          manifest = add_to_section(
+              manifest,
+              "kap9",
+              '''
+    <p id="migrasjon-og-menneskeverd">Mennesker skal aldri behandles som flyttbar lavkostarbeidskraft. Kritikken rettes mot virksomheter og ordninger som bruker mobilitet til sosial dumping, ikke mot menneskene som flytter. Alle som lever og arbeider samme sted, skal omfattes av de samme grunnrettighetene, arbeidsstandardene og mulighetene til demokratisk deltakelse. Migrasjonspolitikken skal forene menneskeverd, bevegelsesfrihet, integrering, gjensidig ansvar og demokratisk kontroll.</p>
+              ''',
+              'id="migrasjon-og-menneskeverd"',
+          )
+
+          life_rights = '''
+
+      <aside id="livets-rettigheter" class="principle-box" aria-labelledby="livets-rettigheter-tittel">
+        <h3 id="livets-rettigheter-tittel">Livets rettigheter</h3>
+        <p>Dyr anerkjennes som følende vesener med egenverdi, ikke bare som eiendom eller produksjonsmidler. Naturen har rett til regenerasjon, økologisk sammenheng og vern mot irreversibel skade.</p>
+        <p>Jord, vann, hav, luft og atmosfære er felles livsbetingelser. Biologisk mangfold skal bevares og gjenopprettes. Uavhengige ombud for dyr, natur og fremtidige generasjoner skal kunne kreve innsyn, reise sak og be om midlertidig stans når en handling kan medføre alvorlig eller irreversibel skade.</p>
+      </aside>'''
+          manifest = add_after(
+              manifest,
+              "      <h2>Del VI: Miljø og bosetting</h2>",
+              life_rights,
+              'id="livets-rettigheter"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "31. Globalt bosettingsregnskap",
+              '''
+        <p id="ingen-administrativ-fordeling">Bosettingsregnskapet skal beskrive muligheter og økologiske grenser, ikke fordele mennesker administrativt. Ingen skal tvangsflyttes eller plasseres av en overordnet myndighet. Fellesskapets oppgave er å gjøre flere steder reelt beboelige og gjøre frie valg mulige.</p>
+              ''',
+              'id="ingen-administrativ-fordeling"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "32. Rett til spredt bosetting i naturen",
+              '''
+        <p id="rural-tomt-som-rettighet">Retten til en rural tomt er ufravikelig. Arealregnskapet avgjør hvor og hvordan retten kan oppfylles uten å skade matjord, vill natur eller økosystemer; det kan ikke oppheve selve retten. Bruksformen skal være skånsom, arealeffektiv og forenlig med naturens egen rett til regenerasjon.</p>
+              ''',
+              'id="rural-tomt-som-rettighet"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "37. Beskyttende rettsorden",
+              '''
+        <h4 id="skadeprinsippet">Skadeprinsippet som maktens grense</h4>
+        <p>Fellesskapet kan bare gripe inn i menneskers frihet når det er nødvendig for å avverge eller reparere dokumenterbar skade på mennesker, dyr, natur eller felles livsgrunnlag. Ethvert inngrep skal være lovhjemlet, nødvendig, forholdsmessig, minst mulig inngripende, tidsbegrenset og mulig å prøve for en uavhengig instans.</p>
+        <p>Vernet gjelder mot maktmisbruk fra enkeltpersoner, selskaper, offentlige myndigheter og politiske flertall. Demokratisk flertall gir ikke rett til å krenke enkeltmenneskers eller mindretalls grunnleggende rettigheter.</p>
+              ''',
+              'id="skadeprinsippet"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "38. Beskyttelsesinstitusjoner under folkets kontroll",
+              '''
+        <p id="uavhengig-proving">Alle inngripende beslutninger skal kunne prøves av en uavhengig domstol eller klageinstans. Ombud, revisjon og varslervern skal ha selvstendig myndighet og tilstrekkelige ressurser til å kontrollere også de øverste institusjonene.</p>
+              ''',
+              'id="uavhengig-proving"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "39. Demokrati, maktfordeling og deltakelse",
+              '''
+        <h4 id="vern-mot-dominans">Vern mot dominans</h4>
+        <p>Ingen person, virksomhet, myndighet eller teknologisk plattform skal kunne kontrollere så store deler av andres bolig, mat, arbeid, jord, informasjon, kommunikasjon eller kritiske infrastruktur at menneskers frihet blir avhengig av denne aktørens vilje.</p>
+        <p>Monopoler, kjøp av politisk innflytelse, sammenblanding av offentlige verv og private interesser, arvelig kontroll over andres livsgrunnlag og konsentrasjon av finans-, medie- eller datamakt skal motvirkes gjennom åpne eierskapsregistre, habilitetsregler, maktspredning og uavhengig kontroll.</p>
+        <h4 id="sikkert-digitalt-demokrati">Sikkert og inkluderende digitalt demokrati</h4>
+        <p>Digitale avstemninger skal sikre hemmelig stemmegivning, verifiserbart resultat uten sporbarhet til personen, åpen kildekode, uavhengig sikkerhetsrevisjon, universell utforming og fullverdige analoge alternativer. Offentlig informasjon og reell deliberasjon skal gå foran avstemning.</p>
+        <p>Skjult mikromålretting, automatisert politisk manipulasjon og hemmelig finansiering av påvirkning skal være forbudt. Teknologien skal utvide demokratiet uten å gjøre borgeren mer sporbar.</p>
+              ''',
+              'id="vern-mot-dominans"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "40. Åpen datastyring og algoritmisk transparens",
+              '''
+        <p id="digitalt-personvern">Åpenhet om systemene betyr ikke åpenhet om menneskers privatliv. Offentlige digitale systemer skal bygge på dataminimering, formålsbegrensning, rett til innsyn, retting og sletting, forbud mot hemmelige personprofiler og uavhengig algoritmerevisjon.</p>
+              ''',
+              'id="digitalt-personvern"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "46. Paradismodellens omvendte samfunnskontrakt",
+              '''
+        <h4 id="rettigheter-mekanismer-gjennomforing">Rettigheter, mekanismer og gjennomføring</h4>
+        <p>Paradismodellen skiller mellom tre nivåer. De ufravikelige rettighetene fastsetter hva alle skal være sikret: grunnbehov, minst 60 m² bolig, rural tomt, en maksimal samfunnsinnsats på 10–15 timer, frigjort tid, økologiske grenser og vern mot dominans.</p>
+        <p>BasicMarkedet, arbeidstidsregnskapet, ParadiseCoin, boligfond, ressursregnskap og lokale råd er institusjonelle mekanismer som skal virkeliggjøre rettighetene. Tekniske løsninger, byggemetoder, logistikk, registreringsformer og overgangsrekkefølge kan forbedres og tilpasses så lenge rettighetene ikke svekkes.</p>
+              ''',
+              'id="rettigheter-mekanismer-gjennomforing"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "47. Overgangsordninger og pilotprosjekter",
+              '''
+        <p id="piloter-prover-gjennomforingen">Pilotprosjekter skal prøve gjennomføringen, ikke rettighetenes gyldighet. De skal avdekke hvordan BasicMarkedet, arbeidstidsregnskapet, boligfondene, ressursregnskapet og de demokratiske institusjonene kan oppfylle de fastsatte rettighetene bedre, tryggere og med mindre kontroll.</p>
+              ''',
+              'id="piloter-prover-gjennomforingen"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "48. Innovasjon Norge, legater og finansiering",
+              '''
+        <p id="overgangsfinansiering">Tilskudd, forskningsmidler og legater kan finansiere utvikling og piloter, men er ikke alene grunnlaget for en samfunnsomlegging. Det skal utarbeides en offentlig overgangsplan med bolig- og arealregnskap, arbeidsbehov, produksjonskapasitet, materialstrømmer, helse- og omsorgsbehov, beredskap, investeringer og langsiktig finansiering.</p>
+              ''',
+              'id="overgangsfinansiering"',
+          )
+
+          manifest = add_to_article(
+              manifest,
+              "51. Menneskesyn og filosofisk grunnlag",
+              '''
+        <p id="kapitlenes-rolle">Kapittel 2 uttrykker menneskesynet som politisk grunnsetning, kapittel 46 gjør det til samfunnskontrakt og institusjonell maktbegrensning, mens dette kapitlet utdyper det filosofiske grunnlaget. Gjentakelsen markerer tre forskjellige nivåer i modellen.</p>
+              ''',
+              'id="kapitlenes-rolle"',
+          )
+
+          # Begrepsmessige og språklige rettelser uten å fjerne politisk innhold.
+          manifest = manifest.replace("Rett til mat (BasicMarked)", "Rett til mat (BasicMarkedet)")
+          manifest = manifest.replace("regulert basis-marked", "regulert BasicMarked")
+          manifest = manifest.replace("BasicMarked og fri marked", "BasicMarkedet og fritt marked")
+
+          manifest_path.write_text(manifest, encoding="utf-8")
+
+          foundation_path = Path("grunnlag.html")
+          foundation = foundation_path.read_text(encoding="utf-8")
+
+          foundation = add_to_article(
+              foundation,
+              "Paradismodellen som idé og nødvendighet",
+              '''
+
+  <section id="grunnlag-ufravikelige-rettigheter">
+    <h3>Ufravikelige rettigheter og gjennomføringsansvar</h3>
+    <p>Paradismodellen hviler på rettigheter som ikke er forsøksparametere: minst 60 m² bolig per person, rett til en rural tomt innenfor arealregnskapets økologiske rammer, universell tilgang til mat, helse og utdanning, og en øvre grense på 10–15 timer nødvendig samfunnsinnsats per uke for dem som kan bidra. Den resterende tiden tilhører mennesket selv.</p>
+    <p>BasicMarkedet, arbeidstidsregnskapet, ParadiseCoin, boligfondene, ressursregnskapet og de demokratiske organene er mekanismer for å oppfylle rettighetene. Mekanismene skal kunne forbedres, men en praktisk vanskelighet kan ikke brukes som begrunnelse for å svekke selve rettigheten.</p>
+    <p>Det offentlige planleggingsspørsmålet er derfor ikke om rettighetene skal bestå, men hvilke investeringer, teknologier, arbeidsformer og overgangsordninger som kreves for å realisere dem fullt ut.</p>
+  </section>
+              ''',
+              'id="grunnlag-ufravikelige-rettigheter"',
+          )
+
+          foundation = add_to_article(
+              foundation,
+              "Jord, vann, luft som felleseiendom",
+              '''
+
+  <section id="grunnlag-livets-rettigheter">
+    <h3>Dyr og natur som rettighetssubjekter</h3>
+    <p>Dyr er følende vesener med egenverdi og kan ikke reduseres til eiendom. Økosystemer har krav på regenerasjon, sammenheng og vern mot irreversibel skade. Dette vernet skal institusjonaliseres gjennom uavhengige ombud for dyr, natur og fremtidige generasjoner.</p>
+    <p>Ombudene må ha rett til innsyn, rett til å reise sak og adgang til å kreve midlertidig stans i prosjekter der alvorlig eller irreversibel skade er sannsynlig. Slik får liv som ikke selv kan stemme eller møte i dagens organer en reell representasjon.</p>
+  </section>
+              ''',
+              'id="grunnlag-livets-rettigheter"',
+          )
+
+          foundation = add_to_article(
+              foundation,
+              "rett til bosetting i naturen",
+              '''
+
+  <section id="grunnlag-bosettingsrettens-innhold">
+    <h3>Bosettingsrettens innhold</h3>
+    <p>Retten til minst 60 m² bolig per person og retten til en rural tomt er bindende rettigheter. Arealregnskapet skal avgjøre hvor og hvordan de realiseres uten å ødelegge matjord, vill natur eller økosystemer; det skal ikke avgjøre om rettighetene gjelder.</p>
+    <p>Et globalt eller nasjonalt bosettingsregnskap skal beskrive kapasitet og muligheter, ikke fordele mennesker administrativt. Ingen skal tvangsflyttes. Fellesskapets oppgave er å gjøre flere steder reelt beboelige og sikre at retten kan utøves gjennom frie valg.</p>
+  </section>
+              ''',
+              'id="grunnlag-bosettingsrettens-innhold"',
+          )
+
+          foundation = add_to_article(
+              foundation,
+              "Samfunnskontrakten vendt om",
+              '''
+
+  <section id="grunnlag-skadeprinsipp-og-dominans">
+    <h3>Skadeprinsippet og vern mot dominans</h3>
+    <p>Beskyttelsesmaktens konstitusjonelle grense er skadeprinsippet: Fellesskapet kan bare gripe inn i friheten for å avverge eller reparere dokumenterbar skade på mennesker, dyr, natur eller felles livsgrunnlag. Inngrepet må være lovhjemlet, nødvendig, forholdsmessig, minst mulig inngripende, tidsbegrenset og prøvbart for en uavhengig instans.</p>
+    <p>Vern mot dominans innebærer at ingen person, virksomhet, myndighet eller teknologisk plattform kan kontrollere så mye av bolig, mat, jord, arbeid, informasjon, kommunikasjon eller kritisk infrastruktur at andre menneskers frihet blir avhengig av aktørens vilje. Dette gjelder også demokratisk valgte flertall: flertallsmakt kan ikke oppheve enkeltmenneskers og mindretalls grunnleggende rettigheter.</p>
+  </section>
+              ''',
+              'id="grunnlag-skadeprinsipp-og-dominans"',
+          )
+
+          foundation = add_to_article(
+              foundation,
+              "Fellesskap og individualisme i spenning",
+              '''
+
+  <section id="grunnlag-innsats-etter-evne">
+    <h3>Rettigheter, innsats og menneskelig variasjon</h3>
+    <p>Samfunnsinnsatsen er begrenset til 10–15 timer og gjelder etter evne og livssituasjon. Barn, eldre, syke og personer som ikke kan utføre ordinære oppgaver, beholder grunntryggheten. Omsorg, utdanning, beredskap og annet nødvendig arbeid må kunne godskrives som innsats.</p>
+    <p>Gjensidighet kan ikke håndheves gjennom sult, hjemløshet eller tap av nødvendig helsehjelp. Ved manglende bidrag skal fellesskapet først bruke tilrettelegging, alternative oppgaver, dialog og rettssikre prosedyrer. Grunnbehovene skal aldri bli et redskap for vilkårlig lydighet.</p>
+  </section>
+              ''',
+              'id="grunnlag-innsats-etter-evne"',
+          )
+
+          foundation = add_to_article(
+              foundation,
+              "Teknologisk dominans og digital kapitalisme",
+              '''
+
+  <section id="grunnlag-ressursoversikt-uten-overvakning">
+    <h3>Ressursoversikt uten personovervåkning</h3>
+    <p>Paradismodellens registrering skal følge materialer, energi, areal, utslipp, produkter og virksomheter der fellesskapets ressurser eller andres sikkerhet berøres. Privat skaping, hobbyvirksomhet og lavrisikoaktivitet skal ikke registreres uten konkret skadefare. Dataminimering og formålsbegrensning skal være bindende.</p>
+    <p>Digitale demokratiske systemer må sikre hemmelig stemmegivning, verifiserbarhet uten personsporbarhet, åpen kildekode, uavhengig sikkerhetsrevisjon, universell utforming og analoge alternativer. Skjult mikromålretting, automatisert politisk manipulasjon og hemmelig finansiering av påvirkning må forbys.</p>
+  </section>
+              ''',
+              'id="grunnlag-ressursoversikt-uten-overvakning"',
+          )
+
+          foundation_path.write_text(foundation, encoding="utf-8")
+
+          css_path = Path("styles.css")
+          css = css_path.read_text(encoding="utf-8")
+          css_addition = '''
+
+/* Manifest: innholdsfortegnelse og grunnprinsipper */
+.manifest-toc,
+.principle-box {
+  max-width: 860px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+}
+
+.manifest-toc ol {
+  columns: 2;
+  gap: 2rem;
+  padding-left: 1.4rem;
+}
+
+.manifest-toc li,
+.rights-list li {
+  margin: 0.35rem 0;
+}
+
+.principle-box h3,
+.principle-box p,
+.principle-box ul {
+  max-width: 760px;
+}
+
+.rights-list {
+  padding-left: 1.4rem;
+  margin: 0.8rem 0 1rem;
+}
+
+@media (max-width: 700px) {
+  .manifest-toc ol {
+    columns: 1;
+  }
+}
+'''
+          if "/* Manifest: innholdsfortegnelse og grunnprinsipper */" not in css:
+              css += css_addition
+          css_path.write_text(css, encoding="utf-8")
+          PY
+
+      - name: Validate document invariants
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          manifest = Path("manifest.html").read_text(encoding="utf-8")
+          foundation = Path("grunnlag.html").read_text(encoding="utf-8")
+
+          required_manifest = [
+              'id="ufravikelige-rettigheter"',
+              'id="skadeprinsippet"',
+              'id="vern-mot-dominans"',
+              'id="livets-rettigheter"',
+              'id="sikkert-digitalt-demokrati"',
+              'id="piloter-prover-gjennomforingen"',
+          ]
+          required_foundation = [
+              'id="grunnlag-ufravikelige-rettigheter"',
+              'id="grunnlag-skadeprinsipp-og-dominans"',
+              'id="grunnlag-innsats-etter-evne"',
+              'id="grunnlag-ressursoversikt-uten-overvakning"',
+          ]
+          for marker in required_manifest:
+              if marker not in manifest:
+                  raise SystemExit(f"Missing manifest marker: {marker}")
+          for marker in required_foundation:
+              if marker not in foundation:
+                  raise SystemExit(f"Missing foundation marker: {marker}")
+
+          numbers = [int(value) for value in re.findall(r'<h3>\s*(\d+)\.', manifest)]
+          if sorted(set(numbers)) != list(range(1, 61)):
+              raise SystemExit(f"Manifest chapter numbering changed: {sorted(set(numbers))}")
+
+          for tag in ("section", "article", "aside", "nav"):
+              opens = len(re.findall(fr'<{tag}(?:\s|>)', manifest))
+              closes = manifest.count(f'</{tag}>')
+              if opens != closes:
+                  raise SystemExit(f"Unbalanced {tag} in manifest: {opens} opens, {closes} closes")
+
+          if "10–15 timer" not in manifest or "60 m²" not in manifest:
+              raise SystemExit("Core rights disappeared from manifest")
+          if "forsøksparametere" not in manifest:
+              raise SystemExit("Rights/parameters distinction missing")
+          PY
+
+      - name: Commit document changes and remove one-time workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-ten-points.yml
+          git add manifest.html grunnlag.html styles.css
+          git commit -m "Forankre ufravikelige rettigheter og maktvern"
+          git push origin HEAD:agent/ufravikelige-rettigheter-og-maktvern
