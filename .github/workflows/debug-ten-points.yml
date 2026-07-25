@@ -23,14 +23,14 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import textwrap
           import traceback
 
           workflow = Path('.github/workflows/apply-ten-points.yml').read_text(encoding='utf-8')
           marker = "          python - <<'PY'\n"
           start = workflow.index(marker) + len(marker)
           end = workflow.index("\n          PY", start)
-          code = textwrap.dedent(workflow[start:end])
+          raw = workflow[start:end]
+          code = "\n".join(line[10:] if line.startswith("          ") else line for line in raw.splitlines())
           try:
               compile(code, 'apply-ten-points.py', 'exec')
               exec(code, {'__name__': '__main__'})
