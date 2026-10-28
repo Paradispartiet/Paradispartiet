@@ -1,320 +1,649 @@
-/* Paradispartiet – forslag til ny visuell profil, oktober 2026.
-   Lesbarhet, dybde og universell utforming. Lastes etter eksisterende stilark.
-   Ingen tekst er forkortet som del av dette designforslaget. */
+/* ===========================================================
+   PARADISPARTIET – DESIGNFORSLAG, OKTOBER 2026
+   Videreutvikling av opprinnelig identitet: SVART + GULT.
+   Ingen hovedtekst er forkortet eller redigert for denne designrunden.
+   Lastes etter det eksisterende styles.css.
+   =========================================================== */
 
 :root {
-  --bg: #f7f6f0;
-  --card: #fffefb;
-  --border: #dfe5da;
-  --fg: #1e312a;
-  --muted: #596c63;
-  --accent: #145c44;
-  --accent-strong: #0f4534;
-  --gold: #e6bf43;
-  --cream: #fffaf0;
-  --soft-green: #edf3eb;
-  --shadow: 0 16px 42px rgba(24, 54, 41, .07);
+  /* Samme partifarger som i den eksisterende profilen. */
+  --bg: #000;
+  --card: #101010;
+  --border: rgba(255,255,255,.12);
+  --fg: #f3f3f3;
+  --muted: #aaa9a5;
+  --accent: #ffd600;
+
+  /* Nøytrale støttetoner, ikke en ny fargepalett. */
+  --surface: #090909;
+  --surface-raised: #151515;
+  --surface-hover: #1b1b1b;
+  --line: #292929;
+  --white: #f6f5f1;
+  --shadow: 0 14px 38px rgba(0,0,0,.24);
+  --reading-width: 850px;
+  --content-width: 1160px;
 }
+*, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+  font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, h4 { color: var(--fg); line-height: 1.25; letter-spacing: -.025em; }
-a { color: var(--accent); text-underline-offset: .2em; }
-a:hover { color: var(--accent-strong); }
-a:focus-visible, button:focus-visible, summary:focus-visible {
-  outline: 3px solid #c29c13; outline-offset: 4px; border-radius: 3px;
+h1, h2, h3, h4 {
+  color: var(--white);
+  letter-spacing: -.028em;
+  line-height: 1.23;
 }
-::selection { color: #142b20; background: #f1d777; }
+p { margin-bottom: 1.2rem; }
+a { color: var(--accent); text-decoration: none; text-underline-offset: .2em; }
+a:hover { color: #ffe45e; text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+::selection { background: var(--accent); color: #111; }
 img { max-width: 100%; }
 .skip-link {
-  position: absolute; z-index: 500; top: -5rem; left: 1rem;
-  padding: .7rem 1rem; background: var(--gold); color: #172c21;
-  border-radius: 0 0 .6rem .6rem; font-weight: 700;
+  position: absolute; top: -6rem; left: 1rem; z-index: 1000;
+  padding: .7rem 1rem; border-radius: 0 0 5px 5px;
+  background: var(--accent); color: #101010; font-weight: 750;
 }
 .skip-link:focus { top: 0; }
 
-/* Navigasjon: alle lenker tilgjengelige også på små skjermer. */
+/* ===========================================================
+   Toppfelt: tydelig, diskret, luftig, konsekvent.
+   =========================================================== */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255, 254, 251, .97);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 24px rgba(24, 54, 41, .045);
-  padding: .9rem max(1.25rem, calc((100% - 1230px) / 2));
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1.1rem;
-  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: .95rem max(1.25rem, calc((100% - 1240px) / 2));
+  background: rgba(6,6,6,.97);
+  border-bottom: 1px solid #242424;
+  box-shadow: 0 9px 26px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
 }
 .site-header > .container {
-  width: 100%; max-width: 1230px;
-  display: flex; align-items: center; justify-content: space-between;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1.2rem;
 }
 .site-header .brand {
-  color: var(--accent-strong); font-weight: 800; letter-spacing: -.025em;
-  font-size: 1.15rem; flex-shrink: 0; gap: .7rem;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 780;
+  font-size: 1.15rem;
+  letter-spacing: -.025em;
+  color: var(--white);
+  white-space: nowrap;
+  text-decoration: none;
 }
-.site-header .brand img {
-  width: 43px; height: 43px; object-fit: contain;
-}
+.site-header .brand img { width: 40px; height: 40px; object-fit: contain; }
 .site-nav {
   display: flex !important;
-  align-items: center; justify-content: flex-end;
-  gap: .2rem; flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: .1rem .35rem;
 }
 .site-nav a {
-  opacity: 1; color: #365346; font-weight: 600; font-size: .88rem;
-  padding: .55rem .7rem; border-radius: .5rem;
-  transition: color .2s, background .2s;
+  position: relative;
+  display: inline-block;
+  padding: .62rem .64rem;
+  font-size: .88rem;
+  font-weight: 620;
+  line-height: 1.3;
+  color: #d2d2ce;
+  opacity: 1;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: color .18s ease, background .18s ease;
 }
-.site-nav a:hover, .site-nav a.active, .site-nav a[aria-current="page"] {
-  color: var(--accent-strong); background: var(--soft-green); text-decoration: none;
+.site-nav a:hover {
+  color: var(--white);
+  background: #1c1c1c;
+  text-decoration: none;
+}
+.site-nav a.active, .site-nav a[aria-current="page"] {
+  color: var(--accent);
+  background: transparent;
+}
+.site-nav a.active::after, .site-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: .22rem;
+  left: .64rem;
+  right: .64rem;
+  height: 2px;
+  background: var(--accent);
 }
 .nav-toggle { display: none !important; }
 
-/* Forside: introduksjon med eksisterende uttrykk og gul logo som utgangspunkt. */
+/* ===========================================================
+   Forside: arkitektonisk ro fremfor sterke gradienter og store bobler.
+   =========================================================== */
 .home-hero {
-  isolation: isolate; position: relative; overflow: hidden;
-  background: linear-gradient(125deg, #173e30 0%, #245843 70%, #315f49 100%);
-  color: #fffdf6; padding: clamp(4.5rem, 8vw, 8rem) 1.5rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #080808;
+  color: var(--white);
+  padding: clamp(5rem, 9vw, 8.8rem) 1.5rem clamp(5.2rem, 9vw, 9rem);
+  border-bottom: 1px solid #262626;
 }
-.home-hero:before {
-  content: ""; position: absolute; z-index: -1;
-  width: 44rem; height: 44rem; right: -18rem; top: -24rem;
-  border-radius: 50%; border: 6rem solid rgba(247, 215, 102, .12);
-  box-shadow: 0 0 0 6rem rgba(255, 255, 255, .035);
+.home-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(42vw, 560px);
+  height: min(42vw, 560px);
+  right: -3%;
+  top: 12%;
+  border: 1px solid rgba(255,214,0,.3);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 63px rgba(255,214,0,.035),
+    0 0 0 126px rgba(255,214,0,.02);
 }
-.home-hero:after {
-  content: ""; position: absolute; z-index: -1;
-  width: 25rem; height: 25rem; right: 7%; bottom: -20rem;
-  border-radius: 50%; background: rgba(254, 220, 111, .12);
+.home-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 11%;
+  top: 20%;
+  height: 62%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,214,0,.22), transparent);
+  transform: rotate(18deg);
 }
-.home-hero-inner { max-width: 1120px; margin: auto; }
+.home-hero-inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  position: relative;
+}
 .home-kicker {
-  color: #f4dc8e; font-size: .79rem; font-weight: 800;
-  letter-spacing: .14em; text-transform: uppercase; margin: 0 0 1.4rem;
+  display: inline-block;
+  margin: 0 0 1.8rem;
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 760;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 .home-hero h1 {
-  max-width: 850px; color: #fffdf6;
-  font-size: clamp(2.65rem, 6.2vw, 5.15rem); line-height: 1.1;
-  letter-spacing: -.05em; font-weight: 780; margin: 0 0 1.55rem;
+  max-width: 900px;
+  margin: 0 0 1.55rem;
+  font-size: clamp(2.8rem, 6vw, 5.35rem);
+  line-height: 1.08;
+  letter-spacing: -.052em;
+  font-weight: 750;
+  color: #fafaf8;
 }
+.home-hero .hero-emphasis { color: var(--accent); }
 .home-hero .hero-description {
-  max-width: 680px; color: #f1f3e8;
-  font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.75;
-  margin-bottom: 2rem;
+  max-width: 665px;
+  margin-bottom: 2.25rem;
+  font-size: clamp(1.09rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+  color: #d0d0cb;
 }
-.hero-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .85rem;
+}
 .hero-actions a, .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 46px; padding: .72rem 1.3rem; border-radius: .65rem;
-  font-weight: 750; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: .78rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 760;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
 }
-.hero-actions a:hover, .btn:hover { text-decoration: none; transform: translateY(-2px); }
+.hero-actions a:hover, .btn:hover { text-decoration: none; transform: translateY(-1px); }
 .hero-actions .primary, .btn-yellow {
-  background: #f4d56a; color: #20342b; border: 1px solid #f4d56a;
+  color: #101010;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+.hero-actions .primary:hover, .btn-yellow:hover {
+  background: #ffe66c; border-color: #ffe66c; color: #101010;
 }
 .hero-actions .secondary {
-  border: 1px solid rgba(255,255,255,.58); background: rgba(255,255,255,.07); color: #fff;
+  color: var(--white);
+  border: 1px solid #5e5e5e;
+  background: transparent;
 }
-.btn-outline { color: var(--accent); border: 1px solid #9aafa1; background: transparent; }
-.btn-outline:hover { background: var(--soft-green); }
-.section-heading { max-width: 1120px; margin: 4.5rem auto -1rem; padding: 0 1.25rem; }
-.section-heading h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin: 0 0 .55rem; }
-.section-heading p { max-width: 730px; color: var(--muted); font-size: 1.05rem; }
+.hero-actions .secondary:hover { background: #1d1d1d; border-color: #aaa; }
+.btn-outline { color: var(--accent); border: 1px solid #6a5f30; background: transparent; }
+.btn-outline:hover { background: #1a180e; color: #ffe15e; }
+.section-heading {
+  max-width: var(--content-width);
+  margin: 4.8rem auto -.6rem;
+  padding: 0 1.25rem;
+}
+.section-heading h2 { font-size: clamp(1.95rem, 3.1vw, 2.65rem); margin: 0 0 .6rem; }
+.section-heading p { max-width: 770px; color: var(--muted); font-size: 1.05rem; }
 .document-note {
-  display: inline-flex; border: 1px solid #d3dcbf; color: #455e4d;
-  background: #f4f4e7; padding: .3rem .8rem; border-radius: 99px;
-  font-size: .85rem; font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  padding: .32rem .8rem;
+  border: 1px solid #5a5128;
+  border-radius: 4px;
+  background: #1b190f;
+  color: #e7d38b;
+  font-size: .83rem;
+  font-weight: 680;
 }
 
-/* Forsidens ideer og prinsipper */
-.foundation { max-width: 1160px; padding: 5.5rem 1.25rem 3.2rem; }
-.foundation-hero { max-width: 800px; margin: 0 auto 2.5rem; text-align: center; }
+/* ===========================================================
+   Innganger til idegrunnlag og prinsipper: elegant kortdesign.
+   =========================================================== */
+.foundation {
+  max-width: var(--content-width);
+  margin: auto;
+  padding: 5.2rem 1.25rem 3.3rem;
+}
+.foundation-hero { max-width: 800px; margin: 0 auto 2.4rem; text-align: center; }
 .foundation h2 {
-  font-size: clamp(2rem, 3.2vw, 2.75rem); margin: 0 0 .8rem;
-  color: var(--accent-strong);
+  color: var(--white);
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  margin: 0 0 .85rem;
 }
-.foundation-hero p { color: var(--muted); font-size: 1.12rem; }
-.foundation-grid { gap: 1.15rem; }
+.foundation-hero p { color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
+.foundation-grid { gap: 1.1rem; }
 .foundation-grid article, .card, .project, .about-grid article {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 1rem; box-shadow: var(--shadow);
+  background: #111;
+  border: 1px solid #2b2b2b;
+  border-radius: 7px;
+  box-shadow: none;
 }
-.foundation-grid article { padding: 1.8rem; }
-.foundation-grid h3 { font-size: 1.25rem; }
-.foundation-grid h3 a { color: var(--accent); }
-.foundation-grid p { color: #3a4f42; opacity: 1; font-size: 1rem; }
+.foundation-grid article {
+  padding: 1.85rem;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.foundation-grid article:hover { border-color: #867626; background: #151515; transform: translateY(-2px); }
+.foundation-grid h3 { font-size: 1.25rem; margin: 0 0 .75rem; }
+.foundation-grid h3 a { color: var(--white); }
+.foundation-grid h3 a:hover { color: var(--accent); }
+.foundation-grid p { color: #bcbcb8; font-size: .98rem; line-height: 1.7; opacity: 1; }
 .cards {
-  max-width: 1140px; gap: 1.15rem; padding: 2rem 1.25rem 5.5rem;
-  margin-bottom: 0;
+  max-width: var(--content-width);
+  gap: 1.1rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 5.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.card { padding: 2rem; font-size: 1rem; line-height: 1.75; box-shadow: var(--shadow); }
-.card h3 { color: var(--accent-strong); font-size: 1.26rem; margin-bottom: .8rem; }
-.card p { margin-bottom: 0; }
+.card {
+  padding: 2rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  box-shadow: none;
+}
+.card:hover { border-color: #4d4420; }
+.card h3 {
+  margin: 0 0 .8rem;
+  color: #ffe06a;
+  font-size: 1.23rem;
+  font-weight: 720;
+}
+.card p { margin-bottom: 0; color: #d3d3cf; }
 
-/* Prosjekter */
-.projects.home { margin-top: 0; padding: 5rem 1.25rem; background: var(--soft-green); }
+/* ===========================================================
+   Prosjekter: gode kontraster, korrekte bilder og plassholdere.
+   =========================================================== */
+.projects.home {
+  margin-top: 0;
+  padding: 5rem 1.25rem;
+  background: #0c0c0c;
+  border-top: 1px solid #242424;
+  border-bottom: 1px solid #242424;
+}
 .projects.home > h2, .projects-page h1 {
-  text-align: center; font-size: clamp(2rem, 3.3vw, 2.7rem); margin: 0 0 1rem;
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: clamp(2rem, 3.3vw, 2.7rem);
 }
 .projects-intro {
-  text-align: center; color: var(--muted);
-  max-width: 720px; margin: 0 auto 2.5rem; font-size: 1.09rem;
+  max-width: 760px;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.08rem;
 }
-.project-grid { gap: 1.25rem; }
-.project { overflow: hidden; box-shadow: var(--shadow); }
-.project:hover { box-shadow: 0 18px 34px rgba(21, 55, 35, .14); }
-.project img { filter: none !important; object-fit: cover; height: 230px; }
+.project-grid { gap: 1.2rem; }
+.project {
+  overflow: hidden;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.project:hover { border-color: #73652e; transform: translateY(-2px); box-shadow: none; }
+.project img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: none !important;
+  transform: none;
+}
 .project:hover img { transform: none; filter: none !important; }
 .project-body { padding: 1.5rem; }
-.project-body h2, .project-body h3 { color: var(--accent-strong); margin: 0 0 .5rem; font-size: 1.25rem; }
-.project-body a { color: var(--accent); }
-.project-body p { color: #415449; opacity: 1; }
-.projects-footer { text-align: center; margin-top: 2.1rem; }
-.related-note { max-width: 1100px; margin: 2rem auto 0; color: var(--muted); }
-.projects-page { max-width: 1200px; margin: auto; }
-.projects-page .intro { max-width: 780px; margin: 0 auto 2.7rem; }
-.projects-page .intro p { color: var(--muted); opacity: 1; font-size: 1.1rem; }
-.project-placeholder {
-  height: 220px; display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; font-weight: 750; letter-spacing: .02em;
-  color: #e9f2e2; background: linear-gradient(130deg, #1c523c, #40725a);
+.project-body h2, .project-body h3 {
+  margin: 0 0 .6rem;
+  color: var(--white);
+  font-size: 1.28rem;
 }
-.project-placeholder.gold { background: linear-gradient(125deg, #d1aa4e, #f2df9d); color: #3d3526; }
-.project-placeholder.sage { background: linear-gradient(125deg, #7e9f83, #c9dbc8); color: #244c35; }
+.project-body a { color: var(--white); }
+.project-body a:hover { color: var(--accent); }
+.project-body p { color: #c5c5c0; opacity: 1; }
+.projects-footer { text-align: center; margin-top: 2.3rem; }
+.related-note {
+  max-width: var(--content-width);
+  margin: 2.2rem auto 0;
+  color: var(--muted);
+}
+.projects-page { max-width: 1200px; margin: auto; }
+.projects-page .intro { max-width: 830px; margin: 0 auto 3rem; }
+.projects-page .intro p { font-size: 1.08rem; color: var(--muted); opacity: 1; }
+.project-placeholder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+  padding: 2rem;
+  overflow: hidden;
+  color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  background: linear-gradient(140deg,#151515,#292929);
+}
+.project-placeholder::before {
+  content: "";
+  position: absolute; width: 100%; height: 1px;
+  top: 25%; left: 0;
+  background: rgba(255,214,0,.35);
+  transform: rotate(-13deg);
+}
+.project-placeholder::after {
+  content: "";
+  position: absolute; width: 120px; height: 120px;
+  border: 1px solid rgba(255,214,0,.22); border-radius: 50%;
+  right: -40px; bottom: -45px;
+}
+.project-placeholder.gold { background: linear-gradient(130deg,#25210f,#131313); }
+.project-placeholder.sage { background: linear-gradient(130deg,#171717,#242424); }
+.project-static { height: 100%; }
+.project-static .project-body { min-height: 150px; }
+.project-page { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.4rem 6rem; }
+.project-page h2 { color: var(--white); font-size: clamp(1.65rem, 2.8vw, 2.25rem); margin-top: 2.9rem; }
+.project-page h3 { color: #ffe06a; font-size: 1.35rem; margin-top: 2.1rem; }
+.project-page p, .project-page li {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.07rem; line-height: 1.85; color: #e1e0dc;
+}
+.project-page ul, .project-page ol { padding-left: 1.5rem; }
+.project-page section { margin-bottom: 2.3rem; }
 
-/* Avisa er fortsatt tilgjengelig, men ikke styrende for partiets forside */
-.avisa { padding: 3.5rem 1.25rem; background: #f3f0e7; border-color: var(--border); }
-.avisa-top { max-width: 1120px; margin: auto; display: flex; gap: 1rem; align-items: center; justify-content: space-between; }
-.avisa-top h2 { color: var(--accent-strong); font-size: 1.55rem; margin: 0; }
-.avisa-grid { max-width: 1120px; }
-.avisa-card { background: var(--card); border: 1px solid var(--border); border-radius: .9rem; box-shadow: var(--shadow); }
-.avisa-title a { color: var(--accent); }
-.avisa-title a:hover { color: var(--accent-strong); }
-.avisa-excerpt { color: #4c6055; }
-.avisa-meta { color: var(--muted); }
+/* ===========================================================
+   Avisa – beholdes på partiets forside, men er visuelt roligere.
+   =========================================================== */
+.avisa {
+  background: #0d0d0d;
+  border-top: 1px solid var(--line);
+  padding: 3.3rem 1.25rem;
+}
+.avisa-top {
+  display: flex;
+  max-width: var(--content-width);
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.avisa-top h2 { font-size: 1.5rem; color: var(--white); margin: 0; }
+.avisa-grid { max-width: var(--content-width); }
+.avisa-card {
+  background: #171717;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.avisa-card:hover { border-color: #756728; }
+.avisa-title a { color: #f4df86; }
+.avisa-title a:hover { color: var(--accent); }
+.avisa-excerpt { color: #c2c2be; }
+.avisa-meta { color: #a7a7a2; }
 
-/* Om og kontakt */
-.about { max-width: 1120px; margin: auto; padding: 5rem 1.25rem; }
-.about h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
-.about-lead { max-width: 790px; font-size: 1.2rem; line-height: 1.8; color: #374c40; }
-.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+/* ===========================================================
+   Om / kontakt / prosjektbanner
+   =========================================================== */
+.about {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 5rem 1.25rem;
+}
+.about h2 { font-size: clamp(1.95rem, 3vw, 2.5rem); }
+.about-lead {
+  max-width: 840px;
+  color: #d6d6d1;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
 .about-grid article { padding: 1.5rem; }
-.about-grid h3 { font-size: 1.15rem; }
-.about-contact { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.8rem; }
-.about-contact p { flex-basis: 100%; font-size: 1.15rem; font-weight: 700; margin-bottom: .2rem; }
-.project-banner { padding: 3.5rem 1.25rem; background: var(--soft-green); }
-.project-banner-inner { max-width: 1120px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.project-banner-text h1 { font-size: clamp(2rem, 3vw, 3rem); }
-.project-banner-icon img { width: 110px; max-width: 100%; }
-.join { max-width: 830px; margin: 3rem auto 5rem; padding: 2.7rem 2rem; background: var(--card); border: 1px solid var(--border); border-radius: 1rem; }
-.join h2 { font-size: 2.3rem; }
-.join hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+.about-grid h3 { font-size: 1.17rem; color: #f3dd74; }
+.about-contact {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: .85rem; margin-top: 2rem;
+}
+.about-contact p { flex-basis: 100%; margin-bottom: .15rem; font-size: 1.12rem; font-weight: 720; }
+.project-banner {
+  background: #111;
+  border-bottom: 1px solid #2c2c2c;
+  padding: 3.8rem 1.3rem;
+}
+.project-banner-inner {
+  max-width: var(--content-width); margin: auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+.project-banner-text h1 { font-size: clamp(2.1rem, 3.5vw, 3.25rem); }
+.project-banner-text p { max-width: 680px; color: #c9c9c5; font-size: 1.13rem; }
+.project-banner-icon img { max-width: 115px; }
+.join {
+  max-width: 830px;
+  margin: 3.5rem auto 5rem;
+  padding: 2.5rem;
+  background: #121212;
+  border: 1px solid #343434;
+  border-radius: 8px;
+}
+.join h2 { font-size: 2.25rem; }
+.join hr { border: 0; border-top: 1px solid #343434; margin: 2rem 0; }
 .join li { padding-bottom: .7rem; }
 
-/* Lange dokumenter skal ha god plass, ikke kortes ned. */
-.container { max-width: 1230px; margin-inline: auto; }
-.content { max-width: 880px; margin: 0 auto; padding: 3.8rem 1.4rem 7rem; }
-.page--manifest .content, .page--teori .content, .page--okonomiskmodell .content {
-  max-width: 880px; padding: 3.8rem 1.4rem 7rem;
+/* ===========================================================
+   Lange dokumenter: dybde og lesbarhet, ingen forkorting.
+   =========================================================== */
+.container { max-width: 1240px; margin-inline: auto; }
+.content,
+.page--manifest .content,
+.page--teori .content,
+.page--okonomiskmodell .content {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: 4.15rem 1.4rem 7rem;
 }
 .content > h1, .content > section:first-of-type > h1 {
-  font-size: clamp(2.4rem, 4.5vw, 3.65rem);
-  line-height: 1.12; letter-spacing: -.04em; margin: 0 0 1.3rem;
+  font-size: clamp(2.45rem, 4.5vw, 3.7rem);
+  line-height: 1.11;
+  letter-spacing: -.046em;
+  margin: 0 0 1.2rem;
 }
 .content .lead, .content > p:first-of-type {
-  color: #4c6154; font-size: 1.23rem; line-height: 1.8;
+  font-size: 1.19rem; line-height: 1.82; color: #c5c5c0;
 }
-.content h2 { color: var(--accent-strong); font-size: clamp(1.65rem, 2.7vw, 2.2rem); margin: 3.4rem 0 1.15rem; }
-.content h3 { font-size: 1.4rem; margin: 2.1rem 0 1rem; }
-.content h4 { font-size: 1.18rem; margin: 1.7rem 0 .7rem; }
+.content h2 {
+  color: var(--white);
+  font-size: clamp(1.7rem, 2.7vw, 2.2rem);
+  margin: 3.6rem 0 1.25rem;
+}
+.content h3 { color: #f1d97b; font-size: 1.38rem; margin: 2.4rem 0 1rem; }
+.content h4 { color: var(--white); font-size: 1.16rem; margin: 1.8rem 0 .75rem; }
 .content p, .content li, .chapter p, .chapter li {
   font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-  font-size: 1.07rem; line-height: 1.88;
+  font-size: 1.075rem;
+  line-height: 1.88;
+  color: #e0dfdb;
 }
 .content p { margin-bottom: 1.2rem; }
-.content ul, .content ol { padding-left: 1.6rem; }
-.content li { padding-bottom: .26rem; }
+.content ul, .content ol { padding-left: 1.55rem; }
+.content li { padding-bottom: .3rem; }
+.content strong { color: #f7f7f3; }
 .content section[id], .content article[id] { scroll-margin-top: 9rem; }
-.content .chapter { margin-bottom: 2.7rem; }
-.content a { text-decoration: underline; text-decoration-color: #b7c9ba; }
-.content blockquote { border-left: 4px solid var(--gold); padding: .25rem 1.3rem; margin: 1.8rem 0; background: var(--cream); }
-.content table { display: block; overflow-x: auto; border-collapse: collapse; width: 100%; background: white; }
-.content th, .content td { border: 1px solid var(--border); padding: .7rem .85rem; text-align: left; }
-.content th { background: var(--soft-green); }
-.content pre, .content code { overflow-wrap: anywhere; }
-.content details { border: 1px solid var(--border); border-radius: .65rem; background: var(--card); padding: .8rem 1rem; margin: .8rem 0; }
-.content summary { color: var(--accent-strong); cursor: pointer; font-weight: 750; }
-.manifest-toc, .principle-box, .content nav[aria-label="Innhold"] {
-  max-width: none; background: var(--soft-green); border: 1px solid var(--border);
-  border-radius: 1rem; padding: 1.5rem 1.7rem; margin: 2.5rem 0;
+.content .chapter { margin-bottom: 3rem; }
+.content a { text-decoration: underline; text-decoration-color: #716a44; }
+.content a:hover { text-decoration-color: var(--accent); }
+.content blockquote {
+  margin: 2rem 0;
+  border-left: 3px solid var(--accent);
+  padding: .5rem 1.35rem;
+  background: #121212;
 }
-.manifest-toc h2 { margin-top: 0; font-size: 1.5rem; }
+.content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  background: #101010;
+}
+.content th, .content td { padding: .7rem .85rem; border: 1px solid #383838; text-align: left; }
+.content th { background: #222; color: var(--white); }
+.content pre { max-width: 100%; overflow-x: auto; }
+.content code { overflow-wrap: anywhere; }
+.content details {
+  margin: .85rem 0;
+  padding: .9rem 1.15rem;
+  background: #121212;
+  border: 1px solid #343434;
+  border-radius: 5px;
+}
+.content summary { color: #f1d97b; cursor: pointer; font-weight: 740; }
+.manifest-toc, .principle-box, .content nav[aria-label="Innhold"] {
+  max-width: none;
+  margin: 2.65rem 0;
+  padding: 1.55rem 1.65rem;
+  background: #131313;
+  border: 1px solid #383838;
+  border-radius: 6px;
+}
+.manifest-toc h2 { margin-top: 0; font-size: 1.55rem; }
 .manifest-toc ol { columns: 2; }
-.manifest-toc a, .content nav[aria-label="Innhold"] a { color: var(--accent-strong); }
+.manifest-toc a, .content nav[aria-label="Innhold"] a { color: #efcf5d; }
 .pp-politikk .wrap { max-width: 100%; }
 
-/* Footer */
+/* Footer og til-toppen-funksjon */
 .bottom-nav {
-  background: #eaf0e9; border-color: #d5e2d5;
-  gap: .5rem 1.5rem; padding: 2rem 1.25rem;
+  background: #111;
+  border-color: #303030;
+  gap: .55rem 1.5rem;
+  padding: 2rem 1.25rem;
 }
-.bottom-nav a { color: #2d5540; font-weight: 650; }
-.bottom-nav a:hover, .bottom-nav a.active { color: #103e2b; }
+.bottom-nav a { color: #c3c3bf; font-weight: 630; }
+.bottom-nav a:hover, .bottom-nav a.active { color: var(--accent); }
 .site-footer {
-  color: #53695a; background: #eaf0e9;
-  border-color: #d5e2d5; padding: 1.4rem 1rem;
+  background: #111; border-color: #303030;
+  color: #a9a9a5; padding: 1.4rem 1rem;
 }
-#scrollTopBtn { background: var(--gold); color: #203327; box-shadow: 0 8px 24px rgba(24, 54, 41, .16); }
-#scrollTopBtn:hover { box-shadow: 0 8px 28px rgba(24, 54, 41, .23); }
-.status { color: var(--accent-strong); background: var(--soft-green); border-color: #c1d9be; }
+#scrollTopBtn {
+  background: var(--accent);
+  color: #0d0d0d;
+  box-shadow: 0 5px 24px rgba(0,0,0,.45);
+}
+#scrollTopBtn:hover { box-shadow: 0 5px 26px rgba(0,0,0,.6); }
+.status {
+  background: #242014;
+  color: #f1d575;
+  border-color: #615323;
+}
 
-/* Behagelig responsiv lesning – uten skjult navigasjon. */
-@media (max-width: 1120px) {
-  .site-header, .site-header > .container { flex-wrap: wrap; justify-content: center; }
+/* Responsiv design: alt lesbart, ingen menylenker skjult. */
+@media (max-width: 1160px) {
+  .site-header, .site-header > .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .site-nav { justify-content: center; }
 }
 @media (max-width: 700px) {
-  html { scroll-padding-top: 10rem; }
-  .site-header { position: relative; padding: .7rem .85rem; }
+  html { scroll-padding-top: 2rem; }
+  .site-header { position: relative; padding: .85rem .9rem; }
   .site-header .brand img { width: 36px; height: 36px; }
-  .site-nav { width: 100%; display: flex !important; gap: .1rem; flex-wrap: wrap; justify-content: center; }
-  .site-nav a { font-size: .8rem; padding: .4rem .5rem; }
-  .home-hero { padding: 4.4rem 1.1rem 5rem; }
-  .home-hero:before { width: 24rem; height: 24rem; right: -15rem; top: -13rem; }
+  .site-nav {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    gap: .1rem .15rem;
+  }
+  .site-nav a { font-size: .8rem; padding: .45rem .5rem; }
+  .site-nav a.active::after, .site-nav a[aria-current="page"]::after {
+    left: .5rem; right: .5rem; bottom: .15rem;
+  }
+  .home-hero { padding: 4.7rem 1.1rem 5.3rem; }
+  .home-hero::before { width: 270px; height: 270px; right: -170px; top: 18%; }
+  .home-hero::after { display: none; }
+  .home-hero h1 { font-size: clamp(2.65rem, 10vw, 4rem); }
   .hero-actions a { width: 100%; }
-  .foundation { padding: 3.7rem 1.1rem 2.2rem; }
+  .foundation { padding: 4rem 1.1rem 2rem; }
   .foundation-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; padding: 1rem 1.1rem 4rem; }
-  .card { padding: 1.5rem; }
-  .section-heading { margin-top: 3rem; }
+  .card { padding: 1.55rem; }
+  .section-heading { margin-top: 3.2rem; }
   .project-grid { grid-template-columns: 1fr; }
   .avisa-top { align-items: flex-start; flex-direction: column; }
   .manifest-toc ol { columns: 1; }
   .content, .page--manifest .content, .page--teori .content, .page--okonomiskmodell .content {
-    padding: 2.4rem 1.1rem 4.5rem;
+    padding: 2.6rem 1.1rem 4.8rem;
   }
-  .content p, .content li, .chapter p, .chapter li { font-size: 1.03rem; line-height: 1.83; }
-  .join { margin: 1.5rem 1rem 3.5rem; padding: 1.6rem 1.2rem; }
+  .content p, .content li, .chapter p, .chapter li {
+    font-size: 1.04rem; line-height: 1.85;
+  }
+  .join { margin: 1.6rem 1rem 3.5rem; padding: 1.55rem 1.25rem; }
+  .project-page { padding: 2.5rem 1.1rem 4rem; }
   .project-banner-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
 }
-
-/* Egne prosjektsider: lesbar dybde og god avstand. */
-.project-page { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.4rem 6rem; }
-.project-page h2 { color: var(--accent-strong); font-size: clamp(1.6rem, 2.7vw, 2.2rem); margin-top: 2.9rem; }
-.project-page h3 { color: var(--accent-strong); font-size: 1.32rem; margin-top: 2.1rem; }
-.project-page p, .project-page li { font-family: Georgia, "Palatino Linotype", serif; font-size: 1.08rem; line-height: 1.85; }
-.project-page ul, .project-page ol { padding-left: 1.5rem; }
-.project-page section { margin-bottom: 2.3rem; }
-.project-static { height: 100%; }
-.project-static .project-body { min-height: 150px; }
-@media (max-width: 700px) { .project-page { padding: 2.3rem 1.1rem 4rem; } }
