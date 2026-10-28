@@ -14,6 +14,7 @@ Dette dokumentet beskriver hvordan vi videreutvikler Paradispartiets omfattende 
 
 ## Nettsidens design
 
+- **Behold Paradispartiets svarte og gule fargeprofil** (svart bakgrunn og eksisterende gultone, blant annet `#FFD600`). Designforbedringer handler om typografi, avstander, balanse, navigasjon og profesjonalitet – ikke om å skifte partiets visuelle identitet.
 - Nettsiden skal være innbydende, tydelig, tilgjengelig, mobilvennlig og egnet til **lange** tekster.
 - Navigasjon, innholdsfortegnelser og visuell struktur skal gjøre det enklere å finne og lese fulltekstene, ikke erstatte dem med sammendrag.
 - Endringer i design skal ikke brukes som anledning til å slette tekst.
