@@ -647,3 +647,149 @@ img { max-width: 100%; }
     animation-duration: .01ms !important;
   }
 }
+
+
+/* ===========================================================
+   Runde 2: enklere navigasjon og kapitler uten innholdskutt.
+   =========================================================== */
+
+/* Mobilmeny vises som knapp bare dersom JavaScript har satt den opp.
+   Uten JavaScript forblir alle lenkene synlige. */
+.nav-toggle { display: none !important; }
+.menu-glyph { font-size: 1.2rem; line-height: 1; font-weight: 500; }
+@media (max-width: 700px) {
+  html.js-navigation .site-header,
+  html.js-navigation .site-header > .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  html.js-navigation .site-header .brand { margin-right: auto; }
+  html.js-navigation .site-header .nav-toggle {
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    padding: .55rem .75rem;
+    min-height: 44px;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    background: #171717;
+    color: var(--white);
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  html.js-navigation .site-header .nav-toggle[aria-expanded="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  html.js-navigation .site-header .site-nav { display: none !important; }
+  html.js-navigation .site-header .site-nav.is-open {
+    display: grid !important;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: .25rem;
+    justify-items: stretch;
+    padding: .8rem 0 .25rem;
+    border-top: 1px solid var(--line);
+    margin-top: .5rem;
+  }
+  html.js-navigation .site-header .site-nav a {
+    display: block;
+    padding: .85rem .75rem;
+    font-size: .9rem;
+    background: #151515;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    text-align: left;
+    min-width: 0;
+  }
+  html.js-navigation .site-header .site-nav a[aria-current="page"] {
+    border-color: #6a5c1a;
+    color: var(--accent);
+  }
+  html.js-navigation .site-header .site-nav a.active::after,
+  html.js-navigation .site-header .site-nav a[aria-current="page"]::after {
+    display: none;
+  }
+}
+
+/* Ekstra innholdsfortegnelse genereres fra eksisterende titler i
+   grunnlagsdokumentet og politikksiden – ikke fra sammendrag. */
+.reading-index {
+  margin: 2.3rem 0 3.3rem;
+  border-radius: 6px;
+  border: 1px solid #424242;
+  background: #121212;
+  padding: 0;
+}
+.reading-index > summary {
+  display: list-item;
+  list-style-position: inside;
+  cursor: pointer;
+  padding: 1rem 1.35rem;
+  color: #f4d778;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: .01em;
+}
+.reading-index[open] > summary { border-bottom: 1px solid #363636; }
+.reading-index nav {
+  max-height: min(65vh, 480px);
+  overflow-y: auto;
+  scrollbar-color: #555 #171717;
+  padding: .8rem 1.35rem 1.25rem;
+}
+.reading-index ol {
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 1.45rem;
+  columns: 2;
+  column-gap: 2.4rem;
+}
+.reading-index li {
+  break-inside: avoid;
+  padding: .22rem 0;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+.reading-index a { color: #deded8; text-decoration: none; }
+.reading-index a:hover { color: var(--accent); text-decoration: underline; }
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 180;
+  height: 3px;
+  width: 0;
+  pointer-events: none;
+  background: var(--accent);
+  box-shadow: none;
+  transition: width .09s linear;
+}
+.document-status {
+  display: inline-block;
+  margin: 0 0 1.7rem;
+  padding: .33rem .7rem;
+  border: 1px solid #5b4c23;
+  border-radius: 4px;
+  background: #1b180e;
+  color: #ead280;
+  font: 700 .82rem/1.4 Inter, "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .01em;
+}
+
+@media (max-width: 700px) {
+  .reading-index { margin: 1.7rem 0 2.5rem; }
+  .reading-index ol { columns: 1; }
+  .reading-index nav { max-height: min(65vh, 440px); }
+  .reading-index > summary { padding: .9rem 1rem; }
+  .reading-index nav { padding: .6rem 1rem 1.15rem; }
+}
