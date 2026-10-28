@@ -4,6 +4,9 @@
    ======================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavigation();
+  initDocumentOutline();
+  initReadingProgress();
   initScrollTopButton();
   loadAvisaFeed();
 });
@@ -105,4 +108,139 @@ function initScrollTopButton() {
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+}
+
+
+/* === Tilgjengelig mobilmeny med vanlig synlig navigasjon uten JavaScript === */
+function initNavigation() {
+  const header = document.querySelector(".site-header");
+  const nav = header && header.querySelector(".site-nav");
+  if (!nav) return;
+
+  const parent = nav.parentElement;
+  let toggle = header.querySelector(".nav-toggle");
+  if (!toggle) {
+    toggle = document.createElement("button");
+    parent.insertBefore(toggle, nav);
+  } else if (toggle.parentElement !== parent) {
+    parent.insertBefore(toggle, nav);
+  }
+  toggle.type = "button";
+  toggle.className = "nav-toggle";
+  toggle.setAttribute("aria-controls", "hovedmeny");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "Åpne meny");
+  toggle.innerHTML = '<span aria-hidden="true" class="menu-glyph">☰</span><span>Meny</span>';
+  nav.id = "hovedmeny";
+  nav.classList.remove("is-open");
+
+  function setMenuOpen(open) {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Lukk meny" : "Åpne meny");
+  }
+
+  toggle.addEventListener("click", () => {
+    setMenuOpen(!nav.classList.contains("is-open"));
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMenuOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 700) setMenuOpen(false);
+  });
+
+  // Først etter at menyen er fullt klar skjules den bak bryteren på mobil.
+  document.documentElement.classList.add("js-navigation");
+}
+
+/* === Navigasjon gjennom eksisterende kapitler, uten tekstredigering === */
+function initDocumentOutline() {
+  const main = document.getElementById("main-content");
+  if (!main) return;
+
+  let entries = [];
+  let label = "Innhold og kapitler";
+
+  if (document.body.classList.contains("page--teori")) {
+    entries = Array.from(main.querySelectorAll("article.chapter[id]")).map((section) => {
+      const heading = section.querySelector(":scope > h2, :scope > h3");
+      return heading && { id: section.id, title: heading.textContent.trim() };
+    }).filter(Boolean);
+  } else if (main.querySelector("#politikk-fulltekst")) {
+    entries = Array.from(main.querySelectorAll(".pp-politikk section[id]")).map((section) => {
+      const heading = section.querySelector(":scope > h2, :scope > h3");
+      return heading && { id: section.id, title: heading.textContent.trim() };
+    }).filter(Boolean);
+    label = "Politiske temaer";
+  }
+
+  if (entries.length < 3) return;
+
+  const details = document.createElement("details");
+  details.className = "reading-index";
+  const summary = document.createElement("summary");
+  summary.textContent = label + " (" + entries.length + ")";
+  const nav = document.createElement("nav");
+  nav.setAttribute("aria-label", label);
+  const list = document.createElement("ol");
+
+  entries.forEach(({ id, title }) => {
+    const item = document.createElement("li");
+    const anchor = document.createElement("a");
+    anchor.href = "#" + encodeURIComponent(id);
+    anchor.textContent = title;
+    item.appendChild(anchor);
+    list.appendChild(item);
+  });
+
+  nav.appendChild(list);
+  details.appendChild(summary);
+  details.appendChild(nav);
+
+  const introduction = main.querySelector(":scope > .lead, :scope > p");
+  const heading = main.querySelector(":scope > h1");
+  (introduction || heading)?.insertAdjacentElement("afterend", details);
+}
+
+/* === Diskret lesefremdrift på de lange dokumentene === */
+function initReadingProgress() {
+  if (!document.body.matches(".page--manifest, .page--teori, .page--okonomiskmodell")
+      && !document.querySelector(".pp-politikk")) return;
+
+  const main = document.getElementById("main-content");
+  if (!main) return;
+  const progress = document.createElement("div");
+  progress.className = "reading-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
+  let scheduled = false;
+  function update() {
+    const end = Math.max(1, main.offsetTop + main.offsetHeight - window.innerHeight);
+    const current = Math.max(0, window.scrollY - main.offsetTop);
+    progress.style.width = Math.min(100, (current / end) * 100) + "%";
+    scheduled = false;
+  }
+  window.addEventListener("scroll", () => {
+    if (!scheduled) {
+      scheduled = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 }
