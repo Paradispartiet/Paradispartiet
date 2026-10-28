@@ -793,3 +793,23 @@ img { max-width: 100%; }
   .reading-index > summary { padding: .9rem 1rem; }
   .reading-index nav { padding: .6rem 1rem 1.15rem; }
 }
+
+
+/* Små detaljer for de lange arbeidsdokumentene. */
+.content .document-status {
+  display: inline-block;
+  margin: 0 0 1.8rem;
+  color: #ead280;
+  font: 700 .82rem/1.4 Inter, "Segoe UI", system-ui, sans-serif;
+}
+.content .reading-index li {
+  font: 500 .92rem/1.6 Inter, "Segoe UI", system-ui, sans-serif;
+}
+.content article.chapter:target > h2,
+.content article.chapter:target > h3,
+.content section:target > h2 {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .22em;
+}
