@@ -7,8 +7,10 @@
   <meta name="description" content="Paradispartiet – idéer, politikk og grunnlagsdokument for et samfunn bygget på fellesskap, frihet og klarhet.">
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
-<body>
+<body class="home-page">
+<a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
 
 <header class="site-header">
   <a class="brand" href="index.html" aria-label="Paradispartiet">
@@ -17,16 +19,32 @@
   </a>
   <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
   <nav class="site-nav" aria-label="Hovedmeny">
-    <a href="index.html" class="active">Hjem</a>
+    <a href="index.html" class="active" aria-current="page">Hjem</a>
+    <a href="politikk.html">Politikk</a>
     <a href="manifest.html">Manifest</a>
     <a href="grunnlag.html">Grunnlag</a>
+    <a href="okonomisk-modell.html">Økonomisk modell</a>
     <a href="prosjekter.html">Prosjekter</a>
-    <a href="kontakt.html">Kontakt</a>
     <a href="om.html">Om</a>
+    <a href="kontakt.html">Kontakt</a>
   </nav>
 </header>
 
   
+
+<main id="main-content">
+<section class="home-hero" aria-labelledby="hovedtittel">
+  <div class="home-hero-inner">
+    <p class="home-kicker">Paradispartiet · politisk prosjekt under utvikling</p>
+    <h1 id="hovedtittel">Trygghet som grunnlag.<br>Frihet til å skape.</h1>
+    <p class="hero-description">Utforsk Paradismodellen, partiets politikk og de omfattende dokumentene som utvikler tankene bak prosjektet.</p>
+    <div class="hero-actions">
+      <a class="primary" href="politikk.html">Les politikken</a>
+      <a class="secondary" href="manifest.html">Utforsk manifestet</a>
+    </div>
+  </div>
+</section>
+
 <!-- Idégrunnlag -->
 <section class="foundation">
 
@@ -65,7 +83,8 @@
 
   
 <!-- Nøkkelprinsipper -->
-<section class="cards">
+<div class="section-heading"><h2>Grunnprinsipper</h2><p>En oversikt over sentrale ideer. De fullstendige begrunnelsene og de mange nyansene finnes i dokumentene.</p><span class="document-note">Alle hoveddokumenter er arbeidsutkast</span></div>
+<section class="cards" aria-label="Grunnprinsipper">
 
   <div class="card">
     <h3>BasicMarked + FriMarked</h3>
@@ -106,6 +125,7 @@
     <p>
       Vold og overgrep kan straffes med fengsel. Andre tvister løses gjennom ansvar, erstatning og offentlig forsikring.
       Politiet deles i to – et sikkerhetspoliti og et ordenspoliti. 
+    </p>
   </div>
 
   <div class="card">
@@ -136,14 +156,7 @@
 
 </section>
 
-<!-- Paradisavisa -->
-<section class="avisa">
-  <div class="avisa-top">
-    <h2>Fra Paradisavisa</h2>
-    <a class="more-link" href="https://paradispartiet.github.io/Paradisavisa/" target="_blank" rel="noopener">Besøk avisa →</a>
-  </div>
-  <div id="avisa-feed" class="avisa-grid" aria-live="polite"></div>
-</section>
+
 
   
   <!-- Prosjekter -->
@@ -155,7 +168,7 @@
     <article class="project">
       <img src="assets/oslo_old_boys.PNG" alt="Oslo Old Boys">
       <div class="project-body">
-        <h3><a href="oldboys.html">Oslo Old Boys</a></h3>
+        <h3><a href="Prosjekter/Oslooldboys.html">Oslo Old Boys</a></h3>
         <p>En sosial sportsklubb der idrett og fellesskap møtes.</p>
       </div>
     </article>
@@ -163,7 +176,7 @@
     <article class="project">
       <img src="assets/lesebiblioteket.PNG" alt="Lesebiblioteket">
       <div class="project-body">
-        <h3><a href="lesebiblioteket.html">Lesebiblioteket</a></h3>
+        <h3><a href="Prosjekter/Lesebiblioteket.html">Lesebiblioteket</a></h3>
         <p>Et åpent rom for kunnskap og ro – uten kjøpspress.</p>
       </div>
     </article>
@@ -193,6 +206,16 @@
   </div>
 </section>
   
+
+<!-- Paradisavisa -->
+<section class="avisa">
+  <div class="avisa-top">
+    <h2>Fra Paradisavisa</h2>
+    <a class="more-link" href="https://paradispartiet.github.io/Paradisavisa/" target="_blank" rel="noopener">Besøk avisa →</a>
+  </div>
+  <div id="avisa-feed" class="avisa-grid" aria-live="polite"></div>
+</section>
+</main>
 
 <nav class="bottom-nav">
   <a href="index.html">Hjem</a>
