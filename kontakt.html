@@ -6,27 +6,33 @@
   <title>Kontakt – Paradispartiet</title>
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
 <header class="site-header">
   <a class="brand" href="index.html"><img src="assets/logo.svg" alt=""> <span>Paradispartiet</span></a>
   <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Hjem</a>
     <a href="politikk.html">Politikk</a>
-    <a href="grunnlag.html">Grunnlag</a>
     <a href="manifest.html">Manifest</a>
-    <a href="kontakt.html" class="active">Kontakt</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="okonomisk-modell.html">Økonomisk modell</a>
+    <a href="prosjekter.html">Prosjekter</a>
+    <a href="om.html">Om</a>
+    <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
   </nav>
 </header>
 
+<main id="main-content">
 <section id="meld-deg-inn" class="join">
   <h2>Meld deg inn</h2>
   <p>Vil du være med å bygge Paradispartiet? Fyll ut skjemaet – det tar under ett minutt.</p>
 
   <!-- Bytt LENKEN under til din Google Forms-lenke -->
   <p>
-    <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLScazELiFQj1DIpiJaszPPKG7iF_nbokG3gq-cbpvFPei8KGEw/viewform " target="_blank" rel="noopener">
+    <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLScazELiFQj1DIpiJaszPPKG7iF_nbokG3gq-cbpvFPei8KGEw/viewform" target="_blank" rel="noopener">
       Meld deg inn (skjema)
     </a>
   </p>
@@ -55,3 +61,19 @@
     Digital innsending, bilder eller skann er dessverre ikke gyldig – valgmyndighetene krever originale papirsignaturer.
   </p>
 </section>
+</main>
+
+<nav class="bottom-nav" aria-label="Hovedlenker nederst">
+  <a href="index.html">Hjem</a>
+  <a href="politikk.html">Politikk</a>
+  <a href="manifest.html">Manifest</a>
+  <a href="grunnlag.html">Grunnlag</a>
+  <a href="okonomisk-modell.html">Økonomisk modell</a>
+  <a href="prosjekter.html">Prosjekter</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+<footer class="site-footer"><p>© Paradispartiet</p></footer>
+
+<script src="script.js"></script>
+</body>
+</html>

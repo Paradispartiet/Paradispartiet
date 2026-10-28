@@ -8,24 +8,29 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="prosjekter.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Hopp til hovedinnhold</a>
 
 <header class="site-header">
   <a class="brand" href="index.html">
     <img src="assets/logo.svg" alt="Paradispartiet logo">
     <span>Paradispartiet</span>
   </a>
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Hjem</a>
     <a href="politikk.html">Politikk</a>
     <a href="manifest.html">Manifest</a>
-    <a href="prosjekter.html" class="active">Prosjekter</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="okonomisk-modell.html">Økonomisk modell</a>
+    <a href="prosjekter.html" class="active" aria-current="page">Prosjekter</a>
+    <a href="om.html">Om</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
 </header>
 
-<main class="projects-page">
+<main id="main-content" class="projects-page">
   <section class="intro">
     <h1>Prosjekter</h1>
     <p>
@@ -40,7 +45,7 @@
     <!-- Paradisavisa (ekstern) -->
     <article class="project">
       <a href="https://paradisavisa.no" target="_blank" style="text-decoration:none; color:inherit;">
-        <img src="assets/paradisavisa.jpg" alt="Paradisavisa">
+        <div class="project-placeholder sage" role="img" aria-label="Grafisk plassholder for Paradisavisa">Paradisavisa</div>
         <div class="project-body">
           <h2>Paradisavisa</h2>
           <p>
@@ -53,8 +58,8 @@
 
     <!-- EchoNet -->
     <article class="project">
-      <a href="echonet.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/echonet.jpg" alt="AHA EchoNet">
+      <a href="Prosjekter/EchoNet.html" style="text-decoration:none; color:inherit;">
+        <div class="project-placeholder" role="img" aria-label="Grafisk plassholder for EchoNet">EchoNet</div>
         <div class="project-body">
           <h2>AHA EchoNet</h2>
           <p>
@@ -67,8 +72,8 @@
 
     <!-- Lesebiblioteket -->
     <article class="project">
-      <a href="lesebiblioteket.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/lesebiblioteket.jpg" alt="Lesebiblioteket">
+      <a href="Prosjekter/Lesebiblioteket.html" style="text-decoration:none; color:inherit;">
+        <img src="assets/lesebiblioteket.PNG" alt="Lesebiblioteket">
         <div class="project-body">
           <h2>Lesebiblioteket</h2>
           <p>
@@ -80,8 +85,8 @@
 
     <!-- Oslo Old Boys -->
     <article class="project">
-      <a href="oldboys.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/oslo-old-boys.jpg" alt="Oslo Old Boys">
+      <a href="Prosjekter/Oslooldboys.html" style="text-decoration:none; color:inherit;">
+        <img src="assets/oslo_old_boys.PNG" alt="Oslo Old Boys">
         <div class="project-body">
           <h2>Oslo Old Boys</h2>
           <p>
@@ -93,8 +98,8 @@
 
     <!-- GlassHus -->
     <article class="project">
-      <a href="glasshus.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/glasshus.jpg" alt="GlassHus">
+      <a href="Prosjekter/GlassHus.html" style="text-decoration:none; color:inherit;">
+        <div class="project-placeholder gold" role="img" aria-label="Grafisk plassholder for GlassHus">GlassHus</div>
         <div class="project-body">
           <h2>GlassHus</h2>
           <p>
@@ -107,8 +112,8 @@
 
     <!-- Bilfri by -->
     <article class="project">
-      <a href="bilfri-by.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/bilfri-by.jpg" alt="Bilfri by">
+      <div class="project-static" id="bilfri-by">
+        <div class="project-placeholder sage" role="img" aria-label="Grafisk plassholder for Bilfri by">Bilfri by</div>
         <div class="project-body">
           <h2>Bilfri by</h2>
           <p>
@@ -116,13 +121,13 @@
             Et prosjekt for å frigjøre byrommene og gjøre gatene stille, grønne og trygge.
           </p>
         </div>
-      </a>
+      </div>
     </article>
 
     <!-- The Caravan -->
     <article class="project">
-      <a href="caravan.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/caravan.jpg" alt="The Caravan">
+      <div class="project-static" id="caravan">
+        <div class="project-placeholder" role="img" aria-label="Grafisk plassholder for The Caravan">The Caravan</div>
         <div class="project-body">
           <h2>The Caravan – Grønne korridorer</h2>
           <p>
@@ -130,13 +135,13 @@
             <span class="status">Under utvikling</span>
           </p>
         </div>
-      </a>
+      </div>
     </article>
 
     <!-- BasicMarked -->
     <article class="project">
-      <a href="basicmarked.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/basicmarked.jpg" alt="BasicMarked">
+      <div class="project-static" id="basicmarked">
+        <div class="project-placeholder gold" role="img" aria-label="Grafisk plassholder for BasicMarked">BasicMarked</div>
         <div class="project-body">
           <h2>BasicMarked-piloten</h2>
           <p>
@@ -144,13 +149,13 @@
             <span class="status">Under planlegging</span>
           </p>
         </div>
-      </a>
+      </div>
     </article>
 
     <!-- Teorien om lyset -->
     <article class="project">
-      <a href="teorien-om-lyset.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/teorien-om-lyset.jpg" alt="Teorien om lyset">
+      <a href="https://paradispartiet.github.io/Teorien-om-lyset/" style="text-decoration:none; color:inherit;">
+        <img src="assets/teorien_om_lyset.PNG" alt="Teorien om lyset">
         <div class="project-body">
           <h2>Teorien om lyset</h2>
           <p>
@@ -168,5 +173,6 @@
   <p>© 2025 Paradispartiet</p>
 </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

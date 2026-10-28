@@ -1,0 +1,815 @@
+/* ===========================================================
+   PARADISPARTIET – DESIGNFORSLAG, OKTOBER 2026
+   Videreutvikling av opprinnelig identitet: SVART + GULT.
+   Ingen hovedtekst er forkortet eller redigert for denne designrunden.
+   Lastes etter det eksisterende styles.css.
+   =========================================================== */
+
+:root {
+  /* Samme partifarger som i den eksisterende profilen. */
+  --bg: #000;
+  --card: #101010;
+  --border: rgba(255,255,255,.12);
+  --fg: #f3f3f3;
+  --muted: #aaa9a5;
+  --accent: #ffd600;
+
+  /* Nøytrale støttetoner, ikke en ny fargepalett. */
+  --surface: #090909;
+  --surface-raised: #151515;
+  --surface-hover: #1b1b1b;
+  --line: #292929;
+  --white: #f6f5f1;
+  --shadow: 0 14px 38px rgba(0,0,0,.24);
+  --reading-width: 850px;
+  --content-width: 1160px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  color: var(--white);
+  letter-spacing: -.028em;
+  line-height: 1.23;
+}
+p { margin-bottom: 1.2rem; }
+a { color: var(--accent); text-decoration: none; text-underline-offset: .2em; }
+a:hover { color: #ffe45e; text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+::selection { background: var(--accent); color: #111; }
+img { max-width: 100%; }
+.skip-link {
+  position: absolute; top: -6rem; left: 1rem; z-index: 1000;
+  padding: .7rem 1rem; border-radius: 0 0 5px 5px;
+  background: var(--accent); color: #101010; font-weight: 750;
+}
+.skip-link:focus { top: 0; }
+
+/* ===========================================================
+   Toppfelt: tydelig, diskret, luftig, konsekvent.
+   =========================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: .95rem max(1.25rem, calc((100% - 1240px) / 2));
+  background: rgba(6,6,6,.97);
+  border-bottom: 1px solid #242424;
+  box-shadow: 0 9px 26px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+}
+.site-header > .container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+}
+.site-header .brand {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 780;
+  font-size: 1.15rem;
+  letter-spacing: -.025em;
+  color: var(--white);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.site-header .brand img { width: 40px; height: 40px; object-fit: contain; }
+.site-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: .1rem .35rem;
+}
+.site-nav a {
+  position: relative;
+  display: inline-block;
+  padding: .62rem .64rem;
+  font-size: .88rem;
+  font-weight: 620;
+  line-height: 1.3;
+  color: #d2d2ce;
+  opacity: 1;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: color .18s ease, background .18s ease;
+}
+.site-nav a:hover {
+  color: var(--white);
+  background: #1c1c1c;
+  text-decoration: none;
+}
+.site-nav a.active, .site-nav a[aria-current="page"] {
+  color: var(--accent);
+  background: transparent;
+}
+.site-nav a.active::after, .site-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: .22rem;
+  left: .64rem;
+  right: .64rem;
+  height: 2px;
+  background: var(--accent);
+}
+.nav-toggle { display: none !important; }
+
+/* ===========================================================
+   Forside: arkitektonisk ro fremfor sterke gradienter og store bobler.
+   =========================================================== */
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #080808;
+  color: var(--white);
+  padding: clamp(5rem, 9vw, 8.8rem) 1.5rem clamp(5.2rem, 9vw, 9rem);
+  border-bottom: 1px solid #262626;
+}
+.home-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(42vw, 560px);
+  height: min(42vw, 560px);
+  right: -3%;
+  top: 12%;
+  border: 1px solid rgba(255,214,0,.3);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 63px rgba(255,214,0,.035),
+    0 0 0 126px rgba(255,214,0,.02);
+}
+.home-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 11%;
+  top: 20%;
+  height: 62%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,214,0,.22), transparent);
+  transform: rotate(18deg);
+}
+.home-hero-inner {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  position: relative;
+}
+.home-kicker {
+  display: inline-block;
+  margin: 0 0 1.8rem;
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 760;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.home-hero h1 {
+  max-width: 900px;
+  margin: 0 0 1.55rem;
+  font-size: clamp(2.8rem, 6vw, 5.35rem);
+  line-height: 1.08;
+  letter-spacing: -.052em;
+  font-weight: 750;
+  color: #fafaf8;
+}
+.home-hero .hero-emphasis { color: var(--accent); }
+.home-hero .hero-description {
+  max-width: 665px;
+  margin-bottom: 2.25rem;
+  font-size: clamp(1.09rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+  color: #d0d0cb;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .85rem;
+}
+.hero-actions a, .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: .78rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 760;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+.hero-actions a:hover, .btn:hover { text-decoration: none; transform: translateY(-1px); }
+.hero-actions .primary, .btn-yellow {
+  color: #101010;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+.hero-actions .primary:hover, .btn-yellow:hover {
+  background: #ffe66c; border-color: #ffe66c; color: #101010;
+}
+.hero-actions .secondary {
+  color: var(--white);
+  border: 1px solid #5e5e5e;
+  background: transparent;
+}
+.hero-actions .secondary:hover { background: #1d1d1d; border-color: #aaa; }
+.btn-outline { color: var(--accent); border: 1px solid #6a5f30; background: transparent; }
+.btn-outline:hover { background: #1a180e; color: #ffe15e; }
+.section-heading {
+  max-width: var(--content-width);
+  margin: 4.8rem auto -.6rem;
+  padding: 0 1.25rem;
+}
+.section-heading h2 { font-size: clamp(1.95rem, 3.1vw, 2.65rem); margin: 0 0 .6rem; }
+.section-heading p { max-width: 770px; color: var(--muted); font-size: 1.05rem; }
+.document-note {
+  display: inline-flex;
+  align-items: center;
+  padding: .32rem .8rem;
+  border: 1px solid #5a5128;
+  border-radius: 4px;
+  background: #1b190f;
+  color: #e7d38b;
+  font-size: .83rem;
+  font-weight: 680;
+}
+
+/* ===========================================================
+   Innganger til idegrunnlag og prinsipper: elegant kortdesign.
+   =========================================================== */
+.foundation {
+  max-width: var(--content-width);
+  margin: auto;
+  padding: 5.2rem 1.25rem 3.3rem;
+}
+.foundation-hero { max-width: 800px; margin: 0 auto 2.4rem; text-align: center; }
+.foundation h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  margin: 0 0 .85rem;
+}
+.foundation-hero p { color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
+.foundation-grid { gap: 1.1rem; }
+.foundation-grid article, .card, .project, .about-grid article {
+  background: #111;
+  border: 1px solid #2b2b2b;
+  border-radius: 7px;
+  box-shadow: none;
+}
+.foundation-grid article {
+  padding: 1.85rem;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.foundation-grid article:hover { border-color: #867626; background: #151515; transform: translateY(-2px); }
+.foundation-grid h3 { font-size: 1.25rem; margin: 0 0 .75rem; }
+.foundation-grid h3 a { color: var(--white); }
+.foundation-grid h3 a:hover { color: var(--accent); }
+.foundation-grid p { color: #bcbcb8; font-size: .98rem; line-height: 1.7; opacity: 1; }
+.cards {
+  max-width: var(--content-width);
+  gap: 1.1rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 5.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.card {
+  padding: 2rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  box-shadow: none;
+}
+.card:hover { border-color: #4d4420; }
+.card h3 {
+  margin: 0 0 .8rem;
+  color: #ffe06a;
+  font-size: 1.23rem;
+  font-weight: 720;
+}
+.card p { margin-bottom: 0; color: #d3d3cf; }
+
+/* ===========================================================
+   Prosjekter: gode kontraster, korrekte bilder og plassholdere.
+   =========================================================== */
+.projects.home {
+  margin-top: 0;
+  padding: 5rem 1.25rem;
+  background: #0c0c0c;
+  border-top: 1px solid #242424;
+  border-bottom: 1px solid #242424;
+}
+.projects.home > h2, .projects-page h1 {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: clamp(2rem, 3.3vw, 2.7rem);
+}
+.projects-intro {
+  max-width: 760px;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+.project-grid { gap: 1.2rem; }
+.project {
+  overflow: hidden;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.project:hover { border-color: #73652e; transform: translateY(-2px); box-shadow: none; }
+.project img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: none !important;
+  transform: none;
+}
+.project:hover img { transform: none; filter: none !important; }
+.project-body { padding: 1.5rem; }
+.project-body h2, .project-body h3 {
+  margin: 0 0 .6rem;
+  color: var(--white);
+  font-size: 1.28rem;
+}
+.project-body a { color: var(--white); }
+.project-body a:hover { color: var(--accent); }
+.project-body p { color: #c5c5c0; opacity: 1; }
+.projects-footer { text-align: center; margin-top: 2.3rem; }
+.related-note {
+  max-width: var(--content-width);
+  margin: 2.2rem auto 0;
+  color: var(--muted);
+}
+.projects-page { max-width: 1200px; margin: auto; }
+.projects-page .intro { max-width: 830px; margin: 0 auto 3rem; }
+.projects-page .intro p { font-size: 1.08rem; color: var(--muted); opacity: 1; }
+.project-placeholder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+  padding: 2rem;
+  overflow: hidden;
+  color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  background: linear-gradient(140deg,#151515,#292929);
+}
+.project-placeholder::before {
+  content: "";
+  position: absolute; width: 100%; height: 1px;
+  top: 25%; left: 0;
+  background: rgba(255,214,0,.35);
+  transform: rotate(-13deg);
+}
+.project-placeholder::after {
+  content: "";
+  position: absolute; width: 120px; height: 120px;
+  border: 1px solid rgba(255,214,0,.22); border-radius: 50%;
+  right: -40px; bottom: -45px;
+}
+.project-placeholder.gold { background: linear-gradient(130deg,#25210f,#131313); }
+.project-placeholder.sage { background: linear-gradient(130deg,#171717,#242424); }
+.project-static { height: 100%; }
+.project-static .project-body { min-height: 150px; }
+.project-page { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.4rem 6rem; }
+.project-page h2 { color: var(--white); font-size: clamp(1.65rem, 2.8vw, 2.25rem); margin-top: 2.9rem; }
+.project-page h3 { color: #ffe06a; font-size: 1.35rem; margin-top: 2.1rem; }
+.project-page p, .project-page li {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.07rem; line-height: 1.85; color: #e1e0dc;
+}
+.project-page ul, .project-page ol { padding-left: 1.5rem; }
+.project-page section { margin-bottom: 2.3rem; }
+
+/* ===========================================================
+   Avisa – beholdes på partiets forside, men er visuelt roligere.
+   =========================================================== */
+.avisa {
+  background: #0d0d0d;
+  border-top: 1px solid var(--line);
+  padding: 3.3rem 1.25rem;
+}
+.avisa-top {
+  display: flex;
+  max-width: var(--content-width);
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.avisa-top h2 { font-size: 1.5rem; color: var(--white); margin: 0; }
+.avisa-grid { max-width: var(--content-width); }
+.avisa-card {
+  background: #171717;
+  border: 1px solid #333;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.avisa-card:hover { border-color: #756728; }
+.avisa-title a { color: #f4df86; }
+.avisa-title a:hover { color: var(--accent); }
+.avisa-excerpt { color: #c2c2be; }
+.avisa-meta { color: #a7a7a2; }
+
+/* ===========================================================
+   Om / kontakt / prosjektbanner
+   =========================================================== */
+.about {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 5rem 1.25rem;
+}
+.about h2 { font-size: clamp(1.95rem, 3vw, 2.5rem); }
+.about-lead {
+  max-width: 840px;
+  color: #d6d6d1;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+.about-grid article { padding: 1.5rem; }
+.about-grid h3 { font-size: 1.17rem; color: #f3dd74; }
+.about-contact {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: .85rem; margin-top: 2rem;
+}
+.about-contact p { flex-basis: 100%; margin-bottom: .15rem; font-size: 1.12rem; font-weight: 720; }
+.project-banner {
+  background: #111;
+  border-bottom: 1px solid #2c2c2c;
+  padding: 3.8rem 1.3rem;
+}
+.project-banner-inner {
+  max-width: var(--content-width); margin: auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+.project-banner-text h1 { font-size: clamp(2.1rem, 3.5vw, 3.25rem); }
+.project-banner-text p { max-width: 680px; color: #c9c9c5; font-size: 1.13rem; }
+.project-banner-icon img { max-width: 115px; }
+.join {
+  max-width: 830px;
+  margin: 3.5rem auto 5rem;
+  padding: 2.5rem;
+  background: #121212;
+  border: 1px solid #343434;
+  border-radius: 8px;
+}
+.join h2 { font-size: 2.25rem; }
+.join hr { border: 0; border-top: 1px solid #343434; margin: 2rem 0; }
+.join li { padding-bottom: .7rem; }
+
+/* ===========================================================
+   Lange dokumenter: dybde og lesbarhet, ingen forkorting.
+   =========================================================== */
+.container { max-width: 1240px; margin-inline: auto; }
+.content,
+.page--manifest .content,
+.page--teori .content,
+.page--okonomiskmodell .content {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: 4.15rem 1.4rem 7rem;
+}
+.content > h1, .content > section:first-of-type > h1 {
+  font-size: clamp(2.45rem, 4.5vw, 3.7rem);
+  line-height: 1.11;
+  letter-spacing: -.046em;
+  margin: 0 0 1.2rem;
+}
+.content .lead, .content > p:first-of-type {
+  font-size: 1.19rem; line-height: 1.82; color: #c5c5c0;
+}
+.content h2 {
+  color: var(--white);
+  font-size: clamp(1.7rem, 2.7vw, 2.2rem);
+  margin: 3.6rem 0 1.25rem;
+}
+.content h3 { color: #f1d97b; font-size: 1.38rem; margin: 2.4rem 0 1rem; }
+.content h4 { color: var(--white); font-size: 1.16rem; margin: 1.8rem 0 .75rem; }
+.content p, .content li, .chapter p, .chapter li {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.075rem;
+  line-height: 1.88;
+  color: #e0dfdb;
+}
+.content p { margin-bottom: 1.2rem; }
+.content ul, .content ol { padding-left: 1.55rem; }
+.content li { padding-bottom: .3rem; }
+.content strong { color: #f7f7f3; }
+.content section[id], .content article[id] { scroll-margin-top: 9rem; }
+.content .chapter { margin-bottom: 3rem; }
+.content a { text-decoration: underline; text-decoration-color: #716a44; }
+.content a:hover { text-decoration-color: var(--accent); }
+.content blockquote {
+  margin: 2rem 0;
+  border-left: 3px solid var(--accent);
+  padding: .5rem 1.35rem;
+  background: #121212;
+}
+.content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  background: #101010;
+}
+.content th, .content td { padding: .7rem .85rem; border: 1px solid #383838; text-align: left; }
+.content th { background: #222; color: var(--white); }
+.content pre { max-width: 100%; overflow-x: auto; }
+.content code { overflow-wrap: anywhere; }
+.content details {
+  margin: .85rem 0;
+  padding: .9rem 1.15rem;
+  background: #121212;
+  border: 1px solid #343434;
+  border-radius: 5px;
+}
+.content summary { color: #f1d97b; cursor: pointer; font-weight: 740; }
+.manifest-toc, .principle-box, .content nav[aria-label="Innhold"] {
+  max-width: none;
+  margin: 2.65rem 0;
+  padding: 1.55rem 1.65rem;
+  background: #131313;
+  border: 1px solid #383838;
+  border-radius: 6px;
+}
+.manifest-toc h2 { margin-top: 0; font-size: 1.55rem; }
+.manifest-toc ol { columns: 2; }
+.manifest-toc a, .content nav[aria-label="Innhold"] a { color: #efcf5d; }
+.pp-politikk .wrap { max-width: 100%; }
+
+/* Footer og til-toppen-funksjon */
+.bottom-nav {
+  background: #111;
+  border-color: #303030;
+  gap: .55rem 1.5rem;
+  padding: 2rem 1.25rem;
+}
+.bottom-nav a { color: #c3c3bf; font-weight: 630; }
+.bottom-nav a:hover, .bottom-nav a.active { color: var(--accent); }
+.site-footer {
+  background: #111; border-color: #303030;
+  color: #a9a9a5; padding: 1.4rem 1rem;
+}
+#scrollTopBtn {
+  background: var(--accent);
+  color: #0d0d0d;
+  box-shadow: 0 5px 24px rgba(0,0,0,.45);
+}
+#scrollTopBtn:hover { box-shadow: 0 5px 26px rgba(0,0,0,.6); }
+.status {
+  background: #242014;
+  color: #f1d575;
+  border-color: #615323;
+}
+
+/* Responsiv design: alt lesbart, ingen menylenker skjult. */
+@media (max-width: 1160px) {
+  .site-header, .site-header > .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .site-nav { justify-content: center; }
+}
+@media (max-width: 700px) {
+  html { scroll-padding-top: 2rem; }
+  .site-header { position: relative; padding: .85rem .9rem; }
+  .site-header .brand img { width: 36px; height: 36px; }
+  .site-nav {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    gap: .1rem .15rem;
+  }
+  .site-nav a { font-size: .8rem; padding: .45rem .5rem; }
+  .site-nav a.active::after, .site-nav a[aria-current="page"]::after {
+    left: .5rem; right: .5rem; bottom: .15rem;
+  }
+  .home-hero { padding: 4.7rem 1.1rem 5.3rem; }
+  .home-hero::before { width: 270px; height: 270px; right: -170px; top: 18%; }
+  .home-hero::after { display: none; }
+  .home-hero h1 { font-size: clamp(2.65rem, 10vw, 4rem); }
+  .hero-actions a { width: 100%; }
+  .foundation { padding: 4rem 1.1rem 2rem; }
+  .foundation-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; padding: 1rem 1.1rem 4rem; }
+  .card { padding: 1.55rem; }
+  .section-heading { margin-top: 3.2rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  .avisa-top { align-items: flex-start; flex-direction: column; }
+  .manifest-toc ol { columns: 1; }
+  .content, .page--manifest .content, .page--teori .content, .page--okonomiskmodell .content {
+    padding: 2.6rem 1.1rem 4.8rem;
+  }
+  .content p, .content li, .chapter p, .chapter li {
+    font-size: 1.04rem; line-height: 1.85;
+  }
+  .join { margin: 1.6rem 1rem 3.5rem; padding: 1.55rem 1.25rem; }
+  .project-page { padding: 2.5rem 1.1rem 4rem; }
+  .project-banner-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+
+
+/* ===========================================================
+   Runde 2: enklere navigasjon og kapitler uten innholdskutt.
+   =========================================================== */
+
+/* Mobilmeny vises som knapp bare dersom JavaScript har satt den opp.
+   Uten JavaScript forblir alle lenkene synlige. */
+.nav-toggle { display: none !important; }
+.menu-glyph { font-size: 1.2rem; line-height: 1; font-weight: 500; }
+@media (max-width: 700px) {
+  html.js-navigation .site-header,
+  html.js-navigation .site-header > .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  html.js-navigation .site-header .brand { margin-right: auto; }
+  html.js-navigation .site-header .nav-toggle {
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    padding: .55rem .75rem;
+    min-height: 44px;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    background: #171717;
+    color: var(--white);
+    font: inherit;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  html.js-navigation .site-header .nav-toggle[aria-expanded="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  html.js-navigation .site-header .site-nav { display: none !important; }
+  html.js-navigation .site-header .site-nav.is-open {
+    display: grid !important;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: .25rem;
+    justify-items: stretch;
+    padding: .8rem 0 .25rem;
+    border-top: 1px solid var(--line);
+    margin-top: .5rem;
+  }
+  html.js-navigation .site-header .site-nav a {
+    display: block;
+    padding: .85rem .75rem;
+    font-size: .9rem;
+    background: #151515;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    text-align: left;
+    min-width: 0;
+  }
+  html.js-navigation .site-header .site-nav a[aria-current="page"] {
+    border-color: #6a5c1a;
+    color: var(--accent);
+  }
+  html.js-navigation .site-header .site-nav a.active::after,
+  html.js-navigation .site-header .site-nav a[aria-current="page"]::after {
+    display: none;
+  }
+}
+
+/* Ekstra innholdsfortegnelse genereres fra eksisterende titler i
+   grunnlagsdokumentet og politikksiden – ikke fra sammendrag. */
+.reading-index {
+  margin: 2.3rem 0 3.3rem;
+  border-radius: 6px;
+  border: 1px solid #424242;
+  background: #121212;
+  padding: 0;
+}
+.reading-index > summary {
+  display: list-item;
+  list-style-position: inside;
+  cursor: pointer;
+  padding: 1rem 1.35rem;
+  color: #f4d778;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: .01em;
+}
+.reading-index[open] > summary { border-bottom: 1px solid #363636; }
+.reading-index nav {
+  max-height: min(65vh, 480px);
+  overflow-y: auto;
+  scrollbar-color: #555 #171717;
+  padding: .8rem 1.35rem 1.25rem;
+}
+.reading-index ol {
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 1.45rem;
+  columns: 2;
+  column-gap: 2.4rem;
+}
+.reading-index li {
+  break-inside: avoid;
+  padding: .22rem 0;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+.reading-index a { color: #deded8; text-decoration: none; }
+.reading-index a:hover { color: var(--accent); text-decoration: underline; }
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 180;
+  height: 3px;
+  width: 0;
+  pointer-events: none;
+  background: var(--accent);
+  box-shadow: none;
+  transition: width .09s linear;
+}
+.document-status {
+  display: inline-block;
+  margin: 0 0 1.7rem;
+  padding: .33rem .7rem;
+  border: 1px solid #5b4c23;
+  border-radius: 4px;
+  background: #1b180e;
+  color: #ead280;
+  font: 700 .82rem/1.4 Inter, "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .01em;
+}
+
+@media (max-width: 700px) {
+  .reading-index { margin: 1.7rem 0 2.5rem; }
+  .reading-index ol { columns: 1; }
+  .reading-index nav { max-height: min(65vh, 440px); }
+  .reading-index > summary { padding: .9rem 1rem; }
+  .reading-index nav { padding: .6rem 1rem 1.15rem; }
+}
+
+
+/* Små detaljer for de lange arbeidsdokumentene. */
+.content .document-status {
+  display: inline-block;
+  margin: 0 0 1.8rem;
+  color: #ead280;
+  font: 700 .82rem/1.4 Inter, "Segoe UI", system-ui, sans-serif;
+}
+.content .reading-index li {
+  font: 500 .92rem/1.6 Inter, "Segoe UI", system-ui, sans-serif;
+}
+.content article.chapter:target > h2,
+.content article.chapter:target > h3,
+.content section:target > h2 {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .22em;
+}
