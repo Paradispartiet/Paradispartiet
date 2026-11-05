@@ -755,3 +755,17 @@ a:hover { text-decoration: none; }
   .document-toc { padding:21px 20px; }
   .document-toc ol { columns:1; }
 }
+
+
+/* Hjelpsom 404-side med samme typografiske uttrykk */
+.error-page {
+  max-width: 980px;
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: clamp(90px, 12vw, 150px) 30px 120px;
+}
+.error-page h1 { margin: 0 0 22px; max-width: 800px; }
+.error-page .lead { margin-bottom: 32px; }
+@media (max-width:700px) {
+  .error-page { min-height: 55vh; padding: 88px 22px 90px; }
+}
