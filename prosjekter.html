@@ -3,170 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Utforsk Paradispartiets prosjekter og idéer – fra Lesebiblioteket til GlassHus og Paradisavisa.">
+  <meta name="theme-color" content="#0a0c0d">
   <title>Prosjekter | Paradispartiet</title>
-  <meta name="description" content="Paradispartiets prosjekter – levende eksempler på et samfunn bygget på fellesskap, kunnskap og frihet.">
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="prosjekter.css">
 </head>
 <body>
-
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
 <header class="site-header">
-  <a class="brand" href="index.html">
-    <img src="assets/logo.svg" alt="Paradispartiet logo">
-    <span>Paradispartiet</span>
-  </a>
-  <nav class="site-nav">
-    <a href="index.html">Hjem</a>
-    <a href="politikk.html">Politikk</a>
-    <a href="manifest.html">Manifest</a>
-    <a href="prosjekter.html" class="active">Prosjekter</a>
-    <a href="kontakt.html">Kontakt</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Paradispartiet – forsiden"><img src="assets/logo.svg" alt="" width="38" height="38"><span>Paradispartiet</span></a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="index.html">Hjem</a>
+      <a href="politikk.html">Politikk</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html" class="active" aria-current="page">Prosjekter</a>
+      <a href="om.html">Om</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
 </header>
-
-<main class="projects-page">
-  <section class="intro">
-    <h1>Prosjekter</h1>
-    <p>
-      Paradispartiets prosjekter er små, konkrete forsøk på å bygge det samfunnet vi snakker om.  
-      Ikke teorier, men steder der fellesskap får form – i biblioteket, på banen, i byen og i naturen.  
-      Her finner du både pågående initiativer og ideer som er under utvikling.
-    </p>
+<main id="main-content" class="projects-page">
+  <section class="intro" aria-labelledby="page-title">
+    <p class="eyebrow">Fra idé til praksis</p>
+    <h1 id="page-title">Prosjekter</h1>
+    <p>Et samfunn bygges ikke av tekster alene. Her presenterer vi prosjekter, initiativer og ideer som utforsker fellesskap, læring, byrom og nye måter å organisere hverdagen på.</p>
   </section>
-
-  <section class="project-grid">
-
-    <!-- Paradisavisa (ekstern) -->
-    <article class="project">
-      <a href="https://paradisavisa.no" target="_blank" style="text-decoration:none; color:inherit;">
-        <img src="assets/paradisavisa.jpg" alt="Paradisavisa">
-        <div class="project-body">
-          <h2>Paradisavisa</h2>
-          <p>
-            En uavhengig avis for idédebatt, kultur og samfunn.  
-            Dokumenterer overgangen mot en ny samfunnsmodell – gjennom artikler, bilder og analyser.
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- EchoNet -->
-    <article class="project">
-      <a href="echonet.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/echonet.jpg" alt="AHA EchoNet">
-        <div class="project-body">
-          <h2>AHA EchoNet</h2>
-          <p>
-            Et samfunnsnyttig prosjekt for kollektiv læring og informasjonsdeling.  
-            EchoNet kobler mennesker og kunstig intelligens i en felles læringsmodell.
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- Lesebiblioteket -->
-    <article class="project">
-      <a href="lesebiblioteket.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/lesebiblioteket.jpg" alt="Lesebiblioteket">
-        <div class="project-body">
-          <h2>Lesebiblioteket</h2>
-          <p>
-            Et åpent rom for kunnskap og ro – et sted der man kan lese, tenke og snakke sammen uten kjøpspress eller krav.
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- Oslo Old Boys -->
-    <article class="project">
-      <a href="oldboys.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/oslo-old-boys.jpg" alt="Oslo Old Boys">
-        <div class="project-body">
-          <h2>Oslo Old Boys</h2>
-          <p>
-            En sosial sportsklubb der idrett og fellesskap møtes – aktivitet uten press eller konkurranse.
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- GlassHus -->
-    <article class="project">
-      <a href="glasshus.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/glasshus.jpg" alt="GlassHus">
-        <div class="project-body">
-          <h2>GlassHus</h2>
-          <p>
-            Små paviljonger og oppvarmede glasshus i parker og byrom – et nett av åpne rom der folk kan søke ly, lys og stillhet gjennom hele året.  
-            <span class="status">Planlagt pilot 2026</span>
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- Bilfri by -->
-    <article class="project">
-      <a href="bilfri-by.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/bilfri-by.jpg" alt="Bilfri by">
-        <div class="project-body">
-          <h2>Bilfri by</h2>
-          <p>
-            Byen tilhører mennesker, ikke maskiner.  
-            Et prosjekt for å frigjøre byrommene og gjøre gatene stille, grønne og trygge.
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- The Caravan -->
-    <article class="project">
-      <a href="caravan.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/caravan.jpg" alt="The Caravan">
-        <div class="project-body">
-          <h2>The Caravan – Grønne korridorer</h2>
-          <p>
-            Et internasjonalt nettverk av grønne stier og korridorer for fri ferdsel.
-            <span class="status">Under utvikling</span>
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- BasicMarked -->
-    <article class="project">
-      <a href="basicmarked.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/basicmarked.jpg" alt="BasicMarked">
-        <div class="project-body">
-          <h2>BasicMarked-piloten</h2>
-          <p>
-            Et eksperiment der mennesker bidrar med 10–15 timer i fellesskapet for å sikre rett til bolig, mat og helse.
-            <span class="status">Under planlegging</span>
-          </p>
-        </div>
-      </a>
-    </article>
-
-    <!-- Teorien om lyset -->
-    <article class="project">
-      <a href="teorien-om-lyset.html" style="text-decoration:none; color:inherit;">
-        <img src="assets/teorien-om-lyset.jpg" alt="Teorien om lyset">
-        <div class="project-body">
-          <h2>Teorien om lyset</h2>
-          <p>
-            Et filosofisk og kunstnerisk prosjekt som utforsker lyset som livets bærer og menneskelig klarhet som samfunnets mål.
-          </p>
-        </div>
-      </a>
-    </article>
-
-  </section>
-
+  <div class="project-grid">
+    <article class="project"><a href="Prosjekter/Paradisavisa.html" aria-label="Les mer om Paradisavisa"><div class="project-visual " aria-hidden="true"><span>PA</span></div><div class="project-body"><h2>Paradisavisa</h2><p>En uavhengig avis for idédebatt, kultur og samfunn – artikler, bilder og analyser.</p></div></a></article>
+<article class="project"><a href="Prosjekter/EchoNet.html" aria-label="Les mer om AHA EchoNet"><div class="project-visual project-visual--blue" aria-hidden="true"><span>AI</span></div><div class="project-body"><h2>AHA EchoNet</h2><p>Et samfunnsteknologisk prosjekt for kollektiv læring og ansvarlig kunnskapsdeling.</p></div></a></article>
+<article class="project"><a href="Prosjekter/Lesebiblioteket.html" aria-label="Les mer om Lesebiblioteket"><img src="assets/lesebiblioteket.PNG" alt="" loading="lazy"><div class="project-body"><h2>Lesebiblioteket</h2><p>Et åpent rom for lesing, læring og samtaler – uten kjøpepress eller prestasjonskrav.</p></div></a></article>
+<article class="project"><a href="Prosjekter/Oslooldboys.html" aria-label="Les mer om Oslo Old Boys"><img src="assets/oslo_old_boys.PNG" alt="" loading="lazy"><div class="project-body"><h2>Oslo Old Boys</h2><p>En sosial sportsklubb der aktivitet og fellesskap møtes – uten prestasjonspress.</p></div></a></article>
+<article class="project"><a href="Prosjekter/GlassHus.html" aria-label="Les mer om GlassHus"><div class="project-visual project-visual--green" aria-hidden="true"><span>GH</span></div><div class="project-body"><h2>GlassHus</h2><p>Åpne, lyse paviljonger og møteplasser i parker og byrom.</p><span class="status">Under planlegging</span></div></a></article>
+<article class="project"><div class="project-visual project-visual--green" aria-hidden="true"><span>BY</span></div><div class="project-body"><h2>Bilfri by</h2><p>En idé for roligere, grønnere og tryggere byrom der mennesker får mer plass.</p><span class="status">Idé og visjon</span></div></article>
+<article class="project"><div class="project-visual project-visual--orange" aria-hidden="true"><span>CV</span></div><div class="project-body"><h2>The Caravan</h2><p>Et konsept for grønne korridorer og forbindelser for fri ferdsel.</p><span class="status">Under utvikling</span></div></article>
+<article class="project"><a href="okonomisk-modell.html" aria-label="Les mer om BasicMarked-piloten"><div class="project-visual " aria-hidden="true"><span>BM</span></div><div class="project-body"><h2>BasicMarked-piloten</h2><p>Et forslag til hvordan grunnleggende behov kan organiseres gjennom fellesskapet.</p><span class="status">Les om modellen</span></div></a></article>
+<article class="project"><a href="https://paradispartiet.github.io/Teorien-om-lyset/" target="_blank" rel="noopener noreferrer" aria-label="Les mer om Teorien om lyset"><div class="project-visual project-visual--blue" aria-hidden="true"><span>LY</span></div><div class="project-body"><h2>Teorien om lyset</h2><p>Et filosofisk og kunstnerisk prosjekt som utforsker lys, liv og menneskelig klarhet.</p><span class="status">Ekstern side</span></div></a></article>
+  </div>
 </main>
-
-<footer class="site-footer">
-  <p>© 2025 Paradispartiet</p>
-</footer>
-
+<nav class="bottom-nav" aria-label="Lenker i bunn">
+  <a href="index.html">Hjem</a><a href="politikk.html">Politikk</a><a href="manifest.html">Manifest</a><a href="grunnlag.html">Grunnlag</a><a href="om.html">Om</a><a href="kontakt.html">Kontakt</a>
+</nav>
+<footer class="site-footer"><p>© <span data-year>2026</span> Paradispartiet</p></footer>
+<script src="script.js"></script>
 </body>
 </html>
