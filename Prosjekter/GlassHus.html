@@ -5,25 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GlassHus | Paradispartiet</title>
   <meta name="description" content="GlassHus – små paviljonger og oppvarmede glasshus i parker og byrom, bygget med norsk overskuddsenergi.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="page page--prosjekt">
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Paradispartiet">
-      <img src="assets/logo.svg" alt="Paradispartiet logo">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Paradispartiet – forsiden">
+      <img src="../assets/logo.svg" alt="" width="38" height="38">
       <span>Paradispartiet</span>
     </a>
-    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
-    <nav class="site-nav">
-      <a href="index.html">Hjem</a>
-      <a href="manifest.html">Manifest</a>
-      <a href="grunnlag.html">Grunnlag</a>
-      <a href="prosjekter.html" class="active">Prosjekter</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="om.html">Om</a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="../index.html">Hjem</a>
+      <a href="../politikk.html">Politikk</a>
+      <a href="../manifest.html">Manifest</a>
+      <a href="../grunnlag.html">Grunnlag</a>
+      <a href="../prosjekter.html" class="active" aria-current="page">Prosjekter</a>
+      <a href="../om.html">Om</a>
+      <a href="../kontakt.html">Kontakt</a>
     </nav>
-  </header>
+    <a class="header-cta" href="../kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 
   <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
     <div class="project-banner-inner">
@@ -32,12 +40,12 @@
         <p>Små paviljonger og oppvarmede glasshus i parker og byrom – steder å lese, møtes og bare være.</p>
       </div>
       <div class="project-banner-icon">
-        <img src="assets/logo.svg" alt="">
+        <img src="../assets/logo.svg" alt="">
       </div>
     </div>
   </section>
 
-  <main class="project-page">
+  <main id="main-content" class="project-page">
 
     <section class="project-content">
 
@@ -92,27 +100,27 @@
     <section class="project-links">
       <h3>Relaterte prosjekter</h3>
       <ul>
-        <li><a href="lesebiblioteket.html">Lesebiblioteket</a></li>
-        <li><a href="oldboys.html">Oslo Old Boys</a></li>
-        <li><a href="basicmarked.html">BasicMarked-piloten</a></li>
+        <li><a href="Lesebiblioteket.html">Lesebiblioteket</a></li>
+        <li><a href="Oslooldboys.html">Oslo Old Boys</a></li>
+        <li><a href="../okonomisk-modell.html">BasicMarked-piloten</a></li>
       </ul>
     </section>
 
   </main>
 
   <nav class="bottom-nav">
-    <a href="index.html">Hjem</a>
-    <a href="manifest.html">Manifest</a>
-    <a href="grunnlag.html">Grunnlag</a>
-    <a href="prosjekter.html" class="active">Prosjekter</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="om.html">Om</a>
+    <a href="../index.html">Hjem</a>
+    <a href="../manifest.html">Manifest</a>
+    <a href="../grunnlag.html">Grunnlag</a>
+    <a href="../prosjekter.html" class="active">Prosjekter</a>
+    <a href="../kontakt.html">Kontakt</a>
+    <a href="../om.html">Om</a>
   </nav>
 
   <footer class="site-footer">
-    <p>© 2025 Paradispartiet</p>
+    <p>© <span data-year>2026</span> Paradispartiet</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
