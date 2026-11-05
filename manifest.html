@@ -5,24 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paradispartiet – Manifest</title>
   <!-- Antar at hoved-CSS allerede finnes i prosjektet -->
+  <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Paradispartiets manifest: ufravikelige rettigheter, Paradismodellen, BasicMarkedet, frihet, trygghet, naturvern og demokratisk maktbegrensning.">
 </head>
 <body class="page page--manifest">
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
   <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="brand">Paradispartiet</a>
-      <nav class="site-nav">
-        <a href="grunnlag.html">Grunnlag</a>
-        <a href="okonomisk-modell.html">Økonomisk modell</a>
-        <a href="prosjekter.html">Prosjekter</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-    </div>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Paradispartiet – forsiden">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="index.html">Hjem</a>
+      <a href="politikk.html">Politikk</a>
+      <a href="manifest.html" class="active" aria-current="page">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om.html">Om</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 
-  </header>
-
-  <main class="container content">
+  <main id="main-content" class="container content">
     <h1>Paradispartiets Manifest</h1>
 
     <nav id="manifest-innhold" class="manifest-toc" aria-label="Innholdsfortegnelse">

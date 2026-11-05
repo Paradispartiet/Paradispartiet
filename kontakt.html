@@ -3,30 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt – Paradispartiet</title>
+  <title>Kontakt og medlemskap – Paradispartiet</title>
+  <meta name="description" content="Kontakt Paradispartiet, finn informasjon om medlemskap og støtteerklæringer.">
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
 <header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo.svg" alt=""> <span>Paradispartiet</span></a>
-  <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
-  <nav class="site-nav" aria-label="Hovedmeny">
-    <a href="index.html">Hjem</a>
-    <a href="politikk.html">Politikk</a>
-    <a href="grunnlag.html">Grunnlag</a>
-    <a href="manifest.html">Manifest</a>
-    <a href="kontakt.html" class="active">Kontakt</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Paradispartiet – forsiden">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="index.html">Hjem</a>
+      <a href="politikk.html">Politikk</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om.html">Om</a>
+      <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
 </header>
 
+<main id="main-content">
 <section id="meld-deg-inn" class="join">
-  <h2>Meld deg inn</h2>
+  <h1>Meld deg inn</h1>
   <p>Vil du være med å bygge Paradispartiet? Fyll ut skjemaet – det tar under ett minutt.</p>
 
   <!-- Bytt LENKEN under til din Google Forms-lenke -->
   <p>
-    <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLScazELiFQj1DIpiJaszPPKG7iF_nbokG3gq-cbpvFPei8KGEw/viewform " target="_blank" rel="noopener">
+    <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLScazELiFQj1DIpiJaszPPKG7iF_nbokG3gq-cbpvFPei8KGEw/viewform" target="_blank" rel="noopener">
       Meld deg inn (skjema)
     </a>
   </p>
@@ -55,3 +68,8 @@
     Digital innsending, bilder eller skann er dessverre ikke gyldig – valgmyndighetene krever originale papirsignaturer.
   </p>
 </section>
+</main>
+<footer class="site-footer"><p>© <span data-year>2026</span> Paradispartiet</p></footer>
+<script src="script.js"></script>
+</body>
+</html>

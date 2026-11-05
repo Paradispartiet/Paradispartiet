@@ -5,28 +5,40 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Paradispartiet – Økonomisk modell</title>
   <meta name="description" content="Den økonomiske modellen bak Paradismodellen: BasicMarked (grunnmarked), arbeidstid som valuta, fri marked, ressursregnskap, kvalitet, styring og overgang." />
+  <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="page page--okonomiskmodell">
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
   <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="brand">Paradispartiet</a>
-      <nav class="site-nav">
-        <a href="manifest.html">Manifest</a>
-        <a href="okonomiskmodell.html" aria-current="page">Økonomisk modell</a>
-        <a href="prosjekter.html">Prosjekter</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
-    </div>
-  </header>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Paradispartiet – forsiden">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span>Paradispartiet</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="index.html">Hjem</a>
+      <a href="politikk.html">Politikk</a>
+      <a href="manifest.html">Manifest</a>
+      <a href="grunnlag.html">Grunnlag</a>
+      <a href="prosjekter.html">Prosjekter</a>
+      <a href="om.html">Om</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 
-  <main class="container content">
+  <main id="main-content" class="container content">
     <h1>Økonomisk modell</h1>
     <p class="lead">Paradismodellen kombinerer grunnleggende trygghet med reell frihet til skaping. Økonomien bygges rundt en dobbel markedsstruktur, arbeidstid som valuta og et åpent ressursregnskap innenfor naturens rammer.</p>
 
     <!-- Innhold -->
     <section id="okonomisk-modell">
-  <h1>Økonomisk modell</h1>
+  <h2>Modellens oppbygning</h2>
   <p>
     Paradismodellen kombinerer grunnleggende trygghet med reell frihet til skaping. Økonomien bygges rundt
     en dobbel markedsstruktur, arbeidstid som valuta og et åpent ressursregnskap innenfor naturens rammer.
@@ -35,7 +47,7 @@
   <!-- INNHOLD -->
   <nav aria-label="Innhold">
     <ol>
-      <li><a href="#kjerneprinsipper">Kjerneprinsipper</a></li>
+      <li><a href="#kap1">Kjerneprinsipper</a></li>
       <li><a href="#forutsetninger">Forutsetninger og parametre</a></li>
       <li><a href="#ressursregnskap">Åpent ressursregnskap (formler + per person)</a></li>
       <li><a href="#arbeidstid">Arbeidstid som valuta (kapasitet og balanse)</a></li>
@@ -197,7 +209,7 @@
   </section>
 
   <!-- 3) Arbeidstid som valuta -->
-  <section id="arbeidstid">
+  <section id="arbeidstid-kjerne">
     <h3>1.3 Arbeidstid som valuta (kapasitet og balanse)</h3>
     <p>
       Grunnlaget for rettighetene er innsats i form av arbeidstid. Standardinnsatsen er <strong>10–15 timer per uke per
@@ -892,3 +904,9 @@
 
   <p style="margin-top:2rem;"><a href="/Paradispartiet/">← Tilbake til Paradispartiet</a></p>
 </section>
+
+</main>
+<footer class="site-footer"><p>© <span data-year>2026</span> Paradispartiet</p></footer>
+<script src="script.js"></script>
+</body>
+</html>

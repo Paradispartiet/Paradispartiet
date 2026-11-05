@@ -5,25 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paradisavisa | Paradispartiet</title>
   <meta name="description" content="Paradisavisa – et redaksjonelt rom for idé, samfunn og politikk.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="page page--prosjekt">
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Paradispartiet">
-      <img src="assets/logo.svg" alt="Paradispartiet logo">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Paradispartiet – forsiden">
+      <img src="../assets/logo.svg" alt="" width="38" height="38">
       <span>Paradispartiet</span>
     </a>
-    <button class="nav-toggle" aria-label="Meny" aria-expanded="false">☰</button>
-    <nav class="site-nav">
-      <a href="index.html">Hjem</a>
-      <a href="manifest.html">Manifest</a>
-      <a href="grunnlag.html">Grunnlag</a>
-      <a href="prosjekter.html" class="active">Prosjekter</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="om.html">Om</a>
+    <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="main-navigation" aria-label="Hovedmeny">
+      <a href="../index.html">Hjem</a>
+      <a href="../politikk.html">Politikk</a>
+      <a href="../manifest.html">Manifest</a>
+      <a href="../grunnlag.html">Grunnlag</a>
+      <a href="../prosjekter.html" class="active" aria-current="page">Prosjekter</a>
+      <a href="../om.html">Om</a>
+      <a href="../kontakt.html">Kontakt</a>
     </nav>
-  </header>
+    <a class="header-cta" href="../kontakt.html#meld-deg-inn">Bli med <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 
   <section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
     <div class="project-banner-inner">
@@ -32,12 +40,12 @@
         <p>Et redaksjonelt rom for idé, samfunn og politikk – uavhengig, men forankret i Paradismodellens verdier.</p>
       </div>
       <div class="project-banner-icon">
-        <img src="assets/logo.svg" alt="">
+        <img src="../assets/logo.svg" alt="">
       </div>
     </div>
   </section>
 
-  <main class="project-page">
+  <main id="main-content" class="project-page">
 
     <section class="project-content">
       <p>
@@ -86,31 +94,31 @@
     <section class="project-links">
       <h3>Relaterte prosjekter</h3>
       <ul>
-        <li><a href="lesebiblioteket.html">Lesebiblioteket – åpent kunnskapsrom</a></li>
-        <li><a href="echonet.html">AHA EchoNet – kollektiv læring</a></li>
-        <li><a href="teorien-om-lyset.html">Teorien om lyset – filosofisk verk</a></li>
+        <li><a href="Lesebiblioteket.html">Lesebiblioteket – åpent kunnskapsrom</a></li>
+        <li><a href="EchoNet.html">AHA EchoNet – kollektiv læring</a></li>
+        <li><a href="https://paradispartiet.github.io/Teorien-om-lyset/" target="_blank" rel="noopener noreferrer">Teorien om lyset – filosofisk verk</a></li>
       </ul>
     </section>
 
     <!-- Ny feed-seksjon -->
     <section class="project-feed">
       <h2>Fra Paradisavisa</h2>
-      <div id="avisa-feed" class="feed-grid"></div>
+      <div id="avisa-feed" class="avisa-grid" aria-live="polite"></div>
     </section>
 
   </main>
 
   <nav class="bottom-nav">
-    <a href="index.html">Hjem</a>
-    <a href="manifest.html">Manifest</a>
-    <a href="grunnlag.html">Grunnlag</a>
-    <a href="prosjekter.html" class="active">Prosjekter</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="om.html">Om</a>
+    <a href="../index.html">Hjem</a>
+    <a href="../manifest.html">Manifest</a>
+    <a href="../grunnlag.html">Grunnlag</a>
+    <a href="../prosjekter.html" class="active">Prosjekter</a>
+    <a href="../kontakt.html">Kontakt</a>
+    <a href="../om.html">Om</a>
   </nav>
 
   <footer class="site-footer">
-    <p>© 2025 Paradispartiet</p>
+    <p>© <span data-year>2026</span> Paradispartiet</p>
   </footer>
 
   <button id="scrollTopBtn" aria-label="Til toppen">
@@ -120,28 +128,6 @@
     </svg>
   </button>
 
-  <script src="script.js"></script>
-
-  <!-- Feed-script -->
-  <script>
-  fetch("https://paradispartiet.github.io/Paradisavisa/posts.json", { cache: "no-store" })
-    .then(r => r.json())
-    .then(posts => {
-      const feed = document.getElementById("avisa-feed");
-      if (!feed) return;
-      posts.slice(0, 3).forEach(post => {
-        const article = document.createElement("article");
-        article.className = "feed-item";
-        article.innerHTML = `
-          <a href="https://paradispartiet.github.io/Paradisavisa/${post.url}" target="_blank">
-            <h3>${post.title}</h3>
-            <p>${post.excerpt}</p>
-            <span class="date">${post.date}</span>
-          </a>`;
-        feed.appendChild(article);
-      });
-    })
-    .catch(err => console.error("Kunne ikke laste feed:", err));
-  </script>
+  <script src="../script.js"></script>
 </body>
 </html>
