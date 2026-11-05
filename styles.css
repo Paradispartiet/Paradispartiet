@@ -702,3 +702,56 @@ a:hover { text-decoration: none; }
 .chapter-index ol { margin:0; padding-left:1.4rem; columns:2; column-gap:38px; }
 .chapter-index li { break-inside:avoid; margin:0 0 10px; font-size:.92rem; line-height:1.45; }
 @media (max-width:700px) { .chapter-index { padding:19px; } .chapter-index ol { columns:1; } }
+
+
+/* Prosjektdetaljer og enklere navigering i lange dokumenter */
+.project-intro-note {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 0 0 42px;
+  padding: 16px 20px;
+  border: 1px solid rgba(245,212,71,.16);
+  background: rgba(245,212,71,.045);
+  border-radius: 14px;
+}
+.project-intro-note .status { flex: 0 0 auto; margin:0; }
+.project-intro-note p { margin:0; color: var(--muted); font-size: .9rem; }
+.project-back { margin-top:36px; }
+.project-links h2 { margin:0 0 16px; font-size:1.25rem; }
+.document-toc {
+  border: 1px solid var(--border);
+  border-radius:18px;
+  padding:25px 30px;
+  margin:35px 0 55px;
+  background: var(--surface);
+}
+.document-toc::before {
+  content: "Hopp til seksjon";
+  display:block;
+  color:var(--fg);
+  font-size:1.15rem;
+  font-weight:800;
+  margin-bottom:16px;
+}
+.document-toc ol {
+  columns:2;
+  column-gap:36px;
+  margin:0;
+  padding-left:1.5rem;
+}
+.document-toc li {
+  break-inside: avoid;
+  margin:0 0 12px;
+  padding-left:2px;
+  font-size:.94rem;
+  line-height:1.4;
+}
+.document-toc a { color:var(--muted); }
+.document-toc a:hover { color:var(--accent); }
+@media (max-width:700px) {
+  .project-intro-note { align-items:flex-start; flex-direction:column; }
+  .document-toc { padding:21px 20px; }
+  .document-toc ol { columns:1; }
+}
