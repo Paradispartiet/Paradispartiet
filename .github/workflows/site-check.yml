@@ -1,0 +1,17 @@
+name: Kontroller nettsiden
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sjekk interne lenker og anker-ID-er
+        run: node tools/check-site.mjs
