@@ -693,3 +693,12 @@ a:hover { text-decoration: none; }
   html { scroll-behavior:auto; }
   *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
+
+
+/* Kapittelindeks for det lange grunnlagsdokumentet */
+.chapter-index { margin: 36px 0 52px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.chapter-index summary { cursor:pointer; color:var(--accent); font-weight:750; font-size:1.06rem; }
+.chapter-index nav { padding-top:20px; }
+.chapter-index ol { margin:0; padding-left:1.4rem; columns:2; column-gap:38px; }
+.chapter-index li { break-inside:avoid; margin:0 0 10px; font-size:.92rem; line-height:1.45; }
+@media (max-width:700px) { .chapter-index { padding:19px; } .chapter-index ol { columns:1; } }
