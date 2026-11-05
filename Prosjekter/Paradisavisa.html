@@ -103,7 +103,7 @@
     <!-- Ny feed-seksjon -->
     <section class="project-feed">
       <h2>Fra Paradisavisa</h2>
-      <div id="avisa-feed" class="feed-grid"></div>
+      <div id="avisa-feed" class="avisa-grid" aria-live="polite"></div>
     </section>
 
   </main>
@@ -129,27 +129,5 @@
   </button>
 
   <script src="../script.js"></script>
-
-  <!-- Feed-script -->
-  <script>
-  fetch("https://paradispartiet.github.io/Paradisavisa/posts.json", { cache: "no-store" })
-    .then(r => r.json())
-    .then(posts => {
-      const feed = document.getElementById("avisa-feed");
-      if (!feed) return;
-      posts.slice(0, 3).forEach(post => {
-        const article = document.createElement("article");
-        article.className = "feed-item";
-        article.innerHTML = `
-          <a href="https://paradispartiet.github.io/Paradisavisa/${post.url}" target="_blank">
-            <h3>${post.title}</h3>
-            <p>${post.excerpt}</p>
-            <span class="date">${post.date}</span>
-          </a>`;
-        feed.appendChild(article);
-      });
-    })
-    .catch(err => console.error("Kunne ikke laste feed:", err));
-  </script>
 </body>
 </html>
