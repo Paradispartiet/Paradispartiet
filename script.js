@@ -2,11 +2,39 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initScrollTopButton();
+  initDocumentIndex();
   loadAvisaFeed();
   document.querySelectorAll("[data-year]").forEach(el => {
     el.textContent = new Date().getFullYear();
   });
 });
+
+function initDocumentIndex() {
+  const main = document.querySelector(".page--teori main.content");
+  if (!main) return;
+  const chapters = [...main.querySelectorAll("article.chapter[id]")];
+  if (chapters.length < 5) return;
+  const details = document.createElement("details");
+  details.className = "chapter-index";
+  const summary = document.createElement("summary");
+  summary.textContent = "Finn et kapittel (" + chapters.length + " kapitler)";
+  const nav = document.createElement("nav");
+  nav.setAttribute("aria-label", "Kapitler i grunnlagsdokumentet");
+  const list = document.createElement("ol");
+  for (const chapter of chapters) {
+    const heading = chapter.querySelector("h2");
+    if (!heading) continue;
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = "#" + chapter.id;
+    link.textContent = heading.textContent.trim();
+    item.append(link);
+    list.append(item);
+  }
+  nav.append(list);
+  details.append(summary, nav);
+  chapters[0].before(details);
+}
 
 function initNavigation() {
   const header = document.querySelector(".site-header");
