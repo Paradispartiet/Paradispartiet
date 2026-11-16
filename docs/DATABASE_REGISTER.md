@@ -64,6 +64,8 @@
 
 **AHA lesebasert profilsjekk – implementert, ikke live-testet 16.11:** [PR #1042](https://github.com/Paradispartiet/AHA-EchoNet/pull/1042) **merget** som `b6830030`; **6/6 CI-kontroller grønne**, inkludert Node- og iPad WebKit-gate. `profile.html` skiller nå eksplisitt lokal profilstatus fra Supabase Auth og har manuell knapp «Kontroller Supabase-konto». Koden verifiserer `auth.getUser()` og leser **kun innlogget brukers egen `aha_profiles.id`** i det forventede AHA-prosjektet. Ingen autoimport eller databaseskriving. **Manuell Cloudflare-preview-deploy fra `main` og faktisk knapperesultat på iPad gjenstår**; dette er ennå ikke bevis på RLS-isolasjon eller privat sky-sync.
 
+**AHA legacy RLS-sikkerhetsport – forberedt 16.11:** [PR #1045](https://github.com/Paradispartiet/AHA-EchoNet/pull/1045) er **åpen draft, CI kjører/venter**. Tilfører 1) en katalogbasert `BEGIN READ ONLY`-kontroll av sikkerhetspolicyer på AHA Supabase DB-03, og 2) separat PostgreSQL 16 CI-test med to **syntetiske** brukere mot eksisterende `public.aha_*`/chamber, helt uten live Supabase-credentials. **Ingen SQL er kjørt mot AHA-kontoen her; ingen reell to-bruker-isolasjon, egenprofilresultat eller backup er verifisert.** Dette er en kontroll av eksisterende DB-03, **ikke** en ny database eller flytting.
+
 ## 2. Lokale og filbaserte datalagre – ikke egne hostede databaser
 
 | System | Lagring og kodeplassering | Status / avgrensning |
