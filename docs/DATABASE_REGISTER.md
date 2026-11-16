@@ -68,6 +68,8 @@
 
 **AHA Supabase-grants kontrollert i syntetisk miljø 16.11:** [PR #1048](https://github.com/Paradispartiet/AHA-EchoNet/pull/1048) er **merget** som `0af3b6b1` med **7/7 grønne CI-kontroller**. Det eksisterende skrivebeskyttede SQL-skriptet kontrollerer nå også at `authenticated` har nødvendige `SELECT`, `INSERT` og `UPDATE`-rettigheter på hver tabell, og rapporterer `REVIEW_MISSING_TABLE_GRANT` ved mangler. Negativ test med midlertidig fjernet UPDATE-grant på `aha_notes` bestod **kun mot disponibel testdatabase**; grant ble gjenopprettet i testen. **Ingen direkte AHA Supabase-tilgang:** den tilkoblede Supabase-identiteten viser fortsatt bare Fysens to prosjekter; direkte `get_project` for DB-03 avvises med manglende rettigheter. Live-audit og profillagring for AHA er fremdeles **ikke kontrollert**.
 
+**AHA Auth-profilskriving – ny oppdagelse 16.11:** Gjennomgang av `js/ahaAuth.js` og `js/ahaAuthCallback.js` avdekket at login/status/callback kan gjøre automatisk `upsert` av `public.aha_profiles`, **selv om previewets legacy chamber-sync er sperret**. Tidligere Cloudflare-innlogging kan derfor ha opprettet/oppdatert profilrad; hosted effekt er uavklart uten EchoNet-database-tilgang. [AHA PR #1049](https://github.com/Paradispartiet/AHA-EchoNet/pull/1049) er en **åpen draft** som fjerner disse automatiske profilskrivingene **kun fra kopierte Cloudflare-preview-Auth-skript** (ikke GitHub Pages), med offline CI-test og byggekontroll. **Ingen ny Cloudflare-deploy utført.** Faktisk Supabase-innlogging/hosted RLS og private data skal ikke få ny sync før kontroll.
+
 ## 2. Lokale og filbaserte datalagre – ikke egne hostede databaser
 
 | System | Lagring og kodeplassering | Status / avgrensning |
