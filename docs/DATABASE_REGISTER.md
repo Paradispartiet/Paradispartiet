@@ -60,6 +60,8 @@
 
 **AHA Cloudflare Pages, brukerprøve 16.11:** Feed-innlegg og bildevalg for Insta fungerer i lokal nettleserlagring. [PR #1039](https://github.com/Paradispartiet/AHA-EchoNet/pull/1039) og [PR #1041](https://github.com/Paradispartiet/AHA-EchoNet/pull/1041) er merget med grønne tester; #1041 gir preview-spesifikk Supabase PKCE callback og sperre mot automatisk legacy chamber-sync. **Bruker har kjørt den manuelle Cloudflare-publiseringen og vist skjermbilde fra iPad 16.11:** AHA Home vises med riktig layout og tidligere lokal innsikt «Hei»; dermed **er frontendvisning på Cloudflare-preview brukerbekreftet**. GitHub Actions-deploylogg for denne manuelle kjøringen og nøyaktig deploy-SHA er ikke uavhengig kontrollert her. **AHA/Supabase Auth, profillagring, databasepersistens, AI-backend og privat synk er fortsatt ikke verifisert.** **Azure canonical er deaktivert ifølge bruker**; ingen datamigrering er utført.
 
+**AHA-profiltest på iPad 16.11:** Bruker viste `profile.html` («Mitt AHA») med **«Lokal AHA-bruker» / «Lokal modus»**, to lokale arbeidsobjekter (én innsikt og én kilde), og tekst **«Ingen EchoNet-identitet er aktivert»**. GitHub-koden for `profile.html` bekrefter at dette er en **lokal statusflate**, ikke skjermbildebevis på Supabase Auth. **Faktisk Supabase session, profil-DB og sky-synk er fortsatt uverifisert.** Neste test: åpne AHA Home sin innloggingsmodal (`index.html?login=1`) og verifiser retur på samme Cloudflare-origin; ingen automatisk privat dataimport.
+
 ## 2. Lokale og filbaserte datalagre – ikke egne hostede databaser
 
 | System | Lagring og kodeplassering | Status / avgrensning |
