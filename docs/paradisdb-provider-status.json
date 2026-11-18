@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "source": "docs/paradisdb-inventory.json",
+  "metadata_only": true,
+  "generated_at": null,
+  "provider_checks": {
+    "DB-01": {
+      "provider": "supabase",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-02": {
+      "provider": "supabase",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-03": {
+      "provider": "supabase",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-04": {
+      "provider": "supabase",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-05": {
+      "provider": "not_configured",
+      "result": "not_supported",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-06": {
+      "provider": "cloudflare_d1",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    },
+    "DB-07": {
+      "provider": "cloudflare_d1",
+      "result": "not_configured",
+      "checked_at": null,
+      "observed_status": null
+    }
+  }
+}
