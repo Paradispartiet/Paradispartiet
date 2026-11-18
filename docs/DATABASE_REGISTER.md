@@ -21,7 +21,8 @@
 | **DB-03** | AHA – eksisterende MVP / Auth | Supabase PostgreSQL 17 + Auth | `AHA`, ref `wshmybqyksrwkawqleiz` | Org **EchoNet**, ID `kepuwrsiqhqwfgijzpev`; **adskilt fra Fysen** | **Direkte kontroll 18.11:** API `ACTIVE_HEALTHY`, `eu-west-1`, PostgreSQL 17. Databasen `postgres` er **23 MB** (24 218 771 byte; ikke samme tall som organisasjonsforbruk). **26/26 `public`-tabeller har RLS aktivert.** 13 tabeller i legacy AHA preflight: **8 `POLICY_PREFLIGHT_OK`, 5 `MISSING_TABLE`** (én innsiktskammer, fire Insta-relasjoner). Supabase viser eksisterende profil-/kilde-/import-/embeddingrader; ingen innholdsrader ble hentet i audit. | Rett manglende skjema *etter* backup og gjennomgang; undersøk sikkerhetsvarsler, bekreft hosted isolasjon med to reelle testbrukere før sky-write/synk. |
 | **DB-04** | AHA – staging | Supabase PostgreSQL 17 / test | `AHA Staging`, ref `sstuzwppsheivczyqrim` | Org **EchoNet** | **Direkte kontroll 18.11:** `INACTIVE` (pauset). Ikke tilgjengelig for vanlige SQL-/app-tester. | Ikke reaktiver uten behov og kostnadsbeslutning; staging er ikke produksjonsdatabase. |
 | **DB-05** | AHA – tidligere canonical production | Azure Database for PostgreSQL Flexible Server **16**, database `aha` | Privat Azure production, eksakt server-ID/hostname ikke registrert offentlig | Azure **North Europe**, privat VNet / DNS; ressursgruppe og driftssecrets i beskyttet Azure/GitHub-infrastruktur | **Brukeropplysning 16.11.2026: Azure måtte deaktiveres etter uventet regning på 1 200 (valuta/fakturaperiode ikke kontrollert). IKKE AKTIV PRODUKSJON.** Tidligere GitHub-dokumentasjon om aktiv toprofil-pilot er historisk og kan være foreldet. **Bruker bekrefter 16.11.2026 at Azure har sluttet å fakturere.** Eksakt ressursstatus, data og backup er **ikke verifisert live**. | Hold deaktivert. Fakturering oppgitt stoppet; ingen reaktivering eller ny kostnad. Bekreft eventuelt kun ressursstatus uten aktivering eller opprettelse. Avklar databevaring og eksport-/restore-mulighet uten kostnader før eventuell videre avvikling. Ingen nye Azure-deploys. |
-| **DB-06** | Fysen – ny Cloudflare-database (kandidat) | Cloudflare Workers **D1** | D1-ID `8b6616b4-11df-4ddc-9817-378f51ee0b69`; **visningsnavn ikke verifisert** | Cloudflare-konto `097bca85df0240062216f5d74efc0b30` | **Oppgitt av bruker, ikke live-kontrollert:** D1-database er opprettet/planlagt til Fysen. Cloudflare Pages-test av **AHA Insta** er bekreftet av bruker, men dette er **ikke bevis på D1-datalagring eller Fysen-migrering**. Ingen D1-spørring, skjemakontroll eller radtelling verifisert. | Kontroller navn, datainnhold, Worker-bindinger, tilgang, backup og faktiske Fysen-API-kall før eventuell omkobling. |
+| **DB-06** | Fysen – ParadisDB preview | Cloudflare D1 / test | `paradisdb-fysen-preview`, ID `8b6616b4-11df-4ddc-9817-378f51ee0b69` | Cloudflare-konto `097bca85df0240062216f5d74efc0b30`, EU-jurisdiksjon oppgitt | **Dokumentert 18.11:** separat preview registrert i Fysen PR #1204. Ikke godkjent fjernimport eller Worker-API. Ikke live-verifisert i dag. | Kontroller tabeller, kapasitet og faktiske bindinger før bruk. |
+| **DB-07** | Fysen – ParadisDB permanent offentlig | Cloudflare D1 / planlagt katalog | `paradisdb-fysen-public`, ID `882a3393-71c3-43f9-9dec-efc2bbcab409` | Cloudflare Workers Free, EU-jurisdiksjon/Eastern Europe fra manuell kontroll | **Dokumentert 13.11:** Opprettet; 0 brukertabeller, 12,29 kB lagring; 2 spørringer, 3 rader lest, 0 skrevet. Ikke importert/produksjonskoblet. Nåværende status ikke live-verifisert. | Verifiser Free-kvoter, backup og importkostnad før godkjenning. |
 
 **Direkte lenker**
 
@@ -30,7 +31,8 @@
 - [DB-03 · Supabase AHA](https://supabase.com/dashboard/project/wshmybqyksrwkawqleiz)
 - [DB-04 · Supabase AHA Staging](https://supabase.com/dashboard/project/sstuzwppsheivczyqrim)
 - [DB-05 · AHA Azure-infrastruktur og operativ status](https://github.com/Paradispartiet/AHA-EchoNet/blob/main/docs/AHA_AZURE_PRODUCTION_PLATFORM_V1.md)
-- [DB-06 · Cloudflare D1 Settings](https://dash.cloudflare.com/097bca85df0240062216f5d74efc0b30/workers/d1/databases/8b6616b4-11df-4ddc-9817-378f51ee0b69/settings)
+- [DB-06 · Cloudflare D1 preview Settings](https://dash.cloudflare.com/097bca85df0240062216f5d74efc0b30/workers/d1/databases/8b6616b4-11df-4ddc-9817-378f51ee0b69/settings)
+- [DB-07 · ParadisDB permanent D1 – documented remote check](https://github.com/Paradispartiet/fysen/blob/feature/paradisdb-local-pilot-v1/tools/paradisdb/worker/FYSEN_FIRST_REMOTE_CHECK.md)
 
 ### DB-01 og DB-02 – tekniske kontrollfakta 16. november
 
@@ -97,6 +99,35 @@
 | **Paradisradioen** | Samme [Paradisavisa-repo](https://github.com/Paradispartiet/Paradisavisa), nyhetsliste og radiofiler | Ingen separat database bekreftet. Radio/lydfiler er ikke selv en relasjonsdatabase. |
 | **EchoNet** | [EchoNet-repo](https://github.com/Paradispartiet/EchoNet) | Eget repo, men ikke grunnlag for å føre opp enda en hostet database. |
 
+### Prosjektkoblinger – alle 18 tilgjengelige GitHub-repositorier
+
+Disse 20 app-/prosjektpostene dekker alle 18 tilgjengelige repoer; flere apper deler repo. «Ingen bekreftet» er ikke bevis på at en database ikke finnes.
+
+| ID | Prosjekt | GitHub-repo | Databaser | Annen lagring | Status |
+|---|---|---|---|---|---|
+| PRJ-01 | AHA / EchoNet | AHA-EchoNet | DB-03, DB-04, DB-05 | localStorage og filer | AHA aktiv; staging pauset; Azure deaktivert ifølge bruker; sky-synk ikke godkjent |
+| PRJ-02 | Fysen | fysen | DB-01, DB-02, DB-06, DB-07 | GitHub, offentlig arkiv, Vercel | Supabase sist kontrollert 16.11; D1-identiteter dokumentert, ingen godkjent migrering |
+| PRJ-03 | History GO / Social Meet | History-Go | DB-03 | GitHub JSON | DB-03 har 14 hg-tabeller med RLS; faktisk appkobling uavklart |
+| PRJ-04 | Civication | History-Go | — | GitHub JSON | Ingen separat database bekreftet |
+| PRJ-05 | HG Film Producer | HG_Film_Producer | — | GitHub og lokal lagring | Ingen separat database bekreftet |
+| PRJ-06 | Football Manager | HistoryGo-FootballManager | — | GitHub og lokal lagring | Ingen separat database bekreftet |
+| PRJ-07 | Paradisavisa | Paradisavisa | — | Artikler og JSON | Filbasert publisering |
+| PRJ-08 | Paradisradioen | Paradisavisa | — | Lydfiler og nyhetsliste | Deler repo med Paradisavisa |
+| PRJ-09 | EchoNet prototype | EchoNet | — | localStorage og JSON-eksport | README: statisk prototype uten backend |
+| PRJ-10 | Paradispartiet portal | Paradispartiet | — | Statisk GitHub Pages | Ingen egen database dokumentert |
+| PRJ-11 | Teorien om lyset | Teorien-om-lyset | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
+| PRJ-12 | History Go 2 | History-Go-2 | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
+| PRJ-13 | HG | HG | — | Uavklart | Repo tomt ved siste oppslag |
+| PRJ-14 | Kunstakademiet | Kunstakademiet | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
+| PRJ-15 | Skrivekunstakademiet | Skrivekunstakademiet | — | Uavklart | Repo tomt ved siste oppslag |
+| PRJ-16 | Fysen preview | fysen-preview | — | Publiserte forhåndsvisningsfiler | Ingen egen DB bekreftet |
+| PRJ-17 | Paradispartiet produksjonshost | Paradispartiet.github.io | — | Publiserte bygg | GitHub Pages-host, ikke databasetjeneste |
+| PRJ-18 | Film Producer preview | HG_Film_Producer-preview | — | Preview-filer | Ingen egen DB undersøkt |
+| PRJ-19 | Football Manager preview | HistoryGo-FootballManager-preview | — | Preview-filer | Ingen egen DB undersøkt |
+| PRJ-20 | History GO preview (avviklet) | History-Go-preview | — | Tidligere preview | README: repo pensjonert |
+
+**Delt database:** AHA Supabase DB-03 har 26 tabeller i `public` med RLS, inkludert 14 `hg_*`-tabeller for History GO Social Meet. Disse tabellene var uten rader ved kontroll 18.11. Tabellene beviser ikke at History GO er koblet til DB-03 i produksjon.
+
 ## 3. Backuper, historikk og gjenoppretting
 
 | Registerpost | Sted / bevis | Hva er bevart | Begrensning / kontroll |
@@ -105,16 +136,16 @@
 | **BK-02 Fysen kompakt prøvedatabase 12.11** | [Gratisdrift og isolert test](https://github.com/Paradispartiet/fysen/blob/main/docs/fysen-zero-cost-operating-plan-2026-11-12.md) | Midlertidig isolert Postgres-test på ca. **163,2 MB** etter komprimering. | Test, ikke migrert produksjon. Eldre søkeresultatkoblinger krever særlig bevaring. |
 | **BK-03 AHA Azure canonical** | [Azure-operativ dokumentasjon](https://github.com/Paradispartiet/AHA-EchoNet/blob/main/docs/AHA_AZURE_PRODUCTION_PLATFORM_V1.md) | Historisk dokumentert **PITR restore-rehearsal** til separat privat PostgreSQL-server, **ikke** dokumentert fullstendig offline-eksport. | **Azure deaktivert ifølge bruker etter uventet regning.** Eksistens, backup-retensjon, gjenopprettingsadgang og kostnad ved tilgang er uavklart. Ikke reaktiver betalte ressurser kun for sjekk. |
 | **BK-04 AHA Supabase DB-03/04** | Riktig Supabase-konto/organisasjon | **18.11:** DB-03 `ACTIVE_HEALTHY`, PostgreSQL-databasen 23 MB; DB-04 staging pauset. **Ingen eksport eller restore er verifisert.** | Verifiser privat, komplett eksport og kontrollert restore før migrering og første automatisk sky-skriving; plan- og backuprettigheter ubekreftet. |
-| **BK-05 Cloudflare D1 DB-06** | Cloudflare-dashboard | **Uavklart**. | Kontroller schema-export og backup-/restore-metode før produksjonsflytting. |
+| **BK-05 Cloudflare D1 DB-06/07** | Cloudflare-dashboard og Fysen ParadisDB-pilot | Ingen verifisert backup/restore; DB-07 var tom ved kontrollen 13.11. | Kontroller begge separat før produksjonsendringer. |
 | **BK-06 AHA lokal JSON-eksport (verktøy, ikke bekreftet backup)** | [AHA Personvern på Cloudflare-preview](https://aha-preview.aha-echonet-preview.pages.dev/privacy.html), [kildekode](https://github.com/Paradispartiet/AHA-EchoNet/blob/main/privacy.html) og `js/ahaPrivacy.js` | **Verifisert i kode 16.11:** eksplisitt utvalg og nedlasting av lokale AHA-data (Chat, notater, media, samlinger, kunnskap, Personal AI og profil), med redigering av hemmelige felter. Gjenoppretting er lokal, additiv og krever forhåndsvisning og `GJENOPPRETT`. | **Ingen faktisk backupfil fra bruker er mottatt eller verifisert.** Maks 20 MB for lokal restore; eksporter fra riktig nettstedadresse/origin på iPad, lagre fil privat, kontroller innhold og gjenopprettbarhet før eventuelle nye sky-writes. Lokal eksport er **ikke** sikkerhetskopi av Azure eller Supabase. |
 
 ## 4. ParadisDB og foreslåtte flyttinger
 
-**ParadisDB** er navnet på arbeidet med en samlet databaseplattform/oversikt, **ikke** automatisk en ekstra hostet database. [Fysen PR #1204 – ParadisDB v0](https://github.com/Paradispartiet/fysen/pull/1204) er kontrollert **åpen draft 16.11**: dokumenterer lokal SQLite-/D1-/Worker-pilot mot offentlig katalog, men **ikke godkjent remote Cloudflare-produksjonsdeploy, fullstendig historikkmigrering eller aktiv Fysen-backend-omkobling**. En lokal D1-kompatibel test er ikke det samme som at DB-06 er fylt. DB-06 skal ikke telles dobbelt.
+**ParadisDB** er navnet på arbeidet med en samlet databaseplattform/oversikt, **ikke** bevis på at en felles produksjonsdatabase eller automatisk synk kjører. [Fysen PR #1204](https://github.com/Paradispartiet/fysen/pull/1204) er fortsatt åpen draft 18.11 og gjelder lokal SQLite-/D1-/Worker-pilot for offentlige Fysen-menyer. Det finnes to identifiserte D1-instansnavn, DB-06 (preview) og DB-07 (permanent), som ikke må slås sammen. Ingen av dem er godkjent som felles register for private prosjektdata. DB-07 var tom ved manuell kontroll 13.11. Ingen full migrering eller produksjonsomkobling er utført.
 
 | Forslag | Status | Krav før «fullført» |
 |---|---|---|
-| Flytte Fysen fra Supabase DB-01/02 til Cloudflare D1 DB-06 | **Ikke bevist utført** | Tabell-/datamapping, datatellinger, integritet, appens read/write-test, deploykobling, rollback og beholdt historisk backup. |
+| Flytte Fysens offentlige katalog fra Supabase DB-01/02 til D1 DB-07 (DB-06 er kun separat preview) | **Ikke bevist utført** | Tabell-/datamapping, datatellinger, integritet, appens read/write-test, deploykobling, rollback og beholdt historisk backup. |
 | Frigjøre plass eller avslutte Fysen Supabase | **Ikke godkjent** | Bekreftet ny produksjonsplattform, fullstendig eksport/gjenoppretting, avhengighetskart og eksplisitt beslutning. Ingen destruktiv opprydding automatisk. |
 | Flytte AHA legacy DB-03/04 | **Ikke prioritert – behold mens appen ferdigstilles** | EchoNet-organisasjonen har bare 39 / 500 MB samlet forbruk og er separat fra Fysens sperrede organisasjon. Kontroller først innlogging/roller, brukerdata, sync og API fra riktig konto; migrering er ikke nødvendig av hensyn til Fysen. |
 | Gjenoppbygge AHA privat synk uten Azure – DB-03 kandidat | **Auth på Cloudflare fungerer ifølge bruker; [PR #1041](https://github.com/Paradispartiet/AHA-EchoNet/pull/1041), [#1042](https://github.com/Paradispartiet/AHA-EchoNet/pull/1042) og [#1045](https://github.com/Paradispartiet/AHA-EchoNet/pull/1045) er merget 16.11.** #1045: **7/7 grønne CI-kontroller** inkludert syntetisk legacy-RLS-isolasjon. **Ingen data migrert; live skrivefri hosted RLS/grants-katalogkontroll 18.11 viste 8 OK / 5 manglende tabeller. Reell tobruker-isolasjon gjenstår.** | (1) Bekreft knapperesultatet «Kontroller Supabase-konto» på Cloudflare-preview; (2) vurder funnene fra utført live preflight og avklar fem manglende tabeller med eksisterende migrasjoner; (3) test to brukere gjennom faktisk AHA Auth/Data API, og kontroller eksport/restore og eksplisitt samtykke før første private write/import. Azure forblir av; auto-synk er sperret i preview. |
@@ -127,7 +158,7 @@
 
 ## 5. Neste kontroller – i prioritert rekkefølge
 
-1. **Cloudflare:** Les DB-06 direkte; registrer eksakt navn, tabeller, datamengde, Worker-bindinger, API-er og reell driftstilkobling. Avklar om `paradisDB` er samme database eller en annen instans.
+1. **Cloudflare:** Kontroller DB-06 (preview) og DB-07 (permanent) hver for seg, tabeller, data, Worker-bindinger, API-er og reell driftstilkobling. Ingen av dem skal antas å være en aktiv felles registerdatabase.
 2. **AHA Supabase:** EchoNet-organisasjonen viser 39 / 500 MB totalt på brukers skjermbilde 16.11; **AHA Staging pauset**. Bruker har bekreftet Cloudflare-preview Auth-innlogging. **PR #1041 og #1042 er merget med 6/6 grønne CI-kontroller hver.** Ny eksplisitt lesekontroll for **egen** AHA-profil ligger i `main`, men er ennå ikke manuelt deployet/verifisert på iPad. Neste test: deploy preview, trykk statusknapp, sjekk profilrad – deretter to-bruker-RLS, sikker eksport/restore og samtykke. Verken en lesbar egen profil eller vellykket Auth er bevis på ferdig privat skylagring eller synk.
 3. **Fysen:** Kontroller nåværende organisasjonskvote og faktisk appskriving på DB-01/02 uten å røre produksjonsinnhold; kartlegg full avhengighetsliste før mulig migrasjon.
 4. **AHA Azure, deaktivert:** Undersøk bare historisk faktura, ressursoversikt og eventuelle eksisterende backuper **uten** å gjenaktivere, restarte eller opprette betalte ressurser. Bruker har bekreftet at fakturering er stoppet; behold data-/backupstatus som uavklart inntil den er kontrollert.
@@ -148,3 +179,12 @@ Ved **hver** opprettelse, flytting, deaktivering, kvotehendelse, ny bekreftet le
 - [History GO – backend/lagring](https://github.com/Paradispartiet/History-Go/blob/main/backend/README.md)
 
 **Begrensning ved denne oppdateringen:** Supabase DB-01/02 ble kontrollert direkte med lesebaserte SQL-spørringer 16.11.2026; detaljerte radtall og tabellstørrelser over er fra denne kontrollen. Organisasjonskvoter og AHA-/staging-pauser er skjermbildeobservasjoner fra bruker 16.11. **Azure-deaktivering, regning på 1 200 og bekreftelse på stanset fakturering er brukeropplysninger**, ikke en live-verifisert kontroll av Azure; skiller mellom historisk deploy og nåværende status. Cloudflare D1 og AHA Azure ble ikke lest live. Ingen databaser, API-tilkoblinger, brukere, produksjonspekere, datainnhold eller betalingsoppsett er endret.
+
+## 7. ParadisDB – samlet metadatafeed
+
+**Mål:** Registrer lokasjon, konto, miljø, database-ID, tilknyttede prosjekter, status, backup og siste kontroll. Dette gjelder metadata, ikke kopiering av private data.
+
+- `docs/DATABASE_REGISTER.md` er fortsatt det **eneste redaksjonelt vedlikeholdte hovedregisteret**.
+- `docs/paradisdb-inventory.json` er en maskinlesbar eksport fra denne filen, generert med `tools/build_paradisdb_inventory.py`. En avgrenset CI-kontroll hindrer at JSON og hovedregister avviker ved merge.
+- **Ikke verifisert:** Synk til live ParadisDB, AHA-administrasjonsskjerm og automatiske leverandørkontroller. Ingen D1-instans er godkjent som felles register.
+- **Sikkerhet:** Ingen passord, API-nøkler, tilkoblingsstrenger eller private brukerdata; offentlige Fysen-D1 må ikke gjenbrukes som privat registreringstjeneste.
