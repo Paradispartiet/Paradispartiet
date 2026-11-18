@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "source": "docs/DATABASE_REGISTER.md",
+  "metadata_only": true,
+  "live_paradisdb_sync_verified": false,
+  "databases": [
+    {
+      "id": "DB-01",
+      "system": "Fysen – original",
+      "provider_environment": "Supabase PostgreSQL 17 / produksjonshistorikk",
+      "identity": "fysen, ref voglczxxtbwcxjrbffbt",
+      "location": "eu-west-1; org Aha EchoNet, ID conidfhuuaueyoxwklae",
+      "verification": "Kontrollert 16.11: SQL lesbar; 1 590 MB i selve databasen; prosjekt-API ACTIVE_HEALTHY. Dashboard 16.11: organisasjonen bruker 1 682 / 500 MB og viser rød «Services restricted». Produksjonsskriving er ikke verifisert.",
+      "next_check": "Prioriter trygg avlastning, eksport og migrasjonskontroll. Ikke slett data eller endre betalingsplan."
+    },
+    {
+      "id": "DB-02",
+      "system": "Fysen – recovery",
+      "provider_environment": "Supabase PostgreSQL 17 / gjenopprettingsprosjekt",
+      "identity": "fysen-recovery-free, ref txaopscyxjvvmwawsphk",
+      "location": "eu-west-1; samme org som DB-01",
+      "verification": "Kontrollert 16.11: ACTIVE_HEALTHY; SQL lesbar; 60 MB. Samme organisasjonskvote og tjenestebegrensning som DB-01. Ingen påstand om komplett produksjonsdatabase.",
+      "next_check": "Verifiser datadekning, avhengigheter, faktisk skrivetilgang og sikkerhet."
+    },
+    {
+      "id": "DB-03",
+      "system": "AHA – eksisterende MVP / Auth",
+      "provider_environment": "Supabase PostgreSQL 17 + Auth",
+      "identity": "AHA, ref wshmybqyksrwkawqleiz",
+      "location": "Org EchoNet, ID kepuwrsiqhqwfgijzpev; adskilt fra Fysen",
+      "verification": "Direkte kontroll 18.11: API ACTIVE_HEALTHY, eu-west-1, PostgreSQL 17. Databasen postgres er 23 MB (24 218 771 byte; ikke samme tall som organisasjonsforbruk). 26/26 public-tabeller har RLS aktivert. 13 tabeller i legacy AHA preflight: 8 POLICY_PREFLIGHT_OK, 5 MISSING_TABLE (én innsiktskammer, fire Insta-relasjoner). Supabase viser eksisterende profil-/kilde-/import-/embeddingrader; ingen innholdsrader ble hentet i audit.",
+      "next_check": "Rett manglende skjema etter backup og gjennomgang; undersøk sikkerhetsvarsler, bekreft hosted isolasjon med to reelle testbrukere før sky-write/synk."
+    },
+    {
+      "id": "DB-04",
+      "system": "AHA – staging",
+      "provider_environment": "Supabase PostgreSQL 17 / test",
+      "identity": "AHA Staging, ref sstuzwppsheivczyqrim",
+      "location": "Org EchoNet",
+      "verification": "Direkte kontroll 18.11: INACTIVE (pauset). Ikke tilgjengelig for vanlige SQL-/app-tester.",
+      "next_check": "Ikke reaktiver uten behov og kostnadsbeslutning; staging er ikke produksjonsdatabase."
+    },
+    {
+      "id": "DB-05",
+      "system": "AHA – tidligere canonical production",
+      "provider_environment": "Azure Database for PostgreSQL Flexible Server 16, database aha",
+      "identity": "Privat Azure production, eksakt server-ID/hostname ikke registrert offentlig",
+      "location": "Azure North Europe, privat VNet / DNS; ressursgruppe og driftssecrets i beskyttet Azure/GitHub-infrastruktur",
+      "verification": "Brukeropplysning 16.11.2026: Azure måtte deaktiveres etter uventet regning på 1 200 (valuta/fakturaperiode ikke kontrollert). IKKE AKTIV PRODUKSJON. Tidligere GitHub-dokumentasjon om aktiv toprofil-pilot er historisk og kan være foreldet. Bruker bekrefter 16.11.2026 at Azure har sluttet å fakturere. Eksakt ressursstatus, data og backup er ikke verifisert live.",
+      "next_check": "Hold deaktivert. Fakturering oppgitt stoppet; ingen reaktivering eller ny kostnad. Bekreft eventuelt kun ressursstatus uten aktivering eller opprettelse. Avklar databevaring og eksport-/restore-mulighet uten kostnader før eventuell videre avvikling. Ingen nye Azure-deploys."
+    },
+    {
+      "id": "DB-06",
+      "system": "Fysen – ParadisDB preview",
+      "provider_environment": "Cloudflare D1 / test",
+      "identity": "paradisdb-fysen-preview, ID 8b6616b4-11df-4ddc-9817-378f51ee0b69",
+      "location": "Cloudflare-konto 097bca85df0240062216f5d74efc0b30, EU-jurisdiksjon oppgitt",
+      "verification": "Dokumentert 18.11: separat preview registrert i Fysen PR #1204. Ikke godkjent fjernimport eller Worker-API. Ikke live-verifisert i dag.",
+      "next_check": "Kontroller tabeller, kapasitet og faktiske bindinger før bruk."
+    },
+    {
+      "id": "DB-07",
+      "system": "Fysen – ParadisDB permanent offentlig",
+      "provider_environment": "Cloudflare D1 / planlagt katalog",
+      "identity": "paradisdb-fysen-public, ID 882a3393-71c3-43f9-9dec-efc2bbcab409",
+      "location": "Cloudflare Workers Free, EU-jurisdiksjon/Eastern Europe fra manuell kontroll",
+      "verification": "Dokumentert 13.11: Opprettet; 0 brukertabeller, 12,29 kB lagring; 2 spørringer, 3 rader lest, 0 skrevet. Ikke importert/produksjonskoblet. Nåværende status ikke live-verifisert.",
+      "next_check": "Verifiser Free-kvoter, backup og importkostnad før godkjenning."
+    }
+  ],
+  "projects": [
+    {
+      "id": "PRJ-01",
+      "name": "AHA / EchoNet",
+      "repository": "AHA-EchoNet",
+      "database_ids": [
+        "DB-03",
+        "DB-04",
+        "DB-05"
+      ],
+      "other_storage": "localStorage og filer",
+      "verification": "AHA aktiv; staging pauset; Azure deaktivert ifølge bruker; sky-synk ikke godkjent"
+    },
+    {
+      "id": "PRJ-02",
+      "name": "Fysen",
+      "repository": "fysen",
+      "database_ids": [
+        "DB-01",
+        "DB-02",
+        "DB-06",
+        "DB-07"
+      ],
+      "other_storage": "GitHub, offentlig arkiv, Vercel",
+      "verification": "Supabase sist kontrollert 16.11; D1-identiteter dokumentert, ingen godkjent migrering"
+    },
+    {
+      "id": "PRJ-03",
+      "name": "History GO / Social Meet",
+      "repository": "History-Go",
+      "database_ids": [
+        "DB-03"
+      ],
+      "other_storage": "GitHub JSON",
+      "verification": "DB-03 har 14 hg-tabeller med RLS; faktisk appkobling uavklart"
+    },
+    {
+      "id": "PRJ-04",
+      "name": "Civication",
+      "repository": "History-Go",
+      "database_ids": [],
+      "other_storage": "GitHub JSON",
+      "verification": "Ingen separat database bekreftet"
+    },
+    {
+      "id": "PRJ-05",
+      "name": "HG Film Producer",
+      "repository": "HG_Film_Producer",
+      "database_ids": [],
+      "other_storage": "GitHub og lokal lagring",
+      "verification": "Ingen separat database bekreftet"
+    },
+    {
+      "id": "PRJ-06",
+      "name": "Football Manager",
+      "repository": "HistoryGo-FootballManager",
+      "database_ids": [],
+      "other_storage": "GitHub og lokal lagring",
+      "verification": "Ingen separat database bekreftet"
+    },
+    {
+      "id": "PRJ-07",
+      "name": "Paradisavisa",
+      "repository": "Paradisavisa",
+      "database_ids": [],
+      "other_storage": "Artikler og JSON",
+      "verification": "Filbasert publisering"
+    },
+    {
+      "id": "PRJ-08",
+      "name": "Paradisradioen",
+      "repository": "Paradisavisa",
+      "database_ids": [],
+      "other_storage": "Lydfiler og nyhetsliste",
+      "verification": "Deler repo med Paradisavisa"
+    },
+    {
+      "id": "PRJ-09",
+      "name": "EchoNet prototype",
+      "repository": "EchoNet",
+      "database_ids": [],
+      "other_storage": "localStorage og JSON-eksport",
+      "verification": "README: statisk prototype uten backend"
+    },
+    {
+      "id": "PRJ-10",
+      "name": "Paradispartiet portal",
+      "repository": "Paradispartiet",
+      "database_ids": [],
+      "other_storage": "Statisk GitHub Pages",
+      "verification": "Ingen egen database dokumentert"
+    },
+    {
+      "id": "PRJ-11",
+      "name": "Teorien om lyset",
+      "repository": "Teorien-om-lyset",
+      "database_ids": [],
+      "other_storage": "Uavklart",
+      "verification": "Repo oppdaget; databasesøk gjenstår"
+    },
+    {
+      "id": "PRJ-12",
+      "name": "History Go 2",
+      "repository": "History-Go-2",
+      "database_ids": [],
+      "other_storage": "Uavklart",
+      "verification": "Repo oppdaget; databasesøk gjenstår"
+    },
+    {
+      "id": "PRJ-13",
+      "name": "HG",
+      "repository": "HG",
+      "database_ids": [],
+      "other_storage": "Uavklart",
+      "verification": "Repo tomt ved siste oppslag"
+    },
+    {
+      "id": "PRJ-14",
+      "name": "Kunstakademiet",
+      "repository": "Kunstakademiet",
+      "database_ids": [],
+      "other_storage": "Uavklart",
+      "verification": "Repo oppdaget; databasesøk gjenstår"
+    },
+    {
+      "id": "PRJ-15",
+      "name": "Skrivekunstakademiet",
+      "repository": "Skrivekunstakademiet",
+      "database_ids": [],
+      "other_storage": "Uavklart",
+      "verification": "Repo tomt ved siste oppslag"
+    },
+    {
+      "id": "PRJ-16",
+      "name": "Fysen preview",
+      "repository": "fysen-preview",
+      "database_ids": [],
+      "other_storage": "Publiserte forhåndsvisningsfiler",
+      "verification": "Ingen egen DB bekreftet"
+    },
+    {
+      "id": "PRJ-17",
+      "name": "Paradispartiet produksjonshost",
+      "repository": "Paradispartiet.github.io",
+      "database_ids": [],
+      "other_storage": "Publiserte bygg",
+      "verification": "GitHub Pages-host, ikke databasetjeneste"
+    },
+    {
+      "id": "PRJ-18",
+      "name": "Film Producer preview",
+      "repository": "HG_Film_Producer-preview",
+      "database_ids": [],
+      "other_storage": "Preview-filer",
+      "verification": "Ingen egen DB undersøkt"
+    },
+    {
+      "id": "PRJ-19",
+      "name": "Football Manager preview",
+      "repository": "HistoryGo-FootballManager-preview",
+      "database_ids": [],
+      "other_storage": "Preview-filer",
+      "verification": "Ingen egen DB undersøkt"
+    },
+    {
+      "id": "PRJ-20",
+      "name": "History GO preview (avviklet)",
+      "repository": "History-Go-preview",
+      "database_ids": [],
+      "other_storage": "Tidligere preview",
+      "verification": "README: repo pensjonert"
+    }
+  ]
+}
