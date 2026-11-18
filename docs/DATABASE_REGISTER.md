@@ -54,6 +54,8 @@
 
 **Fysen DB-01, direkte skrivefri SQL-inspeksjon:** De største tabellene er `fysen.menu_items` **1 323 MB** (ca. 722 MB data og 601 MB indekser), `menu_snapshots` **102 MB**, `menu_changes` **97 MB** og `menu_watch_runs` **39 MB**. Eksakte radtellinger på kontrolltidspunktet: `menu_items` **1 709 517**, `menu_snapshots` **34 447**, `menu_changes` **54 472**, `menu_watch_runs` **111 963** og `restaurants` **1 116**. Denne store **historikk-/databasebeholdningen** er **ikke** den samme som den offentlige Fysen-gratisindeksen på 973 restauranter / 47 265 poster. En liten offentlig D1-katalog er dermed ikke dokumentasjon på at hele historikken er flyttet.
 
+**Ny direkte Supabase-kontroll 18.11.2026:** Den tilkoblede kontoen viser organisasjonen `EchoNet` (`kepuwrsiqhqwfgijzpev`) med nøyaktig to prosjektoppføringer: `AHA` (`wshmybqyksrwkawqleiz`) med leverandørstatus `ACTIVE_HEALTHY` i `eu-west-1`, PostgreSQL 17; og `AHA Staging` (`sstuzwppsheivczyqrim`) med status `INACTIVE` (pauset), også i `eu-west-1`. Både prosjektlisten og detaljoppslaget ble lest uten endringer. Fysens separate organisasjon `Aha EchoNet` er **ikke tilgjengelig gjennom den nåværende tilkoblingen**; status fra 16.11 for DB-01/02 er ikke revidert i denne kontrollen. `ACTIVE_HEALTHY` bekrefter kun leverandørens prosjektstatus, ikke fungerende AHA-datasynk, backup, korrekt RLS på alle tabeller eller appens sky-skriving.
+
 **Supabase-organisasjonene ifølge brukers dashboard 16.11:**
 
 - **Aha EchoNet:** Inneholder prosjektene `fysen` og `fysen-recovery-free`; **1 682 / 500 MB** samlet Free-forbruk; **«Services restricted»**.
