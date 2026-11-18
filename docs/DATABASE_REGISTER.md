@@ -187,5 +187,6 @@ Ved **hver** opprettelse, flytting, deaktivering, kvotehendelse, ny bekreftet le
 
 - `docs/DATABASE_REGISTER.md` er fortsatt det **eneste redaksjonelt vedlikeholdte hovedregisteret**.
 - `docs/paradisdb-inventory.json` er en maskinlesbar eksport fra denne filen, generert med `tools/build_paradisdb_inventory.py`. En avgrenset CI-kontroll hindrer at JSON og hovedregister avviker ved merge.
-- **Ikke verifisert:** Synk til live ParadisDB, AHA-administrasjonsskjerm og automatiske leverandørkontroller. Ingen D1-instans er godkjent som felles register.
+- **AHA-lesevisning merget 18.11.2026:** [AHA PR #1061](https://github.com/Paradispartiet/AHA-EchoNet/pull/1061) er merget med 7/7 grønne GitHub-arbeidsflyter. `databaser.html` i AHA viser den maskinlesbare metadataoversikten direkte fra dette registeret via GitHub, med søk og skille mellom dokumentert og uavklart status. Dette er ikke en bekreftet Cloudflare-preview-deploy og ikke live databasestatus.
+- **Ikke verifisert:** Synk til en hostet ParadisDB-database og automatiske leverandørkontroller. Ingen D1-instans er godkjent som felles register.
 - **Sikkerhet:** Ingen passord, API-nøkler, tilkoblingsstrenger eller private brukerdata; offentlige Fysen-D1 må ikke gjenbrukes som privat registreringstjeneste.
