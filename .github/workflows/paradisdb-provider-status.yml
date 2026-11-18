@@ -1,0 +1,77 @@
+name: ParadisDB provider status (read-only)
+
+on:
+  pull_request:
+    paths:
+      - 'tools/check_paradisdb_providers.mjs'
+      - 'tests/paradisdb-provider-status.test.mjs'
+      - '.github/workflows/paradisdb-provider-status.yml'
+      - 'docs/paradisdb-provider-status.json'
+  workflow_dispatch:
+  schedule:
+    # Once daily; metadata only. Avoid the busy top-of-hour cron slots.
+    - cron: '17 06 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: paradisdb-provider-status
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Check metadata-only probe
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check tools/check_paradisdb_providers.mjs
+      - run: node --test tests/paradisdb-provider-status.test.mjs
+
+  refresh:
+    name: Refresh public allowlisted provider metadata
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      PARADISDB_SUPABASE_ECHONET_READ_TOKEN: ${{ secrets.PARADISDB_SUPABASE_ECHONET_READ_TOKEN }}
+      PARADISDB_SUPABASE_FYSEN_READ_TOKEN: ${{ secrets.PARADISDB_SUPABASE_FYSEN_READ_TOKEN }}
+      PARADISDB_CLOUDFLARE_FYSEN_D1_READ_TOKEN: ${{ secrets.PARADISDB_CLOUDFLARE_FYSEN_D1_READ_TOKEN }}
+      # Public account ID documented in the canonical inventory. Never a secret.
+      PARADISDB_CLOUDFLARE_FYSEN_ACCOUNT_ID: '097bca85df0240062216f5d74efc0b30'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require at least one scoped read token
+        id: configured
+        shell: bash
+        run: |
+          if [[ -n "$PARADISDB_SUPABASE_ECHONET_READ_TOKEN" || -n "$PARADISDB_SUPABASE_FYSEN_READ_TOKEN" || -n "$PARADISDB_CLOUDFLARE_FYSEN_D1_READ_TOKEN" ]]; then
+            echo 'enabled=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'No provider read token configured: keeping last snapshot unchanged'
+            echo 'enabled=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Probe allowlisted provider metadata without database writes
+        if: steps.configured.outputs.enabled == 'true'
+        run: node tools/check_paradisdb_providers.mjs
+      - name: Publish only the sanitized snapshot
+        if: steps.configured.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          git add docs/paradisdb-provider-status.json
+          if git diff --cached --quiet; then
+            echo 'No metadata change'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(paradisdb): refresh read-only provider status'
+          git push origin HEAD:main
