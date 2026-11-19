@@ -1,55 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
-<defs>
- <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07122b"/><stop offset="1" stop-color="#0a2443"/></linearGradient>
- <linearGradient id="sky" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#092e68"/><stop offset=".45" stop-color="#19548c"/><stop offset=".7" stop-color="#ff8752"/><stop offset="1" stop-color="#ffcc61"/></linearGradient>
- <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#29c9ed"/><stop offset=".45" stop-color="#61cba7"/><stop offset=".68" stop-color="#ffe57b"/><stop offset="1" stop-color="#ff8d30"/></linearGradient>
- <linearGradient id="river" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#51e6e8"/><stop offset="1" stop-color="#1882c7"/></linearGradient>
- <clipPath id="medallion"><circle cx="600" cy="470" r="352"/></clipPath>
-</defs>
-<rect width="1200" height="1200" fill="url(#bg)"/>
-<circle cx="600" cy="470" r="363" fill="none" stroke="url(#rim)" stroke-width="13"/>
-<g clip-path="url(#medallion)">
- <rect x="210" y="100" width="780" height="760" fill="url(#sky)"/>
- <circle cx="389" cy="273" r="58" fill="#f7eed1"/>
- <circle cx="411" cy="253" r="56" fill="#0a346d"/>
- <g fill="#dcf6ff"><circle cx="298" cy="195" r="4"/><circle cx="479" cy="204" r="5"/><circle cx="533" cy="266" r="3"/><circle cx="307" cy="329" r="3"/><circle cx="507" cy="156" r="3"/><circle cx="555" cy="341" r="4"/></g>
- <g stroke="#fff3c6" stroke-width="8" stroke-linecap="round" opacity=".65">
- <path d="M800 171v-26M866 194l17-24M908 251l25-11M930 314h27M885 391l19 18M725 188l-13-26"/>
- </g>
- <circle cx="800" cy="296" r="73" fill="#fff4b6"/>
- <circle cx="800" cy="296" r="51" fill="#ffdc73"/>
- <path d="M215 510 L360 400 L440 461 L540 371 L676 487 L785 400 L935 503 L990 540 L990 800 L215 800Z" fill="#376b83" opacity=".7"/>
- <path d="M533 380l-39 51 46-15 35 20Z M785 406l-38 47 43-15 28 16Z" fill="#dcf6ff" opacity=".95"/>
- <path d="M220 568 Q440 500 610 565 Q800 505 990 556 L990 840 H220Z" fill="#2d8f68"/>
- <path d="M220 670 Q399 588 585 661 Q821 555 990 640 V840H220Z" fill="#54b66b"/>
- <path d="M610 551 Q715 614 765 651 Q650 686 635 846 L480 846 Q560 726 531 658 Q504 605 610 551Z" fill="url(#river)"/>
- <path d="M610 560 Q699 626 743 648" fill="none" stroke="#d8fbf1" stroke-width="9" opacity=".7"/>
- <g fill="#123956">
-   <rect x="277" y="437" width="101" height="154" rx="5"/>
-   <rect x="384" y="393" width="108" height="200" rx="5"/>
-   <rect x="500" y="463" width="79" height="128" rx="5"/>
- </g>
- <g fill="#a9e3d9">
-   <rect x="297" y="458" width="19" height="25" rx="2"/><rect x="337" y="458" width="19" height="25" rx="2"/>
-   <rect x="297" y="501" width="19" height="25" rx="2"/><rect x="337" y="501" width="19" height="25" rx="2"/>
-   <rect x="402" y="414" width="19" height="24" rx="2"/><rect x="443" y="414" width="19" height="24" rx="2"/>
-   <rect x="402" y="459" width="19" height="24" rx="2"/><rect x="443" y="459" width="19" height="24" rx="2"/>
-   <rect x="402" y="504" width="19" height="24" rx="2"/><rect x="443" y="504" width="19" height="24" rx="2"/>
-   <rect x="518" y="482" width="15" height="22" rx="2"/><rect x="547" y="482" width="15" height="22" rx="2"/>
- </g>
- <path d="M278 437h100M385 394h107M500 464h79" stroke="#59beab" stroke-width="10"/>
- <path d="M732 566 L837 477 L934 565Z" fill="#ef755a"/>
- <rect x="751" y="558" width="165" height="114" rx="3" fill="#f7e4bd"/>
- <path d="M732 566l104-89 98 89" fill="none" stroke="#ad4a44" stroke-width="17" stroke-linejoin="round"/>
- <rect x="817" y="601" width="37" height="71" rx="3" fill="#9f5252"/>
- <rect x="772" y="591" width="27" height="30" rx="2" fill="#488ba2"/>
- <rect x="870" y="591" width="27" height="30" rx="2" fill="#488ba2"/>
- <path d="M759 700q100 10 186-13M761 729q108 8 188-18M748 759q113 3 208-19" fill="none" stroke="#e0d97b" stroke-width="8" opacity=".95"/>
- <path d="M264 650v-79M960 668V552" stroke="#315d47" stroke-width="13"/>
- <circle cx="264" cy="559" r="37" fill="#4ed39a"/><circle cx="238" cy="579" r="30" fill="#2aa874"/>
- <circle cx="962" cy="547" r="39" fill="#61c97c"/><circle cx="930" cy="563" r="29" fill="#259e6f"/>
- <path d="M520 627 Q612 569 702 632" fill="none" stroke="#fbe7b6" stroke-width="13" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Paradispartiets P-logo med sol, måne, by og småbruk">
+<rect width="1200" height="1200" fill="#07172e"/>
+<svg x="285" y="95" width="630" height="750" viewBox="60 0 410 512"><defs>
+<linearGradient id="p-sky" x1="0" x2="1" y1="0" y2=".4"><stop stop-color="#008bd4"/><stop offset=".5" stop-color="#32c8e6"/><stop offset=".79" stop-color="#ffd55a"/><stop offset="1" stop-color="#fc783c"/></linearGradient>
+<linearGradient id="p-land" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#2cc19e"/><stop offset="1" stop-color="#66bb3c"/></linearGradient>
+<linearGradient id="p-water" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#c7fff1"/><stop offset=".5" stop-color="#26c2ee"/><stop offset="1" stop-color="#1763c5"/></linearGradient>
+<clipPath id="p-mask"><path d="M100 36 H306 L422 144 V273 L303 362 H201 V476 H100 Z M201 135 V268 H275 L324 230 V173 L275 135 Z" fill-rule="evenodd"/></clipPath>
+</defs><g clip-path="url(#p-mask)">
+<rect x="75" y="22" width="370" height="465" fill="url(#p-sky)"/>
+<!-- The split night / day sky is within the letter, never a circular badge -->
+<path d="M73 30 H237 L270 135 H73 Z" fill="#0b397b" opacity=".81"/>
+<circle cx="157" cy="86" r="23" fill="#fff5cf"/>
+<circle cx="168" cy="76" r="22" fill="#0a4286"/>
+<g fill="#d1f9fc"><circle cx="202" cy="71" r="3.7"/><circle cx="130" cy="54" r="2.8"/><circle cx="224" cy="112" r="2.7"/><circle cx="110" cy="117" r="3"/></g>
+<circle cx="361" cy="103" r="34" fill="#fff6c0"/>
+<g stroke="#ffec8c" stroke-width="5" stroke-linecap="round"><path d="M361 54V45M361 151V161M313 103H304M412 103H420M326 68L317 59M397 138L405 146"/></g>
+<path d="M73 268 Q161 204 235 257 Q330 180 448 246 L448 486H73 Z" fill="#155b73" opacity=".9"/>
+<path d="M73 319 Q208 252 306 304 Q376 272 448 304 L448 489H73Z" fill="url(#p-land)"/>
+<!-- Compact city on the upright, small homestead on the arm -->
+<g fill="#103d64">
+<rect x="104" y="204" width="34" height="84" rx="2"/><rect x="143" y="181" width="41" height="106" rx="2"/>
 </g>
-<text x="600" y="991" font-family="DejaVu Sans, Arial, sans-serif" font-size="100" font-weight="700" letter-spacing="-5" fill="#fffdf1" text-anchor="middle">paradispartiet</text>
-<path d="M310 1034 H890" stroke="url(#rim)" stroke-width="10" stroke-linecap="round"/>
+<g fill="#ffdf99"><rect x="113" y="218" width="6" height="9"/><rect x="126" y="218" width="6" height="9"/><rect x="113" y="238" width="6" height="9"/><rect x="126" y="238" width="6" height="9"/>
+<rect x="151" y="196" width="7" height="10"/><rect x="166" y="196" width="7" height="10"/><rect x="151" y="217" width="7" height="10"/><rect x="166" y="217" width="7" height="10"/></g>
+<path d="M336 296L367 269L403 296Z" fill="#ef7850"/>
+<rect x="342" y="292" width="55" height="38" fill="#ffebbd"/><path d="M336 297L369 267L405 297" fill="none" stroke="#b14d4b" stroke-width="7" stroke-linejoin="round"/><rect x="365" y="306" width="13" height="24" fill="#a75150"/>
+<path d="M210 287 Q298 316 255 391 Q216 427 199 495 L109 495 Q122 407 176 366 Q229 329 210 287Z" fill="url(#p-water)"/>
+<path d="M205 308 Q244 352 202 400" stroke="#d7fcf4" stroke-width="6" fill="none" opacity=".83"/>
+<path d="M99 401Q150 363 201 402 M106 443Q151 406 201 436" stroke="#b9ea6b" stroke-width="11" fill="none" opacity=".9"/>
+</g>
+<path d="M100 36 H306 L422 144 V273 L303 362 H201 V476 H100 Z M201 135 V268 H275 L324 230 V173 L275 135 Z" fill="none" stroke="#dff8f6" stroke-width="4.5" stroke-linejoin="miter" opacity=".88"/>
+<path d="M102 471V37H306L421 144" fill="none" stroke="#93fbff" stroke-width="7" stroke-linejoin="miter" opacity=".75"/></svg>
+<text x="600" y="974" font-family="DejaVu Sans, Arial, sans-serif" font-size="94" font-weight="700" letter-spacing="-4" fill="#fffdf2" text-anchor="middle">paradispartiet</text>
 </svg>
