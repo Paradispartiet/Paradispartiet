@@ -1,6 +1,6 @@
 # Paradispartiet – felles databaseregister
 
-**Oppdatert:** 18. november 2026  
+**Oppdatert:** 19. november 2026  
 **Hovedregister:** Denne filen er den felles oversikten for AHA/EchoNet, Fysen, History GO/Civication, HG Film Producer, Football Manager, Paradisavisa, Paradisradioen og nye prosjekter. Ikke opprett konkurrerende hovedregistre.  
 **Omfang:** Faktiske hostede databaser, relevante lokale datalagre, sikkerhetskopier og planlagte flyttinger. Her lagres **aldri** passord, connection strings med hemmeligheter, service-role keys, tokens eller persondata.
 
@@ -123,16 +123,18 @@ Disse 20 app-/prosjektpostene dekker alle 18 tilgjengelige repoer; flere apper d
 | PRJ-08 | Paradisradioen | Paradisavisa | — | Lydfiler og nyhetsliste | Deler repo med Paradisavisa |
 | PRJ-09 | EchoNet prototype | EchoNet | — | localStorage og JSON-eksport | README: statisk prototype uten backend |
 | PRJ-10 | Paradispartiet portal | Paradispartiet | — | Statisk GitHub Pages | Ingen egen database dokumentert |
-| PRJ-11 | Teorien om lyset | Teorien-om-lyset | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
-| PRJ-12 | History Go 2 | History-Go-2 | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
-| PRJ-13 | HG | HG | — | Uavklart | Repo tomt ved siste oppslag |
-| PRJ-14 | Kunstakademiet | Kunstakademiet | — | Uavklart | Repo oppdaget; databasesøk gjenstår |
-| PRJ-15 | Skrivekunstakademiet | Skrivekunstakademiet | — | Uavklart | Repo tomt ved siste oppslag |
-| PRJ-16 | Fysen preview | fysen-preview | — | Publiserte forhåndsvisningsfiler | Ingen egen DB bekreftet |
-| PRJ-17 | Paradispartiet produksjonshost | Paradispartiet.github.io | — | Publiserte bygg | GitHub Pages-host, ikke databasetjeneste |
-| PRJ-18 | Film Producer preview | HG_Film_Producer-preview | — | Preview-filer | Ingen egen DB undersøkt |
-| PRJ-19 | Football Manager preview | HistoryGo-FootballManager-preview | — | Preview-filer | Ingen egen DB undersøkt |
-| PRJ-20 | History GO preview (avviklet) | History-Go-preview | — | Tidligere preview | README: repo pensjonert |
+| PRJ-11 | Teorien om lyset | Teorien-om-lyset | — | GitHub: statisk HTML-tekst og bilder | Kildekontroll 19.11: index.html med boktekst, mapper Assets/ og assets/; ingen hostet database dokumentert |
+| PRJ-12 | History Go 2 | History-Go-2 | — | GitHub data/*.json og nettleserens localStorage | Kildekontroll 19.11: app.js og profile.js lagrer besøk, quiz og merker i localStorage; ingen hostet instans dokumentert |
+| PRJ-13 | HG | HG | — | Tomt GitHub-repo (ingen datalagerfiler) | Kontroll 19.11: GitHub oppgir tomt repo; ingen programkode å knytte til database |
+| PRJ-14 | Kunstakademiet | Kunstakademiet | — | GitHub: Index.md (enkel fil) | Kontroll 19.11: kun Index.md i rot; ingen appkode eller databasekobling dokumentert |
+| PRJ-15 | Skrivekunstakademiet | Skrivekunstakademiet | — | Tomt GitHub-repo (ingen datalagerfiler) | Kontroll 19.11: GitHub oppgir tomt repo; ingen programkode å knytte til database |
+| PRJ-16 | Fysen preview | fysen-preview | — | GitHub Pages-preview av fysen/main | README kontrollert 19.11: statisk utviklingspreview; Fysen bruker egne DB-01/02/06/07, ikke ny preview-DB |
+| PRJ-17 | Paradispartiet produksjonshost | Paradispartiet.github.io | — | GitHub Pages: publiserte byggfiler | README kontrollert 19.11: host for History Go, Film Producer og Football Manager; ikke egen databasetjeneste |
+| PRJ-18 | Film Producer preview | HG_Film_Producer-preview | — | Pensjonert preview-repo (README) | README kontrollert 19.11: ikke i bruk; utvikling/publisering i HG_Film_Producer |
+| PRJ-19 | Football Manager preview | HistoryGo-FootballManager-preview | — | Pensjonert preview-repo (README) | README kontrollert 19.11: ikke i bruk; utvikling/publisering i HistoryGo-FootballManager |
+| PRJ-20 | History GO preview (avviklet) | History-Go-preview | — | Pensjonert preview-repo (README) | README kontrollert 19.11: ikke i bruk; utvikling/publisering i History-Go |
+
+**Kartlegging av repositorier 19.11.2026:** De 17 prosjektpostene uten koblet hostet database omfatter forskjellige tilfeller, og skal **ikke** automatisk opprettes i Supabase eller D1. Eksisterende dokumentasjon dekker Civication, HG Film Producer, Football Manager, Paradisavisa/Paradisradioen, EchoNet og portalen. Ny kildekontroll avklarer Teorien om lyset (statisk bokside), History Go 2 (lokal progresjon i `localStorage`, JSON-innhold), Kunstakademiet (én markdownfil), HG og Skrivekunstakademiet (tomme repoer), Fysen-preview (statiske previewfiler), Paradispartiet.github.io (publiserte bygg) og tre pensjonerte preview-repoer. At en post mangler DB-ID betyr **«ingen separat hostet database bekreftet»**, ikke at applikasjonen mangler lagring eller at det er bevist at ingen ekstern tjeneste finnes. Kildegrunnlag: [History-Go-2/app.js](https://github.com/Paradispartiet/History-Go-2/blob/main/app.js), [History-Go-2/profile.js](https://github.com/Paradispartiet/History-Go-2/blob/main/profile.js), [Teorien-om-lyset/index.html](https://github.com/Paradispartiet/Teorien-om-lyset/blob/main/index.html), [Fysen-preview/README](https://github.com/Paradispartiet/fysen-preview/blob/main/README.md), [produksjonshost/README](https://github.com/Paradispartiet/Paradispartiet.github.io/blob/main/README.md) og README-filene i de pensjonerte repoene. Kontrollen er kildebasert, ikke en live-sjekk av alle leverandørkontoer.
 
 **Delt database:** AHA Supabase DB-03 har 26 tabeller i `public` med RLS, inkludert 14 `hg_*`-tabeller for History GO Social Meet. Disse tabellene var uten rader ved kontroll 18.11. Tabellene beviser ikke at History GO er koblet til DB-03 i produksjon.
 
