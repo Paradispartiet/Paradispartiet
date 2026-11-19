@@ -2,7 +2,7 @@
 <linearGradient id="p-sky" x1="0" x2="1" y1="0" y2=".4"><stop stop-color="#008bd4"/><stop offset=".5" stop-color="#32c8e6"/><stop offset=".79" stop-color="#ffd55a"/><stop offset="1" stop-color="#fc783c"/></linearGradient>
 <linearGradient id="p-land" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#2cc19e"/><stop offset="1" stop-color="#66bb3c"/></linearGradient>
 <linearGradient id="p-water" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#c7fff1"/><stop offset=".5" stop-color="#26c2ee"/><stop offset="1" stop-color="#1763c5"/></linearGradient>
-<clipPath id="p-mask"><path d="M100 36 H306 L422 144 V273 L303 362 H201 V476 H100 Z M201 135 V268 H275 L324 230 V173 L275 135 Z" fill-rule="evenodd"/></clipPath>
+<clipPath id="p-mask"><path clip-rule="evenodd" d="M100 36 H306 L422 144 V273 L303 362 H201 V476 H100 Z M201 135 V268 H275 L324 230 V173 L275 135 Z" fill-rule="evenodd"/></clipPath>
 </defs><g clip-path="url(#p-mask)">
 <rect x="75" y="22" width="370" height="465" fill="url(#p-sky)"/>
 <!-- The split night / day sky is within the letter, never a circular badge -->
