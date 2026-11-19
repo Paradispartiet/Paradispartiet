@@ -165,80 +165,80 @@
       "name": "Teorien om lyset",
       "repository": "Teorien-om-lyset",
       "database_ids": [],
-      "other_storage": "Uavklart",
-      "verification": "Repo oppdaget; databasesøk gjenstår"
+      "other_storage": "GitHub: statisk HTML-tekst og bilder",
+      "verification": "Kildekontroll 19.11: index.html med boktekst, mapper Assets/ og assets/; ingen hostet database dokumentert"
     },
     {
       "id": "PRJ-12",
       "name": "History Go 2",
       "repository": "History-Go-2",
       "database_ids": [],
-      "other_storage": "Uavklart",
-      "verification": "Repo oppdaget; databasesøk gjenstår"
+      "other_storage": "GitHub data/*.json og nettleserens localStorage",
+      "verification": "Kildekontroll 19.11: app.js og profile.js lagrer besøk, quiz og merker i localStorage; ingen hostet instans dokumentert"
     },
     {
       "id": "PRJ-13",
       "name": "HG",
       "repository": "HG",
       "database_ids": [],
-      "other_storage": "Uavklart",
-      "verification": "Repo tomt ved siste oppslag"
+      "other_storage": "Tomt GitHub-repo (ingen datalagerfiler)",
+      "verification": "Kontroll 19.11: GitHub oppgir tomt repo; ingen programkode å knytte til database"
     },
     {
       "id": "PRJ-14",
       "name": "Kunstakademiet",
       "repository": "Kunstakademiet",
       "database_ids": [],
-      "other_storage": "Uavklart",
-      "verification": "Repo oppdaget; databasesøk gjenstår"
+      "other_storage": "GitHub: Index.md (enkel fil)",
+      "verification": "Kontroll 19.11: kun Index.md i rot; ingen appkode eller databasekobling dokumentert"
     },
     {
       "id": "PRJ-15",
       "name": "Skrivekunstakademiet",
       "repository": "Skrivekunstakademiet",
       "database_ids": [],
-      "other_storage": "Uavklart",
-      "verification": "Repo tomt ved siste oppslag"
+      "other_storage": "Tomt GitHub-repo (ingen datalagerfiler)",
+      "verification": "Kontroll 19.11: GitHub oppgir tomt repo; ingen programkode å knytte til database"
     },
     {
       "id": "PRJ-16",
       "name": "Fysen preview",
       "repository": "fysen-preview",
       "database_ids": [],
-      "other_storage": "Publiserte forhåndsvisningsfiler",
-      "verification": "Ingen egen DB bekreftet"
+      "other_storage": "GitHub Pages-preview av fysen/main",
+      "verification": "README kontrollert 19.11: statisk utviklingspreview; Fysen bruker egne DB-01/02/06/07, ikke ny preview-DB"
     },
     {
       "id": "PRJ-17",
       "name": "Paradispartiet produksjonshost",
       "repository": "Paradispartiet.github.io",
       "database_ids": [],
-      "other_storage": "Publiserte bygg",
-      "verification": "GitHub Pages-host, ikke databasetjeneste"
+      "other_storage": "GitHub Pages: publiserte byggfiler",
+      "verification": "README kontrollert 19.11: host for History Go, Film Producer og Football Manager; ikke egen databasetjeneste"
     },
     {
       "id": "PRJ-18",
       "name": "Film Producer preview",
       "repository": "HG_Film_Producer-preview",
       "database_ids": [],
-      "other_storage": "Preview-filer",
-      "verification": "Ingen egen DB undersøkt"
+      "other_storage": "Pensjonert preview-repo (README)",
+      "verification": "README kontrollert 19.11: ikke i bruk; utvikling/publisering i HG_Film_Producer"
     },
     {
       "id": "PRJ-19",
       "name": "Football Manager preview",
       "repository": "HistoryGo-FootballManager-preview",
       "database_ids": [],
-      "other_storage": "Preview-filer",
-      "verification": "Ingen egen DB undersøkt"
+      "other_storage": "Pensjonert preview-repo (README)",
+      "verification": "README kontrollert 19.11: ikke i bruk; utvikling/publisering i HistoryGo-FootballManager"
     },
     {
       "id": "PRJ-20",
       "name": "History GO preview (avviklet)",
       "repository": "History-Go-preview",
       "database_ids": [],
-      "other_storage": "Tidligere preview",
-      "verification": "README: repo pensjonert"
+      "other_storage": "Pensjonert preview-repo (README)",
+      "verification": "README kontrollert 19.11: ikke i bruk; utvikling/publisering i History-Go"
     }
   ]
 }
