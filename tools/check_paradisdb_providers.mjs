@@ -59,7 +59,6 @@ export async function collectProviderStatus(inventory, env, fetcher, clock) {
   const checkedTime = clock();
   if (!/^\d{4}-\d{2}-\d{2}T/.test(checkedTime)) throw Error("Invalid check timestamp");
   const byId = new Set();
-  const projectLists = new Map();
   const provider_checks = {};
   let attempted = false;
 
@@ -82,16 +81,12 @@ export async function collectProviderStatus(inventory, env, fetcher, clock) {
         continue;
       }
       attempted = true;
-      // One read-only GET per independently authorized Supabase organization.
-      if (!projectLists.has(scope.group)) {
-        projectLists.set(scope.group, providerJson("https://api.supabase.com/v1/projects", token, fetcher));
-      }
       try {
-        const projects = await projectLists.get(scope.group);
-        if (!Array.isArray(projects)) throw Error("Unexpected Supabase envelope");
+        // A project-scoped PAT with Project Settings: Read permits GET /v1/projects/{ref}.
+        // Do not use the broad /v1/projects listing endpoint with limited PATs.
         const ref = scopedSupabaseRef(db);
-        const project = projects.find((p) => p.ref === ref && p.organization_id === scope.organization);
-        if (!project) {
+        const project = await providerJson("https://api.supabase.com/v1/projects/" + ref, token, fetcher);
+        if (!project || project.ref !== ref || project.organization_id !== scope.organization) {
           provider_checks[db.id] = empty("supabase", "not_found_in_scope", checkedTime);
         } else if (!/^[A-Z][A-Z_]{1,49}$/.test(project.status)) {
           provider_checks[db.id] = empty("supabase", "lookup_failed", checkedTime);
