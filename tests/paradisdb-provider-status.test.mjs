@@ -36,20 +36,25 @@ test("no configured secrets: no network and no fabricated recent status", async 
   assert.equal(result.metadata_only, true);
 });
 
-test("one Supabase GET for scoped EchoNet, sanitizes provider data", async () => {
+test("scoped Supabase PAT uses direct GET for each allowed project, sanitizes data", async () => {
   const requests = [];
   const token = "example-super-secret-token";
   const results = await run(
     { PARADISDB_SUPABASE_ECHONET_READ_TOKEN: token },
     fake(requests, (url) => {
-      assert.equal(url, "https://api.supabase.com/v1/projects");
-      return ok([
-        { ref: "wshmybqyksrwkawqleiz", organization_id: "kepuwrsiqhqwfgijzpev", status: "ACTIVE_HEALTHY", secret_response_field: "MUST_NOT_LEAK" },
-        { ref: "sstuzwppsheivczyqrim", organization_id: "kepuwrsiqhqwfgijzpev", status: "INACTIVE" }
-      ]);
+      assert.match(url, /^https:\/\/api\.supabase\.com\/v1\/projects\/[a-z0-9]{20}$/);
+      if (url.endsWith("/wshmybqyksrwkawqleiz"))
+        return ok({ ref: "wshmybqyksrwkawqleiz", organization_id: "kepuwrsiqhqwfgijzpev", status: "ACTIVE_HEALTHY", secret_response_field: "MUST_NOT_LEAK" });
+      if (url.endsWith("/sstuzwppsheivczyqrim"))
+        return ok({ ref: "sstuzwppsheivczyqrim", organization_id: "kepuwrsiqhqwfgijzpev", status: "INACTIVE" });
+      throw Error("Unexpected Supabase project read");
     })
   );
-  assert.equal(requests.length, 1);
+  assert.equal(requests.length, 2);
+  assert.deepEqual(requests.map((request) => request.url).sort(), [
+    "https://api.supabase.com/v1/projects/sstuzwppsheivczyqrim",
+    "https://api.supabase.com/v1/projects/wshmybqyksrwkawqleiz"
+  ]);
   assert.equal(requests[0].options.headers.Authorization, "Bearer " + token);
   assert.equal(results.provider_checks["DB-03"].observed_status, "ACTIVE_HEALTHY");
   assert.equal(results.provider_checks["DB-04"].observed_status, "INACTIVE");
@@ -64,9 +69,9 @@ test("one Supabase GET for scoped EchoNet, sanitizes provider data", async () =>
 test("Supabase project in another organization is not claimed as verified", async () => {
   const response = await run(
     { PARADISDB_SUPABASE_FYSEN_READ_TOKEN: "read-only" },
-    async () => ok([
-      { ref: "voglczxxtbwcxjrbffbt", organization_id: "wrong-org", status: "ACTIVE_HEALTHY" }
-    ])
+    async () => ok({
+      ref: "voglczxxtbwcxjrbffbt", organization_id: "wrong-org", status: "ACTIVE_HEALTHY"
+    })
   );
   assert.equal(response.provider_checks["DB-01"].result, "not_found_in_scope");
   assert.equal(response.provider_checks["DB-01"].observed_status, null);
@@ -119,4 +124,16 @@ test("unreviewed or changed provider mapping fails closed", async () => {
   const mismatched = { ...inventory, databases: inventory.databases.map((db) =>
     db.id === "DB-03" ? { ...db, provider_environment: "Cloudflare D1" } : db) };
   await assert.rejects(collectProviderStatus(mismatched, {}, () => {}, () => NOW), /Provider mismatch/);
+});
+
+test("scoped Supabase PAT forbidden/unauthorized response does not claim outage or active", async () => {
+  const urls = [];
+  const result = await run(
+    { PARADISDB_SUPABASE_ECHONET_READ_TOKEN: "scoped-example" },
+    fake(urls, () => ({ ok: false, status: 403 }))
+  );
+  assert.equal(urls.length, 2);
+  assert.equal(result.provider_checks["DB-03"].result, "lookup_failed");
+  assert.equal(result.provider_checks["DB-04"].result, "lookup_failed");
+  assert.equal(result.provider_checks["DB-03"].observed_status, null);
 });

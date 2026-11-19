@@ -4,7 +4,7 @@
 
 ## Hva kontrolleres?
 
-- Supabase: kun Management API GET /v1/projects med eksakt prosjektreferanse og organisasjons-ID. Ingen SQL, innhold, brukere eller nøkler hentes.
+- Supabase: kun Management API GET /v1/projects/{ref} for hver eksplisitt registrerte prosjektreferanse, med kontroll av organisasjons-ID. Dette er kompatibelt med prosjektavgrensede PAT-er med Project Settings: Read. Ingen SQL, innhold, brukere eller nøkler hentes.
 - Cloudflare: kun GET /accounts/{account_id}/d1/database/{database_id} med D1 Read-token. Kontrollerer UUID/navn og eventuelt antall tabeller og filstørrelse. Lesbar metadata betyr ikke at appen fungerer.
 - Azure DB-05: ingen forespørsler, ingen aktivering.
 - Ingen API-token, råresponser eller persondata publiseres.
