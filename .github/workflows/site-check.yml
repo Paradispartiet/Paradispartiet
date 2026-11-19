@@ -15,3 +15,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Sjekk interne lenker og anker-ID-er
         run: node tools/check-site.mjs
+      - name: Kontroller illustrasjonsfiler og sidemapping
+        run: node tools/check-illustrations.mjs
