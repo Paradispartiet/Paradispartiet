@@ -502,7 +502,7 @@ a:hover { text-decoration: none; }
 .hero-aside { position:relative; isolation:isolate; min-height: 360px; display:grid; place-items:center; }
 .hero-aside::before { content:""; position:absolute; width: min(98%,390px); aspect-ratio:1; border: 1px solid rgba(245,212,71,.25); border-radius:50%; box-shadow: 0 0 0 42px rgba(245,212,71,.027),0 0 0 84px rgba(245,212,71,.02); }
 .hero-aside::after { content:""; position:absolute; width: 280px; aspect-ratio:1; border-radius:50%; background: radial-gradient(circle,rgba(245,212,71,.17),transparent 68%); z-index:-1; }
-.hero-aside img { width: min(42%,165px); filter: drop-shadow(0 12px 38px rgba(245,212,71,.15)); }
+.hero-aside img { width: min(92%,380px); filter: drop-shadow(0 12px 38px rgba(245,212,71,.15)); }
 .hero-aside-label { position:absolute; bottom:8px; font-size: .76rem; letter-spacing: .18em; color: var(--muted); text-transform: uppercase; }
 
 /* Forsiden */
