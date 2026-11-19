@@ -769,3 +769,171 @@ a:hover { text-decoration: none; }
 @media (max-width:700px) {
   .error-page { min-height: 55vh; padding: 88px 22px 90px; }
 }
+
+
+/* =============================================================
+   PARADISPARTIET – ILLUSTRERT NETTSTED #23
+   Bilder er motiver uten tekst; logo, innhold og lenker er uendret.
+   ============================================================= */
+.vision-home-hero {
+  position:relative;
+  isolation:isolate;
+  max-width:none;
+  min-height:clamp(490px,47vw,640px);
+  display:flex;
+  align-items:flex-end;
+  padding:clamp(90px,11vw,156px) max(26px,calc((100vw - 1160px)/2)) 64px;
+  overflow:hidden;
+  background:#091b3e;
+}
+.vision-home-hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(3,12,37,.91) 0%,rgba(5,19,51,.82) 33%,rgba(5,20,50,.23) 78%,transparent 100%),
+    linear-gradient(0deg,rgba(3,12,30,.75) 0%,transparent 58%);
+  pointer-events:none;
+}
+.vision-home-hero .vision-home-image {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+  z-index:-2;
+}
+.vision-home-hero .hero-copy { position:relative; max-width:690px; }
+.vision-home-hero .eyebrow,.vision-home-hero .lead { color:#fff; text-shadow:0 2px 14px #0b2445; }
+.vision-home-hero h1 { text-shadow:0 4px 24px rgba(2,14,36,.55); }
+.vision-home-hero h1 span { color:#ffdd63; }
+.vision-home-hero .hero-aside { display:none; }
+.vision-home-hero .btn-outline { border-color:rgba(255,255,255,.65); background:rgba(2,19,47,.22); color:#fff; }
+.vision-page-art {
+  width:100%;
+  height:clamp(220px,33vw,440px);
+  margin:0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  overflow:hidden;
+  background:#153a72;
+}
+.vision-page-art .vision-page-image {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 45%;
+}
+.vision-card-art {
+  display:block;
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  object-position:center 50%;
+  background:#0b315e;
+}
+.foundation-grid article .vision-card-art {
+  width:calc(100% + 56px);
+  max-width:none;
+  height:165px;
+  margin:-28px -28px 22px;
+  border-radius:17px 17px 0 0;
+}
+.principles-section .card { overflow:hidden; }
+.principles-section .card .vision-card-art {
+  width:calc(100% + 56px);
+  max-width:none;
+  height:175px;
+  margin:-28px -28px 24px;
+  border-radius:17px 17px 0 0;
+}
+.projects-page .project > a > .vision-card-art {
+  height:215px;
+  min-height:215px;
+  max-height:215px;
+  object-position:center;
+}
+.projects.home .project img { object-position:center 48%; }
+.about-grid article { overflow:hidden; }
+.about-grid article .vision-card-art {
+  width:calc(100% + 44px);
+  max-width:none;
+  height:160px;
+  margin:-22px -22px 20px;
+}
+.vision-illustrated-banner { isolation:isolate; background:#081c3a; }
+.vision-illustrated-banner::after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:linear-gradient(90deg,rgba(3,14,38,.92),rgba(4,17,46,.66) 51%,rgba(4,19,48,.08));
+  pointer-events:none;
+}
+.vision-banner-image {
+  position:absolute;
+  z-index:-2;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 47%;
+}
+.vision-illustrated-banner .project-banner-inner {
+  position:relative;
+  z-index:1;
+  min-height:380px;
+  align-items:flex-end;
+}
+.vision-illustrated-banner .project-banner-text { max-width:730px; }
+.vision-illustrated-banner .project-banner-text p:not(.eyebrow) { color:#f8f7e9; text-shadow:0 2px 12px #061b3e; }
+.vision-illustrated-banner .project-banner-icon { display:none; }
+.vision-topic-art {
+  display:block;
+  width:100%;
+  height:clamp(160px,24vw,245px);
+  margin:18px 0 27px;
+  object-fit:cover;
+  object-position:center 52%;
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+.content .vision-document-art {
+  display:block;
+  width:100%;
+  height:clamp(180px,23vw,270px);
+  margin:42px 0;
+  object-fit:cover;
+  object-position:center 52%;
+  border-radius:16px;
+  border:1px solid var(--border);
+}
+/* Kunstmotiver vises aldri som ren tekstbakgrunn for lange dokumenter. */
+@media (max-width:700px) {
+  .vision-home-hero {
+    min-height:565px;
+    padding:96px 22px 46px;
+    align-items:flex-end;
+  }
+  .vision-home-hero::before {
+    background:linear-gradient(0deg,rgba(3,13,35,.95),rgba(3,13,35,.73) 52%,rgba(3,13,35,.06) 100%);
+  }
+  .vision-home-hero .vision-home-image { object-position:57% center; }
+  .vision-home-hero .hero-copy { max-width:100%; }
+  .vision-home-hero h1 { font-size:clamp(2.15rem,9.2vw,3.8rem); }
+  .vision-page-art { height:240px; }
+  .vision-page-art .vision-page-image { object-position:53% center; }
+  .foundation-grid article .vision-card-art { height:175px; }
+  .principles-section .card .vision-card-art { height:165px; }
+  .vision-illustrated-banner .project-banner-inner { min-height:310px; }
+  .vision-illustrated-banner::after {
+    background:linear-gradient(0deg,rgba(3,14,38,.96),rgba(3,14,38,.56) 75%,rgba(3,14,38,.08));
+  }
+  .vision-banner-image { object-position:55% center; }
+  .vision-topic-art { height:160px; margin:14px 0 23px; }
+  .content .vision-document-art { height:170px; margin:35px 0; }
+  .projects-page .project > a > .vision-card-art { height:195px; min-height:195px; max-height:195px; }
+}
