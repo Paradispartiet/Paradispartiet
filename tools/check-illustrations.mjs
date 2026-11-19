@@ -31,7 +31,7 @@ const pages = ["index.html","politikk.html","manifest.html","grunnlag.html","oko
 for (const name of pages) {
   assert(script.includes('"' + name + '"'), name + ": mangler illustrasjonsmapping");
   const html = fs.readFileSync(path.join(root, name), "utf8");
-  assert(/<script src="script\.js"><\/script>/.test(html), name + ": mangler felles script");
+  assert(/<script src="(?:\/Paradispartiet\/)?script\.js"><\/script>/.test(html), name + ": mangler felles script");
 }
 for (const name of fs.readdirSync(path.join(root, "Prosjekter")).filter(n => n.endsWith(".html"))) {
   const html = fs.readFileSync(path.join(root, "Prosjekter", name), "utf8");
