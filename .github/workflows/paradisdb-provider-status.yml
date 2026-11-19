@@ -1,6 +1,12 @@
 name: ParadisDB provider status (read-only)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/check_paradisdb_providers.mjs'
+      - 'tests/paradisdb-provider-status.test.mjs'
+      - '.github/workflows/paradisdb-provider-status.yml'
   pull_request:
     paths:
       - 'tools/check_paradisdb_providers.mjs'
