@@ -34,7 +34,7 @@ jobs:
           npx playwright install chromium
       - name: Start lokal testserver
         run: |
-          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/illustration-http.log 2>&1 &
+          python3 -m http.server 8765 --directory .. --bind 127.0.0.1 > /tmp/illustration-http.log 2>&1 &
           sleep 2
       - name: Kontroller mobil, iPad og desktop
         run: node tools/check-illustration-browser.mjs
