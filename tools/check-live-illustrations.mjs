@@ -8,7 +8,11 @@ import fs from "node:fs";
 const origin = "https://paradispartiet.github.io/Paradispartiet/";
 const plan = JSON.parse(fs.readFileSync("docs/ILLUSTRASJONSPLAN.json", "utf8"));
 const scenes = plan.images;
+const activeScenes = scenes.filter(scene => scene.display === "active");
+const archivedScenes = scenes.filter(scene => scene.display === "archived");
 const errors = [];
+if (activeScenes.length + archivedScenes.length !== scenes.length)
+  errors.push("Bilderegisteret har motiver uten gyldig visningsstatus");
 const timeout = ms => AbortSignal.timeout(ms);
 
 async function request(url, method = "HEAD") {
@@ -43,6 +47,29 @@ if (!script.includes("const SCENE_ASSIGNMENTS ="))
   errors.push("Offentlig side bruker fortsatt gammel bildevisning");
 if (script.includes("chooseSubject("))
   errors.push("Offentlig side har fortsatt automatisk temagjenbruk");
+if (!script.includes("if (!scene || !VISIBLE_SCENE_IDS.has(scene.id)) return null;"))
+  errors.push("Offentlig side mangler eksplisitt visningssperre for arkiverte bilder");
+
+// De 50 bildene kan fortsatt ligge i repoet. Bare eksplisitt aktive
+// motiv skal vises eller lastes på offentlig side.
+const marker = "const VISIBLE_SCENE_IDS = new Set(";
+const start = script.indexOf(marker);
+const end = start < 0 ? -1 : script.indexOf("]);", start);
+let publishedActive = [];
+if (start < 0 || end < 0) {
+  errors.push("Offentlig side mangler liste over aktive illustrasjoner");
+} else {
+  try {
+    publishedActive = JSON.parse(script.slice(start + marker.length, end + 1));
+  } catch (error) {
+    errors.push("Kunne ikke lese aktive illustrasjoner fra offentlig side: " + error.message);
+  }
+}
+const expectedActive = activeScenes.map(scene => scene.id).sort();
+if (publishedActive.length !== new Set(publishedActive).size)
+  errors.push("Offentlig side har dupliserte ID-er i listen over aktive bilder");
+if (JSON.stringify([...publishedActive].sort()) !== JSON.stringify(expectedActive))
+  errors.push("Offentlig visning avviker fra de " + expectedActive.length + " aktive motivene i registeret");
 
 const uniqueIds = new Set();
 for (const scene of scenes) {
@@ -54,7 +81,7 @@ for (const scene of scenes) {
 // Kontroller også at alle eksakte dokumentavsnitt finnes i de publiserte
 // dokumentene, ikke bare i GitHub-koden.
 const sectionsByPage = Object.groupBy(
-  scenes.filter(scene => scene.section_id), scene => scene.page
+  activeScenes.filter(scene => scene.section_id), scene => scene.page
 );
 await Promise.all(Object.entries(sectionsByPage).map(async ([page, expected]) => {
   try {
@@ -73,7 +100,7 @@ await Promise.all(Object.entries(sectionsByPage).map(async ([page, expected]) =>
   }
 }));
 
-const paths = scenes.flatMap(({id}) => [
+const paths = activeScenes.flatMap(({id}) => [
   "assets/illustrasjoner/" + id + ".webp",
   "assets/illustrasjoner/" + id + "-960.webp"
 ]);
@@ -103,5 +130,6 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log("OK: Live forside/script.js og " + checked + " av " + paths.length +
-    " WEBP-filer fra " + scenes.length + " unike illustrasjoner verifisert.");
+    " WEBP-filer fra " + activeScenes.length + " aktive illustrasjoner verifisert; " +
+    archivedScenes.length + " arkiverte motiver er ikke i bruk.");
 }
