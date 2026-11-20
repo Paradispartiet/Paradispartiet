@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "policy": "Hvert bilde skal visualisere en bestemt tekst, brukes kun på én side/ett sted og ha egen alt-tekst og forklarende bildetekst. Ingen temafallback eller gjenbruk.",
+  "version": 5,
+  "policy": "Kun utvalgte illustrasjoner som forklarer konkret tekst vises. Andre er bevart som arkiverte motiver og skal ikke lastes på nettsiden. Én bildefil brukes på høyst ett sted. Logo er unntatt.",
   "source": "Paradispartiet/Paradispartiet, lest direkte fra main 20.11.2026",
   "images": [
     {
@@ -10,7 +10,8 @@
       "basis": "Trygghet som grunnlag; frihet til å leve og skape",
       "motiv": "Lively contemporary Norwegian pedestrian street with affordable comfortable homes at left, welcoming shared garden and free family picnic in middle, people producing handmade art and practical craft at right; everyone has a place and freedom to contribute; warm afternoon into blue evening; people and architecture central, wide panorama",
       "alt": "Et boligområde med åpne møteplasser og mennesker som skaper sammen.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-politikk-grunnbehov",
@@ -19,7 +20,8 @@
       "basis": "Grunnbehov sikres i fellesskapet: bolig, mat, helse, utdanning",
       "motiv": "A human scale civic courtyard with four distinct accessible doors, a small home, local food cooperative, welcoming health clinic and open public school, interconnected by paths and people passing freely; not a giant utopian skyline",
       "alt": "Bolig, matforsyning, helsehjelp og læring samlet omkring et offentlig torg.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-prosjekter-fra-ide-til-praksis",
@@ -28,7 +30,8 @@
       "basis": "Prosjekter er praktiske initiativ for fellesskap, læring og byrom",
       "motiv": "Realistic everyday workshop scene where neighbors construct and plan welcoming public places together: small community pavilion under construction, reading room visible, volunteer-run event nearby, sketches on table but no legible labels",
       "alt": "Mennesker bygger og planlegger felles møteplasser i nabolaget.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-manifest-ufravikelige-rettigheter",
@@ -37,7 +40,8 @@
       "basis": "Manifest: ufravikelige rettigheter, naturvern, trygghet, fri skaping",
       "motiv": "Illustrative overview of everyday social rights expressed materially: a welcoming apartment, staffed public food place, open clinic, warm school and a strip of protected forest, all within same believable village street; foreground person opening home door freely, society rather than symbols",
       "alt": "Et nabolag der bolig, mat, helse og utdanning er tilgjengelig for alle.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-grunnlag-historie-filosofi-okologi",
@@ -46,7 +50,8 @@
       "basis": "60 kapitler om filosofisk, historisk og økologisk bakgrunn",
       "motiv": "Quiet research room with historical books and hand-drawn maps, table set with philosophical works and ecological field notes, a group of thoughtful people talking respectfully, window opening to real working fields and untouched forest, visual link between history and nature",
       "alt": "Et forskningsrom med historiske kilder, samtale og naturen utenfor.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-okonomisk-modell-dobbelstruktur",
@@ -55,7 +60,8 @@
       "basis": "BasicMarked/FriMarked, samfunnsarbeid, åpent ressursregnskap",
       "motiv": "Human-scale market courtyard with an open community essentials distribution stall offering basic food and household necessities on one side, independent artisan stalls selling creative handmade goods on the other, workers recording transparent non-numeric resource ledger together, two complementary spheres without walls",
       "alt": "Et fellesmarked for grunnbehov ved siden av frie lokale verksteder.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-kontakt-bli-med",
@@ -64,7 +70,8 @@
       "basis": "Medlemskap og 5 000 papirunderskrifter for partiregistrering",
       "motiv": "Small welcoming neighborhood association table where adults sign paper support forms and ask questions to volunteers, visible pens and papers with blank pages and no legible writing, friendly trust and privacy, familiar Norwegian community hall rather than staged rally",
       "alt": "Frivillige hjelper interesserte med medlemskap og underskrifter på papir.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-om-apen-deltakelse",
@@ -73,7 +80,8 @@
       "basis": "Åpen deltakelse, ulike bakgrunner og ideer omsatt i handling",
       "motiv": "Diverse adults of varied ages in an open meeting and shared worktable, a cleaner, student, caregiver, artist and craft worker discussing ideas with simple materials and plants, equal voices and warm inviting low-rise neighborhood common room",
       "alt": "Ulike mennesker deltar i et åpent arbeidsmøte om felles prosjekter.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "side-404-vei-videre",
@@ -82,7 +90,8 @@
       "basis": "404: siden finnes ikke; tilbake til forsiden eller utforsk prosjekter",
       "motiv": "A quietly humorous illustrated fork in a garden walking path, one path toward a welcoming shared square and another toward an open makers workshop, empty signposts without any words, foreground person deciding direction; reassuring, no horror",
       "alt": "To stier fører videre til et torg og et åpent verksted.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-aha-samtaler-innsikt",
@@ -91,7 +100,8 @@
       "basis": "Personlige KI-samtaler, anonym læring og felles kunnskap uten overvåkning",
       "motiv": "Interior of a welcoming public knowledge workshop, two people using their own tablets privately while a shared wall display visualizes many anonymous insights as abstract interconnected knowledge cards, clearly separate private screens and common learning; no surveillance cameras, no readable UI text",
       "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-caravan-gronne-korridorer",
@@ -100,7 +110,8 @@
       "basis": "Grønne ferdselsårer, gang/sykkel/kollektiv, hvile og naturhensyn",
       "motiv": "Wide Norwegian countryside route with well-made accessible walking and cycling trails connecting two small villages and a train stop, a simple rest pavilion at the riverside, walkers of different abilities and a cyclist, protected wetlands clearly undisturbed",
       "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-glasshus-vinterpaviljong",
@@ -109,7 +120,8 @@
       "basis": "Åpne oppvarmede glasspaviljonger i parker som gratis møteplass i vinterhalvåret",
       "motiv": "Cold snowy Norwegian urban park after sunset, several modest glass pavilions glowing warmly from inside, families and older adults reading and chatting without shopping, condensation on glass, benches and plants inside, surrounding bare trees and snow",
       "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-bilfri-by-tilgjengelighet",
@@ -118,7 +130,8 @@
       "basis": "Tilgjengelig bilfri sentrumsgate med kollektivtransport, varelevering og nødetater",
       "motiv": "Specific human-scale city cross-section: broad pedestrian square with tram stop, tactile guide paving and wheelchair ramp, cyclist moving carefully, electric cargo bike delivering goods to small shops, an emergency vehicle on designated access lane in distance; no private cars, practical infrastructure visible",
       "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-oldboys-trening-uten-press",
@@ -127,7 +140,8 @@
       "basis": "Lavterskel sportsklubb og sosial tilhørighet uten prestasjonskrav",
       "motiv": "Adults of different ages and genders casually playing football on green Norwegian community field at daylight, some laughing at the sideline on a bench and chatting, one person offering a hand after a fall, not an organized professional competition; joy and movement",
       "alt": "Voksne spiller fotball sammen i en uformell og inkluderende klubb.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
@@ -136,7 +150,8 @@
       "basis": "Uavhengig avis med samfunnsdebatt, kultur, politikk og filosofi",
       "motiv": "Warm modern small editorial newsroom, diverse writers working on social issues, two journalists interviewing a cultural worker, wall with anonymous clippings and photographs without readable text, newspaper pages without legible words, thoughtful debate, serious creative public sphere",
       "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "prosjekt-lesebiblioteket-apent-leserom",
@@ -145,7 +160,8 @@
       "basis": "Gratis lavterskel rom mellom bibliotek, kafé og verksted, uten kjøpeplikt",
       "motiv": "Spacious yet intimate ground-floor public reading space in an urban neighborhood, long bookshelves, adults reading quietly, small discussion circle and one person writing at table, tea mugs but no cashier or point of sale, accessible entrance, soft daylight",
       "alt": "Et gratis leserom der voksne leser, skriver og snakker uten kjøpeplikt.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "kort-paradisavisa-kritisk-samtale",
@@ -154,7 +170,8 @@
       "basis": "Uavhengig avis for debatt, analyser, kultur og samfunn",
       "motiv": "Close-up editorial worktable: handmade newspaper pages, an illustrated story spread and two people in a thoughtful interview, a camera and recording notebook, vivid real-life newsroom; no readable written text",
       "alt": "En redaksjon arbeider med artikler, bilder og samfunnsdebatt.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-aha-kunnskapsnettverk",
@@ -163,7 +180,8 @@
       "basis": "Kollektiv læring og ansvarlig kunnskapsdeling gjennom KI",
       "motiv": "Thoughtful close-up of hands using a tablet with visual speech bubbles dissolving into a pattern of shared anonymous knowledge, a nearby colleague learning from the resulting insights, clearly consent-focused human centered AI",
       "alt": "Mennesker bruker digitale samtaler til å dele kunnskap på en trygg måte.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-lesebiblioteket-samtalesirkel",
@@ -172,7 +190,8 @@
       "basis": "Åpent gratis rom for lesing, læring og samtale",
       "motiv": "Candid intimate view inside a welcoming free library café, four adults in an unhurried book discussion circle, books, soft chairs and plants, no consumer signage",
       "alt": "En liten gruppe voksne samtaler om bøker i et åpent lesebibliotek.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-oldboys-lavterskel-aktivitet",
@@ -181,7 +200,8 @@
       "basis": "Sosial sportsklubb uten prestasjonspress",
       "motiv": "Joyful close-up of two midlife teammates tying their football boots at the edge of a local park field before joining a friendly practice, smiles and teamwork, no professional sponsor logos",
       "alt": "To voksne gjør seg klare til en uformell fotballtrening.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-glasshus-vinterlys",
@@ -190,7 +210,8 @@
       "basis": "Små oppvarmede paviljonger i parker og byrom",
       "motiv": "Detailed winter view of a single softly lit glass pavilion in an Oslo-like park, snowy branches, elderly person with book visible within, warm refuge contrasting blue winter dusk",
       "alt": "En liten oppvarmet glasspaviljong lyser i en vinterpark.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-bilfri-by-gronn-gate",
@@ -199,7 +220,8 @@
       "basis": "Grønnere og tryggere byrom for folk",
       "motiv": "Intimate eye level view of a child safely crossing a pleasant car-free urban lane with an older companion, planting beds, people sitting on benches and one passing tram at a distance; show safe quiet street life",
       "alt": "En trygg bilfri gate med barn, benker og grønne møteplasser.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-caravan-trygg-sykkelvei",
@@ -208,7 +230,8 @@
       "basis": "Grønne korridorer for bærekraftig fri ferdsel",
       "motiv": "One cyclist and one hiker moving along a well maintained green corridor between fields and woodland, small rural village and local bus shelter in distance, clear rest stop and respect for natural habitat",
       "alt": "Sykkelvei og gangsti kobler natur og små lokalsamfunn sammen.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-basicmarked-grunnforsyning",
@@ -217,7 +240,8 @@
       "basis": "Felles forsyning av grunnbehov",
       "motiv": "Inside a modest municipal basics provision center: volunteer checks a reusable basket of fresh local produce and essential hygiene goods for a resident, functional shelving and transparent logistics, accessible and dignified, no cashier",
       "alt": "Utdeling av mat og nødvendighetsvarer gjennom en felles ordning.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "kort-teorien-om-lyset-bevissthet",
@@ -226,7 +250,8 @@
       "basis": "Lys, liv og menneskelig klarhet som filosofisk utforskning",
       "motiv": "Thoughtful person reading beside a window where morning sunlight illuminates plant leaves and dust motes, reflection of person in glass becomes a graceful visual metaphor for awareness and inner clarity; not fantasy gadgets",
       "alt": "Et menneske reflekterer ved et vindu der sollys faller på planter.",
-      "size": "1K"
+      "size": "1K",
+      "display": "archived"
     },
     {
       "id": "politikk-okonomi-dobbel-markedsstruktur",
@@ -235,7 +260,8 @@
       "basis": "BasicMarked og FriMarked, 10–15 timers bidrag",
       "motiv": "Ground-level realistic community marketplace where one aisle visibly supplies groceries and essentials without payment transaction while the neighboring area hosts independent maker stalls, ordinary people choosing freely, volunteer and craftspeople working side-by-side",
       "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "politikk-offentlig-grunnsortiment-varighet",
@@ -244,7 +270,8 @@
       "basis": "Statlige alternativer med varige TV-er, mobil, PC, verktøy og programvare",
       "motiv": "Hands-on public product testing lab: engineers and public university students together testing repairable phones, laptops, televisions and drill tools; visibly replaceable components, screws and modular cases; honest product quality assessment, no logos or readable labels",
       "alt": "Studenter og fagarbeidere tester og reparerer varige digitale produkter og verktøy.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-bolig-hjem-ikke-spekulasjon",
@@ -253,7 +280,8 @@
       "basis": "Bolig som rett, om lag 60 m² per person, hjem framfor spekulasjon",
       "motiv": "Grounded human-scale municipal housing courtyard, accessible homes with visible open interiors and practical shared spaces, resident receives keys to a modest attractive apartment rather than luxury highrise, outside bike storage and shared garden",
       "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "politikk-mat-lokal-matsikkerhet",
@@ -262,7 +290,8 @@
       "basis": "Ernæringsrett, sesongbasert lokal og bærekraftig produksjon",
       "motiv": "Local seasonal food growing and distribution scene: farmers picking vegetables in mixed beds, fresh nutritious produce delivered by handcart to a neighborhood food house, families with baskets, no industrial monoculture, detailed and realistic harvest",
       "alt": "Lokal dyrking og distribusjon sikrer tilgang til næringsrik mat.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-helse-fysisk-psykisk-sosial",
@@ -271,7 +300,8 @@
       "basis": "Helhetlig helse: fysisk, psykisk og sosial trygghet",
       "motiv": "Welcoming public health garden where a clinician listens to a patient on a quiet bench while a small group participates in gentle outdoor exercise nearby, accessible health center in background, warmth and care without medical dramatization",
       "alt": "Omsorgssamtale og sosial aktivitet ved et tilgjengelig helsesenter.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-utdanning-praksis-og-teori",
@@ -280,7 +310,8 @@
       "basis": "Skole og universitet, åpne verksteder, praksis og teori side om side",
       "motiv": "Bright community school workshop where an older learner studies a plan at table while young adult learners build a practical wooden object with tools under patient teacher supervision, bookshelves and accessible workspaces, people collaborating",
       "alt": "Elever og voksne lærer gjennom bøker og praktisk verkstedarbeid.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-arbeidsliv-tid-etter-evne",
@@ -289,7 +320,8 @@
       "basis": "10–15 timer felles arbeid etter evne, tid til frivillighet, kunst og omsorg",
       "motiv": "Believable everyday shared workspace with flexible work roles: one adult helps organize a public food supply in a short shift, another cares for small child nearby, another person paints in an adjacent studio during free time, empathy for different abilities and life phases",
       "alt": "Fleksibelt samfunnsarbeid gir plass til omsorg og egen skapelse.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-miljo-natur-forst",
@@ -298,7 +330,8 @@
       "basis": "Vill natur og jordbruk prioriteres i arealregnskap før bosetting",
       "motiv": "Aerial oblique view of a carefully planned rural area with clearly preserved forest and wetlands, productive farmland in between, only a few compact houses clustered along existing paths where nature is least disturbed; field ecologists observing wildlife at stream edge",
       "alt": "En liten bosetting er lagt utenfor vernet natur og viktige jordbruksarealer.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "politikk-transport-kollektiv-og-korridorer",
@@ -307,7 +340,8 @@
       "basis": "Kollektivtransport, bilfrie bykjerner og grønne Caravan-korridorer",
       "motiv": "Practical rural-urban transport interchange with a commuter train pulling into a small station, safe walking and cycling path joining a car-free neighborhood center, wheelchair-accessible platform, coherent green travel connection",
       "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "politikk-kultur-alle-kan-skape",
@@ -316,7 +350,8 @@
       "basis": "Kultur som grunnbehov, åpne verksteder, scener og atelier for alle",
       "motiv": "Accessible neighborhood arts center where different ages make pottery, paint and rehearse a small theatrical performance at the same time in adjacent open rooms, warm stage lights and shared equipment, no entrance tickets or merchandizing",
       "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "forklaring-manifest-mekling-reparasjon",
@@ -327,7 +362,8 @@
       "alt": "Et nabolag reparerer en skadet felles paviljong mens naboer og en mekler avtaler erstatning og gjenoppretting.",
       "basis": "Manifestet kapittel 24 skiller alvorlige krenkelser fra uhell og mindre skader og beskriver ansvar, mekling, gjenoppretting, erstatning og offentlig forsikring.",
       "motiv": "In a quiet human-scale Norwegian neighborhood, an accidental broken glass pane in a community garden pavilion is being repaired by a tradesperson while two neighbors and an impartial local mediator calmly discuss the damage and compensation, another helper safely cleans glass and reuses wood, all cooperating; the visual MUST clearly emphasize practical repair and mediation over punishment, no courtroom, police or violence.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "forklaring-manifest-algoritmerevisjon",
@@ -338,7 +374,8 @@
       "alt": "En uavhengig gruppe undersøker hvordan en offentlig digital tjeneste fungerer, mens en innbyggers private informasjon er skjermet.",
       "basis": "Manifestet kapittel 40 krever åpne og etterprøvbare offentlige algoritmer, dataminimering, innsyn, retting, sletting og uavhengig revisjon uten offentliggjøring av privatlivet.",
       "motiv": "Inside a realistic modest Norwegian public digital services office, independent auditors and a citizen examine the transparent workflow of a public service using diagrams of processing stages on large screens, while personal files stay physically and visually separated inside a locked privacy room with frosted glass. Show one auditor pointing to a process trail and another reviewing documentation, no surveillance camera, no giant robotic AI, no readable code, no fake textual statistics.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "forklaring-grunnlag-innhegning-allmenning",
@@ -349,7 +386,8 @@
       "alt": "En historisk engelsk allmenning blir delt av nye gjerder mens jordbruksfamilier mister tilgangen til et felles beite.",
       "basis": "Grunnlagsdokumentet kapittel 6 drøfter Enclosure Laws: tap av felles brukte jordressurser, privatisering og endringer i arbeid og bosetting.",
       "motiv": "Historically grounded eighteenth-century England countryside, an open common grazing meadow is visibly being divided and enclosed by new hedges and wooden fences, sheep and common farmers standing on the public side while landowners' workers finish building a gate and fencing; a family carries simple tools and possessions away, a distant burgeoning mill town is only faintly visible beyond fields. An explanatory editorial historical scene, avoid anachronistic clothes, vehicles, skyscrapers or dramatic violence.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "forklaring-grunnlag-ostrom-vann",
@@ -360,7 +398,8 @@
       "alt": "Bønder i en fjellandsby fordeler vann gjennom et felles vanningssystem og vedlikeholder kanalene sammen.",
       "basis": "Grunnlagsdokumentet kapittel 16 beskriver Elinor Ostroms forskning på lokalt organisert forvaltning, blant annet vanningsanlegg i Nepal, med brukermedvirkning, tilpassede regler og konfliktløsning.",
       "motiv": "Documentary-inspired human-centered Nepal foothill village, farmers of different ages collectively maintain a stone-lined community irrigation channel and distribute water to terraced fields using low wooden sluice gates, a small open meeting of users beside the channel listens to one another and decides how to share water fairly; physically coherent canals, clear connection between cooperative rules and sustainable resource care, respectful non-stereotyped specific rural setting, not a fantasy mountain village.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "forklaring-okonomi-arbeidstid-bidrag",
@@ -371,7 +410,8 @@
       "alt": "Frivillige og ansatte i et lokalsamfunn utfører ulike grunnoppgaver fra matutdeling til omsorg og vedlikehold.",
       "basis": "Økonomisk modell punkt 1.3 fordeler 10–15 ukentlige timer etter evne mellom boligvedlikehold, mat, helse og omsorg, utdanning og drift.",
       "motiv": "An integrated Norwegian neighborhood public-service courtyard in a single cohesive perspective, five distinct clearly readable everyday tasks: a repair worker fixes a community apartment stair railing; a food cooperatives worker organizes fresh produce; a care worker helps an elderly resident; a teacher guides an adult learning practical skills; a maintenance technician checks a building's heating and solar battery wiring. Each worker is participating at a manageable pace, and nearby a caregiver takes a break with child. No clocks with precise times, no numbers or unrealistic automatic machines. Focus on activities, not futuristic architecture.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "forklaring-okonomi-apent-ressursregnskap",
@@ -382,7 +422,8 @@
       "alt": "Ansatte ved et felles lager registrerer matleveranser, kontrollerer gjenbrukbare beholdere og følger opp ressursflyten.",
       "basis": "Økonomisk modell punkt 1.4 beskriver åpent ressursregnskap med lagerstatus, tilførsel, avgang, klima- og energibruk, avfall og produktkort.",
       "motiv": "Inside a modest highly believable Norwegian cooperative goods depot, staff visually inspecting labeled-by-color reusable crates of vegetables and household supplies, an inventory clerk verifies arrivals against an open ledger on a laptop where only colored nonverbal shapes are visible, a second worker weighs outgoing produce and another separates reusable packaging for recycling; skylights and small solar panel visible outside. One physical chain from incoming goods to tracked outgoing goods and reuse, no readable text or numbers, no fantasy network or giant glowing holograms.",
-      "size": "2K"
+      "size": "2K",
+      "display": "active"
     },
     {
       "id": "forklaring-okonomi-rehabilitering-bolig",
@@ -393,7 +434,8 @@
       "alt": "Håndverkere oppgraderer en eldre boligblokk, omgjør eksisterende rom og gjenbruker byggematerialer i stedet for å rive.",
       "basis": "Økonomisk modell punkt 7 prioriterer rehab og konvertering, med et eksempel der 60 prosent av volumet kommer fra oppgradering og 40 prosent fra nybygg.",
       "motiv": "Clear documentary-style architectural street-level view of a realistic older Norwegian 1960s apartment block being carefully rehabilitated: carpenters install insulated windows, retrofit entrance for wheelchair access, reuse salvaged timber neatly stacked, convert former unneeded office rooms to bright small apartments, and in far background one modest new low-rise infill building under construction. Residents can remain connected to the neighborhood; show repair-first, not demolition or glamorous skyscrapers, no charts or fake labels.",
-      "size": "2K"
+      "size": "2K",
+      "display": "archived"
     },
     {
       "id": "forklaring-manifest-frivillig-bosetting",
@@ -404,7 +446,8 @@
       "caption": "Bosettingsregnskapet skal vise valgmuligheter og naturgrenser – ikke bestemme hvor mennesker må bo.",
       "alt": "Innbyggere undersøker frivillige bosettingsmuligheter på et lokalt kart mens et våtmarksområde og dyrket mark blir bevart.",
       "basis": "Manifestet kapittel 31: bosettingsregnskapet beskriver muligheter og økologiske grenser. Ingen skal tvangsflyttes eller plasseres av overordnede myndigheter. Flere steder skal gjøres reelt beboelige.",
-      "motiv": "A concrete respectful Norwegian village planning meeting in a welcoming local library, a handful of families voluntarily studying a large physical topographic 3D landscape model showing several possible small housing clusters connected by established paths, with untouched wetlands, forest and fertile farmland visibly left intact. A field ecologist points out the wetlands and residents choose routes and options together; show freedom of choice, ecological constraint, no displacement, no forced placement. No text or map labels."
+      "motiv": "A concrete respectful Norwegian village planning meeting in a welcoming local library, a handful of families voluntarily studying a large physical topographic 3D landscape model showing several possible small housing clusters connected by established paths, with untouched wetlands, forest and fertile farmland visibly left intact. A field ecologist points out the wetlands and residents choose routes and options together; show freedom of choice, ecological constraint, no displacement, no forced placement. No text or map labels.",
+      "display": "archived"
     },
     {
       "id": "forklaring-manifest-pilot-lokal-laring",
@@ -415,7 +458,8 @@
       "caption": "Piloter skal prøve ut hvordan rettighetene leveres i praksis, hente erfaringer og forbedre ordningene før de utvides.",
       "alt": "Beboere og fagfolk prøver ut en lokal forsyningsordning, observerer vareflyten og gir tilbakemeldinger i et åpent møte.",
       "basis": "Manifestet kapittel 47: gradvise piloter for gjennomføring av BasicMarkedet, arbeidstid, boligfond, ressursregnskap og demokratisk organisering, uten å sette grunnrettigheter på prøve.",
-      "motiv": "In a Norwegian neighborhood small practical pilot for a community essential goods service is in operation, one volunteer checks quality of produce coming from small delivery carts, a resident gives friendly feedback to a public service coordinator, and a separate open circle of residents and local staff inspect physical delivery routes on a table plan. Clearly an experimental local operational review improving practical processes, rather than withholding access to basic goods or high-tech utopia, no labels or text."
+      "motiv": "In a Norwegian neighborhood small practical pilot for a community essential goods service is in operation, one volunteer checks quality of produce coming from small delivery carts, a resident gives friendly feedback to a public service coordinator, and a separate open circle of residents and local staff inspect physical delivery routes on a table plan. Clearly an experimental local operational review improving practical processes, rather than withholding access to basic goods or high-tech utopia, no labels or text.",
+      "display": "archived"
     },
     {
       "id": "forklaring-grunnlag-digitalt-datauttak",
@@ -426,7 +470,8 @@
       "caption": "Teksten beskriver hvordan digitale plattformer kan samle inn atferdsdata og gjøre oppmerksomhet til en ressurs som andre kontrollerer.",
       "alt": "En person bruker mobilen mens spor av aktivitet samles i et stort plattformsystem som vedkommende ikke kan se inn i.",
       "basis": "Grunnlagsdokumentet kapittel 28: digital plattformmakt, overvåkingskapitalisme, datauttak og oppmerksomhetens plass i økonomien.",
-      "motiv": "Thoughtful explanatory editorial scene set in a realistic Norwegian apartment in evening: close-up of an ordinary adult using a smartphone, precise subtle colored strands of data drawn from mundane choices on screen (shopping thumbnails, transit map symbols, scrolling) cross room to a distant immense opaque private server operations facility visible through layered glass; the user cannot inspect or control destination, while the server room network is lit with massive processing power. Emphasize asymmetry and attention extraction, not scary robot, sinister police, fake code, diagrams, text or logos. One clear focal person and physical narrative."
+      "motiv": "Thoughtful explanatory editorial scene set in a realistic Norwegian apartment in evening: close-up of an ordinary adult using a smartphone, precise subtle colored strands of data drawn from mundane choices on screen (shopping thumbnails, transit map symbols, scrolling) cross room to a distant immense opaque private server operations facility visible through layered glass; the user cannot inspect or control destination, while the server room network is lit with massive processing power. Emphasize asymmetry and attention extraction, not scary robot, sinister police, fake code, diagrams, text or logos. One clear focal person and physical narrative.",
+      "display": "archived"
     },
     {
       "id": "forklaring-grunnlag-okologisk-ramme",
@@ -437,7 +482,8 @@
       "caption": "Økologisk økonomi ser verksteder, boliger og handel som deler av naturens endelige vann-, energi- og materialstrømmer.",
       "alt": "En liten by og verksteder ligger innenfor et elve- og skoglandskap, med synlige løp for vann, materialbruk og reparasjon.",
       "basis": "Grunnlagsdokumentet kapittel 15: steady-state-økonomi, naturens tålegrenser, økonomien som del av biosfæren og gjenbruk framfor ubegrenset materiell vekst.",
-      "motiv": "Detailed coherent cutaway/isometric landscape of a complete Norwegian river watershed as a bounded ecological system: snowfed river and protected riparian wetland support a compact low-rise settlement; a small agricultural field feeds a local market, repair workshop takes used wood and metal from houses and fixes furniture, clean water treatment returns water to stream; show human material flows within the same limited mountain valley and surrounding trees. Natural elegant visible physical links between ecosystem and human economy, no abstract limitless growth arrows, no fantasy industry, no text, no diagrams or labels."
+      "motiv": "Detailed coherent cutaway/isometric landscape of a complete Norwegian river watershed as a bounded ecological system: snowfed river and protected riparian wetland support a compact low-rise settlement; a small agricultural field feeds a local market, repair workshop takes used wood and metal from houses and fixes furniture, clean water treatment returns water to stream; show human material flows within the same limited mountain valley and surrounding trees. Natural elegant visible physical links between ecosystem and human economy, no abstract limitless growth arrows, no fantasy industry, no text, no diagrams or labels.",
+      "display": "archived"
     },
     {
       "id": "forklaring-okonomi-avvik-tiltak-revisjon",
@@ -448,7 +494,8 @@
       "caption": "Når boligleveransen ligger etter planen, skal avvik oppdages, tiltak endres og resultatet kontrolleres i neste periode.",
       "alt": "En lokal boliggruppe undersøker forsinket rehabilitering, omfordeler ressurser og følger opp pågående byggearbeid.",
       "basis": "Økonomisk modell: styringslogikk ved avvik, åpent regnskap, aktivering av tiltak som flere arbeidstimer, ekstra rehabilitering og måling ved neste kvartal.",
-      "motiv": "Grounded single editorial continuous scene centered on a modest housing rehabilitation project: in the foreground a local project manager and resident representative compare a physical progress board with plain colored stages and an actual incomplete apartment building just outside the open meeting room; planners reassign a small team and reclaimed timber supplies to unblock renovation; through the other window workers are already fitting refurbished windows, showing a practical feedback loop from detected delay to concrete corrective action. No legible numbers, charts, labels or optimistic fabricated results. Clear visual causal action."
+      "motiv": "Grounded single editorial continuous scene centered on a modest housing rehabilitation project: in the foreground a local project manager and resident representative compare a physical progress board with plain colored stages and an actual incomplete apartment building just outside the open meeting room; planners reassign a small team and reclaimed timber supplies to unblock renovation; through the other window workers are already fitting refurbished windows, showing a practical feedback loop from detected delay to concrete corrective action. No legible numbers, charts, labels or optimistic fabricated results. Clear visual causal action.",
+      "display": "archived"
     },
     {
       "id": "forklaring-manifest-apen-skole-kveld",
@@ -459,7 +506,8 @@
       "caption": "Skoler og opplæringssteder skal også kunne brukes om kvelden, slik at voksne kan lære når hverdagen gir rom for det.",
       "alt": "Voksne deltar i kveldsundervisning på en åpen skole, med veiledning og praktiske øvelser i opplyste klasserom.",
       "basis": "Manifestet kapittel 26: utdanning tilgjengelig hele døgnet; foreldre og andre voksne kan delta og få opplæring regnet som samfunnsarbeid.",
-      "motiv": "A grounded human-scale modern Norwegian neighborhood school in the deep blue evening after sunset, with warmly lit classrooms seen through tall windows. Adult learners including a working parent participate in a practical woodworking and electronics safety lesson at shared tables, a calm teacher guides them, and another room contains a small quiet reading group and library books. Sensible realistic lighting: dark outdoors with bicycle and snow-damp pavement, inviting well-organized facilities. Show adult access to lifelong learning outside normal working hours, not nighttime children without supervision, not a party, no readable lettering."
+      "motiv": "A grounded human-scale modern Norwegian neighborhood school in the deep blue evening after sunset, with warmly lit classrooms seen through tall windows. Adult learners including a working parent participate in a practical woodworking and electronics safety lesson at shared tables, a calm teacher guides them, and another room contains a small quiet reading group and library books. Sensible realistic lighting: dark outdoors with bicycle and snow-damp pavement, inviting well-organized facilities. Show adult access to lifelong learning outside normal working hours, not nighttime children without supervision, not a party, no readable lettering.",
+      "display": "archived"
     },
     {
       "id": "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
@@ -470,7 +518,8 @@
       "caption": "I den omvendte samfunnskontrakten gir innbyggerne avgrensede oppgaver til institusjoner de selv kan kontrollere og stille til ansvar.",
       "alt": "Innbyggere i et offentlig møte stiller spørsmål til et lokalt tilsyn og ser hvordan beslutninger kan prøves og endres.",
       "basis": "Grunnlagsdokumentet, kapittel 20, Paradismodellens omvendte kontrakt: mandatet fra folket er begrenset, kontrollert og tilbakekallelig; institusjonene skal beskytte mot skade, ikke styre fredelige liv.",
-      "motiv": "Single cohesive interior of an approachable Norwegian democratic community hall in daylight, roundtable open assembly of ordinary citizens meeting with a small public safety and rights oversight board; separate independent ombud reviewers sit at their own accessible table reviewing decisions, while a local delegate respectfully answers questions from residents who hold ordinary files and a visibly blank public document. Diverse ages seated equally with a facilitator, childcare corner and plants, no elevated throne, no huge governmental official, no police force or political signage. Visually show the public controlling and reviewing a limited civic mandate, real-world democratic accountability, not abstract symbolic allegory, no readable text."
+      "motiv": "Single cohesive interior of an approachable Norwegian democratic community hall in daylight, roundtable open assembly of ordinary citizens meeting with a small public safety and rights oversight board; separate independent ombud reviewers sit at their own accessible table reviewing decisions, while a local delegate respectfully answers questions from residents who hold ordinary files and a visibly blank public document. Diverse ages seated equally with a facilitator, childcare corner and plants, no elevated throne, no huge governmental official, no police force or political signage. Visually show the public controlling and reviewing a limited civic mandate, real-world democratic accountability, not abstract symbolic allegory, no readable text.",
+      "display": "archived"
     },
     {
       "id": "forklaring-okonomi-produktkort-kvalitet",
@@ -481,7 +530,8 @@
       "caption": "Åpne produktkort og kvalitetsprøver skal gjøre det mulig å kontrollere materialer, holdbarhet og sikkerhet før varer tas i bruk.",
       "alt": "Fagfolk tester et hverdagsprodukt på et lokalt kvalitetslaboratorium og undersøker materialene og holdbarheten.",
       "basis": "Økonomisk modell punkt 6: åpne produktkort for ingredienser eller materialer, holdbarhet og revisjonshistorikk, grunnkrav til helse/miljø og åpne fag- og brukeranmeldelser.",
-      "motiv": "Close-up concrete editorial scene in a small Scandinavian independent public product-quality laboratory, quality testers examine a set of plain reusable food storage containers and a safe everyday electric kettle on a sturdy workbench. One technician tests lid seal and food-safe material sample, another checks whether the kettle handle and replaceable part survives long use, an independent reviewer looks at visually organized sample cards and material swatches with blank surfaces, not readable labels. Show craftsmanship, quality and transparent testing, not product advertising, luxury retail, generic production line, or fake gauges. Product inspection is distinct from repair and distribution elsewhere in the website."
+      "motiv": "Close-up concrete editorial scene in a small Scandinavian independent public product-quality laboratory, quality testers examine a set of plain reusable food storage containers and a safe everyday electric kettle on a sturdy workbench. One technician tests lid seal and food-safe material sample, another checks whether the kettle handle and replaceable part survives long use, an independent reviewer looks at visually organized sample cards and material swatches with blank surfaces, not readable labels. Show craftsmanship, quality and transparent testing, not product advertising, luxury retail, generic production line, or fake gauges. Product inspection is distinct from repair and distribution elsewhere in the website.",
+      "display": "active"
     }
   ]
 }

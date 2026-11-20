@@ -25,6 +25,17 @@ const parts = assignments ? [
   ...Object.values(assignments.policyTopics),
   ...Object.values(assignments.documentFigures || {}).flat()
 ] : [];
+const marker = "const VISIBLE_SCENE_IDS = new Set(";
+const visibleStart = script.indexOf(marker);
+const visibleEnd = visibleStart < 0 ? -1 : script.indexOf("]);", visibleStart);
+assert(visibleStart >= 0 && visibleEnd >= 0, "Mangler godkjent liste for synlige motiver");
+let visibleIds = [];
+try {
+  if(visibleStart >= 0 && visibleEnd >= 0)
+    visibleIds = JSON.parse(script.slice(visibleStart + marker.length, visibleEnd + 1));
+} catch (e) { errors.push("Ugyldig synlig motivliste: " + e.message); }
+const visible = new Set(visibleIds);
+assert(visible.size === visibleIds.length, "Dubletter i synlige motiv-ID-er");
 const counts = new Map();
 for (const scene of parts) {
   if (!scene?.id) { errors.push("En plassering mangler bilde-ID"); continue; }
@@ -32,6 +43,7 @@ for (const scene of parts) {
   assert(scene.alt?.trim().length > 18, scene.id + " mangler forklarende alt-tekst");
 }
 for (const [id,n] of counts) assert(n===1, id + " er brukt " + n + " ganger: én bildefil får kun én plass!");
+for(const id of visible) assert(counts.has(id), id + " er aktiv, men finnes ikke i bilderegisteret");
 assert(parts.length===plan.images.length,
   "Register/sidekode avviker: "+parts.length+" plasseringer mot "+plan.images.length+" bestilte bilder");
 const ids=new Set(), slots=new Set();
@@ -42,6 +54,10 @@ for (const scene of plan.images) {
   assert(!slots.has(slot), slot+" duplisert i register");
   slots.add(slot);
   assert(counts.has(scene.id), scene.id+" er ikke knyttet til noen side");
+  assert((scene.display === "active") === visible.has(scene.id),
+    scene.id + " visningsstatus avviker mellom register og nettside");
+  assert(["active","archived"].includes(scene.display),
+    scene.id + " må være aktiv eller arkivert");
   if (scene.section_id) {
     assert(scene.slot === "inline:" + scene.section_id, scene.id + " feil avsnitts-ID");
     assert(read(scene.page).includes('id="' + scene.section_id + '"'), scene.id + " seksjonen finnes ikke");
@@ -80,5 +96,5 @@ if(errors.length) {
   console.error("ILLUSTRASJONSKONTROLL FEILET:\n"+errors.map(x=>" - "+x).join("\n"));
   process.exitCode=1;
 } else {
-  console.log("OK: "+parts.length+" ulike motiver i "+parts.length+" unike tekstplasser. Ingen resirkulering.");
+  console.log("OK: "+visible.size+" synlige illustrasjoner av "+parts.length+" registrerte motiver. Ingen gjenbruk.");
 }
