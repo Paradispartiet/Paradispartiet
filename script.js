@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollTopButton();
   initDocumentIndex();
   initManifestReader();
+  initEconomicReader();
   loadAvisaFeed();
   document.querySelectorAll("[data-year]").forEach(el => {
     el.textContent = new Date().getFullYear();
@@ -154,6 +155,43 @@ function initManifestReader() {
     }, {rootMargin: "-10% 0px -75% 0px"});
     anchors.forEach(target => active.observe(target));
   }
+}
+
+function initEconomicReader() {
+  const toc = document.querySelector(".page--okonomiskmodell .document-toc");
+  if (!toc) return;
+  const details = toc.querySelector(".economic-toc-panel");
+  const search = toc.querySelector("#economic-toc-search");
+  const status = toc.querySelector("#economic-toc-results");
+  if (!details || !search || !status) return;
+
+  // Eksisterende innholdslenker er fasit; ikke opprett eller gjenta kapittelposter.
+  const entries = [...toc.querySelectorAll("ol > li")].map(item => ({
+    item,
+    link: item.querySelector("a"),
+    text: item.textContent.trim().toLocaleLowerCase("nb-NO")
+  }));
+  details.querySelector("summary").textContent = "Finn en seksjon (" + entries.length + ")";
+  details.open = window.matchMedia("(min-width: 701px)").matches;
+
+  const filter = () => {
+    const term = search.value.trim().toLocaleLowerCase("nb-NO");
+    let matches = 0;
+    for (const entry of entries) {
+      const visible = entry.text.includes(term);
+      entry.item.hidden = !visible;
+      if (visible) matches++;
+    }
+    status.textContent = term
+      ? matches + " av " + entries.length + " seksjoner"
+      : entries.length + " seksjoner";
+  };
+  search.addEventListener("input", filter);
+  filter();
+  for (const entry of entries) {
+    entry.link?.addEventListener("click", () => { details.open = false; });
+  }
+  initReadingProgress();
 }
 
 function initNavigation() {
