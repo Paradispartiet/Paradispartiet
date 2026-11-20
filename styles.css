@@ -1445,3 +1445,103 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--manifest .content > section { margin-top: 45px; }
   .page--manifest .content .chapter h3 { margin-top: 31px; }
 }
+
+
+/* Økonomisk modell: sammenleggbar, søkbar oversikt og rolig leseflate. */
+.page--okonomiskmodell .content {
+  min-width: 0;
+  max-width: 880px;
+  padding: clamp(35px, 5.5vw, 70px) clamp(20px, 4vw, 36px) 110px;
+}
+.page--okonomiskmodell .content :where(h1,h2,h3,p,li) {
+  overflow-wrap: anywhere;
+}
+.page--okonomiskmodell .content :where(p,li) {
+  line-height: 1.75;
+}
+.page--okonomiskmodell #okonomisk-modell > section {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(89, 190, 216, .23);
+}
+.page--okonomiskmodell #okonomisk-modell > section > h2 {
+  margin-top: 12px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.page--okonomiskmodell .document-toc {
+  margin: 29px 0 50px;
+  padding: 0;
+  border: 1px solid rgba(89, 190, 216, .42);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0b2232, #070e17);
+  overflow: hidden;
+}
+.page--okonomiskmodell .document-toc::before { content: none; }
+.page--okonomiskmodell .economic-toc-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.page--okonomiskmodell .economic-toc-panel summary {
+  cursor: pointer;
+  padding: 20px 25px;
+  color: #ffe079;
+  font-size: 1.08rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+.page--okonomiskmodell .economic-toc-panel summary:hover {
+  background: rgba(55, 170, 218, .1);
+}
+.page--okonomiskmodell .economic-toc-tools {
+  display: grid;
+  gap: 9px;
+  margin: 0 23px 18px;
+}
+.page--okonomiskmodell .economic-toc-tools label {
+  color: #deecf3;
+  font-size: .88rem;
+  font-weight: 640;
+}
+.page--okonomiskmodell #economic-toc-search {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  border: 1px solid rgba(90, 197, 228, .48);
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: #030c14;
+  color: #f8fcff;
+  font: inherit;
+}
+.page--okonomiskmodell #economic-toc-search::placeholder { color: #9db7c3; }
+.page--okonomiskmodell .economic-toc-results {
+  margin: 0;
+  font-size: .83rem;
+  color: #b1c7d5;
+}
+.page--okonomiskmodell .document-toc ol {
+  max-height: min(52vh, 440px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 15px 25px 25px 48px;
+  margin: 0;
+  border-top: 1px solid rgba(75, 180, 210, .22);
+  columns: 1;
+}
+.page--okonomiskmodell .document-toc li {
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.page--okonomiskmodell .document-toc li[hidden] { display: none; }
+.page--okonomiskmodell .document-toc a { color: #e9f4f9; }
+.page--okonomiskmodell .document-toc a:hover { color: #ffe079; }
+@media (max-width: 700px) {
+  .page--okonomiskmodell .content { padding: 32px 20px 85px; }
+  .page--okonomiskmodell .content > h1 { font-size: clamp(2rem, 8vw, 2.65rem); }
+  .page--okonomiskmodell #okonomisk-modell > section { margin-top: 36px; }
+  .page--okonomiskmodell .economic-toc-panel summary { padding: 18px 19px; }
+  .page--okonomiskmodell .economic-toc-tools { margin: 0 18px 14px; }
+  .page--okonomiskmodell .document-toc ol { padding: 12px 18px 20px 43px; }
+}
