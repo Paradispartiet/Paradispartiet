@@ -22,7 +22,8 @@ const parts = assignments ? [
   ...Object.values(assignments.pageBanners),
   ...Object.values(assignments.projectBanners),
   ...Object.values(assignments.projectCards),
-  ...Object.values(assignments.policyTopics)
+  ...Object.values(assignments.policyTopics),
+  ...Object.values(assignments.documentFigures || {}).flat()
 ] : [];
 const counts = new Map();
 for (const scene of parts) {
@@ -41,6 +42,12 @@ for (const scene of plan.images) {
   assert(!slots.has(slot), slot+" duplisert i register");
   slots.add(slot);
   assert(counts.has(scene.id), scene.id+" er ikke knyttet til noen side");
+  if (scene.section_id) {
+    assert(scene.slot === "inline:" + scene.section_id, scene.id + " feil avsnitts-ID");
+    assert(read(scene.page).includes('id="' + scene.section_id + '"'), scene.id + " seksjonen finnes ikke");
+    assert(scene.caption?.trim().length > 35, scene.id + " mangler forklarende bildetekst");
+  }
+
   assert(!!scene.basis && scene.basis.length>15, scene.id+" mangler tekstbegrunnelse");
   assert(!!scene.motiv && scene.motiv.length>80, scene.id+" mangler konkret motiv");
   const size=scene.size;

@@ -26,7 +26,7 @@ try {
     for(const filename of pages) {
       const response=await page.goto(base+filename,{waitUntil:"domcontentloaded",timeout:30000});
       if(!response?.ok()) {errors.push(device+" "+filename+": status "+response?.status());continue}
-      const selector=".vision-home-image, .vision-page-image, .vision-banner-image, .vision-card-art, .vision-topic-art";
+      const selector=".vision-home-image, .vision-page-image, .vision-banner-image, .vision-card-art, .vision-topic-art, .vision-document-image";
       const images=page.locator(selector);
       const expected=expectedByPage[filename]||[];
       const count=await images.count();
@@ -77,6 +77,16 @@ try {
           path:"illustration-screenshots/"+device+"-"+filename.replaceAll("/","-").replace(".html","")+".png",
           fullPage:false
         });
+      }
+      if (["manifest.html", "grunnlag.html", "okonomisk-modell.html"].includes(filename)) {
+        const figure = page.locator(".vision-document-figure").first();
+        if (await figure.count()) {
+          await figure.scrollIntoViewIfNeeded();
+          await page.screenshot({
+            path:"illustration-screenshots/" + device + "-dokument-" + filename.replace(".html","") + ".png",
+            fullPage:false
+          });
+        }
       }
       console.log(device,filename,"planlagt",expected.length,"funnet",count,"overflow",overflow);
     }

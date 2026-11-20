@@ -937,3 +937,43 @@ a:hover { text-decoration: none; }
   .content .vision-document-art { height:170px; margin:35px 0; }
   .projects-page .project > a > .vision-card-art { height:195px; min-height:195px; max-height:195px; }
 }
+
+
+/* Forklaringsbilder: ett motiv per avsnitt, alltid med egen innholdsforklarende bildetekst. */
+.content .vision-document-figure {
+  display: block;
+  width: min(100%, 920px);
+  max-width: 100%;
+  margin: clamp(22px, 4vw, 36px) 0 clamp(28px, 4vw, 46px);
+  overflow: hidden;
+  background: #0c1b32;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.content .vision-document-figure .vision-document-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.content .vision-document-figure figcaption {
+  display: block;
+  margin: 0;
+  padding: 13px 18px 16px;
+  color: #e2e8f0;
+  font-size: .92rem;
+  line-height: 1.55;
+  background: #0c1b32;
+}
+@media (max-width: 700px) {
+  .content .vision-document-figure {
+    margin: 20px 0 30px;
+    border-radius: 12px;
+  }
+  .content .vision-document-figure figcaption {
+    padding: 11px 13px 14px;
+    font-size: .86rem;
+  }
+}
