@@ -92,6 +92,17 @@ const policyHtml=read("politikk.html");
 for(const id of Object.keys(assignments?.policyTopics||{})) {
   assert(policyHtml.includes('id="'+id+'"'),"Bilde er knyttet til ukjent politikkseksjon: "+id);
 }
+for (const [sectionId, scene] of Object.entries(assignments?.policyTopics || {})) {
+  if (!visible.has(scene.id)) continue;
+  const planned = plan.images.find(image => image.id === scene.id);
+  assert(scene.caption?.trim().length > 35, scene.id + " mangler synlig forklarende bildetekst");
+  assert(scene.caption === planned?.caption,
+    scene.id + " bildetekst avviker mellom plan og side");
+  assert(scene.alt === planned?.alt,
+    scene.id + " alt-tekst avviker fra godkjent plan");
+}
+assert(script.includes('figure.className = "vision-topic-figure"'),
+  "Synlige politikkbilder mangler figure og figcaption");
 // Statisk HTML skal heller ikke be nettleseren laste samme innholdsbilde
 // fra flere sider – også når script.js senere bytter ut bildet.
 const staticArtwork = new Map();
