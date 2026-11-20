@@ -33,11 +33,12 @@ async function request(url, method = "HEAD") {
   throw lastError;
 }
 
-const [indexResponse, scriptResponse, policyResponse, cssResponse] = await Promise.all([
+const [indexResponse, scriptResponse, policyResponse, cssResponse, avisaProjectResponse] = await Promise.all([
   request(origin + "index.html", "GET"),
   request(origin + "script.js", "GET"),
   request(origin + "politikk.html", "GET"),
-  request(origin + "styles.css", "GET")
+  request(origin + "styles.css", "GET"),
+  request(origin + "Prosjekter/Paradisavisa.html", "GET")
 ]);
 if (!indexResponse.ok) errors.push("Offentlig forside: HTTP " + indexResponse.status);
 if (!scriptResponse.ok) errors.push("Offentlig script.js: HTTP " + scriptResponse.status);
@@ -47,6 +48,35 @@ const policyHtml = policyResponse.ok ? await policyResponse.text() : "";
 const css = cssResponse.ok ? await cssResponse.text() : "";
 if (!policyResponse.ok) errors.push("Offentlig politikkside: HTTP " + policyResponse.status);
 if (!cssResponse.ok) errors.push("Offentlig CSS: HTTP " + cssResponse.status);
+const avisaProjectHtml = avisaProjectResponse.ok ? await avisaProjectResponse.text() : "";
+if (!avisaProjectResponse.ok)
+  errors.push("Offentlig Paradisavisa-prosjektside: HTTP " + avisaProjectResponse.status);
+
+// Uavhengig av GitHub-koden: kontroller lenker i den faktiske publiserte HTML-en.
+for (const [pageName, html] of [
+  ["index.html", index],
+  ["Prosjekter/Paradisavisa.html", avisaProjectHtml]
+]) {
+  let avisaLinkFound = false;
+  for (const link of html.matchAll(/<a\b[^>]*>/gi)) {
+    const tag = link[0];
+    const href = tag.match(/\bhref=(["'])(.*?)\1/i)?.[2] || "";
+    const target = tag.match(/\btarget=(["'])(.*?)\1/i)?.[2] || "";
+    if (target !== "_blank") continue;
+    if (!/^(?:https?:)?\/\//i.test(href)) continue;
+    const rel = (tag.match(/\brel=(["'])(.*?)\1/i)?.[2] || "")
+      .toLowerCase().split(/\s+/);
+    if (!rel.includes("noopener"))
+      errors.push(pageName + ": offentlig ny-fane-lenke mangler noopener: " + href);
+    if (href === "https://paradispartiet.github.io/Paradisavisa/") {
+      avisaLinkFound = true;
+      if (!rel.includes("noreferrer"))
+        errors.push(pageName + ": Paradisavisa-lenke mangler noreferrer");
+    }
+  }
+  if (html && !avisaLinkFound)
+    errors.push(pageName + ": forventet ny-fane-lenke til Paradisavisa mangler");
+}
 if (!index.includes('script src="script.js"'))
   errors.push("Forsiden har ikke forventet JavaScript-inkludering");
 if (!script.includes("const SCENE_ASSIGNMENTS ="))
@@ -170,5 +200,6 @@ if (errors.length) {
   console.log("OK: Live forside/script.js og " + checked + " av " + paths.length +
     " WEBP-filer fra " + activeScenes.length + " aktive illustrasjoner verifisert; " +
     archivedScenes.length + " arkiverte motiver er ikke i bruk; " +
-    policyScenes.length + " offentlig publiserte politikkbildetekster stemmer.");
+    policyScenes.length + " offentlig publiserte politikkbildetekster stemmer; " +
+    "Paradisavisa-lenker kontrollert på forside og prosjektside.");
 }
