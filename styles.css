@@ -1103,3 +1103,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .hero { background: radial-gradient(ellipse at 85% 75%, rgba(28, 168, 215, .10), transparent 58%); }
   .site-header { background: #000; }
 }
+
+/* Forklar kun de tre aktive politikkmotivene, uten flere bilder. */
+.vision-topic-figure {
+  margin: 18px 0 27px;
+  max-width: 100%;
+}
+.vision-topic-figure .vision-topic-art {
+  margin: 0;
+  width: 100%;
+}
+.vision-topic-figure figcaption {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+  padding: 9px 2px 0;
+}
+@media (max-width: 700px) {
+  .vision-topic-figure { margin: 14px 0 23px; }
+  .vision-topic-figure figcaption { font-size: .86rem; padding-top: 8px; }
+}
