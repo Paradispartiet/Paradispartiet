@@ -67,9 +67,9 @@ try {
           const dims=await node.evaluate(async img=>{await img.decode();return {width:img.naturalWidth,height:img.naturalHeight}});
           if(!dims.width||!dims.height) errors.push(device+" "+filename+": bilde uten pikseldata "+info.name);
           if ((device==="mobile" || device==="desktop") && [
-            "forklaring-manifest-frivillig-bosetting","forklaring-manifest-pilot-lokal-laring",
-            "forklaring-grunnlag-digitalt-datauttak","forklaring-grunnlag-okologisk-ramme",
-            "forklaring-okonomi-avvik-tiltak-revisjon"
+            "forklaring-manifest-apen-skole-kveld",
+            "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
+            "forklaring-okonomi-produktkort-kvalitet"
           ].includes(info.name)) {
             await page.screenshot({
               path:"illustration-screenshots/"+device+"-"+info.name+".png",

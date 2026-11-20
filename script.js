@@ -384,6 +384,13 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "kap47",
         "caption": "Piloter skal prøve ut hvordan rettighetene leveres i praksis, hente erfaringer og forbedre ordningene før de utvides."
+      },
+      {
+        "id": "forklaring-manifest-apen-skole-kveld",
+        "alt": "Voksne deltar i kveldsundervisning på en åpen skole, med veiledning og praktiske øvelser i opplyste klasserom.",
+        "size": "2K",
+        "section_id": "kap26",
+        "caption": "Skoler og opplæringssteder skal også kunne brukes om kvelden, slik at voksne kan lære når hverdagen gir rom for det."
       }
     ],
     "grunnlag.html": [
@@ -414,6 +421,13 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "k15",
         "caption": "Økologisk økonomi ser verksteder, boliger og handel som deler av naturens endelige vann-, energi- og materialstrømmer."
+      },
+      {
+        "id": "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
+        "alt": "Innbyggere i et offentlig møte stiller spørsmål til et lokalt tilsyn og ser hvordan beslutninger kan prøves og endres.",
+        "size": "2K",
+        "section_id": "kap20-paradismodellen",
+        "caption": "I den omvendte samfunnskontrakten gir innbyggerne avgrensede oppgaver til institusjoner de selv kan kontrollere og stille til ansvar."
       }
     ],
     "okonomisk-modell.html": [
@@ -444,6 +458,13 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "styringslogikk",
         "caption": "Når boligleveransen ligger etter planen, skal avvik oppdages, tiltak endres og resultatet kontrolleres i neste periode."
+      },
+      {
+        "id": "forklaring-okonomi-produktkort-kvalitet",
+        "alt": "Fagfolk tester et hverdagsprodukt på et lokalt kvalitetslaboratorium og undersøker materialene og holdbarheten.",
+        "size": "2K",
+        "section_id": "kvalitet-registrering",
+        "caption": "Åpne produktkort og kvalitetsprøver skal gjøre det mulig å kontrollere materialer, holdbarhet og sikkerhet før varer tas i bruk."
       }
     ]
   }
