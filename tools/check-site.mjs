@@ -26,6 +26,15 @@ for (const [name, html] of content) {
 
 const external = /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i;
 for (const [name, html] of content) {
+  // Eksterne mål som åpnes i ny fane skal ikke kunne kontrollere foreldrefanen.
+  for (const anchor of html.matchAll(/<a\\b[^>]*\\btarget=(["'])_blank\\1[^>]*>/gi)) {
+    const tag = anchor[0];
+    const href = tag.match(/\\bhref=(["'])(.*?)\\1/i)?.[2] || "";
+    if (!/^(?:https?:)?\\/\\//i.test(href)) continue;
+    const rel = tag.match(/\\brel=(["'])(.*?)\\1/i)?.[2] || "";
+    if (!rel.split(/\\s+/).includes("noopener"))
+      errors.push(name + ": ekstern ny-fane-lenke mangler rel=noopener: " + href);
+  }
   for (const match of html.matchAll(/\b(?:href|src)=(["'])(.*?)\1/g)) {
     const reference = match[2].trim();
     if (!reference || external.test(reference)) continue;
