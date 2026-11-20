@@ -10,6 +10,16 @@ const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
 const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
 const subjects = ["visjon-by-land","bilfri-by","gronne-hjem","smabruk-natur","kunnskap-helse","kultur-fellesskap","arbeid-teknologi"];
 const assetDir = path.join(root, "assets", "illustrasjoner");
+const artFiles = ["bilfri-by.webp","bilfri-by-960.webp"];
+for (const name of artFiles) {
+  const file = path.join(assetDir,name);
+  if (!fs.existsSync(file)) { errors.push("Mangler WEBP: " + name); continue; }
+  const b = fs.readFileSync(file);
+  assert(b.subarray(0,4).toString() === "RIFF" && b.subarray(8,12).toString() === "WEBP", name + ": ikke gyldig WEBP");
+  assert(b.length > 50000, name + ": uventet liten bildefil");
+}
+assert(script.includes('"bilfri-by-960"'), "Responsive bildekilder mangler");
+
 assert(/initIllustratedSite\(\);/.test(script), "Illustrasjonsoppstart mangler");
 assert(/new URL\("assets\/illustrasjoner\/", script\.src\)/.test(script), "Stier må være relative til script.js");
 assert(/loading = eager \? "eager" : "lazy"/.test(script), "Lazy loading mangler");
