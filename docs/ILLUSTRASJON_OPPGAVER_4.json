@@ -1,0 +1,52 @@
+[
+  {
+    "id": "politikk-okonomi-dobbel-markedsstruktur",
+    "taskId": "e2714f1d-f770-49f0-830b-5b82b7d33ce8",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-offentlig-grunnsortiment-varighet",
+    "taskId": "ec33e12f-6dc1-4fbf-8a77-73d92ae6b531",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-bolig-hjem-ikke-spekulasjon",
+    "taskId": "7514e399-d097-41d1-9426-1e6e9f074bc7",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-mat-lokal-matsikkerhet",
+    "taskId": "34cd6baa-b51b-4737-b622-5c01cefeb70e",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-helse-fysisk-psykisk-sosial",
+    "taskId": "b11281b5-3a84-42bf-9f5f-298f8b49157f",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-utdanning-praksis-og-teori",
+    "taskId": "42ab38d1-5631-4d60-b181-5236acc99eb8",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-arbeidsliv-tid-etter-evne",
+    "taskId": "41086ba2-3103-46c5-a36e-7356c6597b57",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-miljo-natur-forst",
+    "taskId": "58f51ce0-74b4-4f55-98ee-731cdf609e20",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-transport-kollektiv-og-korridorer",
+    "taskId": "3093aa9b-014b-4c06-b767-fbc95f4d9fde",
+    "kind": "task_pending"
+  },
+  {
+    "id": "politikk-kultur-alle-kan-skape",
+    "taskId": "b3df1b2e-7cec-4e25-8017-8250f0545a94",
+    "kind": "task_pending"
+  }
+]
