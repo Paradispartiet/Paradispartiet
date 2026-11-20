@@ -25,11 +25,15 @@ const parts = assignments ? [
   ...Object.values(assignments.policyTopics),
   ...Object.values(assignments.documentFigures || {}).flat()
 ] : [];
-const visibleMatch = script.match(/const VISIBLE_SCENE_IDS = new Set\\((\\[[\\s\\S]*?\\])\\)/);
-assert(!!visibleMatch, "Mangler godkjent liste for synlige motiver");
+const marker = "const VISIBLE_SCENE_IDS = new Set(";
+const visibleStart = script.indexOf(marker);
+const visibleEnd = visibleStart < 0 ? -1 : script.indexOf("]);", visibleStart);
+assert(visibleStart >= 0 && visibleEnd >= 0, "Mangler godkjent liste for synlige motiver");
 let visibleIds = [];
-try { if (visibleMatch) visibleIds = JSON.parse(visibleMatch[1]); }
-catch(e) { errors.push("Ugyldig synlig motivliste: " + e.message); }
+try {
+  if(visibleStart >= 0 && visibleEnd >= 0)
+    visibleIds = JSON.parse(script.slice(visibleStart + marker.length, visibleEnd + 1));
+} catch (e) { errors.push("Ugyldig synlig motivliste: " + e.message); }
 const visible = new Set(visibleIds);
 assert(visible.size === visibleIds.length, "Dubletter i synlige motiv-ID-er");
 const counts = new Map();
