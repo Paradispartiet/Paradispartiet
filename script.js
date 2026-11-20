@@ -307,7 +307,8 @@ function initIllustratedSite() {
     "okonomi": {
       "id": "politikk-okonomi-dobbel-markedsstruktur",
       "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "BasicMarkedet sikrer grunnbehovene, mens det frie markedet gir plass til selvstendig produksjon og handel."
     },
     "offentlig-grunnsortiment": {
       "id": "politikk-offentlig-grunnsortiment-varighet",
@@ -317,7 +318,8 @@ function initIllustratedSite() {
     "bolig": {
       "id": "politikk-bolig-hjem-ikke-spekulasjon",
       "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "Bolig skal være en rettighet og et hjem, ikke en investering for spekulasjon."
     },
     "mat": {
       "id": "politikk-mat-lokal-matsikkerhet",
@@ -347,7 +349,8 @@ function initIllustratedSite() {
     "transport": {
       "id": "politikk-transport-kollektiv-og-korridorer",
       "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "Kollektivtransport, bilfrie bykjerner og grønne ferdselsårer gjør det lettere å reise uten privatbil."
     },
     "kultur": {
       "id": "politikk-kultur-alle-kan-skape",
@@ -570,7 +573,16 @@ function initIllustratedSite() {
       const heading = section?.querySelector("h2");
       if (!heading) return;
       const img = makePicture(scene, "vision-topic-art");
-      if (img) heading.after(img);
+      if (!img) return;
+      const figure = document.createElement("figure");
+      figure.className = "vision-topic-figure";
+      figure.append(img);
+      if (scene.caption) {
+        const caption = document.createElement("figcaption");
+        caption.textContent = scene.caption;
+        figure.append(caption);
+      }
+      heading.after(figure);
     });
   }
 
