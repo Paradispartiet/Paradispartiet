@@ -24,6 +24,15 @@ for (const [name, html] of content) {
   idsByFile.set(name, new Set(ids));
 }
 
+// Lange hoveddokumenter skal ha samme tilgjengelige tilbake-til-toppen-navigasjon.
+for (const name of ["manifest.html", "grunnlag.html", "politikk.html", "okonomisk-modell.html"]) {
+  const html = content.get(name) || "";
+  const matches = [...html.matchAll(/<button\\b[^>]*\\bid=(["'])scrollTopBtn\\1[^>]*>/gi)];
+  if (matches.length !== 1) errors.push(name + ": forventer nøyaktig én Til toppen-knapp");
+  if (matches[0] && !/\\baria-label=(["'])Til toppen\\1/.test(matches[0][0]))
+    errors.push(name + ": Til toppen-knapp mangler tydelig tilgjengelig navn");
+}
+
 const external = /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i;
 for (const [name, html] of content) {
   // Eksterne mål som åpnes i ny fane skal ikke kunne kontrollere foreldrefanen.
