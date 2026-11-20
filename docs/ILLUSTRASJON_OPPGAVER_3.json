@@ -1,0 +1,47 @@
+[
+  {
+    "id": "kort-paradisavisa-kritisk-samtale",
+    "taskId": "616f10f2-6390-4110-b5ef-c1c72170daa8",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-aha-kunnskapsnettverk",
+    "taskId": "d2edb7a0-59d5-4fd3-b103-569f2d6e4ddd",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-lesebiblioteket-samtalesirkel",
+    "taskId": "147761c1-64c7-4b9d-9817-e41a7244b8b4",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-oldboys-lavterskel-aktivitet",
+    "taskId": "712821c5-040e-45bd-bc63-778c7c2b4aef",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-glasshus-vinterlys",
+    "taskId": "f1b4bfb0-37c0-4657-b70f-4852ac2aeb23",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-bilfri-by-gronn-gate",
+    "taskId": "d25bd92a-69fa-4fb3-b422-a5abef90c5b7",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-caravan-trygg-sykkelvei",
+    "taskId": "f16a3270-9217-49bf-a100-f6b83f8105be",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-basicmarked-grunnforsyning",
+    "taskId": "6b5597b7-7b40-4cde-afff-7b753e404fcc",
+    "kind": "task_pending"
+  },
+  {
+    "id": "kort-teorien-om-lyset-bevissthet",
+    "taskId": "d40d7ead-eb3e-4263-a919-8502a17b1e85",
+    "kind": "task_pending"
+  }
+]
