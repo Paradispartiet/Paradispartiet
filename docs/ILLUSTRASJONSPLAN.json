@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "policy": "Hvert bilde skal visualisere en bestemt tekst, brukes kun på én side/ett sted og ha egen alt-tekst og forklarende bildetekst. Ingen temafallback eller gjenbruk.",
   "source": "Paradispartiet/Paradispartiet, lest direkte fra main 20.11.2026",
   "images": [
@@ -394,6 +394,61 @@
       "basis": "Økonomisk modell punkt 7 prioriterer rehab og konvertering, med et eksempel der 60 prosent av volumet kommer fra oppgradering og 40 prosent fra nybygg.",
       "motiv": "Clear documentary-style architectural street-level view of a realistic older Norwegian 1960s apartment block being carefully rehabilitated: carpenters install insulated windows, retrofit entrance for wheelchair access, reuse salvaged timber neatly stacked, convert former unneeded office rooms to bright small apartments, and in far background one modest new low-rise infill building under construction. Residents can remain connected to the neighborhood; show repair-first, not demolition or glamorous skyscrapers, no charts or fake labels.",
       "size": "2K"
+    },
+    {
+      "id": "forklaring-manifest-frivillig-bosetting",
+      "page": "manifest.html",
+      "slot": "inline:kap31",
+      "section_id": "kap31",
+      "size": "2K",
+      "caption": "Bosettingsregnskapet skal vise valgmuligheter og naturgrenser – ikke bestemme hvor mennesker må bo.",
+      "alt": "Innbyggere undersøker frivillige bosettingsmuligheter på et lokalt kart mens et våtmarksområde og dyrket mark blir bevart.",
+      "basis": "Manifestet kapittel 31: bosettingsregnskapet beskriver muligheter og økologiske grenser. Ingen skal tvangsflyttes eller plasseres av overordnede myndigheter. Flere steder skal gjøres reelt beboelige.",
+      "motiv": "A concrete respectful Norwegian village planning meeting in a welcoming local library, a handful of families voluntarily studying a large physical topographic 3D landscape model showing several possible small housing clusters connected by established paths, with untouched wetlands, forest and fertile farmland visibly left intact. A field ecologist points out the wetlands and residents choose routes and options together; show freedom of choice, ecological constraint, no displacement, no forced placement. No text or map labels."
+    },
+    {
+      "id": "forklaring-manifest-pilot-lokal-laring",
+      "page": "manifest.html",
+      "slot": "inline:kap47",
+      "section_id": "kap47",
+      "size": "2K",
+      "caption": "Piloter skal prøve ut hvordan rettighetene leveres i praksis, hente erfaringer og forbedre ordningene før de utvides.",
+      "alt": "Beboere og fagfolk prøver ut en lokal forsyningsordning, observerer vareflyten og gir tilbakemeldinger i et åpent møte.",
+      "basis": "Manifestet kapittel 47: gradvise piloter for gjennomføring av BasicMarkedet, arbeidstid, boligfond, ressursregnskap og demokratisk organisering, uten å sette grunnrettigheter på prøve.",
+      "motiv": "In a Norwegian neighborhood small practical pilot for a community essential goods service is in operation, one volunteer checks quality of produce coming from small delivery carts, a resident gives friendly feedback to a public service coordinator, and a separate open circle of residents and local staff inspect physical delivery routes on a table plan. Clearly an experimental local operational review improving practical processes, rather than withholding access to basic goods or high-tech utopia, no labels or text."
+    },
+    {
+      "id": "forklaring-grunnlag-digitalt-datauttak",
+      "page": "grunnlag.html",
+      "slot": "inline:k28",
+      "section_id": "k28",
+      "size": "2K",
+      "caption": "Teksten beskriver hvordan digitale plattformer kan samle inn atferdsdata og gjøre oppmerksomhet til en ressurs som andre kontrollerer.",
+      "alt": "En person bruker mobilen mens spor av aktivitet samles i et stort plattformsystem som vedkommende ikke kan se inn i.",
+      "basis": "Grunnlagsdokumentet kapittel 28: digital plattformmakt, overvåkingskapitalisme, datauttak og oppmerksomhetens plass i økonomien.",
+      "motiv": "Thoughtful explanatory editorial scene set in a realistic Norwegian apartment in evening: close-up of an ordinary adult using a smartphone, precise subtle colored strands of data drawn from mundane choices on screen (shopping thumbnails, transit map symbols, scrolling) cross room to a distant immense opaque private server operations facility visible through layered glass; the user cannot inspect or control destination, while the server room network is lit with massive processing power. Emphasize asymmetry and attention extraction, not scary robot, sinister police, fake code, diagrams, text or logos. One clear focal person and physical narrative."
+    },
+    {
+      "id": "forklaring-grunnlag-okologisk-ramme",
+      "page": "grunnlag.html",
+      "slot": "inline:k15",
+      "section_id": "k15",
+      "size": "2K",
+      "caption": "Økologisk økonomi ser verksteder, boliger og handel som deler av naturens endelige vann-, energi- og materialstrømmer.",
+      "alt": "En liten by og verksteder ligger innenfor et elve- og skoglandskap, med synlige løp for vann, materialbruk og reparasjon.",
+      "basis": "Grunnlagsdokumentet kapittel 15: steady-state-økonomi, naturens tålegrenser, økonomien som del av biosfæren og gjenbruk framfor ubegrenset materiell vekst.",
+      "motiv": "Detailed coherent cutaway/isometric landscape of a complete Norwegian river watershed as a bounded ecological system: snowfed river and protected riparian wetland support a compact low-rise settlement; a small agricultural field feeds a local market, repair workshop takes used wood and metal from houses and fixes furniture, clean water treatment returns water to stream; show human material flows within the same limited mountain valley and surrounding trees. Natural elegant visible physical links between ecosystem and human economy, no abstract limitless growth arrows, no fantasy industry, no text, no diagrams or labels."
+    },
+    {
+      "id": "forklaring-okonomi-avvik-tiltak-revisjon",
+      "page": "okonomisk-modell.html",
+      "slot": "inline:styringslogikk",
+      "section_id": "styringslogikk",
+      "size": "2K",
+      "caption": "Når boligleveransen ligger etter planen, skal avvik oppdages, tiltak endres og resultatet kontrolleres i neste periode.",
+      "alt": "En lokal boliggruppe undersøker forsinket rehabilitering, omfordeler ressurser og følger opp pågående byggearbeid.",
+      "basis": "Økonomisk modell: styringslogikk ved avvik, åpent regnskap, aktivering av tiltak som flere arbeidstimer, ekstra rehabilitering og måling ved neste kvartal.",
+      "motiv": "Grounded single editorial continuous scene centered on a modest housing rehabilitation project: in the foreground a local project manager and resident representative compare a physical progress board with plain colored stages and an actual incomplete apartment building just outside the open meeting room; planners reassign a small team and reclaimed timber supplies to unblock renovation; through the other window workers are already fitting refurbished windows, showing a practical feedback loop from detected delay to concrete corrective action. No legible numbers, charts, labels or optimistic fabricated results. Clear visual causal action."
     }
   ]
 }
