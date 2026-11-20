@@ -1,8 +1,8 @@
 name: Importer unike illustrasjoner (engangsjobb)
 
 on:
-  push:
-    branches: [design/illustrasjoner-en-gang-innholdsbasert]
+  pull_request:
+    types: [opened, synchronize]
     paths: [".github/workflows/illustrasjon-import-35-once.yml"]
 
 permissions:
@@ -115,5 +115,7 @@ jobs:
           git add assets/illustrasjoner/*.webp
           if ! git diff --cached --quiet; then
             git commit -m "assets: 35 tekstforankrede motiv med 70 WEBP-filer"
+            git fetch origin design/illustrasjoner-en-gang-innholdsbasert
+            git rebase origin/design/illustrasjoner-en-gang-innholdsbasert
             git push origin HEAD:refs/heads/design/illustrasjoner-en-gang-innholdsbasert
           fi
