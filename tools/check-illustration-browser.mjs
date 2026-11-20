@@ -49,6 +49,16 @@ try {
         continue;
       }
       if (!visible.width || !visible.height) errors.push(name + " " + url + ": bilde uten pikseldata");
+      // Vent på at den avkodede bildeflaten også er tegnet av nettleseren.
+      await page.evaluate(async () => {
+        const onscreen = [...document.querySelectorAll("img.vision-card-art, img.vision-topic-art")]
+          .filter(img => {
+            const rect = img.getBoundingClientRect();
+            return rect.top < innerHeight && rect.bottom > 0;
+          });
+        await Promise.all(onscreen.map(img => img.decode().catch(() => {})));
+        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      });
       const metrics = await page.evaluate(() => ({
         viewport: window.innerWidth,
         content: document.documentElement.scrollWidth,
