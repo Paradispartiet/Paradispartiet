@@ -23,7 +23,7 @@ Ikke legg tokens i kode, chat, issues eller dokumenter. Ikke opprett nye betalte
 
 ## Kjøring og begrensninger
 
-Workflow: .github/workflows/paradisdb-provider-status.yml. Planlagt kl. **06:17 UTC hver dag**, og tilgjengelig manuelt via GitHub Actions → Run workflow på main.
+Workflow: .github/workflows/paradisdb-provider-status.yml. Ordinær kontroll er planlagt kl. **06:17 UTC hver dag**. En reserve er planlagt kl. **18:47 UTC** hvis ordinær status uteble, ble foreldet eller inneholder oppslagsfeil. Reserven sjekker den offentlige statusfilen først og **hopper over leverandøroppslag** når et vellykket resultat er under 18 timer gammelt. Begge kjøringer er bare metadata-/GET-lesing. Arbeidsflyten kan også startes manuelt via GitHub Actions → Run workflow på main. GitHub garanterer ikke at `schedule`-hendelser utløses presist eller i det hele tatt, så reservekjøringen er risikoreduksjon, ikke en garanti.
 
 Den kjører Node-tester først. Hvis ingen lesetoken er lagt inn, gjøres ingen leverandørkall eller commits. Ved kontroll publiserer GitHub Actions bare den hvitelistede JSON-statusen til main med GITHUB_TOKEN. Hvis grenbeskyttelse nekter dette, feiler arbeidsflyten; den skal ikke anses godkjent.
 
