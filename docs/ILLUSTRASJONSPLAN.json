@@ -261,7 +261,8 @@
       "motiv": "Ground-level realistic community marketplace where one aisle visibly supplies groceries and essentials without payment transaction while the neighboring area hosts independent maker stalls, ordinary people choosing freely, volunteer and craftspeople working side-by-side",
       "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "caption": "BasicMarkedet sikrer grunnbehovene, mens det frie markedet gir plass til selvstendig produksjon og handel."
     },
     {
       "id": "politikk-offentlig-grunnsortiment-varighet",
@@ -281,7 +282,8 @@
       "motiv": "Grounded human-scale municipal housing courtyard, accessible homes with visible open interiors and practical shared spaces, resident receives keys to a modest attractive apartment rather than luxury highrise, outside bike storage and shared garden",
       "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "caption": "Bolig skal være en rettighet og et hjem, ikke en investering for spekulasjon."
     },
     {
       "id": "politikk-mat-lokal-matsikkerhet",
@@ -341,7 +343,8 @@
       "motiv": "Practical rural-urban transport interchange with a commuter train pulling into a small station, safe walking and cycling path joining a car-free neighborhood center, wheelchair-accessible platform, coherent green travel connection",
       "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "caption": "Kollektivtransport, bilfrie bykjerner og grønne ferdselsårer gjør det lettere å reise uten privatbil."
     },
     {
       "id": "politikk-kultur-alle-kan-skape",
