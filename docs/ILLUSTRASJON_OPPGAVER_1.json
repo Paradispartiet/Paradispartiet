@@ -1,0 +1,56 @@
+[
+  {
+    "id": "side-forside-trygghet",
+    "kind": "task_pending",
+    "taskId": "f8a532f6-f249-46b6-899f-a36390277385",
+    "error": null
+  },
+  {
+    "id": "side-politikk-grunnbehov",
+    "kind": "task_pending",
+    "taskId": "680597a5-80f7-4267-b801-2f5954fc1daf",
+    "error": null
+  },
+  {
+    "id": "side-prosjekter-fra-ide-til-praksis",
+    "kind": "task_pending",
+    "taskId": "88b6e193-b761-4dd1-8ed1-7d5c69ad6476",
+    "error": null
+  },
+  {
+    "id": "side-manifest-ufravikelige-rettigheter",
+    "kind": "task_pending",
+    "taskId": "b7f47c92-b9bd-426a-9048-48bd1ac285ea",
+    "error": null
+  },
+  {
+    "id": "side-grunnlag-historie-filosofi-okologi",
+    "kind": "task_pending",
+    "taskId": "b22c0d2d-5f13-422e-917c-daa970d6ebef",
+    "error": null
+  },
+  {
+    "id": "side-okonomisk-modell-dobbelstruktur",
+    "kind": "task_pending",
+    "taskId": "06163d34-cf21-42e5-aa81-ea4036f47ebb",
+    "error": null
+  },
+  {
+    "id": "side-kontakt-bli-med",
+    "kind": "task_pending",
+    "taskId": "672e5432-1d33-4259-8bfd-c20498409cc3",
+    "error": null
+  },
+  {
+    "id": "side-om-apen-deltakelse",
+    "kind": "task_pending",
+    "taskId": "00a5c5ec-e920-4268-b412-36c0c91611ba",
+    "error": null
+  },
+  {
+    "id": "side-404-vei-videre",
+    "kind": "task_pending",
+    "taskId": "f30df823-3e28-422e-af97-10488815209d",
+    "error": null
+  }
+]
