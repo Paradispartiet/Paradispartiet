@@ -3,18 +3,24 @@
     "id": "forklaring-manifest-apen-skole-kveld",
     "taskId": "baab8a94-8fc4-4418-a80c-2a61bea1bf79",
     "kind": "task_pending",
-    "error": null
+    "error": null,
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/baab8a94-8fc4-4418-a80c-2a61bea1bf79/565ab0be-185a-421c-ae67-1231fcc0727b/One_NEW_16_9_standalone__ultra_detailed_painterly_editorial_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiODEzNWViYTNkZWMzODdlMyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyNDE5NX0.ELonuyJ0Pg1xojXeQvLQ26o9hElNhZBfEIzX0lT2MkU"
   },
   {
     "id": "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
     "taskId": "0c84a01a-d14f-48a4-aea8-f67d2e282c1f",
     "kind": "task_pending",
-    "error": null
+    "error": null,
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/0c84a01a-d14f-48a4-aea8-f67d2e282c1f/2816cb1f-365e-45d2-8092-7ce1fb19a98a/One_NEW_16_9_standalone__ultra_detailed_painterly_editorial_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZmRmMTYwNTM1YjQwMWZmNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI4OTY4M30.cFsLKfZkW7jMAd6GfrcJXd9SGvOA8eQzndRt465RxkE"
   },
   {
     "id": "forklaring-okonomi-produktkort-kvalitet",
     "taskId": "895fdd08-27b9-4a1f-b0a0-77499ecf3081",
     "kind": "task_pending",
-    "error": null
+    "error": null,
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/895fdd08-27b9-4a1f-b0a0-77499ecf3081/ee2f4982-d087-4aec-911d-491cfc0b23bf/One_NEW_16_9_standalone__ultra_detailed_painterly_editorial_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYTMwYTE0ODAyMzYwZTE3YiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxNDgxNn0.qPh3r2KWcfZc-m4HGGwmDS2hU6UapE1nPeBPxD56vFk"
   }
 ]
