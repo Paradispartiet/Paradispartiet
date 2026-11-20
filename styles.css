@@ -790,7 +790,7 @@ a:hover { text-decoration: none; }
   content:"";
   position:absolute;
   inset:0;
-  z-index:-1;
+  z-index:1;
   background:
     linear-gradient(90deg,rgba(3,12,37,.91) 0%,rgba(5,19,51,.82) 33%,rgba(5,20,50,.23) 78%,transparent 100%),
     linear-gradient(0deg,rgba(3,12,30,.75) 0%,transparent 58%);
@@ -803,9 +803,9 @@ a:hover { text-decoration: none; }
   height:100%;
   object-fit:cover;
   object-position:center 48%;
-  z-index:-2;
+  z-index:0;
 }
-.vision-home-hero .hero-copy { position:relative; max-width:690px; }
+.vision-home-hero .hero-copy { position:relative; z-index:2; max-width:690px; }
 .vision-home-hero .eyebrow,.vision-home-hero .lead { color:#fff; text-shadow:0 2px 14px #0b2445; }
 .vision-home-hero h1 { text-shadow:0 4px 24px rgba(2,14,36,.55); }
 .vision-home-hero h1 span { color:#ffdd63; }
@@ -867,14 +867,14 @@ a:hover { text-decoration: none; }
 .vision-illustrated-banner::after {
   content:"";
   position:absolute;
-  z-index:-1;
+  z-index:1;
   inset:0;
   background:linear-gradient(90deg,rgba(3,14,38,.92),rgba(4,17,46,.66) 51%,rgba(4,19,48,.08));
   pointer-events:none;
 }
 .vision-banner-image {
   position:absolute;
-  z-index:-2;
+  z-index:0;
   inset:0;
   display:block;
   width:100%;
@@ -884,7 +884,7 @@ a:hover { text-decoration: none; }
 }
 .vision-illustrated-banner .project-banner-inner {
   position:relative;
-  z-index:1;
+  z-index:2;
   min-height:380px;
   align-items:flex-end;
 }
