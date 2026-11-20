@@ -9,7 +9,7 @@ import { chromium } from "playwright";
 const base = "http://127.0.0.1:8765/Paradispartiet/";
 const plan = JSON.parse(fs.readFileSync("docs/ILLUSTRASJONSPLAN.json","utf8"));
 const pages = [...new Set(plan.images.map(x=>x.page))];
-const expectedByPage = Object.groupBy(plan.images, x=>x.page);
+const expectedByPage = Object.groupBy(plan.images.filter(image => image.display === "active"), x=>x.page);
 const devices=[
   ["mobile",{width:390,height:844}],
   ["ipad",{width:820,height:1180}],
