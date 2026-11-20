@@ -33,14 +33,20 @@ async function request(url, method = "HEAD") {
   throw lastError;
 }
 
-const [indexResponse, scriptResponse] = await Promise.all([
+const [indexResponse, scriptResponse, policyResponse, cssResponse] = await Promise.all([
   request(origin + "index.html", "GET"),
-  request(origin + "script.js", "GET")
+  request(origin + "script.js", "GET"),
+  request(origin + "politikk.html", "GET"),
+  request(origin + "styles.css", "GET")
 ]);
 if (!indexResponse.ok) errors.push("Offentlig forside: HTTP " + indexResponse.status);
 if (!scriptResponse.ok) errors.push("Offentlig script.js: HTTP " + scriptResponse.status);
 const index = indexResponse.ok ? await indexResponse.text() : "";
 const script = scriptResponse.ok ? await scriptResponse.text() : "";
+const policyHtml = policyResponse.ok ? await policyResponse.text() : "";
+const css = cssResponse.ok ? await cssResponse.text() : "";
+if (!policyResponse.ok) errors.push("Offentlig politikkside: HTTP " + policyResponse.status);
+if (!cssResponse.ok) errors.push("Offentlig CSS: HTTP " + cssResponse.status);
 if (!index.includes('script src="script.js"'))
   errors.push("Forsiden har ikke forventet JavaScript-inkludering");
 if (!script.includes("const SCENE_ASSIGNMENTS ="))
@@ -78,6 +84,38 @@ for (const scene of scenes) {
   if (!script.includes('"id": "' + scene.id + '"'))
     errors.push("Illustrasjonen er ikke koblet i publisert JavaScript: " + scene.id);
 }
+// Verifiser spesielt synlige bildetekster som kom etter oppryddingen.
+// En tilgjengelig bildefil alene betyr ikke at ny tekst er publisert.
+const policyScenes = activeScenes.filter(scene => scene.slot.startsWith("topic:"));
+const assignmentMatch = script.match(/const SCENE_ASSIGNMENTS = (\\{[\\s\\S]*?\\});\\s*const usedOnPage/);
+let policyAssignments = {};
+if (!assignmentMatch) {
+  errors.push("Offentlig script.js mangler lesbar politikkillustrasjon-mapping");
+} else {
+  try {
+    policyAssignments = JSON.parse(assignmentMatch[1]).policyTopics || {};
+  } catch (error) {
+    errors.push("Offentlig politikkillustrasjon-mapping er ugyldig: " + error.message);
+  }
+}
+if (policyScenes.length && (
+  !script.includes('figure.className = "vision-topic-figure"') ||
+  !script.includes("caption.textContent = scene.caption") ||
+  !css.includes(".vision-topic-figure figcaption")
+)) errors.push("Offentlig politikk mangler synlige bildetekster eller tilhørende stil");
+for (const scene of policyScenes) {
+  const sectionId = scene.slot.slice("topic:".length);
+  const published = policyAssignments[sectionId];
+  if (!policyHtml.includes('id="' + sectionId + '"'))
+    errors.push("Offentlig politikk mangler bildekoblet seksjon " + sectionId);
+  if (!scene.caption || published?.caption !== scene.caption)
+    errors.push("Offentlig bildeforklaring mangler eller avviker for " + scene.id);
+  if (published?.id !== scene.id || published?.alt !== scene.alt)
+    errors.push("Offentlig illustrasjon/alt-tekst avviker for " + scene.id);
+}
+if (!policyScenes.length)
+  errors.push("Ingen aktive politikkbilder i bildeplanen — kontrollen har ingen mål");
+
 // Kontroller også at alle eksakte dokumentavsnitt finnes i de publiserte
 // dokumentene, ikke bare i GitHub-koden.
 const sectionsByPage = Object.groupBy(
@@ -131,5 +169,6 @@ if (errors.length) {
 } else {
   console.log("OK: Live forside/script.js og " + checked + " av " + paths.length +
     " WEBP-filer fra " + activeScenes.length + " aktive illustrasjoner verifisert; " +
-    archivedScenes.length + " arkiverte motiver er ikke i bruk.");
+    archivedScenes.length + " arkiverte motiver er ikke i bruk; " +
+    policyScenes.length + " offentlig publiserte politikkbildetekster stemmer.");
 }
