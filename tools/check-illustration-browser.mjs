@@ -9,7 +9,8 @@ import { chromium } from "playwright";
 const base = "http://127.0.0.1:8765/Paradispartiet/";
 const plan = JSON.parse(fs.readFileSync("docs/ILLUSTRASJONSPLAN.json","utf8"));
 const pages = [...new Set(plan.images.map(x=>x.page))];
-const expectedByPage = Object.groupBy(plan.images.filter(image => image.display === "active"), x=>x.page);
+const activeScenes = plan.images.filter(image => image.display === "active");
+const expectedByPage = Object.groupBy(activeScenes, x=>x.page);
 const devices=[
   ["mobile",{width:390,height:844}],
   ["ipad",{width:820,height:1180}],
@@ -118,10 +119,10 @@ try {
       }
       console.log(device,filename,"planlagt",expected.length,"funnet",count,"overflow",overflow);
     }
-    if(globallyUsed.size!==plan.images.length)
-      errors.push(device+": forventet "+plan.images.length+" unike motiv men fant "+globallyUsed.size);
+    if(globallyUsed.size!==activeScenes.length)
+      errors.push(device+": forventet "+activeScenes.length+" aktive unike motiv men fant "+globallyUsed.size);
     await page.close();
   }
 }finally{await browser.close()}
 if(errors.length){console.error("Bildekontroll feilet:\n"+errors.map(x=>" - "+x).join("\n"));process.exitCode=1;}
-else console.log("OK: "+plan.images.length+" bilder brukt nøyaktig én gang på hver av tre skjermstørrelser.");
+else console.log("OK: "+activeScenes.length+" aktive motiver vist én gang, "+(plan.images.length-activeScenes.length)+" arkivert, på alle tre skjermstørrelser.");
