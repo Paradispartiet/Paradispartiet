@@ -157,192 +157,296 @@ async function loadAvisaFeed() {
 }
 
 /* Illustrert visuell identitet — #23. Originaltekster og logo berøres ikke. */
+/**
+ * Illustrasjoner er knyttet til én konkret tekst og ett sted.
+ * Kilde/register: docs/ILLUSTRASJONSPLAN.json
+ * Ulike sider skal aldri dele bildefiler.
+ */
 function initIllustratedSite() {
-  const script = [...document.scripts].find(node => /(?:^|\/)script\.js(?:\?|$)/.test(node.getAttribute("src") || ""));
-  if (!script) return;
-  const assets = new URL("assets/illustrasjoner/", script.src);
-  const rasterScenes = new Set([
-    "visjon-by-land", "bilfri-by", "gronne-hjem", "smabruk-natur",
-    "kunnskap-helse", "kultur-fellesskap", "arbeid-teknologi"
-  ]);
-  const illustration = name => new URL(name + (
-    rasterScenes.has(name) || name.endsWith("-960") ? ".webp" : ".svg"
-  ), assets).href;
+  const sourceScript = [...document.scripts].find(node =>
+    /(?:^|\/)script\.js(?:\?|$)/.test(node.getAttribute("src") || ""));
+  if (!sourceScript) return;
+  const imageFolder = new URL("assets/illustrasjoner/", sourceScript.src);
   const page = location.pathname.split("/").pop() || "index.html";
-  const projectPage = /\/Prosjekter\//.test(location.pathname);
-  const altText = "Fargerik illustrert framtidsvisjon med natur, mennesker, sol og måne.";
-
-  function picture(name, className, { alt = "", eager = false } = {}) {
-    const img = document.createElement("img");
-    img.className = className;
-    img.src = illustration(name);
-    if (rasterScenes.has(name)) {
-      img.srcset = illustration(name + "-960") + " 960w, " + illustration(name) + " 2048w";
-      img.sizes = className === "vision-home-image" || className === "vision-banner-image"
-        ? "100vw"
-        : className === "vision-card-art" || className === "vision-topic-art"
-          ? "(max-width: 700px) 100vw, (max-width: 1200px) 45vw, 650px"
-          : "(max-width: 700px) 100vw, 1100px";
+  const isProject = /\/Prosjekter\//.test(location.pathname);
+  const SCENE_ASSIGNMENTS = {
+  "homeHero": {
+    "id": "side-forside-trygghet",
+    "alt": "Et boligområde med åpne møteplasser og mennesker som skaper sammen.",
+    "size": "2K"
+  },
+  "pageHeroes": {
+    "politikk.html": {
+      "id": "side-politikk-grunnbehov",
+      "alt": "Bolig, matforsyning, helsehjelp og læring samlet omkring et offentlig torg.",
+      "size": "2K"
+    },
+    "prosjekter.html": {
+      "id": "side-prosjekter-fra-ide-til-praksis",
+      "alt": "Mennesker bygger og planlegger felles møteplasser i nabolaget.",
+      "size": "2K"
+    },
+    "manifest.html": {
+      "id": "side-manifest-ufravikelige-rettigheter",
+      "alt": "Et nabolag der bolig, mat, helse og utdanning er tilgjengelig for alle.",
+      "size": "2K"
+    },
+    "grunnlag.html": {
+      "id": "side-grunnlag-historie-filosofi-okologi",
+      "alt": "Et forskningsrom med historiske kilder, samtale og naturen utenfor.",
+      "size": "2K"
+    },
+    "okonomisk-modell.html": {
+      "id": "side-okonomisk-modell-dobbelstruktur",
+      "alt": "Et fellesmarked for grunnbehov ved siden av frie lokale verksteder.",
+      "size": "2K"
+    },
+    "kontakt.html": {
+      "id": "side-kontakt-bli-med",
+      "alt": "Frivillige hjelper interesserte med medlemskap og underskrifter på papir.",
+      "size": "2K"
+    },
+    "404.html": {
+      "id": "side-404-vei-videre",
+      "alt": "To stier fører videre til et torg og et åpent verksted.",
+      "size": "2K"
     }
-    img.alt = alt;
-    img.width = rasterScenes.has(name) ? 2048 : 1600;
-    img.height = rasterScenes.has(name) ? 1152 : 700;
+  },
+  "pageBanners": {
+    "om.html": {
+      "id": "side-om-apen-deltakelse",
+      "alt": "Ulike mennesker deltar i et åpent arbeidsmøte om felles prosjekter.",
+      "size": "2K"
+    }
+  },
+  "projectBanners": {
+    "EchoNet.html": {
+      "id": "prosjekt-aha-samtaler-innsikt",
+      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "size": "2K"
+    },
+    "Caravan.html": {
+      "id": "prosjekt-caravan-gronne-korridorer",
+      "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
+      "size": "2K"
+    },
+    "GlassHus.html": {
+      "id": "prosjekt-glasshus-vinterpaviljong",
+      "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
+      "size": "2K"
+    },
+    "BilfriBy.html": {
+      "id": "prosjekt-bilfri-by-tilgjengelighet",
+      "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
+      "size": "2K"
+    },
+    "Oslooldboys.html": {
+      "id": "prosjekt-oldboys-trening-uten-press",
+      "alt": "Voksne spiller fotball sammen i en uformell og inkluderende klubb.",
+      "size": "2K"
+    },
+    "Paradisavisa.html": {
+      "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
+      "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
+      "size": "2K"
+    },
+    "Lesebiblioteket.html": {
+      "id": "prosjekt-lesebiblioteket-apent-leserom",
+      "alt": "Et gratis leserom der voksne leser, skriver og snakker uten kjøpeplikt.",
+      "size": "2K"
+    }
+  },
+  "projectCards": {
+    "Paradisavisa": {
+      "id": "kort-paradisavisa-kritisk-samtale",
+      "alt": "En redaksjon arbeider med artikler, bilder og samfunnsdebatt.",
+      "size": "1K"
+    },
+    "AHA EchoNet": {
+      "id": "kort-aha-kunnskapsnettverk",
+      "alt": "Mennesker bruker digitale samtaler til å dele kunnskap på en trygg måte.",
+      "size": "1K"
+    },
+    "Lesebiblioteket": {
+      "id": "kort-lesebiblioteket-samtalesirkel",
+      "alt": "En liten gruppe voksne samtaler om bøker i et åpent lesebibliotek.",
+      "size": "1K"
+    },
+    "Oslo Old Boys": {
+      "id": "kort-oldboys-lavterskel-aktivitet",
+      "alt": "To voksne gjør seg klare til en uformell fotballtrening.",
+      "size": "1K"
+    },
+    "GlassHus": {
+      "id": "kort-glasshus-vinterlys",
+      "alt": "En liten oppvarmet glasspaviljong lyser i en vinterpark.",
+      "size": "1K"
+    },
+    "Bilfri by": {
+      "id": "kort-bilfri-by-gronn-gate",
+      "alt": "En trygg bilfri gate med barn, benker og grønne møteplasser.",
+      "size": "1K"
+    },
+    "The Caravan": {
+      "id": "kort-caravan-trygg-sykkelvei",
+      "alt": "Sykkelvei og gangsti kobler natur og små lokalsamfunn sammen.",
+      "size": "1K"
+    },
+    "BasicMarked-piloten": {
+      "id": "kort-basicmarked-grunnforsyning",
+      "alt": "Utdeling av mat og nødvendighetsvarer gjennom en felles ordning.",
+      "size": "1K"
+    },
+    "Teorien om lyset": {
+      "id": "kort-teorien-om-lyset-bevissthet",
+      "alt": "Et menneske reflekterer ved et vindu der sollys faller på planter.",
+      "size": "1K"
+    }
+  },
+  "policyTopics": {
+    "okonomi": {
+      "id": "politikk-okonomi-dobbel-markedsstruktur",
+      "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
+      "size": "2K"
+    },
+    "offentlig-grunnsortiment": {
+      "id": "politikk-offentlig-grunnsortiment-varighet",
+      "alt": "Studenter og fagarbeidere tester og reparerer varige digitale produkter og verktøy.",
+      "size": "2K"
+    },
+    "bolig": {
+      "id": "politikk-bolig-hjem-ikke-spekulasjon",
+      "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
+      "size": "2K"
+    },
+    "mat": {
+      "id": "politikk-mat-lokal-matsikkerhet",
+      "alt": "Lokal dyrking og distribusjon sikrer tilgang til næringsrik mat.",
+      "size": "2K"
+    },
+    "helse": {
+      "id": "politikk-helse-fysisk-psykisk-sosial",
+      "alt": "Omsorgssamtale og sosial aktivitet ved et tilgjengelig helsesenter.",
+      "size": "2K"
+    },
+    "utdanning": {
+      "id": "politikk-utdanning-praksis-og-teori",
+      "alt": "Elever og voksne lærer gjennom bøker og praktisk verkstedarbeid.",
+      "size": "2K"
+    },
+    "arbeidsliv": {
+      "id": "politikk-arbeidsliv-tid-etter-evne",
+      "alt": "Fleksibelt samfunnsarbeid gir plass til omsorg og egen skapelse.",
+      "size": "2K"
+    },
+    "miljo": {
+      "id": "politikk-miljo-natur-forst",
+      "alt": "En liten bosetting er lagt utenfor vernet natur og viktige jordbruksarealer.",
+      "size": "2K"
+    },
+    "transport": {
+      "id": "politikk-transport-kollektiv-og-korridorer",
+      "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
+      "size": "2K"
+    },
+    "kultur": {
+      "id": "politikk-kultur-alle-kan-skape",
+      "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
+      "size": "2K"
+    }
+  }
+};
+  const usedOnPage = new Set();
+
+  function makePicture(scene, className, {eager = false} = {}) {
+    if (!scene) return null;
+    if (usedOnPage.has(scene.id)) {
+      console.error("Illustrasjonen kan kun brukes én gang:", scene.id);
+      return null;
+    }
+    usedOnPage.add(scene.id);
+    const img = document.createElement("img");
+    const source = id => new URL(id + ".webp", imageFolder).href;
+    img.className = className;
+    img.src = source(scene.id);
+    img.srcset = source(scene.id + "-960") + " 960w, " + source(scene.id)
+      + (scene.size === "1K" ? " 1024w" : " 1920w");
+    img.sizes = /vision-(?:home|banner|page)-image/.test(className)
+      ? "100vw"
+      : /vision-card-art/.test(className)
+        ? "(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 600px"
+        : "(max-width: 700px) 100vw, (max-width: 1100px) 85vw, 950px";
+    img.width = scene.size === "1K" ? 1024 : 1920;
+    img.height = scene.size === "1K" ? 576 : 1080;
+    img.alt = scene.alt;
     img.loading = eager ? "eager" : "lazy";
     img.decoding = "async";
     if (eager) img.fetchPriority = "high";
     return img;
   }
-  function topIllustration(name) {
+
+  function addTopImage(scene) {
     const main = document.getElementById("main-content");
-    if (!main || document.querySelector(".vision-page-art")) return;
+    if (!main || !scene) return;
+    const img = makePicture(scene, "vision-page-image", {eager:true});
+    if (!img) return;
     const figure = document.createElement("figure");
     figure.className = "vision-page-art";
-    figure.append(picture(name, "vision-page-image", { alt: altText, eager: true }));
+    figure.append(img);
     main.before(figure);
   }
-  function bannerIllustration(banner, name) {
-    if (!banner || banner.querySelector(".vision-banner-image")) return;
+  function addBanner(scene) {
+    const banner = document.querySelector(".project-banner");
+    if (!banner || !scene) return;
+    const img = makePicture(scene, "vision-banner-image", {eager:true});
+    if (!img) return;
     banner.classList.add("vision-illustrated-banner");
-    banner.prepend(picture(name, "vision-banner-image", { alt: "", eager: true }));
-  }
-  function inlineIllustration(container, name, className = "vision-card-art") {
-    if (!container || container.querySelector("." + className)) return;
-    container.prepend(picture(name, className));
+    banner.prepend(img);
   }
 
-  const subjects = [
-    ["bolig", "gronne-hjem"],
-    ["mat", "smabruk-natur"],
-    ["helse", "kunnskap-helse"],
-    ["utdanning", "kunnskap-helse"],
-    ["arbeid", "arbeid-teknologi"],
-    ["kultur", "kultur-fellesskap"],
-    ["natur", "smabruk-natur"],
-    ["miljø", "smabruk-natur"],
-    ["transport", "bilfri-by"],
-    ["bilfri", "bilfri-by"],
-    ["teknologi", "arbeid-teknologi"],
-    ["BasicMarked", "arbeid-teknologi"],
-    ["rettferdig", "kultur-fellesskap"],
-    ["produksjon", "arbeid-teknologi"],
-    ["læring", "kunnskap-helse"],
-    ["lys", "visjon-by-land"],
-    ["bilde", "visjon-by-land"]
-  ];
-  const chooseSubject = (value, fallback = "visjon-by-land") =>
-    subjects.find(([word]) => String(value).toLowerCase().includes(word.toLowerCase()))?.[1] || fallback;
-
-  if (page === "index.html" && !projectPage) {
+  if (page === "index.html" && !isProject) {
     const hero = document.querySelector(".hero");
     if (hero) {
-      hero.classList.add("vision-home-hero");
-      hero.prepend(picture("visjon-by-land", "vision-home-image", { eager: true }));
-    }
-    document.querySelectorAll(".foundation-grid article").forEach((article, i) => {
-      inlineIllustration(article, ["kultur-fellesskap", "arbeid-teknologi", "visjon-by-land"][i % 3]);
-    });
-    document.querySelectorAll(".principles-section .card").forEach(card => {
-      inlineIllustration(card, chooseSubject(card.querySelector("h3")?.textContent));
-    });
-    document.querySelectorAll(".projects.home .project").forEach(article => {
-      const subject = article.querySelector("h2,h3")?.textContent || "";
-      const img = article.querySelector("img");
+      const img = makePicture(SCENE_ASSIGNMENTS.homeHero, "vision-home-image", {eager:true});
       if (img) {
-        img.replaceWith(picture(chooseSubject(subject, "kultur-fellesskap"), "vision-card-art"));
+        hero.classList.add("vision-home-hero");
+        hero.prepend(img);
       }
+    }
+    // Forsidens gamle fotografier er unike og beholdes. Ikke resirkuler prosjektkortbilder.
+    // Prinsipp- og idégrunnlagskortene bruker tekst til nye, særskilte motiv er bestilt.
+  }
+
+  if (page === "prosjekter.html" && !isProject) {
+    addTopImage(SCENE_ASSIGNMENTS.pageHeroes[page]);
+    document.querySelectorAll(".projects-page .project").forEach(card => {
+      const name = card.querySelector("h2,h3")?.textContent?.trim();
+      const scene = SCENE_ASSIGNMENTS.projectCards[name];
+      if (!scene) return;
+      const img = makePicture(scene, "vision-card-art");
+      const existing = card.querySelector(".project-visual, img");
+      if (img && existing) existing.replaceWith(img);
     });
   }
 
-  if (page === "prosjekter.html" && !projectPage) {
-    topIllustration("visjon-by-land");
-    const projectArt = {
-      "Paradisavisa": "kultur-fellesskap",
-      "AHA EchoNet": "arbeid-teknologi",
-      "Lesebiblioteket": "kunnskap-helse",
-      "Oslo Old Boys": "kultur-fellesskap",
-      "GlassHus": "gronne-hjem",
-      "Bilfri by": "bilfri-by",
-      "The Caravan": "smabruk-natur",
-      "BasicMarked-piloten": "arbeid-teknologi",
-      "Teorien om lyset": "visjon-by-land"
-    };
-    document.querySelectorAll(".projects-page .project").forEach(article => {
-      const name = article.querySelector("h2,h3")?.textContent?.trim();
-      if (!name) return;
-      const subject = projectArt[name] || chooseSubject(name);
-      const existing = article.querySelector(".project-visual, img");
-      if (!existing) return;
-      const image = picture(subject, "vision-card-art");
-      if (existing.tagName === "IMG") existing.replaceWith(image);
-      else existing.replaceWith(image);
-    });
+  if (isProject) {
+    addBanner(SCENE_ASSIGNMENTS.projectBanners[page]);
+  } else if (SCENE_ASSIGNMENTS.pageBanners[page]) {
+    addBanner(SCENE_ASSIGNMENTS.pageBanners[page]);
+  } else if (page !== "index.html" && page !== "prosjekter.html") {
+    addTopImage(SCENE_ASSIGNMENTS.pageHeroes[page]);
   }
-
-  if (projectPage) {
-    const scene = {
-      "BilfriBy.html": "bilfri-by",
-      "GlassHus.html": "gronne-hjem",
-      "Caravan.html": "smabruk-natur",
-      "Lesebiblioteket.html": "kunnskap-helse",
-      "EchoNet.html": "arbeid-teknologi",
-      "Oslooldboys.html": "kultur-fellesskap",
-      "Paradisavisa.html": "kultur-fellesskap"
-    }[page] || "visjon-by-land";
-    bannerIllustration(document.querySelector(".project-banner"), scene);
-  }
-
-  if (page === "om.html") {
-    bannerIllustration(document.querySelector(".project-banner"), "kultur-fellesskap");
-    document.querySelectorAll(".about-grid article").forEach((card, i) =>
-      inlineIllustration(card, ["gronne-hjem", "kultur-fellesskap", "arbeid-teknologi"][i % 3]));
-  }
-
-  const pageScenes = {
-    "politikk.html": "bilfri-by",
-    "manifest.html": "visjon-by-land",
-    "grunnlag.html": "smabruk-natur",
-    "okonomisk-modell.html": "arbeid-teknologi",
-    "kontakt.html": "kultur-fellesskap",
-    "404.html": "visjon-by-land"
-  };
-  if (pageScenes[page] && !projectPage) topIllustration(pageScenes[page]);
 
   if (page === "politikk.html") {
-    const policyArt = {
-      "okonomi": "arbeid-teknologi",
-      "offentlig-grunnsortiment": "arbeid-teknologi",
-      "bolig": "gronne-hjem",
-      "mat": "smabruk-natur",
-      "helse": "kunnskap-helse",
-      "utdanning": "kunnskap-helse",
-      "arbeidsliv": "arbeid-teknologi",
-      "miljo": "smabruk-natur",
-      "transport": "bilfri-by",
-      "kultur": "kultur-fellesskap"
-    };
-    Object.entries(policyArt).forEach(([sectionId, scene]) => {
+    Object.entries(SCENE_ASSIGNMENTS.policyTopics).forEach(([sectionId,scene]) => {
       const section = document.getElementById(sectionId);
       const heading = section?.querySelector("h2");
       if (!heading) return;
-      heading.after(picture(scene, "vision-topic-art"));
+      const img = makePicture(scene, "vision-topic-art");
+      if (img) heading.after(img);
     });
   }
 
-  // To stille illustrasjonspauser per langt dokument, ikke mellom hvert avsnitt.
-  if (["manifest.html", "grunnlag.html", "okonomisk-modell.html"].includes(page)) {
-    const main = document.getElementById("main-content");
-    const chapters = main?.querySelectorAll("article.chapter, section[id]") || [];
-    const scenes = page === "manifest.html"
-      ? ["gronne-hjem", "kultur-fellesskap"]
-      : page === "grunnlag.html"
-        ? ["smabruk-natur", "kunnskap-helse"]
-        : ["arbeid-teknologi", "gronne-hjem"];
-    [Math.floor(chapters.length / 3), Math.floor(2 * chapters.length / 3)].forEach((index, i) => {
-      const node = chapters[index];
-      if (node && !node.querySelector(".vision-document-art")) {
-        const image = picture(scenes[i], "vision-document-art");
-        node.after(image);
-      }
-    });
-  }
+  // Dokumentene skal ikke ha tilfeldige motivpauser basert på kapitlenes posisjon.
+  // Først forstå teksten, deretter bestille motiv, og så knytte bildet til det ene avsnittet.
 }

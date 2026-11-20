@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "policy": "Illustrasjon brukes kun en gang i hele nettstedet. Motivet begrunnes i det tilhørende tekststykket. Ikke gjenbruk i kort, banner, andre sider eller seksjoner.",
+  "source": "Paradispartiet/Paradispartiet, lest direkte fra main 20.11.2026",
+  "images": [
+    {
+      "id": "side-forside-trygghet",
+      "page": "index.html",
+      "slot": "hero",
+      "basis": "Trygghet som grunnlag; frihet til å leve og skape",
+      "motiv": "Lively contemporary Norwegian pedestrian street with affordable comfortable homes at left, welcoming shared garden and free family picnic in middle, people producing handmade art and practical craft at right; everyone has a place and freedom to contribute; warm afternoon into blue evening; people and architecture central, wide panorama",
+      "alt": "Et boligområde med åpne møteplasser og mennesker som skaper sammen.",
+      "size": "2K"
+    },
+    {
+      "id": "side-politikk-grunnbehov",
+      "page": "politikk.html",
+      "slot": "hero",
+      "basis": "Grunnbehov sikres i fellesskapet: bolig, mat, helse, utdanning",
+      "motiv": "A human scale civic courtyard with four distinct accessible doors, a small home, local food cooperative, welcoming health clinic and open public school, interconnected by paths and people passing freely; not a giant utopian skyline",
+      "alt": "Bolig, matforsyning, helsehjelp og læring samlet omkring et offentlig torg.",
+      "size": "2K"
+    },
+    {
+      "id": "side-prosjekter-fra-ide-til-praksis",
+      "page": "prosjekter.html",
+      "slot": "hero",
+      "basis": "Prosjekter er praktiske initiativ for fellesskap, læring og byrom",
+      "motiv": "Realistic everyday workshop scene where neighbors construct and plan welcoming public places together: small community pavilion under construction, reading room visible, volunteer-run event nearby, sketches on table but no legible labels",
+      "alt": "Mennesker bygger og planlegger felles møteplasser i nabolaget.",
+      "size": "2K"
+    },
+    {
+      "id": "side-manifest-ufravikelige-rettigheter",
+      "page": "manifest.html",
+      "slot": "hero",
+      "basis": "Manifest: ufravikelige rettigheter, naturvern, trygghet, fri skaping",
+      "motiv": "Illustrative overview of everyday social rights expressed materially: a welcoming apartment, staffed public food place, open clinic, warm school and a strip of protected forest, all within same believable village street; foreground person opening home door freely, society rather than symbols",
+      "alt": "Et nabolag der bolig, mat, helse og utdanning er tilgjengelig for alle.",
+      "size": "2K"
+    },
+    {
+      "id": "side-grunnlag-historie-filosofi-okologi",
+      "page": "grunnlag.html",
+      "slot": "hero",
+      "basis": "60 kapitler om filosofisk, historisk og økologisk bakgrunn",
+      "motiv": "Quiet research room with historical books and hand-drawn maps, table set with philosophical works and ecological field notes, a group of thoughtful people talking respectfully, window opening to real working fields and untouched forest, visual link between history and nature",
+      "alt": "Et forskningsrom med historiske kilder, samtale og naturen utenfor.",
+      "size": "2K"
+    },
+    {
+      "id": "side-okonomisk-modell-dobbelstruktur",
+      "page": "okonomisk-modell.html",
+      "slot": "hero",
+      "basis": "BasicMarked/FriMarked, samfunnsarbeid, åpent ressursregnskap",
+      "motiv": "Human-scale market courtyard with an open community essentials distribution stall offering basic food and household necessities on one side, independent artisan stalls selling creative handmade goods on the other, workers recording transparent non-numeric resource ledger together, two complementary spheres without walls",
+      "alt": "Et fellesmarked for grunnbehov ved siden av frie lokale verksteder.",
+      "size": "2K"
+    },
+    {
+      "id": "side-kontakt-bli-med",
+      "page": "kontakt.html",
+      "slot": "hero",
+      "basis": "Medlemskap og 5 000 papirunderskrifter for partiregistrering",
+      "motiv": "Small welcoming neighborhood association table where adults sign paper support forms and ask questions to volunteers, visible pens and papers with blank pages and no legible writing, friendly trust and privacy, familiar Norwegian community hall rather than staged rally",
+      "alt": "Frivillige hjelper interesserte med medlemskap og underskrifter på papir.",
+      "size": "2K"
+    },
+    {
+      "id": "side-om-apen-deltakelse",
+      "page": "om.html",
+      "slot": "banner",
+      "basis": "Åpen deltakelse, ulike bakgrunner og ideer omsatt i handling",
+      "motiv": "Diverse adults of varied ages in an open meeting and shared worktable, a cleaner, student, caregiver, artist and craft worker discussing ideas with simple materials and plants, equal voices and warm inviting low-rise neighborhood common room",
+      "alt": "Ulike mennesker deltar i et åpent arbeidsmøte om felles prosjekter.",
+      "size": "2K"
+    },
+    {
+      "id": "side-404-vei-videre",
+      "page": "404.html",
+      "slot": "hero",
+      "basis": "404: siden finnes ikke; tilbake til forsiden eller utforsk prosjekter",
+      "motiv": "A quietly humorous illustrated fork in a garden walking path, one path toward a welcoming shared square and another toward an open makers workshop, empty signposts without any words, foreground person deciding direction; reassuring, no horror",
+      "alt": "To stier fører videre til et torg og et åpent verksted.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-aha-samtaler-innsikt",
+      "page": "Prosjekter/EchoNet.html",
+      "slot": "banner",
+      "basis": "Personlige KI-samtaler, anonym læring og felles kunnskap uten overvåkning",
+      "motiv": "Interior of a welcoming public knowledge workshop, two people using their own tablets privately while a shared wall display visualizes many anonymous insights as abstract interconnected knowledge cards, clearly separate private screens and common learning; no surveillance cameras, no readable UI text",
+      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-caravan-gronne-korridorer",
+      "page": "Prosjekter/Caravan.html",
+      "slot": "banner",
+      "basis": "Grønne ferdselsårer, gang/sykkel/kollektiv, hvile og naturhensyn",
+      "motiv": "Wide Norwegian countryside route with well-made accessible walking and cycling trails connecting two small villages and a train stop, a simple rest pavilion at the riverside, walkers of different abilities and a cyclist, protected wetlands clearly undisturbed",
+      "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-glasshus-vinterpaviljong",
+      "page": "Prosjekter/GlassHus.html",
+      "slot": "banner",
+      "basis": "Åpne oppvarmede glasspaviljonger i parker som gratis møteplass i vinterhalvåret",
+      "motiv": "Cold snowy Norwegian urban park after sunset, several modest glass pavilions glowing warmly from inside, families and older adults reading and chatting without shopping, condensation on glass, benches and plants inside, surrounding bare trees and snow",
+      "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-bilfri-by-tilgjengelighet",
+      "page": "Prosjekter/BilfriBy.html",
+      "slot": "banner",
+      "basis": "Tilgjengelig bilfri sentrumsgate med kollektivtransport, varelevering og nødetater",
+      "motiv": "Specific human-scale city cross-section: broad pedestrian square with tram stop, tactile guide paving and wheelchair ramp, cyclist moving carefully, electric cargo bike delivering goods to small shops, an emergency vehicle on designated access lane in distance; no private cars, practical infrastructure visible",
+      "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-oldboys-trening-uten-press",
+      "page": "Prosjekter/Oslooldboys.html",
+      "slot": "banner",
+      "basis": "Lavterskel sportsklubb og sosial tilhørighet uten prestasjonskrav",
+      "motiv": "Adults of different ages and genders casually playing football on green Norwegian community field at daylight, some laughing at the sideline on a bench and chatting, one person offering a hand after a fall, not an organized professional competition; joy and movement",
+      "alt": "Voksne spiller fotball sammen i en uformell og inkluderende klubb.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
+      "page": "Prosjekter/Paradisavisa.html",
+      "slot": "banner",
+      "basis": "Uavhengig avis med samfunnsdebatt, kultur, politikk og filosofi",
+      "motiv": "Warm modern small editorial newsroom, diverse writers working on social issues, two journalists interviewing a cultural worker, wall with anonymous clippings and photographs without readable text, newspaper pages without legible words, thoughtful debate, serious creative public sphere",
+      "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
+      "size": "2K"
+    },
+    {
+      "id": "prosjekt-lesebiblioteket-apent-leserom",
+      "page": "Prosjekter/Lesebiblioteket.html",
+      "slot": "banner",
+      "basis": "Gratis lavterskel rom mellom bibliotek, kafé og verksted, uten kjøpeplikt",
+      "motiv": "Spacious yet intimate ground-floor public reading space in an urban neighborhood, long bookshelves, adults reading quietly, small discussion circle and one person writing at table, tea mugs but no cashier or point of sale, accessible entrance, soft daylight",
+      "alt": "Et gratis leserom der voksne leser, skriver og snakker uten kjøpeplikt.",
+      "size": "2K"
+    },
+    {
+      "id": "kort-paradisavisa-kritisk-samtale",
+      "page": "prosjekter.html",
+      "slot": "card:Paradisavisa",
+      "basis": "Uavhengig avis for debatt, analyser, kultur og samfunn",
+      "motiv": "Close-up editorial worktable: handmade newspaper pages, an illustrated story spread and two people in a thoughtful interview, a camera and recording notebook, vivid real-life newsroom; no readable written text",
+      "alt": "En redaksjon arbeider med artikler, bilder og samfunnsdebatt.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-aha-kunnskapsnettverk",
+      "page": "prosjekter.html",
+      "slot": "card:AHA EchoNet",
+      "basis": "Kollektiv læring og ansvarlig kunnskapsdeling gjennom KI",
+      "motiv": "Thoughtful close-up of hands using a tablet with visual speech bubbles dissolving into a pattern of shared anonymous knowledge, a nearby colleague learning from the resulting insights, clearly consent-focused human centered AI",
+      "alt": "Mennesker bruker digitale samtaler til å dele kunnskap på en trygg måte.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-lesebiblioteket-samtalesirkel",
+      "page": "prosjekter.html",
+      "slot": "card:Lesebiblioteket",
+      "basis": "Åpent gratis rom for lesing, læring og samtale",
+      "motiv": "Candid intimate view inside a welcoming free library café, four adults in an unhurried book discussion circle, books, soft chairs and plants, no consumer signage",
+      "alt": "En liten gruppe voksne samtaler om bøker i et åpent lesebibliotek.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-oldboys-lavterskel-aktivitet",
+      "page": "prosjekter.html",
+      "slot": "card:Oslo Old Boys",
+      "basis": "Sosial sportsklubb uten prestasjonspress",
+      "motiv": "Joyful close-up of two midlife teammates tying their football boots at the edge of a local park field before joining a friendly practice, smiles and teamwork, no professional sponsor logos",
+      "alt": "To voksne gjør seg klare til en uformell fotballtrening.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-glasshus-vinterlys",
+      "page": "prosjekter.html",
+      "slot": "card:GlassHus",
+      "basis": "Små oppvarmede paviljonger i parker og byrom",
+      "motiv": "Detailed winter view of a single softly lit glass pavilion in an Oslo-like park, snowy branches, elderly person with book visible within, warm refuge contrasting blue winter dusk",
+      "alt": "En liten oppvarmet glasspaviljong lyser i en vinterpark.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-bilfri-by-gronn-gate",
+      "page": "prosjekter.html",
+      "slot": "card:Bilfri by",
+      "basis": "Grønnere og tryggere byrom for folk",
+      "motiv": "Intimate eye level view of a child safely crossing a pleasant car-free urban lane with an older companion, planting beds, people sitting on benches and one passing tram at a distance; show safe quiet street life",
+      "alt": "En trygg bilfri gate med barn, benker og grønne møteplasser.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-caravan-trygg-sykkelvei",
+      "page": "prosjekter.html",
+      "slot": "card:The Caravan",
+      "basis": "Grønne korridorer for bærekraftig fri ferdsel",
+      "motiv": "One cyclist and one hiker moving along a well maintained green corridor between fields and woodland, small rural village and local bus shelter in distance, clear rest stop and respect for natural habitat",
+      "alt": "Sykkelvei og gangsti kobler natur og små lokalsamfunn sammen.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-basicmarked-grunnforsyning",
+      "page": "prosjekter.html",
+      "slot": "card:BasicMarked-piloten",
+      "basis": "Felles forsyning av grunnbehov",
+      "motiv": "Inside a modest municipal basics provision center: volunteer checks a reusable basket of fresh local produce and essential hygiene goods for a resident, functional shelving and transparent logistics, accessible and dignified, no cashier",
+      "alt": "Utdeling av mat og nødvendighetsvarer gjennom en felles ordning.",
+      "size": "1K"
+    },
+    {
+      "id": "kort-teorien-om-lyset-bevissthet",
+      "page": "prosjekter.html",
+      "slot": "card:Teorien om lyset",
+      "basis": "Lys, liv og menneskelig klarhet som filosofisk utforskning",
+      "motiv": "Thoughtful person reading beside a window where morning sunlight illuminates plant leaves and dust motes, reflection of person in glass becomes a graceful visual metaphor for awareness and inner clarity; not fantasy gadgets",
+      "alt": "Et menneske reflekterer ved et vindu der sollys faller på planter.",
+      "size": "1K"
+    },
+    {
+      "id": "politikk-okonomi-dobbel-markedsstruktur",
+      "page": "politikk.html",
+      "slot": "topic:okonomi",
+      "basis": "BasicMarked og FriMarked, 10–15 timers bidrag",
+      "motiv": "Ground-level realistic community marketplace where one aisle visibly supplies groceries and essentials without payment transaction while the neighboring area hosts independent maker stalls, ordinary people choosing freely, volunteer and craftspeople working side-by-side",
+      "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-offentlig-grunnsortiment-varighet",
+      "page": "politikk.html",
+      "slot": "topic:offentlig-grunnsortiment",
+      "basis": "Statlige alternativer med varige TV-er, mobil, PC, verktøy og programvare",
+      "motiv": "Hands-on public product testing lab: engineers and public university students together testing repairable phones, laptops, televisions and drill tools; visibly replaceable components, screws and modular cases; honest product quality assessment, no logos or readable labels",
+      "alt": "Studenter og fagarbeidere tester og reparerer varige digitale produkter og verktøy.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-bolig-hjem-ikke-spekulasjon",
+      "page": "politikk.html",
+      "slot": "topic:bolig",
+      "basis": "Bolig som rett, om lag 60 m² per person, hjem framfor spekulasjon",
+      "motiv": "Grounded human-scale municipal housing courtyard, accessible homes with visible open interiors and practical shared spaces, resident receives keys to a modest attractive apartment rather than luxury highrise, outside bike storage and shared garden",
+      "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-mat-lokal-matsikkerhet",
+      "page": "politikk.html",
+      "slot": "topic:mat",
+      "basis": "Ernæringsrett, sesongbasert lokal og bærekraftig produksjon",
+      "motiv": "Local seasonal food growing and distribution scene: farmers picking vegetables in mixed beds, fresh nutritious produce delivered by handcart to a neighborhood food house, families with baskets, no industrial monoculture, detailed and realistic harvest",
+      "alt": "Lokal dyrking og distribusjon sikrer tilgang til næringsrik mat.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-helse-fysisk-psykisk-sosial",
+      "page": "politikk.html",
+      "slot": "topic:helse",
+      "basis": "Helhetlig helse: fysisk, psykisk og sosial trygghet",
+      "motiv": "Welcoming public health garden where a clinician listens to a patient on a quiet bench while a small group participates in gentle outdoor exercise nearby, accessible health center in background, warmth and care without medical dramatization",
+      "alt": "Omsorgssamtale og sosial aktivitet ved et tilgjengelig helsesenter.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-utdanning-praksis-og-teori",
+      "page": "politikk.html",
+      "slot": "topic:utdanning",
+      "basis": "Skole og universitet, åpne verksteder, praksis og teori side om side",
+      "motiv": "Bright community school workshop where an older learner studies a plan at table while young adult learners build a practical wooden object with tools under patient teacher supervision, bookshelves and accessible workspaces, people collaborating",
+      "alt": "Elever og voksne lærer gjennom bøker og praktisk verkstedarbeid.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-arbeidsliv-tid-etter-evne",
+      "page": "politikk.html",
+      "slot": "topic:arbeidsliv",
+      "basis": "10–15 timer felles arbeid etter evne, tid til frivillighet, kunst og omsorg",
+      "motiv": "Believable everyday shared workspace with flexible work roles: one adult helps organize a public food supply in a short shift, another cares for small child nearby, another person paints in an adjacent studio during free time, empathy for different abilities and life phases",
+      "alt": "Fleksibelt samfunnsarbeid gir plass til omsorg og egen skapelse.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-miljo-natur-forst",
+      "page": "politikk.html",
+      "slot": "topic:miljo",
+      "basis": "Vill natur og jordbruk prioriteres i arealregnskap før bosetting",
+      "motiv": "Aerial oblique view of a carefully planned rural area with clearly preserved forest and wetlands, productive farmland in between, only a few compact houses clustered along existing paths where nature is least disturbed; field ecologists observing wildlife at stream edge",
+      "alt": "En liten bosetting er lagt utenfor vernet natur og viktige jordbruksarealer.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-transport-kollektiv-og-korridorer",
+      "page": "politikk.html",
+      "slot": "topic:transport",
+      "basis": "Kollektivtransport, bilfrie bykjerner og grønne Caravan-korridorer",
+      "motiv": "Practical rural-urban transport interchange with a commuter train pulling into a small station, safe walking and cycling path joining a car-free neighborhood center, wheelchair-accessible platform, coherent green travel connection",
+      "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
+      "size": "2K"
+    },
+    {
+      "id": "politikk-kultur-alle-kan-skape",
+      "page": "politikk.html",
+      "slot": "topic:kultur",
+      "basis": "Kultur som grunnbehov, åpne verksteder, scener og atelier for alle",
+      "motiv": "Accessible neighborhood arts center where different ages make pottery, paint and rehearse a small theatrical performance at the same time in adjacent open rooms, warm stage lights and shared equipment, no entrance tickets or merchandizing",
+      "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
+      "size": "2K"
+    }
+  ]
+}
