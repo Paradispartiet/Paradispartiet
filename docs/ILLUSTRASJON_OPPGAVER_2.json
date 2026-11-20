@@ -2,36 +2,57 @@
   {
     "id": "prosjekt-aha-samtaler-innsikt",
     "taskId": "89cac9c7-3442-4def-8991-2cab8313915a",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/89cac9c7-3442-4def-8991-2cab8313915a/327aec31-38ed-454f-a26d-830bec4d3a5a/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjkwNWE2MmE4YzgwNzVhYSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3OTI3NH0.j2aPkQCuHqvtoD5hv0sMrKaIBXHf6X2lDP-5p_-rv7M",
+    "error": null
   },
   {
     "id": "prosjekt-caravan-gronne-korridorer",
     "taskId": "6a5482ab-40c6-47e6-9b00-300541f87b4b",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/6a5482ab-40c6-47e6-9b00-300541f87b4b/6e31d30b-a9b1-4678-8722-25c0cfc281fe/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjAyNWYxN2JlNTExMzIzNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxOTI5MX0.FMc83zRvq-cxn1XpoSMZuQbYF3ixrFGljlZTFOeRmvc",
+    "error": null
   },
   {
     "id": "prosjekt-glasshus-vinterpaviljong",
     "taskId": "4f447d20-a777-4de3-b3e0-e3e8f03b3d91",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/4f447d20-a777-4de3-b3e0-e3e8f03b3d91/6ea1a697-dc2e-4bd1-9365-5caaae16bb98/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYTYwNzY5YjBjNjhkNzdmNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3MzI2NH0.5RAXhP8exemIF2HbZGCAkgqJu6JA6kKaRlX6qkAnbUo",
+    "error": null
   },
   {
     "id": "prosjekt-bilfri-by-tilgjengelighet",
     "taskId": "720f1f60-ce52-485a-bbc9-a59e1f423837",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/720f1f60-ce52-485a-bbc9-a59e1f423837/ca11dbd3-9e31-4343-a7bb-fb9d13f57a79/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMzgwNTE1OWZhOTk0OTI4YiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMwMzcxMX0.KAT0AH14rbLGF4ekTkYO9ZvHHnzWCSbhF1unpgcrhzA",
+    "error": null
   },
   {
     "id": "prosjekt-oldboys-trening-uten-press",
     "taskId": "a11b5032-5741-441c-9679-dca645c54fa6",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/a11b5032-5741-441c-9679-dca645c54fa6/a7b8dcc5-7bff-4f41-8c49-e88c7ff86c89/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjQ1NDU5MjRhNzQyMWQ2OSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxMjU0OH0.kQihj5RT-FKVlILwVe0G9w8ZjuWS3dyPyoONzusF3uc",
+    "error": null
   },
   {
     "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
     "taskId": "dcc6f8e6-a8e6-47dd-b414-17f9ae2ab3da",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/dcc6f8e6-a8e6-47dd-b414-17f9ae2ab3da/cc81e738-0895-4db5-892a-308e3a4fb96b/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTk4YTNjYzM2ZGRiYzI5NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMwMjg1MX0.Rcvg63kXwQCRCmpYXlaI6_dLPM7xJr37nmswWCd_ceg",
+    "error": null
   },
   {
     "id": "prosjekt-lesebiblioteket-apent-leserom",
     "taskId": "c72b481f-de36-4305-9cca-20a31e34c243",
-    "kind": "task_pending"
+    "kind": "task_pending",
+    "status": "image",
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/c72b481f-de36-4305-9cca-20a31e34c243/a231cefc-c2eb-4a17-a1b9-00bec0f90235/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2MwZmI1ODU2N2E0ODFhZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMzg5M30.kr9QTJrxxrw8Vn9PFxmphYG0IDcFr7X9DeyDD1js8XU",
+    "error": null
   }
 ]
