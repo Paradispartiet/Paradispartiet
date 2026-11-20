@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "policy": "Hvert bilde skal visualisere en bestemt tekst, brukes kun på én side/ett sted og ha egen alt-tekst og forklarende bildetekst. Ingen temafallback eller gjenbruk.",
   "source": "Paradispartiet/Paradispartiet, lest direkte fra main 20.11.2026",
   "images": [
@@ -449,6 +449,39 @@
       "alt": "En lokal boliggruppe undersøker forsinket rehabilitering, omfordeler ressurser og følger opp pågående byggearbeid.",
       "basis": "Økonomisk modell: styringslogikk ved avvik, åpent regnskap, aktivering av tiltak som flere arbeidstimer, ekstra rehabilitering og måling ved neste kvartal.",
       "motiv": "Grounded single editorial continuous scene centered on a modest housing rehabilitation project: in the foreground a local project manager and resident representative compare a physical progress board with plain colored stages and an actual incomplete apartment building just outside the open meeting room; planners reassign a small team and reclaimed timber supplies to unblock renovation; through the other window workers are already fitting refurbished windows, showing a practical feedback loop from detected delay to concrete corrective action. No legible numbers, charts, labels or optimistic fabricated results. Clear visual causal action."
+    },
+    {
+      "id": "forklaring-manifest-apen-skole-kveld",
+      "page": "manifest.html",
+      "slot": "inline:kap26",
+      "section_id": "kap26",
+      "size": "2K",
+      "caption": "Skoler og opplæringssteder skal også kunne brukes om kvelden, slik at voksne kan lære når hverdagen gir rom for det.",
+      "alt": "Voksne deltar i kveldsundervisning på en åpen skole, med veiledning og praktiske øvelser i opplyste klasserom.",
+      "basis": "Manifestet kapittel 26: utdanning tilgjengelig hele døgnet; foreldre og andre voksne kan delta og få opplæring regnet som samfunnsarbeid.",
+      "motiv": "A grounded human-scale modern Norwegian neighborhood school in the deep blue evening after sunset, with warmly lit classrooms seen through tall windows. Adult learners including a working parent participate in a practical woodworking and electronics safety lesson at shared tables, a calm teacher guides them, and another room contains a small quiet reading group and library books. Sensible realistic lighting: dark outdoors with bicycle and snow-damp pavement, inviting well-organized facilities. Show adult access to lifelong learning outside normal working hours, not nighttime children without supervision, not a party, no readable lettering."
+    },
+    {
+      "id": "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
+      "page": "grunnlag.html",
+      "slot": "inline:kap20-paradismodellen",
+      "section_id": "kap20-paradismodellen",
+      "size": "2K",
+      "caption": "I den omvendte samfunnskontrakten gir innbyggerne avgrensede oppgaver til institusjoner de selv kan kontrollere og stille til ansvar.",
+      "alt": "Innbyggere i et offentlig møte stiller spørsmål til et lokalt tilsyn og ser hvordan beslutninger kan prøves og endres.",
+      "basis": "Grunnlagsdokumentet, kapittel 20, Paradismodellens omvendte kontrakt: mandatet fra folket er begrenset, kontrollert og tilbakekallelig; institusjonene skal beskytte mot skade, ikke styre fredelige liv.",
+      "motiv": "Single cohesive interior of an approachable Norwegian democratic community hall in daylight, roundtable open assembly of ordinary citizens meeting with a small public safety and rights oversight board; separate independent ombud reviewers sit at their own accessible table reviewing decisions, while a local delegate respectfully answers questions from residents who hold ordinary files and a visibly blank public document. Diverse ages seated equally with a facilitator, childcare corner and plants, no elevated throne, no huge governmental official, no police force or political signage. Visually show the public controlling and reviewing a limited civic mandate, real-world democratic accountability, not abstract symbolic allegory, no readable text."
+    },
+    {
+      "id": "forklaring-okonomi-produktkort-kvalitet",
+      "page": "okonomisk-modell.html",
+      "slot": "inline:kvalitet-registrering",
+      "section_id": "kvalitet-registrering",
+      "size": "2K",
+      "caption": "Åpne produktkort og kvalitetsprøver skal gjøre det mulig å kontrollere materialer, holdbarhet og sikkerhet før varer tas i bruk.",
+      "alt": "Fagfolk tester et hverdagsprodukt på et lokalt kvalitetslaboratorium og undersøker materialene og holdbarheten.",
+      "basis": "Økonomisk modell punkt 6: åpne produktkort for ingredienser eller materialer, holdbarhet og revisjonshistorikk, grunnkrav til helse/miljø og åpne fag- og brukeranmeldelser.",
+      "motiv": "Close-up concrete editorial scene in a small Scandinavian independent public product-quality laboratory, quality testers examine a set of plain reusable food storage containers and a safe everyday electric kettle on a sturdy workbench. One technician tests lid seal and food-safe material sample, another checks whether the kettle handle and replaceable part survives long use, an independent reviewer looks at visually organized sample cards and material swatches with blank surfaces, not readable labels. Show craftsmanship, quality and transparent testing, not product advertising, luxury retail, generic production line, or fake gauges. Product inspection is distinct from repair and distribution elsewhere in the website."
     }
   ]
 }
