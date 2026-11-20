@@ -87,7 +87,7 @@ for (const scene of scenes) {
 // Verifiser spesielt synlige bildetekster som kom etter oppryddingen.
 // En tilgjengelig bildefil alene betyr ikke at ny tekst er publisert.
 const policyScenes = activeScenes.filter(scene => scene.slot.startsWith("topic:"));
-const assignmentMatch = script.match(/const SCENE_ASSIGNMENTS = (\\{[\\s\\S]*?\\});\\s*const usedOnPage/);
+const assignmentMatch = script.match(/const SCENE_ASSIGNMENTS = (\{[\s\S]*?\});\s*const usedOnPage/);
 let policyAssignments = {};
 if (!assignmentMatch) {
   errors.push("Offentlig script.js mangler lesbar politikkillustrasjon-mapping");
