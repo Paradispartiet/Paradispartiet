@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollTopButton();
   initDocumentIndex();
   initManifestReader();
+  initPolicyTopics();
   loadAvisaFeed();
   document.querySelectorAll("[data-year]").forEach(el => {
     el.textContent = new Date().getFullYear();
@@ -154,6 +155,36 @@ function initManifestReader() {
     }, {rootMargin: "-10% 0px -75% 0px"});
     anchors.forEach(target => active.observe(target));
   }
+}
+
+
+function initPolicyTopics() {
+  const panel = document.querySelector(".page--politikk .policy-topic-panel");
+  if (!panel) return;
+  const input = panel.querySelector("#policy-topic-search");
+  const results = panel.querySelector("#policy-topic-results");
+  const items = [...panel.querySelectorAll(".policy-topic-list > li")];
+  const entries = items.map(item => ({
+    item,
+    text: item.textContent.trim().toLocaleLowerCase("nb-NO")
+  }));
+  const filter = () => {
+    const term = input.value.trim().toLocaleLowerCase("nb-NO");
+    let visible = 0;
+    for (const entry of entries) {
+      const match = entry.text.includes(term);
+      entry.item.hidden = !match;
+      if (match) visible++;
+    }
+    results.textContent = term
+      ? visible + " av " + entries.length + " temaer"
+      : entries.length + " temaer";
+  };
+  input.addEventListener("input", filter);
+  filter();
+  panel.querySelectorAll(".policy-topic-list a").forEach(link => {
+    link.addEventListener("click", () => { panel.open = false; });
+  });
 }
 
 function initNavigation() {
