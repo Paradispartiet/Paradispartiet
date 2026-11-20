@@ -1,57 +1,77 @@
 /**
- * Lett illustrasjonskontroll (#23), uten avhengigheter eller tung regresjon.
+ * Kvalitetsport for Paradispartiets innholdsillustrasjoner.
+ * Hvert bilde skal ha kun én plassering i hele nettstedet.
+ * Kjør: node tools/check-illustrations.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
 const root = process.cwd();
 const errors = [];
-const assert = (condition, message) => { if (!condition) errors.push(message); };
-const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
-const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
-const subjects = ["visjon-by-land","bilfri-by","gronne-hjem","smabruk-natur","kunnskap-helse","kultur-fellesskap","arbeid-teknologi"];
-const assetDir = path.join(root, "assets", "illustrasjoner");
-const artFiles = subjects.flatMap(name => [name + ".webp", name + "-960.webp"]);
-for (const name of artFiles) {
-  const file = path.join(assetDir,name);
-  if (!fs.existsSync(file)) { errors.push("Mangler WEBP: " + name); continue; }
-  const b = fs.readFileSync(file);
-  assert(b.subarray(0,4).toString() === "RIFF" && b.subarray(8,12).toString() === "WEBP", name + ": ikke gyldig WEBP");
-  assert(b.length > 50000, name + ": uventet liten bildefil");
+const assert = (value, message) => { if (!value) errors.push(message); };
+const read = file => fs.readFileSync(path.join(root,file), "utf8");
+const script = read("script.js");
+const css = read("styles.css");
+const plan = JSON.parse(read("docs/ILLUSTRASJONSPLAN.json"));
+const m = script.match(/const SCENE_ASSIGNMENTS = (\{[\s\S]*?\});\s*const usedOnPage/);
+assert(!!m, "Mangler eksplisitt bildeplasseringsregister i script.js");
+let assignments = null;
+try { if(m) assignments = JSON.parse(m[1]); } catch(e) { errors.push("Ugyldig bildeplassering i script.js: " + e.message); }
+const parts = assignments ? [
+  assignments.homeHero,
+  ...Object.values(assignments.pageHeroes),
+  ...Object.values(assignments.pageBanners),
+  ...Object.values(assignments.projectBanners),
+  ...Object.values(assignments.projectCards),
+  ...Object.values(assignments.policyTopics)
+] : [];
+const counts = new Map();
+for (const scene of parts) {
+  if (!scene?.id) { errors.push("En plassering mangler bilde-ID"); continue; }
+  counts.set(scene.id, (counts.get(scene.id)||0)+1);
+  assert(scene.alt?.trim().length > 18, scene.id + " mangler forklarende alt-tekst");
 }
-assert(script.includes('name + "-960"') && script.includes("img.srcset") && script.includes("rasterScenes.has(name)"),
-  "Responsive bildekilder mangler");
-
-assert(/initIllustratedSite\(\);/.test(script), "Illustrasjonsoppstart mangler");
-assert(/new URL\("assets\/illustrasjoner\/", script\.src\)/.test(script), "Stier må være relative til script.js");
-assert(/loading = eager \? "eager" : "lazy"/.test(script), "Lazy loading mangler");
-assert(/img\.alt = alt/.test(script), "Alt-tekst mangler");
-for (const name of subjects) {
-  const file = path.join(assetDir, name + ".svg");
-  if (!fs.existsSync(file)) { errors.push("Mangler: " + name + ".svg"); continue; }
-  const svg = fs.readFileSync(file, "utf8");
-  assert(svg.startsWith("<svg "), name + ": feil SVG-start");
-  assert(svg.trimEnd().endsWith("</svg>"), name + ": SVG er ikke lukket");
-  assert((svg.match(/<svg\b/g) || []).length === 1, name + ": flere SVG-roetter");
-  assert(/viewBox="0 0 1600 700"/.test(svg), name + ": feil format");
-  assert(!/<(?:script|foreignObject)\b/i.test(svg), name + ": aktivt SVG-innhold");
-  assert(!/(?:href|xlink:href)\s*=\s*["']https?:/i.test(svg), name + ": ekstern avhengighet");
-  assert(!/<text\b/i.test(svg), name + ": bildetekst skal ligge i HTML");
-  assert(script.includes('"' + name + '"'), name + ": motivet er ikke i sidemapping");
+for (const [id,n] of counts) assert(n===1, id + " er brukt " + n + " ganger: én bildefil får kun én plass!");
+assert(parts.length===plan.images.length,
+  "Register/sidekode avviker: "+parts.length+" plasseringer mot "+plan.images.length+" bestilte bilder");
+const ids=new Set(), slots=new Set();
+for (const scene of plan.images) {
+  assert(!ids.has(scene.id), scene.id + " duplisert i bilderegister");
+  ids.add(scene.id);
+  const slot=scene.page+"#"+scene.slot;
+  assert(!slots.has(slot), slot+" duplisert i register");
+  slots.add(slot);
+  assert(counts.has(scene.id), scene.id+" er ikke knyttet til noen side");
+  assert(!!scene.basis && scene.basis.length>15, scene.id+" mangler tekstbegrunnelse");
+  assert(!!scene.motiv && scene.motiv.length>80, scene.id+" mangler konkret motiv");
+  const size=scene.size;
+  assert(["1K","2K"].includes(size), scene.id+" feil bildestørrelse");
+  for(const suffix of ["","-960"]) {
+    const filename="assets/illustrasjoner/"+scene.id+suffix+".webp";
+    if(!fs.existsSync(path.join(root,filename))) {errors.push("Mangler: "+filename);continue}
+    const buf=fs.readFileSync(path.join(root,filename));
+    assert(buf.subarray(0,4).toString()==="RIFF" && buf.subarray(8,12).toString()==="WEBP",filename+" er ikke WEBP");
+    assert(buf.length>15_000,filename+" mistenkelig liten bildefil");
+  }
 }
-const pages = ["index.html","politikk.html","manifest.html","grunnlag.html","okonomisk-modell.html","prosjekter.html","om.html","kontakt.html","404.html"];
-for (const name of pages) {
-  assert(script.includes('"' + name + '"'), name + ": mangler illustrasjonsmapping");
-  const html = fs.readFileSync(path.join(root, name), "utf8");
-  assert(/<script src="(?:\/Paradispartiet\/)?script\.js"><\/script>/.test(html), name + ": mangler felles script");
+assert(!script.includes("chooseSubject("), "Gammel automatisk temagjenbruk skal være fjernet");
+assert(!script.includes("rasterScenes"), "Gamle gjenbrukte WebP-motiver er fortsatt koblet");
+assert(script.includes("usedOnPage.has(scene.id)"), "Manglende kjøretidsvern mot bildeduplikat");
+assert(script.includes("new URL(\"assets/illustrasjoner/\", sourceScript.src)"), "Feil relative bildestier");
+assert(css.includes(".vision-home-hero") && css.includes(".vision-topic-art"), "Illustrasjons-CSS mangler");
+const existingProjects=fs.readdirSync(path.join(root,"Prosjekter")).filter(x=>x.endsWith(".html"));
+for(const file of existingProjects) {
+  assert(!!assignments?.projectBanners?.[file], "Prosjektsiden mangler unikt toppbilde: "+file);
 }
-for (const name of fs.readdirSync(path.join(root, "Prosjekter")).filter(n => n.endsWith(".html"))) {
-  const html = fs.readFileSync(path.join(root, "Prosjekter", name), "utf8");
-  assert(/<script src="\.\.\/script\.js"><\/script>/.test(html), "Prosjekter/" + name + ": mangler script");
+const cardHtml=read("prosjekter.html");
+const cardHeadings=[...cardHtml.matchAll(/<h2>([^<]+)<\/h2>/g)].map(x=>x[1]);
+for(const card of cardHeadings) assert(!!assignments?.projectCards?.[card], "Prosjektkortet mangler unikt motiv: "+card);
+const policyHtml=read("politikk.html");
+for(const id of Object.keys(assignments?.policyTopics||{})) {
+  assert(policyHtml.includes('id="'+id+'"'),"Bilde er knyttet til ukjent politikkseksjon: "+id);
 }
-assert(css.includes(".vision-home-hero"), "Forside-CSS mangler");
-assert(css.includes(".vision-topic-art"), "Tema-CSS mangler");
-assert(css.includes("@media (max-width:700px)"), "Mobil-CSS mangler");
-if (errors.length) {
-  console.error("Illustrasjonskontroll feilet:\n" + errors.map(e => " - " + e).join("\n"));
-  process.exitCode = 1;
-} else console.log("OK: sju illustrasjonsmotiver, 14 WEBP-varianter og hovedsidene kontrollert.");
+if(errors.length) {
+  console.error("ILLUSTRASJONSKONTROLL FEILET:\n"+errors.map(x=>" - "+x).join("\n"));
+  process.exitCode=1;
+} else {
+  console.log("OK: "+parts.length+" ulike motiver i "+parts.length+" unike tekstplasser. Ingen resirkulering.");
+}
