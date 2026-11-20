@@ -18,9 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Kontroll av produksjon skal bruke publiseringsplanen på main,
-          # ikke en PR som inneholder bilder som ennå ikke er publisert.
-          ref: main
+          # I en PR skal kontrollen teste den nye sjekk-koden, ikke en eldre
+          # kopi på main. Ved manuell produksjonskontroll brukes main.
+          ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
