@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page--politikk">
 <a class="skip-link" href="#main-content">Hopp til innhold</a>
 <header class="site-header">
   <div class="header-inner">
@@ -32,10 +32,46 @@
 </header>
 
 <main id="main-content" class="content">
-  <h1>Vår politikk</h1>
-  <p>Paradispartiet bygger på en enkel idé: Grunnbehov skal aldri være avhengig av betalingsevne, men sikres gjennom fellesskapet. Alt utover dette skal være fritt – for skaping, handel og livsutfoldelse.</p>
+  <div class="policy-intro">
+    <p class="policy-eyebrow">Paradispartiet · Politikk</p>
+    <h1>Vår politikk</h1>
+    <p class="policy-lead">Paradispartiet bygger på en enkel idé: Grunnbehov skal aldri være avhengig av betalingsevne, men sikres gjennom fellesskapet. Alt utover dette skal være fritt – for skaping, handel og livsutfoldelse.</p>
+  </div>
 
-  <!-- PARADISPARTIET – POLITIKK (tillegg/utvidelse). Lim under eksisterende innhold. -->
+  <nav class="policy-featured" aria-label="Utvalgte politiske temaer">
+      <a class="policy-feature" href="#okonomi"><span class="policy-feature-number">01</span><strong>Økonomi</strong><span>BasicMarked og FriMarked</span><span class="policy-feature-arrow" aria-hidden="true">↗</span></a>
+      <a class="policy-feature" href="#bolig"><span class="policy-feature-number">02</span><strong>Bolig</strong><span>Bolig som rettighet</span><span class="policy-feature-arrow" aria-hidden="true">↗</span></a>
+      <a class="policy-feature" href="#offentlig-grunnsortiment"><span class="policy-feature-number">03</span><strong>Offentlige alternativer</strong><span>Varer, verktøy og digital teknologi</span><span class="policy-feature-arrow" aria-hidden="true">↗</span></a>
+      <a class="policy-feature" href="#nav-valgfrihet"><span class="policy-feature-number">04</span><strong>NAV</strong><span>Kontorvalg og regional ledelse</span><span class="policy-feature-arrow" aria-hidden="true">↗</span></a>
+  </nav>
+  <nav class="policy-topic-nav" id="politikkomraader" aria-label="Alle politiske temaer">
+    <details class="policy-topic-panel">
+      <summary>Finn et politikkområde <span class="policy-topic-count">16 temaer</span></summary>
+      <div class="policy-topic-tools">
+        <label for="policy-topic-search">Søk i temaene</label>
+        <input id="policy-topic-search" type="search" autocomplete="off" placeholder="For eksempel bolig, NAV eller miljø" aria-controls="policy-topic-list">
+        <p id="policy-topic-results" class="policy-topic-results" role="status" aria-live="polite">16 temaer</p>
+      </div>
+      <ol id="policy-topic-list" class="policy-topic-list">
+          <li><a href="#okonomi">Økonomi</a></li>
+          <li><a href="#offentlig-grunnsortiment">Offentlig grunnsortiment: varer, verktøy og digital teknologi</a></li>
+          <li><a href="#bolig">Bolig</a></li>
+          <li><a href="#mat">Mat</a></li>
+          <li><a href="#helse">Helse og omsorg</a></li>
+          <li><a href="#utdanning">Utdanning</a></li>
+          <li><a href="#arbeidsliv">Arbeidsliv</a></li>
+          <li><a href="#miljo">Miljø og natur</a></li>
+          <li><a href="#transport">Transport og infrastruktur</a></li>
+          <li><a href="#nav-valgfrihet">NAV: fritt kontorvalg og regional ledelse</a></li>
+          <li><a href="#styring-rett">Samfunnsstyring og rett</a></li>
+          <li><a href="#forsvar">Forsvar</a></li>
+          <li><a href="#livsstil">Helse, miljø og livsstil</a></li>
+          <li><a href="#kultur">Kultur og fellesskap</a></li>
+          <li><a href="#internasjonalt">Internasjonal politikk</a></li>
+          <li><a href="#filosofi">Filosofi og retning</a></li>
+      </ol>
+    </details>
+  </nav>
 <section id="politikk-fulltekst" class="pp-politikk" aria-labelledby="pp-politikk-tittel">
 
 
@@ -52,7 +88,7 @@
     <section id="okonomi" aria-labelledby="okonomi-t">
       <h2 id="okonomi-t">Økonomi</h2>
       <p>Grunnlaget er <em>post-pengemodellen</em> med dobbel markedsstruktur:</p>
-      <ul>
+      <ul class="policy-market-comparison" aria-label="BasicMarked og FriMarked">
         <li><strong>BasicMarked:</strong> fellesskapsstyrt dekning av grunnbehov (bolig, mat, helse, utdanning, kollektivtransport).</li>
         <li><strong>FriMarked:</strong> åpent rom for privat produksjon, teknologi, kunst og overskudd.</li>
       </ul>

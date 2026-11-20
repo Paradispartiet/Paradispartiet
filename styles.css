@@ -1445,3 +1445,239 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--manifest .content > section { margin-top: 45px; }
   .page--manifest .content .chapter h3 { margin-top: 31px; }
 }
+
+
+/* Politikk: lesbar tematisk inngang uten dekorative helbreddebilder. */
+.page--politikk .content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 950px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(35px, 5.5vw, 70px) clamp(18px, 4vw, 35px) 110px;
+}
+.page--politikk .policy-intro { max-width: 780px; margin: 0 0 36px; }
+.page--politikk .policy-eyebrow {
+  margin: 0 0 14px;
+  color: #ffdf5d;
+  font-size: .79rem;
+  font-weight: 780;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.page--politikk .policy-intro h1 {
+  margin: 0 0 20px;
+  max-width: 100%;
+  font-size: clamp(2.3rem, 7vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.page--politikk .policy-lead {
+  margin: 0;
+  max-width: 66ch;
+  color: #d3e2ea;
+  font-size: clamp(1.05rem, 2.2vw, 1.24rem);
+  line-height: 1.66;
+}
+.page--politikk .policy-featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px 0 20px;
+}
+.page--politikk .policy-feature {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 140px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px 21px 21px;
+  color: #f2f8fb;
+  text-decoration: none;
+  border: 1px solid rgba(60, 183, 222, .32);
+  border-radius: 15px;
+  background: linear-gradient(140deg, rgba(9, 42, 65, .96), rgba(4, 13, 23, .96));
+  transition: border-color .17s ease, transform .17s ease, background .17s ease;
+}
+.page--politikk .policy-feature:hover,
+.page--politikk .policy-feature:focus-visible {
+  border-color: #66daf1;
+  background: linear-gradient(140deg, #0d3e63, #081a2a);
+  transform: translateY(-2px);
+}
+.page--politikk .policy-feature-number {
+  color: #65daeb;
+  font-size: .75rem;
+  font-weight: 760;
+  letter-spacing: .1em;
+}
+.page--politikk .policy-feature strong { font-size: 1.15rem; line-height: 1.25; }
+.page--politikk .policy-feature > span:nth-last-child(2) {
+  padding-right: 20px;
+  color: #c3d6e2;
+  line-height: 1.4;
+  font-size: .9rem;
+}
+.page--politikk .policy-feature-arrow {
+  position: absolute;
+  right: 19px;
+  bottom: 16px;
+  font-size: 1.14rem;
+  color: #ffe06c;
+}
+.page--politikk .policy-topic-nav {
+  margin: 0 0 58px;
+  padding: 0;
+  border: 1px solid rgba(67, 183, 220, .43);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0b2232, #06101a);
+  overflow: hidden;
+}
+.page--politikk .policy-topic-panel { margin: 0; border: 0; padding: 0; background: transparent; }
+.page--politikk .policy-topic-panel > summary {
+  display: list-item;
+  padding: 19px 24px;
+  color: #ffdf6f;
+  font-size: clamp(1.05rem, 2.6vw, 1.17rem);
+  font-weight: 760;
+  line-height: 1.45;
+  cursor: pointer;
+}
+.page--politikk .policy-topic-panel > summary:hover { background: rgba(48, 178, 227, .08); }
+.page--politikk .policy-topic-count {
+  margin-left: 12px;
+  color: #b0c8d5;
+  font-size: .8rem;
+  font-weight: 500;
+}
+.page--politikk .policy-topic-tools {
+  display: grid;
+  gap: 8px;
+  margin: 2px 22px 16px;
+}
+.page--politikk .policy-topic-tools label { font-size: .89rem; color: #d8edf7; font-weight: 650; }
+.page--politikk #policy-topic-search {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 13px;
+  font: inherit;
+  color: #f5faff;
+  background: #030e18;
+  border: 1px solid rgba(84, 195, 225, .49);
+  border-radius: 9px;
+}
+.page--politikk #policy-topic-search::placeholder { color: #9ab8c8; }
+.page--politikk #policy-topic-search:focus-visible { outline: 2px solid #6bdef0; outline-offset: 2px; }
+.page--politikk .policy-topic-results { color: #afc4d2; font-size: .82rem; margin: 0; }
+.page--politikk .policy-topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  max-height: min(54vh, 510px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 18px 22px 25px;
+  list-style: none;
+  border-top: 1px solid rgba(77, 177, 215, .24);
+}
+.page--politikk .policy-topic-list li { min-width: 0; margin: 0; }
+.page--politikk .policy-topic-list li[hidden] { display: none; }
+.page--politikk .policy-topic-list a {
+  display: flex;
+  min-height: 45px;
+  align-items: center;
+  padding: 11px 12px;
+  border: 1px solid rgba(122, 189, 216, .18);
+  border-radius: 8px;
+  color: #e6f3fa;
+  font-size: .92rem;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.page--politikk .policy-topic-list a:hover { color: #ffdf6b; border-color: rgba(255, 223, 107, .48); }
+.page--politikk #politikk-fulltekst { margin-top: 0; }
+.page--politikk #politikk-fulltekst > .wrap { min-width: 0; max-width: 100%; }
+.page--politikk #politikk-fulltekst > .wrap > header { margin-bottom: 42px; }
+.page--politikk #politikk-fulltekst > .wrap > header > h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 20px;
+}
+.page--politikk #politikk-fulltekst > .wrap > header > .callout {
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  background: rgba(20, 60, 82, .42);
+  border-left: 3px solid #ffdd5c;
+  border-radius: 0 12px 12px 0;
+  line-height: 1.65;
+}
+.page--politikk #politikk-fulltekst > .wrap > section:not(#lenker) {
+  margin: 46px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(81, 186, 218, .23);
+  scroll-margin-top: 105px;
+}
+.page--politikk #politikk-fulltekst > .wrap > section > h2 {
+  margin: 0 0 19px;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.45rem, 3.7vw, 2.1rem);
+  line-height: 1.22;
+  letter-spacing: -.026em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.page--politikk #politikk-fulltekst > .wrap > section :where(p,li) {
+  max-width: 73ch;
+  line-height: 1.77;
+}
+.page--politikk .policy-market-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 29px;
+  padding: 0;
+  list-style: none;
+}
+.page--politikk .policy-market-comparison li {
+  min-width: 0;
+  min-height: 140px;
+  margin: 0;
+  padding: 19px 20px;
+  border: 1px solid rgba(71, 196, 222, .37);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(9, 51, 73, .82), rgba(4, 20, 31, .92));
+}
+.page--politikk .policy-market-comparison li:last-child {
+  border-color: rgba(255, 206, 77, .43);
+  background: linear-gradient(145deg, rgba(61, 42, 15, .58), rgba(27, 24, 18, .86));
+}
+.page--politikk .policy-market-comparison li strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.14rem;
+  color: #ffe06a;
+}
+@media (max-width: 700px) {
+  .page--politikk .content { padding: 32px 20px 82px; }
+  .page--politikk .policy-intro h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .page--politikk .policy-featured,
+  .page--politikk .policy-topic-list,
+  .page--politikk .policy-market-comparison { grid-template-columns: minmax(0, 1fr); }
+  .page--politikk .policy-feature { min-height: 114px; padding: 16px 18px; }
+  .page--politikk .policy-topic-panel > summary { padding: 17px 18px; }
+  .page--politikk .policy-topic-tools { margin: 0 16px 14px; }
+  .page--politikk .policy-topic-list { padding: 14px 16px 20px; }
+  .page--politikk .policy-topic-count { display: inline-block; margin-left: 8px; }
+  .page--politikk #politikk-fulltekst > .wrap > section:not(#lenker) { margin-top: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page--politikk .policy-feature { transition: none; }
+  .page--politikk .policy-feature:hover { transform: none; }
+}
