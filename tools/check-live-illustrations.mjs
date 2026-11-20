@@ -51,6 +51,28 @@ for (const scene of scenes) {
   if (!script.includes('"id": "' + scene.id + '"'))
     errors.push("Illustrasjonen er ikke koblet i publisert JavaScript: " + scene.id);
 }
+// Kontroller også at alle eksakte dokumentavsnitt finnes i de publiserte
+// dokumentene, ikke bare i GitHub-koden.
+const sectionsByPage = Object.groupBy(
+  scenes.filter(scene => scene.section_id), scene => scene.page
+);
+await Promise.all(Object.entries(sectionsByPage).map(async ([page, expected]) => {
+  try {
+    const response = await request(origin + page, "GET");
+    if (!response.ok) {
+      errors.push(page + ": HTTP " + response.status);
+      return;
+    }
+    const html = await response.text();
+    for (const item of expected) {
+      if (!html.includes('id="' + item.section_id + '"'))
+        errors.push(page + ": publisert dokument mangler avsnitt " + item.section_id);
+    }
+  } catch (error) {
+    errors.push(page + ": " + String(error.message || error));
+  }
+}));
+
 const paths = scenes.flatMap(({id}) => [
   "assets/illustrasjoner/" + id + ".webp",
   "assets/illustrasjoner/" + id + "-960.webp"

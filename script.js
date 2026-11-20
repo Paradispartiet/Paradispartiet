@@ -552,6 +552,7 @@ function initIllustratedSite() {
       const img = makePicture(scene, "vision-card-art");
       const existing = card.querySelector(".project-visual, img");
       if (img && existing) existing.replaceWith(img);
+      else if (img) card.querySelector("a")?.prepend(img);
     });
   }
 

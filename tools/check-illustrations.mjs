@@ -92,6 +92,28 @@ const policyHtml=read("politikk.html");
 for(const id of Object.keys(assignments?.policyTopics||{})) {
   assert(policyHtml.includes('id="'+id+'"'),"Bilde er knyttet til ukjent politikkseksjon: "+id);
 }
+// Statisk HTML skal heller ikke be nettleseren laste samme innholdsbilde
+// fra flere sider – også når script.js senere bytter ut bildet.
+const staticArtwork = new Map();
+for (const page of new Set(plan.images.map(image => image.page))) {
+  const html = read(page);
+  for (const match of html.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)) {
+    const src = match[1];
+    let pathname;
+    try { pathname = new URL(src, "https://example.invalid/" + page).pathname; }
+    catch { errors.push(page + ": ugyldig bildesti " + src); continue; }
+    // Partiets identitetslogo kan brukes gjentatte ganger som navigasjonssymbol.
+    if (/\/(?:logo(?:-full)?\.svg|favicon\.svg|paradispartiet-p-(?:2026|favicon)\.webp)$/i.test(pathname)) continue;
+    const occurrences = staticArtwork.get(pathname) || [];
+    occurrences.push(page);
+    staticArtwork.set(pathname, occurrences);
+  }
+}
+for (const [src, pages] of staticArtwork) {
+  assert(pages.length === 1,
+    "Innholdsbilde resirkulert i HTML: " + src + " i " + pages.join(", "));
+}
+
 if(errors.length) {
   console.error("ILLUSTRASJONSKONTROLL FEILET:\n"+errors.map(x=>" - "+x).join("\n"));
   process.exitCode=1;
