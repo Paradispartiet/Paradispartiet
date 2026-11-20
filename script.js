@@ -161,7 +161,13 @@ function initIllustratedSite() {
   const script = [...document.scripts].find(node => /(?:^|\/)script\.js(?:\?|$)/.test(node.getAttribute("src") || ""));
   if (!script) return;
   const assets = new URL("assets/illustrasjoner/", script.src);
-  const illustration = name => new URL(name + (name === "bilfri-by" || name === "bilfri-by-960" ? ".webp" : ".svg"), assets).href;
+  const rasterScenes = new Set([
+    "visjon-by-land", "bilfri-by", "gronne-hjem", "smabruk-natur",
+    "kunnskap-helse", "kultur-fellesskap", "arbeid-teknologi"
+  ]);
+  const illustration = name => new URL(name + (
+    rasterScenes.has(name) || name.endsWith("-960") ? ".webp" : ".svg"
+  ), assets).href;
   const page = location.pathname.split("/").pop() || "index.html";
   const projectPage = /\/Prosjekter\//.test(location.pathname);
   const altText = "Fargerik illustrert framtidsvisjon med natur, mennesker, sol og måne.";
@@ -170,13 +176,17 @@ function initIllustratedSite() {
     const img = document.createElement("img");
     img.className = className;
     img.src = illustration(name);
-    if (name === "bilfri-by") {
-      img.srcset = illustration("bilfri-by-960") + " 960w, " + illustration("bilfri-by") + " 2048w";
-      img.sizes = "(max-width: 700px) 100vw, (max-width: 1200px) 80vw, 1600px";
+    if (rasterScenes.has(name)) {
+      img.srcset = illustration(name + "-960") + " 960w, " + illustration(name) + " 2048w";
+      img.sizes = className === "vision-home-image" || className === "vision-banner-image"
+        ? "100vw"
+        : className === "vision-card-art" || className === "vision-topic-art"
+          ? "(max-width: 700px) 100vw, (max-width: 1200px) 45vw, 650px"
+          : "(max-width: 700px) 100vw, 1100px";
     }
     img.alt = alt;
-    img.width = 1600;
-    img.height = 700;
+    img.width = rasterScenes.has(name) ? 2048 : 1600;
+    img.height = rasterScenes.has(name) ? 1152 : 700;
     img.loading = eager ? "eager" : "lazy";
     img.decoding = "async";
     if (eager) img.fetchPriority = "high";
@@ -238,12 +248,7 @@ function initIllustratedSite() {
       const subject = article.querySelector("h2,h3")?.textContent || "";
       const img = article.querySelector("img");
       if (img) {
-        img.src = illustration(chooseSubject(subject, "kultur-fellesskap"));
-        img.alt = "";
-        img.width = 1600;
-        img.height = 700;
-        img.loading = "lazy";
-        img.decoding = "async";
+        img.replaceWith(picture(chooseSubject(subject, "kultur-fellesskap"), "vision-card-art"));
       }
     });
   }
