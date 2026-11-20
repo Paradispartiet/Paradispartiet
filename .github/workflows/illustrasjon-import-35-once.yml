@@ -1,0 +1,119 @@
+name: Importer unike illustrasjoner (engangsjobb)
+
+on:
+  push:
+    branches: [design/illustrasjoner-en-gang-innholdsbasert]
+    paths: [".github/workflows/illustrasjon-import-35-once.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/illustrasjoner-en-gang-innholdsbasert
+          persist-credentials: true
+      - name: Last ned og optimaliser alle 35 illustrasjoner
+        env:
+          SRC_0: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/f8a532f6-f249-46b6-899f-a36390277385/f7e3986f-459e-4c7e-b116-a226196b3e0e/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYTM4OGU3Y2NjMzgyMjI5ZCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMjA0NH0.b7yqVZ-6gsZstw-0q2h3tYrrN-ffQLDGOAd41dYYAq0'
+          SRC_1: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/680597a5-80f7-4267-b801-2f5954fc1daf/7fe0a3fe-6233-4077-9be6-fb7a11ee98c8/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMTEyMmU5ZTg4NDhiYmE3MiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI2NzE3Nn0.Q1uxWpFM-ataPJkrkEcLlp_wiz1jJz88qJ_940KYZRA'
+          SRC_2: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/88b6e193-b761-4dd1-8ed1-7d5c69ad6476/318dc9d0-618e-4fb6-a6e4-13cae0cb1d6a/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOGZmYmQ4M2UyZGZkMThmMSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI5NDc4Mn0.LI35sBWWM3g8AD2w5f7cQ4-R2yvFKb9OgcqrIV1svp4'
+          SRC_3: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/b7f47c92-b9bd-426a-9048-48bd1ac285ea/949e28f5-a70a-4cba-adab-46350d06873d/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZDgzMmIwNTM3NzcxYjEzNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI2MTM5NX0.nW0AV-72evt29fhxwtC9Iwvv5uZs_BvoSa0CzH1dTwI'
+          SRC_4: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/b22c0d2d-5f13-422e-917c-daa970d6ebef/19becbd9-fee6-4f9e-8271-60e4c5386882/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiM2UyZjAwMzkxZTVmMTE4ZCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI5MzI0MX0.2t0l6dGBQSb1m4AUuKG-_EuHgfNdq3PPo7ud39JGFNk'
+          SRC_5: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/06163d34-cf21-42e5-aa81-ea4036f47ebb/3e00cf7f-5307-4511-b033-22d64cf1ab3c/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMWZiOWZjODY0MmZhMTM2OSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3NzcwMn0.Ha31TnVoM8NGxFYtRkgprI9rJ1iNlO_wmErdibfVQ5c'
+          SRC_6: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/672e5432-1d33-4259-8bfd-c20498409cc3/db924180-c08b-4ecb-8e99-02eed2e0651b/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZGI2YzQ1MjI0NmQwNDQ5MiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI4MDI5MH0.CxLFVw33418AHd1anqRBULXMcnBUAVs3c82Cv9BJSsI'
+          SRC_7: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/00a5c5ec-e920-4268-b412-36c0c91611ba/43fb3b10-67b2-49d6-8fbd-b111b6687fbe/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNmUyNTc0ZmUwNzZiZGI0ZSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMDk0Mn0.FyIfnI4vEIPnl1LhNSVCQlK7-Y2MkzA68uGRHTS8j4U'
+          SRC_8: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/f30df823-3e28-422e-af97-10488815209d/8a212e0a-865c-4540-96e1-9e4088b1738f/Create_ONE_rich_fine_detail_painterly_editorial_illustration.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOGJkNDVjZmFlYTI3YjViYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMzI1OH0.saQ9YWt4YoXhHmqCXgFydOElGcPSb0x5QgSG9mPN2Lg'
+          SRC_9: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/89cac9c7-3442-4def-8991-2cab8313915a/327aec31-38ed-454f-a26d-830bec4d3a5a/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjkwNWE2MmE4YzgwNzVhYSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3OTI3NH0.j2aPkQCuHqvtoD5hv0sMrKaIBXHf6X2lDP-5p_-rv7M'
+          SRC_10: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/6a5482ab-40c6-47e6-9b00-300541f87b4b/6e31d30b-a9b1-4678-8722-25c0cfc281fe/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjAyNWYxN2JlNTExMzIzNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxOTI5MX0.FMc83zRvq-cxn1XpoSMZuQbYF3ixrFGljlZTFOeRmvc'
+          SRC_11: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/4f447d20-a777-4de3-b3e0-e3e8f03b3d91/6ea1a697-dc2e-4bd1-9365-5caaae16bb98/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYTYwNzY5YjBjNjhkNzdmNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3MzI2NH0.5RAXhP8exemIF2HbZGCAkgqJu6JA6kKaRlX6qkAnbUo'
+          SRC_12: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/720f1f60-ce52-485a-bbc9-a59e1f423837/ca11dbd3-9e31-4343-a7bb-fb9d13f57a79/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMzgwNTE1OWZhOTk0OTI4YiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMwMzcxMX0.KAT0AH14rbLGF4ekTkYO9ZvHHnzWCSbhF1unpgcrhzA'
+          SRC_13: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/a11b5032-5741-441c-9679-dca645c54fa6/a7b8dcc5-7bff-4f41-8c49-e88c7ff86c89/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjQ1NDU5MjRhNzQyMWQ2OSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxMjU0OH0.kQihj5RT-FKVlILwVe0G9w8ZjuWS3dyPyoONzusF3uc'
+          SRC_14: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/dcc6f8e6-a8e6-47dd-b414-17f9ae2ab3da/cc81e738-0895-4db5-892a-308e3a4fb96b/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTk4YTNjYzM2ZGRiYzI5NCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMwMjg1MX0.Rcvg63kXwQCRCmpYXlaI6_dLPM7xJr37nmswWCd_ceg'
+          SRC_15: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/c72b481f-de36-4305-9cca-20a31e34c243/a231cefc-c2eb-4a17-a1b9-00bec0f90235/A_single_original_richly_detailed_luminous_painterly_editori.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2MwZmI1ODU2N2E0ODFhZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMzg5M30.kr9QTJrxxrw8Vn9PFxmphYG0IDcFr7X9DeyDD1js8XU'
+          SRC_16: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/616f10f2-6390-4110-b5ef-c1c72170daa8/3f735197-20b2-4916-b2ea-750b382f6518/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMTdkYWM2N2E5NTVmMzRkMyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxNDQyNn0.drc0j9Dmxvu7x3qrQxrk-8KlCfj-hkqjxCQ4BWzMlvs'
+          SRC_17: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/d2edb7a0-59d5-4fd3-b103-569f2d6e4ddd/2973eee3-ba40-452c-8a60-2bcc2ccc4508/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYWE0MTg4NjU5YzRlNDRjMiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI1NjY3N30.D9QENcSDdyesHf8oON4SXghpey0ojw7ufCkMNwqazeA'
+          SRC_18: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/147761c1-64c7-4b9d-9817-e41a7244b8b4/7ed47f9f-872a-4e74-a712-40e476505aac/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZDU4NzVmODk1ODRkY2Y3MSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMTIyNX0.cZ74S5bR_nbm5fFw9Z7-Wffy73OHkUDtyoT73WpF3C8'
+          SRC_19: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/712821c5-040e-45bd-bc63-778c7c2b4aef/870f6a30-f178-453e-ae0f-73fffd9d93ab/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiODI4NmVkM2U0MjA4NDYzOSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI5MTgzOH0.FYSjfKjLl8LU3PrGayAlH5Nol57GzWN3yzixhnZnC5Q'
+          SRC_20: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/f1b4bfb0-37c0-4657-b70f-4852ac2aeb23/7ad090a7-7274-411d-b45d-5ee7f427f792/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNDcxMmEyYTYxOWI1ZjU3NSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMwMjgyMn0.IjEGBBjxNwagINvX2nA6rddgm01eDd3eUG5K-gKSmwE'
+          SRC_21: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/d25bd92a-69fa-4fb3-b422-a5abef90c5b7/a1591b5b-d25d-47e5-a35e-9028f46dfb75/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMjJlYWU1NDRmMzRlY2FiOSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMzA2MH0.mrQmBxemnGGF_Gnuc3a6juStdlArcKmMUSAlLvE7rC4'
+          SRC_22: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/f16a3270-9217-49bf-a100-f6b83f8105be/d570197d-c3e5-45bd-ac41-7ce61cee5e9f/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYTAyZjA2MzQ3ZTA1ZDFmNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI2OTk0MH0.K4dZfLl9aSl0aJXSk5HYQpO5vEn0QADAMI-4gKqqacU'
+          SRC_23: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/6b5597b7-7b40-4cde-afff-7b753e404fcc/3fdbe5a9-5de4-4788-806e-fc1d1932d180/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNmRmODFmNWI4YjYyMTY1ZSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI5NzQ5OX0.Hl75UGfA3tKbH_x_BJ7N249sba-oXqbh7ZqDtQqMneg'
+          SRC_24: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/d40d7ead-eb3e-4263-a919-8502a17b1e85/51b525c1-66e4-4a8a-b5f2-a6767a18382d/Create_ONE_single_standalone_16_9_editorial_thumbnail_illust.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNmVmNDNhNjY4ZGY4ZThhNCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxNzA5NH0.HbJWmztJR_0BUSEnj-1KZRndOcRzyv6PxmPz4TWuH6c'
+          SRC_25: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/e2714f1d-f770-49f0-830b-5b82b7d33ce8/06a395c5-1109-4772-8b87-008fe6522b40/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYjYxZjIwY2Y1Njc3YTc1NyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI2MjkyN30.2wT9MC0tHYYh9BPPvV1IKdRztfeBVzh0tfUpMLq_VD4'
+          SRC_26: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/ec33e12f-6dc1-4fbf-8a77-73d92ae6b531/6606dcb7-2fb8-4582-8b0f-33c79f6b358c/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjE3ZjQ4YzlkYTM3MjNlNCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxNDc2MX0.Syv0wgsB1Ye76WAVOlj5tlkZNjndwuyWOOhlBN2mZLE'
+          SRC_27: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/7514e399-d097-41d1-9426-1e6e9f074bc7/a59af395-eae0-4553-a077-fe187924e620/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNWYyNGVkMzhkZGExNjRiOSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMTE0NH0.r7QSaIu-lwi9uwsP6Mc5Sm3bm6Rha3VGgEzuuY-ycvA'
+          SRC_28: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/34cd6baa-b51b-4737-b622-5c01cefeb70e/fa29001d-f027-42dc-8c47-5accd35463c3/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYzQxNGRjZDkyYjdiNWQyNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyNzE5M30.eG4Ml-sZERU5nNZ1WkkxBejLHtI4TBA6wKVpLMkChkM'
+          SRC_29: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/b11281b5-3a84-42bf-9f5f-298f8b49157f/904c5c36-987e-4334-a43e-57a4cf8d4e28/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTA2ZmUxZTc3YzQ5MzAzMyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzNTkxMX0.L7quP-g1Hc6zAhlArkHE4ZfuQA6ZjO3UdXDceRO2oBY'
+          SRC_30: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/42ab38d1-5631-4d60-b181-5236acc99eb8/98bd6e92-d02e-4810-9085-265fec1e4cfc/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNzkwOWJlMmJkZGVlNTE4ZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyODA0M30.ss1PFCmFy1x7tf_RWZbZZZ-BlXpwktS0vz-1Lo9rMf0'
+          SRC_31: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/41086ba2-3103-46c5-a36e-7356c6597b57/1a7fae5a-9733-4fbb-a68d-d6ec24a69f91/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYjFlOGVjNzBkZjFlN2ZiYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3NjkxMn0.cwAkXEv0SpzVxpgx6wCRQDcNGbIZ3yMIR3HSUhXxY7E'
+          SRC_32: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/58f51ce0-74b4-4f55-98ee-731cdf609e20/6d498bab-2bd2-46b1-a4a4-0ecb24e9dbbb/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNzJmMjAxMTIwYTEwZDg2MCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMDIxMH0.LvgzHCRfspZFapMICPtAYhrbBkaFj-ereh-Ipr8Pvy0'
+          SRC_33: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/3093aa9b-014b-4c06-b767-fbc95f4d9fde/a8c8ef3c-cd8a-4419-9acf-700c58c25b5f/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNzlkYzk2ZTcwMDM3NWZlMiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMjA4N30.tZIFGMn8j5RnHcqloZ8FhwIJ2tOj69jbgnY4mu_nyZs'
+          SRC_34: 'https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/b3df1b2e-7cec-4e25-8017-8250f0545a94/af5e247f-0cd0-4133-b022-89b23a29ed62/Create_ONE_brand_new_distinctive_wide_16_9_painterly_explana.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZDMyYmQzZGRmZTUwMDhlOCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzODQ2MX0.ns1Tmk-ktrFJaDRB0DZhi9s02HNV_vKAIQ5JCWgtUf4'
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet --disable-pip-version-check Pillow
+          python3 - <<'PY'
+          import io, os, time, urllib.request
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          names = ["side-forside-trygghet","side-politikk-grunnbehov","side-prosjekter-fra-ide-til-praksis","side-manifest-ufravikelige-rettigheter","side-grunnlag-historie-filosofi-okologi","side-okonomisk-modell-dobbelstruktur","side-kontakt-bli-med","side-om-apen-deltakelse","side-404-vei-videre","prosjekt-aha-samtaler-innsikt","prosjekt-caravan-gronne-korridorer","prosjekt-glasshus-vinterpaviljong","prosjekt-bilfri-by-tilgjengelighet","prosjekt-oldboys-trening-uten-press","prosjekt-paradisavisa-uavhengig-redaksjon","prosjekt-lesebiblioteket-apent-leserom","kort-paradisavisa-kritisk-samtale","kort-aha-kunnskapsnettverk","kort-lesebiblioteket-samtalesirkel","kort-oldboys-lavterskel-aktivitet","kort-glasshus-vinterlys","kort-bilfri-by-gronn-gate","kort-caravan-trygg-sykkelvei","kort-basicmarked-grunnforsyning","kort-teorien-om-lyset-bevissthet","politikk-okonomi-dobbel-markedsstruktur","politikk-offentlig-grunnsortiment-varighet","politikk-bolig-hjem-ikke-spekulasjon","politikk-mat-lokal-matsikkerhet","politikk-helse-fysisk-psykisk-sosial","politikk-utdanning-praksis-og-teori","politikk-arbeidsliv-tid-etter-evne","politikk-miljo-natur-forst","politikk-transport-kollektiv-og-korridorer","politikk-kultur-alle-kan-skape"]
+          destination = Path("assets/illustrasjoner")
+          destination.mkdir(parents=True, exist_ok=True)
+          for index, name in enumerate(names):
+              url = os.environ["SRC_" + str(index)]
+              assert url.startswith("https://dnznrvs05pmza.cloudfront.net/"), (name, "unexpected host")
+              last_error = None
+              for attempt in range(3):
+                  try:
+                      request = urllib.request.Request(url, headers={"User-Agent":"Paradispartiet-Illustrasjonsimport/1.0"})
+                      with urllib.request.urlopen(request, timeout=70) as response:
+                          data = response.read(14_000_000)
+                      assert 30_000 < len(data) < 14_000_000, (name, len(data))
+                      original = Image.open(io.BytesIO(data))
+                      original.load()
+                      original = ImageOps.exif_transpose(original).convert("RGB")
+                      assert original.width >= 900 and original.height >= 500, (name, original.size)
+                      big = destination / (name + ".webp")
+                      small = destination / (name + "-960.webp")
+                      original.save(big,"WEBP",quality=90,method=6)
+                      reduced = original.resize((960,round(960*original.height/original.width)),Image.Resampling.LANCZOS)
+                      reduced.save(small,"WEBP",quality=84,method=6)
+                      for output in (big,small):
+                          raw = output.read_bytes()
+                          assert raw[:4] == b"RIFF" and raw[8:12] == b"WEBP", output
+                      print(str(index+1)+"/35",name,"original",original.size,"webp",big.stat().st_size,small.stat().st_size,flush=True)
+                      break
+                  except Exception as error:
+                      last_error = error
+                      if attempt == 2: raise
+                      time.sleep(2*(attempt+1))
+          PY
+      - name: Sjekk at ingen motiv mangler
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          entries=json.loads(Path("docs/ILLUSTRASJONSPLAN.json").read_text())["images"]
+          assert len(entries)==35
+          for item in entries:
+              for suffix in (".webp","-960.webp"):
+                  file=Path("assets/illustrasjoner")/(item["id"]+suffix)
+                  assert file.is_file() and file.stat().st_size>15000,file
+          print("OK: 70 unike WEBP-filer kontrollert")
+          PY
+      - name: Commit til arbeidsgrenen
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/illustrasjoner/*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: 35 tekstforankrede motiv med 70 WEBP-filer"
+            git push origin HEAD:refs/heads/design/illustrasjoner-en-gang-innholdsbasert
+          fi
