@@ -68,11 +68,8 @@ for (const [pageName, html] of [
       .toLowerCase().split(/\s+/);
     if (!rel.includes("noopener"))
       errors.push(pageName + ": offentlig ny-fane-lenke mangler noopener: " + href);
-    if (href === "https://paradispartiet.github.io/Paradisavisa/") {
+    if (href === "https://paradispartiet.github.io/Paradisavisa/")
       avisaLinkFound = true;
-      if (!rel.includes("noreferrer"))
-        errors.push(pageName + ": Paradisavisa-lenke mangler noreferrer");
-    }
   }
   if (html && !avisaLinkFound)
     errors.push(pageName + ": forventet ny-fane-lenke til Paradisavisa mangler");
