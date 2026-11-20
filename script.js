@@ -15,13 +15,39 @@ function initDocumentIndex() {
   if (!main) return;
   const chapters = [...main.querySelectorAll("article.chapter[id]")];
   if (chapters.length < 5) return;
+
+  // Antallet skal alltid gjenspeile faktiske kapitler på siden.
+  const intro = main.querySelector(".lead");
+  if (intro) {
+    const meta = document.createElement("p");
+    meta.className = "reader-meta";
+    meta.textContent = chapters.length + " kapitler i nettutgaven";
+    intro.after(meta);
+  }
+
   const details = document.createElement("details");
   details.className = "chapter-index";
   const summary = document.createElement("summary");
-  summary.textContent = "Finn et kapittel (" + chapters.length + " kapitler)";
+  summary.textContent = "Finn et kapittel (" + chapters.length + ")";
+  const tools = document.createElement("div");
+  tools.className = "chapter-index-tools";
+  const label = document.createElement("label");
+  label.htmlFor = "chapter-search";
+  label.textContent = "Søk i kapitteltitlene";
+  const search = document.createElement("input");
+  search.id = "chapter-search";
+  search.type = "search";
+  search.autocomplete = "off";
+  search.placeholder = "Søk etter tema eller kapittel";
+  const results = document.createElement("p");
+  results.className = "chapter-index-results";
+  results.setAttribute("role", "status");
+  results.setAttribute("aria-live", "polite");
   const nav = document.createElement("nav");
   nav.setAttribute("aria-label", "Kapitler i grunnlagsdokumentet");
   const list = document.createElement("ol");
+  const entries = [];
+
   for (const chapter of chapters) {
     const heading = chapter.querySelector("h2");
     if (!heading) continue;
@@ -29,12 +55,53 @@ function initDocumentIndex() {
     const link = document.createElement("a");
     link.href = "#" + chapter.id;
     link.textContent = heading.textContent.trim();
+    link.addEventListener("click", () => { details.open = false; });
     item.append(link);
     list.append(item);
+    entries.push({item, title: link.textContent.toLocaleLowerCase("nb-NO")});
   }
+  const filterChapters = () => {
+    const term = search.value.trim().toLocaleLowerCase("nb-NO");
+    let found = 0;
+    for (const entry of entries) {
+      const matches = entry.title.includes(term);
+      entry.item.hidden = !matches;
+      if (matches) found++;
+    }
+    results.textContent = term
+      ? found + " av " + entries.length + " kapitler"
+      : entries.length + " kapitler";
+  };
+  search.addEventListener("input", filterChapters);
+  filterChapters();
+  tools.append(label, search, results);
   nav.append(list);
-  details.append(summary, nav);
+  details.append(summary, tools, nav);
   chapters[0].before(details);
+
+  // Smal lesefremdrift uten popup, bildedekor eller ekstra animasjon.
+  const progress = document.createElement("div");
+  progress.className = "reading-progress";
+  progress.setAttribute("aria-hidden", "true");
+  const bar = document.createElement("div");
+  bar.className = "reading-progress-fill";
+  progress.append(bar);
+  document.body.append(progress);
+  let scheduled = false;
+  const update = () => {
+    scheduled = false;
+    const available = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const fraction = Math.max(0, Math.min(1, window.scrollY / available));
+    bar.style.transform = "scaleX(" + fraction + ")";
+  };
+  const schedule = () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(update);
+  };
+  window.addEventListener("scroll", schedule, {passive: true});
+  window.addEventListener("resize", schedule);
+  update();
 }
 
 function initNavigation() {
