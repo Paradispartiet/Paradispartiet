@@ -38,7 +38,25 @@ try {
           name:decodeURIComponent(new URL(img.src).pathname.split("/").pop().replace(".webp","")),
           src:img.src,alt:img.alt,loading:img.loading
         }));
-        if(!expected.some(x=>x.id===info.name)) errors.push(device+" "+filename+": ikke-planlagt bilde "+info.name);
+        const expectedScene = expected.find(x=>x.id===info.name);
+        if(!expectedScene) errors.push(device+" "+filename+": ikke-planlagt bilde "+info.name);
+        else {
+          if(info.alt!==expectedScene.alt)
+            errors.push(device+" "+filename+": feil alt-tekst for "+info.name);
+          if(expectedScene.slot.startsWith("inline:")) {
+            const placement=await node.evaluate(img=>{
+              const figure=img.closest("figure.vision-document-figure");
+              return {
+                caption:figure?.querySelector("figcaption")?.textContent?.trim()||"",
+                section:figure?.closest("section[id], article[id]")?.id||""
+              };
+            });
+            if(placement.caption!==expectedScene.caption)
+              errors.push(device+" "+filename+": bildeforklaringen avviker fra plan "+info.name);
+            if(placement.section!==expectedScene.section_id)
+              errors.push(device+" "+filename+": feil avsnittsplassering "+info.name+": "+placement.section);
+          }
+        }
         if(seenOnPage.has(info.name)) errors.push(device+" "+filename+": bildegjenbruk på samme side: "+info.name);
         seenOnPage.add(info.name);
         if(globallyUsed.has(info.name)) errors.push(device+": bildet "+info.name+" brukes både på "+globallyUsed.get(info.name)+" og "+filename);
@@ -48,6 +66,16 @@ try {
           await node.scrollIntoViewIfNeeded({timeout:8000});
           const dims=await node.evaluate(async img=>{await img.decode();return {width:img.naturalWidth,height:img.naturalHeight}});
           if(!dims.width||!dims.height) errors.push(device+" "+filename+": bilde uten pikseldata "+info.name);
+          if ((device==="mobile" || device==="desktop") && [
+            "forklaring-manifest-frivillig-bosetting","forklaring-manifest-pilot-lokal-laring",
+            "forklaring-grunnlag-digitalt-datauttak","forklaring-grunnlag-okologisk-ramme",
+            "forklaring-okonomi-avvik-tiltak-revisjon"
+          ].includes(info.name)) {
+            await page.screenshot({
+              path:"illustration-screenshots/"+device+"-"+info.name+".png",
+              fullPage:false
+            });
+          }
         }catch(e){errors.push(device+" "+filename+": bilde ikke synlig eller lastet "+info.name+" "+e.message.slice(0,90))}
       }
       const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
