@@ -1,0 +1,38 @@
+name: Visuell engangskontroll av illustrerte sider
+
+on:
+  push:
+    branches: [design/illustrerte-sider-v1]
+    paths: [".github/workflows/illustration-visual-once.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/illustrerte-sider-v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Installer bare nødvendig testnettleser
+        run: |
+          npm install --no-save --no-package-lock playwright
+          npx playwright install chromium
+      - name: Start lokal testserver
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/illustration-http.log 2>&1 &
+          sleep 2
+      - name: Kontroller mobil, iPad og desktop
+        run: node tools/check-illustration-browser.mjs
+      - name: Behold referanseskjermbilder
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: illustrasjon-mobil-ipad-desktop
+          path: illustration-screenshots/
+          if-no-files-found: ignore
