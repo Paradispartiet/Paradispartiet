@@ -1,0 +1,32 @@
+[
+  {
+    "id": "forklaring-manifest-frivillig-bosetting",
+    "taskId": "4d1f79c2-2350-4a1e-8c34-417e47703f4c",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-manifest-pilot-lokal-laring",
+    "taskId": "d7bf4fa2-2a5f-4a10-9d6a-2a2a6c9d3b5d",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-grunnlag-digitalt-datauttak",
+    "taskId": "f9223eeb-49dc-441d-ba16-f17308cf4ec7",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-grunnlag-okologisk-ramme",
+    "taskId": "ce6d4296-3e57-4114-8fc8-6e391dfc2f76",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-okonomi-avvik-tiltak-revisjon",
+    "taskId": "af0a34ed-b553-4084-95c6-4f70a3767cda",
+    "kind": "task_pending",
+    "error": null
+  }
+]
