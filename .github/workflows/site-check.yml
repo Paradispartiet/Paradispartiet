@@ -19,7 +19,7 @@ jobs:
         run: node tools/check-illustrations.mjs
 
   illustration-browser:
-    if: github.event_name == 'pull_request' && github.head_ref == 'design/illustrerte-sider-v1'
+    if: github.event_name == 'pull_request' && github.head_ref == 'design/illustrasjoner-en-gang-innholdsbasert'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
