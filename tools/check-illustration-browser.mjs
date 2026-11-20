@@ -44,6 +44,19 @@ try {
         else {
           if(info.alt!==expectedScene.alt)
             errors.push(device+" "+filename+": feil alt-tekst for "+info.name);
+          if(expectedScene.slot.startsWith("topic:")) {
+            const display = await node.evaluate(img => {
+              const figure = img.closest("figure.vision-topic-figure");
+              return {
+                caption: figure?.querySelector("figcaption")?.textContent?.trim() || "",
+                section: figure?.closest("section[id]")?.id || ""
+              };
+            });
+            if(display.caption !== expectedScene.caption)
+              errors.push(device+" "+filename+": manglende/feil politikkbildetekst "+info.name);
+            if(display.section !== expectedScene.slot.replace("topic:",""))
+              errors.push(device+" "+filename+": politikkbilde står ved feil avsnitt "+info.name);
+          }
           if(expectedScene.slot.startsWith("inline:")) {
             const placement=await node.evaluate(img=>{
               const figure=img.closest("figure.vision-document-figure");
