@@ -1,0 +1,20 @@
+[
+  {
+    "id": "forklaring-manifest-apen-skole-kveld",
+    "taskId": "baab8a94-8fc4-4418-a80c-2a61bea1bf79",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
+    "taskId": "0c84a01a-d14f-48a4-aea8-f67d2e282c1f",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-okonomi-produktkort-kvalitet",
+    "taskId": "895fdd08-27b9-4a1f-b0a0-77499ecf3081",
+    "kind": "task_pending",
+    "error": null
+  }
+]
