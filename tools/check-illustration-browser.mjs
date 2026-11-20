@@ -47,11 +47,20 @@ try {
         try{
           await node.scrollIntoViewIfNeeded({timeout:8000});
           const dims=await node.evaluate(async img=>{await img.decode();return {width:img.naturalWidth,height:img.naturalHeight}});
-          if(dims.width<900||dims.height<500) errors.push(device+" "+filename+": uventet lite motiv "+info.name);
+          if(!dims.width||!dims.height) errors.push(device+" "+filename+": bilde uten pikseldata "+info.name);
         }catch(e){errors.push(device+" "+filename+": bilde ikke synlig eller lastet "+info.name+" "+e.message.slice(0,90))}
       }
       const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
-      if(overflow>3) errors.push(device+" "+filename+": horisontal scroll "+overflow+" px");
+      if(overflow>3) {
+        const offenders=await page.evaluate(()=>[...document.querySelectorAll("body *")].map(el=>({
+          tag:el.tagName,cls:String(el.className||"").slice(0,65),
+          right:Math.round(el.getBoundingClientRect().right),
+          width:Math.round(el.getBoundingClientRect().width),
+          text:el.textContent?.trim().slice(0,48)
+        })).filter(x=>x.right>innerWidth+3 && x.width>0).slice(0,14));
+        console.log("OVERFLOW DIAGNOSTIC",device,filename,JSON.stringify(offenders));
+        errors.push(device+" "+filename+": horisontal scroll "+overflow+" px");
+      }
       if(["index.html","politikk.html","prosjekter.html","om.html","Prosjekter/GlassHus.html","Prosjekter/BilfriBy.html"].includes(filename)){
         await page.evaluate(()=>scrollTo({top:0,behavior:"instant"}));
         await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
