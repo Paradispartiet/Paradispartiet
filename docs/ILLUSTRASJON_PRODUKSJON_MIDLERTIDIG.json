@@ -2,31 +2,36 @@
   {
     "id": "forklaring-manifest-frivillig-bosetting",
     "taskId": "4d1f79c2-2350-4a1e-8c34-417e47703f4c",
-    "kind": "task_pending",
-    "error": null
+    "kind": "image",
+    "error": null,
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/4d1f79c2-2350-4a1e-8c34-417e47703f4c/21a1c5e4-520a-4ed7-a190-f02dfe8ba196/A_SINGLE_completely_original__highly_detailed_widescreen_16_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMWU4NDI5Yzk3ODg2NWNjYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3NzEyOX0.7DQZj1WjsxhKEunZYkTPGOZqfZuvOZ_OTeye89DbbJI"
   },
   {
     "id": "forklaring-manifest-pilot-lokal-laring",
     "taskId": "d7bf4fa2-2a5f-4a10-9d6a-2a2a6c9d3b5d",
-    "kind": "task_pending",
-    "error": null
+    "kind": "image",
+    "error": null,
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/d7bf4fa2-2a5f-4a10-9d6a-2a2a6c9d3b5d/cc7a9bb1-0ce7-43af-9017-75d28885b21d/A_SINGLE_completely_original__highly_detailed_widescreen_16_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYjljZDI5MmY1M2Q0MWIzYiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMxMDM4M30.aSMCIIzg2xIv4b7JbMpWRVj17lUf2fbS-myRWJ24lYo"
   },
   {
     "id": "forklaring-grunnlag-digitalt-datauttak",
     "taskId": "f9223eeb-49dc-441d-ba16-f17308cf4ec7",
-    "kind": "task_pending",
-    "error": null
+    "kind": "image",
+    "error": null,
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/f9223eeb-49dc-441d-ba16-f17308cf4ec7/08870941-1063-4215-9461-ef359205797f/A_SINGLE_completely_original__highly_detailed_widescreen_16_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNjNjODI1OWRiYWI0Y2M5YSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI4MDQxM30.AuQQn05edFhBSneXWf3IGJncabR_o3135bqnKARvhT4"
   },
   {
     "id": "forklaring-grunnlag-okologisk-ramme",
     "taskId": "ce6d4296-3e57-4114-8fc8-6e391dfc2f76",
-    "kind": "task_pending",
-    "error": null
+    "kind": "image",
+    "error": null,
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/ce6d4296-3e57-4114-8fc8-6e391dfc2f76/77eda992-a7de-4631-b7bb-32894378d9bd/A_SINGLE_completely_original__highly_detailed_widescreen_16_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNWJkMmFjNzc4MzZiYWUzNyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyNjk2N30.ayNNsMMLQCTqCjcO8oYcEXPupjRarJ0R_ApmABMB7TQ"
   },
   {
     "id": "forklaring-okonomi-avvik-tiltak-revisjon",
     "taskId": "af0a34ed-b553-4084-95c6-4f70a3767cda",
-    "kind": "task_pending",
-    "error": null
+    "kind": "image",
+    "error": null,
+    "url": "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/af0a34ed-b553-4084-95c6-4f70a3767cda/1330c5bf-ac4a-4813-85bb-687adaa3c6aa/A_SINGLE_completely_original__highly_detailed_widescreen_16_.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMTQ3YWQ4MWU5YjYxODk4OSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI4NzgzOH0.LxTgHztHy_SyUwfy1tKkaIkjEW_-wTxMrk_-SChIF5o"
   }
 ]
