@@ -34,11 +34,21 @@
 </header>
 
   <main id="main-content" class="container content">
-    <h1>Paradispartiets Manifest</h1>
+    <header class="manifest-intro">
+      <p class="manifest-eyebrow">Paradispartiet · Manifest</p>
+      <h1>Paradispartiets Manifest</h1>
+      <p class="manifest-intro-line">Trygghet som en rettighet. Frihet som et valg.</p>
+    </header>
 
     <nav id="manifest-innhold" class="manifest-toc" aria-label="Innholdsfortegnelse">
-      <h2>Innhold</h2>
-      <ol>
+      <details class="manifest-toc-panel">
+        <summary>Utforsk manifestets 11 deler og rettigheter</summary>
+        <div class="manifest-toc-tools">
+          <label for="manifest-toc-search">Finn en del</label>
+          <input type="search" id="manifest-toc-search" placeholder="Søk etter tema" autocomplete="off" aria-controls="manifest-toc-list">
+          <p id="manifest-toc-status" class="manifest-toc-status" role="status" aria-live="polite"></p>
+        </div>
+      <ol id="manifest-toc-list">
         <li><a href="#del1">Innledning og diagnose</a></li>
         <li><a href="#del2">Historiske linjer</a></li>
         <li><a href="#del3">Grunnprinsipper</a></li>
@@ -52,6 +62,7 @@
         <li><a href="#del10">Menneske og lys</a></li>
         <li><a href="#del11">Avslutning</a></li>
       </ol>
+      </details>
     </nav>
 
     <!-- Del I -->
