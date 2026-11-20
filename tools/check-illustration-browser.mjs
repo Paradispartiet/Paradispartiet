@@ -7,7 +7,7 @@
 import fs from "node:fs";
 import { chromium } from "playwright";
 
-const base = "http://127.0.0.1:8765/";
+const base = "http://127.0.0.1:8765/Paradispartiet/";
 const cases = [
   ["index.html", ".vision-home-image"],
   ["politikk.html", ".vision-page-image"],
