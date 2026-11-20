@@ -354,6 +354,63 @@ function initIllustratedSite() {
       "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
       "size": "2K"
     }
+  },
+  "documentFigures": {
+    "manifest.html": [
+      {
+        "id": "forklaring-manifest-mekling-reparasjon",
+        "alt": "Et nabolag reparerer en skadet felles paviljong mens naboer og en mekler avtaler erstatning og gjenoppretting.",
+        "size": "2K",
+        "section_id": "kap24",
+        "caption": "Ved mindre skader er utgangspunktet mekling, reparasjon, erstatning og offentlig forsikring – ikke unødvendig straff."
+      },
+      {
+        "id": "forklaring-manifest-algoritmerevisjon",
+        "alt": "En uavhengig gruppe undersøker hvordan en offentlig digital tjeneste fungerer, mens en innbyggers private informasjon er skjermet.",
+        "size": "2K",
+        "section_id": "kap40",
+        "caption": "Offentlige algoritmer skal kunne revideres, mens innbyggernes private opplysninger holdes skjermet."
+      }
+    ],
+    "grunnlag.html": [
+      {
+        "id": "forklaring-grunnlag-innhegning-allmenning",
+        "alt": "En historisk engelsk allmenning blir delt av nye gjerder mens jordbruksfamilier mister tilgangen til et felles beite.",
+        "size": "2K",
+        "section_id": "k6",
+        "caption": "Innhegning av engelske allmenninger gjorde tidligere felles jord til privat eiendom og endret menneskers livsgrunnlag."
+      },
+      {
+        "id": "forklaring-grunnlag-ostrom-vann",
+        "alt": "Bønder i en fjellandsby fordeler vann gjennom et felles vanningssystem og vedlikeholder kanalene sammen.",
+        "size": "2K",
+        "section_id": "k16",
+        "caption": "Brukerne av en allmenning kan selv lage regler, vedlikeholde ressursen og løse konflikter sammen."
+      }
+    ],
+    "okonomisk-modell.html": [
+      {
+        "id": "forklaring-okonomi-arbeidstid-bidrag",
+        "alt": "Frivillige og ansatte i et lokalsamfunn utfører ulike grunnoppgaver fra matutdeling til omsorg og vedlikehold.",
+        "size": "2K",
+        "section_id": "arbeidstid-kjerne",
+        "caption": "Samfunnsinnsatsen fordeles mellom bolig, mat, helse, utdanning og nødvendig drift – og tilpasses livssituasjonen."
+      },
+      {
+        "id": "forklaring-okonomi-apent-ressursregnskap",
+        "alt": "Ansatte ved et felles lager registrerer matleveranser, kontrollerer gjenbrukbare beholdere og følger opp ressursflyten.",
+        "size": "2K",
+        "section_id": "apent-regnskap",
+        "caption": "Lager, leveranser, ressursbruk og ombruk registreres slik at fellesskapet kan kontrollere forsyningen."
+      },
+      {
+        "id": "forklaring-okonomi-rehabilitering-bolig",
+        "alt": "Håndverkere oppgraderer en eldre boligblokk, omgjør eksisterende rom og gjenbruker byggematerialer i stedet for å rive.",
+        "size": "2K",
+        "section_id": "boligordning",
+        "caption": "Boligplanen prioriterer rehabilitering og ombygging av eksisterende hus før målrettet nybygg."
+      }
+    ]
   }
 };
   const usedOnPage = new Set();
@@ -445,6 +502,24 @@ function initIllustratedSite() {
       const img = makePicture(scene, "vision-topic-art");
       if (img) heading.after(img);
     });
+  }
+
+
+  // Forklaringsbilder plasseres bare ved sitt dokumenterte avsnitt.
+  // Verken kapitlenes posisjon eller generelle ord kan velge bildemotiv.
+  for (const item of SCENE_ASSIGNMENTS.documentFigures[page] || []) {
+    const section = document.getElementById(item.section_id);
+    const heading = section?.querySelector("h2, h3");
+    if (!heading || section.querySelector(".vision-document-figure")) continue;
+    const img = makePicture(item, "vision-document-image");
+    if (!img) continue;
+    const figure = document.createElement("figure");
+    figure.className = "vision-document-figure";
+    figure.append(img);
+    const caption = document.createElement("figcaption");
+    caption.textContent = item.caption;
+    figure.append(caption);
+    heading.after(figure);
   }
 
   // Dokumentene skal ikke ha tilfeldige motivpauser basert på kapitlenes posisjon.
