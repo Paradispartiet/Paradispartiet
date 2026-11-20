@@ -46,7 +46,14 @@
 
   <!-- INNHOLD -->
   <nav class="document-toc" aria-label="Innhold i økonomisk modell">
-    <ol>
+    <details class="economic-toc-panel">
+      <summary>Finn en seksjon</summary>
+      <div class="economic-toc-tools">
+        <label for="economic-toc-search">Søk i seksjonsoversikten</label>
+        <input id="economic-toc-search" type="search" autocomplete="off" placeholder="Søk etter tema eller seksjon" aria-describedby="economic-toc-results">
+        <p id="economic-toc-results" class="economic-toc-results" role="status" aria-live="polite">Oversikt over seksjonene</p>
+      </div>
+      <ol>
       <li><a href="#kap1">Kjerneprinsipper</a></li>
       <li><a href="#kap2">Forutsetninger og parametre</a></li>
       <li><a href="#ressursregnskap">Åpent ressursregnskap (formler + per person)</a></li>
@@ -62,6 +69,7 @@
       <li><a href="#faqs">13. Spørsmål og svar</a></li>
       <li><a href="#samlet-budsjett">Samlet budsjett- og klimaramme (scenarioer)</a></li>
     </ol>
+    </details>
   </nav>
 
   <!-- 1. Kjerneprinsipper -->

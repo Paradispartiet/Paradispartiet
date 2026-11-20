@@ -33,6 +33,23 @@ for (const name of ["manifest.html", "grunnlag.html", "politikk.html", "okonomis
     errors.push(name + ": Til toppen-knapp mangler tydelig tilgjengelig navn");
 }
 
+// Økonomisk modell skal beholde original innholdsoversikt og gjøre den søkbar.
+const economyHtml = content.get("okonomisk-modell.html") || "";
+const economyToc = economyHtml.match(/<nav class="document-toc"[\s\S]*?<\/nav>/)?.[0] || "";
+const economyLinks = [...economyToc.matchAll(/<li><a href="#([^"]+)">/g)];
+if (!economyToc.includes('class="economic-toc-panel"') ||
+    !economyToc.includes('id="economic-toc-search"') ||
+    !economyToc.includes('id="economic-toc-results"') ||
+    !economyToc.includes("</details>"))
+  errors.push("Økonomisk modell mangler sammenleggbar, søkbar innholdsoversikt");
+if (economyLinks.length !== 14)
+  errors.push("Økonomisk modell: forventet 14 eksisterende seksjonslenker, fant " + economyLinks.length);
+const economicScript = fs.readFileSync(path.join(root, "script.js"), "utf8");
+if (!economicScript.includes("initEconomicReader();") ||
+    !economicScript.includes("function initEconomicReader()") ||
+    !economicScript.includes("initReadingProgress();"))
+  errors.push("Økonomisk modell mangler lesestøtte i felles skript");
+
 const external = /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i;
 for (const [name, html] of content) {
   // Eksterne mål som åpnes i ny fane skal ikke kunne kontrollere foreldrefanen.
