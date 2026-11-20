@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initIllustratedSite();
   initScrollTopButton();
   initDocumentIndex();
+  initManifestReader();
   loadAvisaFeed();
   document.querySelectorAll("[data-year]").forEach(el => {
     el.textContent = new Date().getFullYear();
@@ -79,7 +80,14 @@ function initDocumentIndex() {
   details.append(summary, tools, nav);
   chapters[0].before(details);
 
-  // Smal lesefremdrift uten popup, bildedekor eller ekstra animasjon.
+  initReadingProgress();
+}
+
+
+function initReadingProgress() {
+  // Samme visning for Manifestet og Grunnlagsdokumentet, uten doble indikatorer.
+  if (document.querySelector(".reading-progress")) return;
+  // Diskret lesefremdrift for lange dokumenter.
   const progress = document.createElement("div");
   progress.className = "reading-progress";
   progress.setAttribute("aria-hidden", "true");
@@ -102,6 +110,50 @@ function initDocumentIndex() {
   window.addEventListener("scroll", schedule, {passive: true});
   window.addEventListener("resize", schedule);
   update();
+}
+
+function initManifestReader() {
+  const main = document.querySelector(".page--manifest main.content");
+  const toc = main?.querySelector("#manifest-innhold");
+  if (!toc) return;
+  initReadingProgress();
+  const details = toc.querySelector("details");
+  const search = toc.querySelector("#manifest-toc-search");
+  const status = toc.querySelector("#manifest-toc-status");
+  const entries = [...toc.querySelectorAll("li")].map(item => ({
+    item,
+    link: item.querySelector("a"),
+    text: item.textContent.trim().toLocaleLowerCase("nb-NO")
+  }));
+  const filter = () => {
+    const query = search.value.trim().toLocaleLowerCase("nb-NO");
+    let count = 0;
+    for (const entry of entries) {
+      const visible = entry.text.includes(query);
+      entry.item.hidden = !visible;
+      if (visible) count++;
+    }
+    status.textContent = query ? count + " av " + entries.length + " emner" : entries.length + " emner";
+  };
+  search.addEventListener("input", filter);
+  filter();
+  for (const entry of entries) {
+    entry.link?.addEventListener("click", () => { details.open = false; });
+  }
+  // Fremhev hvilken hoveddel leseren er i, uten å flytte fokus eller rulle siden.
+  if ("IntersectionObserver" in window) {
+    const anchors = entries.map(entry => document.getElementById(entry.link?.hash.slice(1))).filter(Boolean);
+    const active = new IntersectionObserver(changes => {
+      const first = changes.filter(change => change.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (!first) return;
+      for (const entry of entries) {
+        if (entry.link?.hash === "#" + first.target.id) entry.link.setAttribute("aria-current", "location");
+        else entry.link?.removeAttribute("aria-current");
+      }
+    }, {rootMargin: "-10% 0px -75% 0px"});
+    anchors.forEach(target => active.observe(target));
+  }
 }
 
 function initNavigation() {
