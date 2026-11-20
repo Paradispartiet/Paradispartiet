@@ -1,0 +1,44 @@
+[
+  {
+    "id": "forklaring-manifest-mekling-reparasjon",
+    "taskId": "75e33f7d-70b2-4714-8255-dfa930220a64",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-manifest-algoritmerevisjon",
+    "taskId": "0d3d801d-cf44-4aba-a28e-e2c708c8e698",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-grunnlag-innhegning-allmenning",
+    "taskId": "e0ce8694-c662-4815-8c3a-6a9a1527f14b",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-grunnlag-ostrom-vann",
+    "taskId": "c255dd1b-ba52-46e4-8355-4459484e07d3",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-okonomi-arbeidstid-bidrag",
+    "taskId": "0c251746-891a-4b09-8a4f-ac2c33d5a5d6",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-okonomi-apent-ressursregnskap",
+    "taskId": "0011f389-5a64-4df4-9d96-00d9d2887bed",
+    "kind": "task_pending",
+    "error": null
+  },
+  {
+    "id": "forklaring-okonomi-rehabilitering-bolig",
+    "taskId": "ebee44d4-512a-4ac3-97a1-b04842987621",
+    "kind": "task_pending",
+    "error": null
+  }
+]
