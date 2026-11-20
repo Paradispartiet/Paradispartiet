@@ -370,6 +370,20 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "kap40",
         "caption": "Offentlige algoritmer skal kunne revideres, mens innbyggernes private opplysninger holdes skjermet."
+      },
+      {
+        "id": "forklaring-manifest-frivillig-bosetting",
+        "alt": "Innbyggere undersøker frivillige bosettingsmuligheter på et lokalt kart mens et våtmarksområde og dyrket mark blir bevart.",
+        "size": "2K",
+        "section_id": "kap31",
+        "caption": "Bosettingsregnskapet skal vise valgmuligheter og naturgrenser – ikke bestemme hvor mennesker må bo."
+      },
+      {
+        "id": "forklaring-manifest-pilot-lokal-laring",
+        "alt": "Beboere og fagfolk prøver ut en lokal forsyningsordning, observerer vareflyten og gir tilbakemeldinger i et åpent møte.",
+        "size": "2K",
+        "section_id": "kap47",
+        "caption": "Piloter skal prøve ut hvordan rettighetene leveres i praksis, hente erfaringer og forbedre ordningene før de utvides."
       }
     ],
     "grunnlag.html": [
@@ -386,6 +400,20 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "k16",
         "caption": "Brukerne av en allmenning kan selv lage regler, vedlikeholde ressursen og løse konflikter sammen."
+      },
+      {
+        "id": "forklaring-grunnlag-digitalt-datauttak",
+        "alt": "En person bruker mobilen mens spor av aktivitet samles i et stort plattformsystem som vedkommende ikke kan se inn i.",
+        "size": "2K",
+        "section_id": "k28",
+        "caption": "Teksten beskriver hvordan digitale plattformer kan samle inn atferdsdata og gjøre oppmerksomhet til en ressurs som andre kontrollerer."
+      },
+      {
+        "id": "forklaring-grunnlag-okologisk-ramme",
+        "alt": "En liten by og verksteder ligger innenfor et elve- og skoglandskap, med synlige løp for vann, materialbruk og reparasjon.",
+        "size": "2K",
+        "section_id": "k15",
+        "caption": "Økologisk økonomi ser verksteder, boliger og handel som deler av naturens endelige vann-, energi- og materialstrømmer."
       }
     ],
     "okonomisk-modell.html": [
@@ -409,6 +437,13 @@ function initIllustratedSite() {
         "size": "2K",
         "section_id": "boligordning",
         "caption": "Boligplanen prioriterer rehabilitering og ombygging av eksisterende hus før målrettet nybygg."
+      },
+      {
+        "id": "forklaring-okonomi-avvik-tiltak-revisjon",
+        "alt": "En lokal boliggruppe undersøker forsinket rehabilitering, omfordeler ressurser og følger opp pågående byggearbeid.",
+        "size": "2K",
+        "section_id": "styringslogikk",
+        "caption": "Når boligleveransen ligger etter planen, skal avvik oppdages, tiltak endres og resultatet kontrolleres i neste periode."
       }
     ]
   }
