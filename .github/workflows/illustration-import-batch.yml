@@ -1,0 +1,66 @@
+name: Engangsimport av maleriske motivbilder
+on:
+  push:
+    branches: [design/illustrerte-sider-v1]
+    paths: [".github/workflows/illustration-import-batch.yml"]
+permissions:
+  contents: write
+jobs:
+  import-six:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/illustrerte-sider-v1
+          persist-credentials: true
+      - name: Lag WEBP-utgaver med god kvalitet
+        env:
+          SRC_0: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/8cbcd352-c55b-489a-ac2a-64aade96af2f/61ac9833-b845-4365-9393-316bc5bd09e2/Create_ONE_NEW_standalone_wide_16_9_ultra_detailed_painterly.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZTcwOTA2MTA0ZDg4M2U3MyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3MDY3Mn0.ee5FpBfNwWO3zj9Fuq2Q18o-0ipBOSrhcWCCbUPUcac"
+          SRC_1: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/c567c701-a675-438a-942e-404f012c8522/314e9ea1-8bf2-4f8a-abbf-32ed0504f8d1/Create_ONE_NEW_standalone_wide_16_9_ultra_detailed_painterly.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMTI4MmQ3YTA4MmExYjNjMSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI2MjM2OH0.U0RB_zYOFuWGVpspP_eK26iQfxDWC57g9d_YklFRBgg"
+          SRC_2: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/fdfdace6-5187-46dd-a8ff-a02de76112e7/dd9e2c90-c3e6-4b3b-b162-deb5d847a6c8/Create_ONE_NEW_standalone_wide_16_9_ultra_detailed_painterly.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNTNkYTUyODQ1OTg1ODA4MSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTI3MTMwMH0.tZmhSlV8XR--X4yZckQIws5cmNzubU8g_IXxZGJlxPs"
+          SRC_3: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/4b6267db-43c4-48d2-aa40-6bec270f6a39/b4ada46c-bef0-4251-abc6-beebc4142c71/Create_ONE_NEW_standalone_wide_16_9_ultra_detailed_painterly.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOTYyNTFiZjgwNjlmMzNhZSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyNzk5Mn0.O7VyyLWtyrfLbgjEOSrFGBevsD2DulQ6GunfPOlsg5w"
+          SRC_4: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/bd28bb7d-29c9-4368-bdd6-4a77ff606908/ab10c6c9-ab43-42c0-807a-34452586bc10/Create_ONE_NEW_standalone_wide_16_9_ultra_detailed_painterly.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiOGFjNGJjMmY2MWNjZjhjOCIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMyMDIzOX0.PVaY-PawF1l1WUkVxw_fMt-NJyiw_CM82_wlls9a37s"
+          SRC_5: "https://dnznrvs05pmza.cloudfront.net/gemini/gemini-nano-banana-2.1/images/bd3f05e5-d9ee-4e19-8f90-8894f0eca2af/7cd5ff54-382b-4700-ab15-e3dfe335f62e/Produce_ONE_stunning_cohesive__highly_detailed__painterly_16.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZDQ4M2NmODhmYWViNzQxNSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5NTMzMTMzNn0.Ak4s7v4cd4TptANDm0vipPMKAhtQdZKlx-GUK3VEEMw"
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet --disable-pip-version-check Pillow
+          python3 - <<'PY'
+          import io, os, urllib.request
+          from pathlib import Path
+          from PIL import Image
+          names = ["gronne-hjem","smabruk-natur","kunnskap-helse","arbeid-teknologi","kultur-fellesskap","visjon-by-land"]
+          destination = Path("assets/illustrasjoner")
+          destination.mkdir(parents=True, exist_ok=True)
+          for i, name in enumerate(names):
+              url = os.environ["SRC_" + str(i)]
+              assert url.startswith("https://dnznrvs05pmza.cloudfront.net/"), "Uventet bildeserver"
+              req = urllib.request.Request(url, headers={"User-Agent":"Paradispartiet-illustration-import/1.0"})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  raw = response.read(12_000_000)
+              assert 100_000 < len(raw) < 12_000_000, (name, len(raw))
+              pic = Image.open(io.BytesIO(raw))
+              pic.load()
+              assert pic.width >= 1600 and pic.height >= 850, (name,pic.size)
+              pic = pic.convert("RGB")
+              big = destination / (name + ".webp")
+              pic.save(big,"WEBP",quality=89,method=6)
+              w = 960
+              small_pic = pic.resize((w, round(pic.height*w/pic.width)),Image.Resampling.LANCZOS)
+              small = destination / (name + "-960.webp")
+              small_pic.save(small,"WEBP",quality=84,method=6)
+              for out in (big,small):
+                  data = out.read_bytes()
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP"
+              print(name, pic.size, big.stat().st_size, small.stat().st_size)
+          PY
+      - name: Legg motivene til illustrasjonsgrenen
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/illustrasjoner/*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: seks nye maleriske illustrasjoner i store og mobile WEBP-filer"
+            git push origin HEAD:refs/heads/design/illustrerte-sider-v1
+          fi
