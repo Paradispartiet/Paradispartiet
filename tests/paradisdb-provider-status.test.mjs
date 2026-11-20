@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { collectProviderStatus } from "../tools/check_paradisdb_providers.mjs";
+import { isFreshProviderSnapshot } from "../tools/paradisdb-fallback-gate.mjs";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 const NOW = "2026-11-18T13:00:00.000Z";
 const inventory = { schema_version: 1, metadata_only: true, databases: [
@@ -136,4 +139,40 @@ test("scoped Supabase PAT forbidden/unauthorized response does not claim outage 
   assert.equal(result.provider_checks["DB-03"].result, "lookup_failed");
   assert.equal(result.provider_checks["DB-04"].result, "lookup_failed");
   assert.equal(result.provider_checks["DB-03"].observed_status, null);
+});
+
+test("evening reserve skips only a fresh successful provider check", () => {
+  const at = Date.parse("2026-11-20T18:47:00Z");
+  const recent = {
+    schema_version: 1, metadata_only: true,
+    generated_at: "2026-11-20T06:17:00Z",
+    provider_checks: {
+      "DB-03": { provider: "supabase", result: "verified",
+        checked_at: "2026-11-20T06:17:00Z", observed_status: "ACTIVE_HEALTHY" },
+      "DB-04": { provider: "supabase", result: "verified",
+        checked_at: "2026-11-20T06:17:00Z", observed_status: "INACTIVE" },
+      "DB-06": { provider: "cloudflare_d1", result: "not_configured", checked_at: null }
+    }
+  };
+  assert.equal(isFreshProviderSnapshot(recent, at), true);
+  assert.equal(isFreshProviderSnapshot({ ...recent, generated_at: "2026-11-19T06:17:00Z" }, at), false);
+  assert.equal(isFreshProviderSnapshot({ ...recent, generated_at: null }, at), false);
+  assert.equal(isFreshProviderSnapshot({ ...recent, generated_at: "2026-11-21T00:00:00Z" }, at), false);
+  assert.equal(isFreshProviderSnapshot({ ...recent, provider_checks: {
+    "DB-03": { ...recent.provider_checks["DB-03"], result: "lookup_failed" }
+  } }, at), false);
+  assert.equal(isFreshProviderSnapshot({ ...recent, provider_checks: {
+    "DB-03": { ...recent.provider_checks["DB-03"], checked_at: null }
+  } }, at), false);
+  assert.equal(isFreshProviderSnapshot({ ...recent, provider_checks: {
+    "DB-03": { provider: "supabase", result: "not_configured", checked_at: null }
+  } }, at), false);
+});
+test("ParadisDB workflow has two separated schedules and no duplicate reserve probe when fresh", () => {
+  const workflow = readFileSync(fileURLToPath(new URL("../.github/workflows/paradisdb-provider-status.yml", import.meta.url)), "utf8");
+  assert.match(workflow, /cron: '17 06 \* \* \*'/);
+  assert.match(workflow, /cron: '47 18 \* \* \*'/);
+  assert.match(workflow, /node tools\/paradisdb-fallback-gate\.mjs docs\/paradisdb-provider-status\.json/);
+  assert.match(workflow, /if: steps\.reserve\.outputs\.probe == 'true'/);
+  assert.match(workflow, /github\.event_name != 'pull_request'/);
 });

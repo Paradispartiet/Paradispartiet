@@ -15,8 +15,9 @@ on:
       - 'docs/paradisdb-provider-status.json'
   workflow_dispatch:
   schedule:
-    # Once daily; metadata only. Avoid the busy top-of-hour cron slots.
+    # Daily primary check, with an evening reserve if primary status is missing/failed.
     - cron: '17 06 * * *'
+    - cron: '47 18 * * *'
 
 permissions:
   contents: read
@@ -35,6 +36,7 @@ jobs:
         with:
           node-version: '22'
       - run: node --check tools/check_paradisdb_providers.mjs
+      - run: node --check tools/paradisdb-fallback-gate.mjs
       - run: node --test tests/paradisdb-provider-status.test.mjs
 
   refresh:
@@ -57,8 +59,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Skip reserve probe if a recent successful status was published
+        id: reserve
+        shell: bash
+        env:
+          SCHEDULED_CRON: ${{ github.event.schedule }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == 'schedule' && "$SCHEDULED_CRON" == '47 18 * * *' ]] &&
+             node tools/paradisdb-fallback-gate.mjs docs/paradisdb-provider-status.json; then
+            echo 'probe=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'probe=true' >> "$GITHUB_OUTPUT"
+          fi
       - name: Require at least one scoped read token
         id: configured
+        if: steps.reserve.outputs.probe == 'true'
         shell: bash
         run: |
           if [[ -n "$PARADISDB_SUPABASE_ECHONET_READ_TOKEN" || -n "$PARADISDB_SUPABASE_FYSEN_READ_TOKEN" || -n "$PARADISDB_CLOUDFLARE_FYSEN_D1_READ_TOKEN" ]]; then
