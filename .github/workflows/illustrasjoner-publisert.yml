@@ -6,6 +6,7 @@ on:
     paths:
       - "service-worker.js"
       - "tools/check-live-illustrations.mjs"
+      - ".github/workflows/illustrasjoner-publisert.yml"
 
 permissions:
   contents: read
@@ -16,6 +17,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Kontroll av produksjon skal bruke publiseringsplanen på main,
+          # ikke en PR som inneholder bilder som ennå ikke er publisert.
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 22
