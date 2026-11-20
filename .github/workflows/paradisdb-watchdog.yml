@@ -1,0 +1,74 @@
+name: ParadisDB status watchdog
+on:
+  pull_request:
+    paths:
+      - 'tools/check_paradisdb_watchdog.mjs'
+      - 'tests/paradisdb-watchdog.test.mjs'
+      - '.github/workflows/paradisdb-watchdog.yml'
+  schedule:
+    # After the 06:17 UTC status job, with time for GitHub schedule delays.
+    - cron: '17 20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Test ParadisDB watchdog
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check tools/check_paradisdb_watchdog.mjs
+      - run: node --test tests/paradisdb-watchdog.test.mjs
+
+  monitor:
+    name: Check snapshot freshness and alert
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inspect published public metadata only
+        id: snapshot
+        run: node tools/check_paradisdb_watchdog.mjs
+      - name: Maintain one notification issue when needed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALERT: ${{ steps.snapshot.outputs.alert }}
+          DETAILS: ${{ steps.snapshot.outputs.details }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          title='[ParadisDB] Daglig statuskontroll krever oppfølging'
+          issue="$(gh issue list --state open --limit 100 --json number,title --jq '.[] | select(.title == "[ParadisDB] Daglig statuskontroll krever oppfølging") | .number' | head -n 1)"
+          if [[ "$ALERT" == "true" ]]; then
+            if [[ -z "$issue" ]]; then
+              {
+                echo 'ParadisDBs offentlige, lesebaserte statuskontroll trenger oppfølging.'
+                echo
+                echo "**Kontroll:** $DETAILS"
+                echo
+                echo "**Kjøring:** $RUN_URL"
+                echo
+                echo 'Dette er ikke dokumentasjon på at en database er nede. Ingen data eller tjenester ble endret.'
+              } > "$RUNNER_TEMP/paradisdb-alert.md"
+              gh issue create --title "$title" --body-file "$RUNNER_TEMP/paradisdb-alert.md" --assignee Paradispartiet
+            else
+              echo "ParadisDB alert issue #$issue is already open; no duplicate created"
+            fi
+          elif [[ -n "$issue" ]]; then
+            gh issue close "$issue" --reason completed --comment "Ny kontroll er publisert uten varslingsfeil. $RUN_URL"
+          else
+            echo 'Fresh snapshot; no alert required'
+          fi
