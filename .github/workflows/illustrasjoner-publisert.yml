@@ -1,0 +1,23 @@
+name: Kontroller publiserte illustrasjoner
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "service-worker.js"
+      - "tools/check-live-illustrations.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  public-image-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Kontroller offentlig bildevisning og bildefiler
+        run: node tools/check-live-illustrations.mjs
