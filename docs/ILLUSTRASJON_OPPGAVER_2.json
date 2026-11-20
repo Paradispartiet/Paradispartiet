@@ -1,0 +1,37 @@
+[
+  {
+    "id": "prosjekt-aha-samtaler-innsikt",
+    "taskId": "89cac9c7-3442-4def-8991-2cab8313915a",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-caravan-gronne-korridorer",
+    "taskId": "6a5482ab-40c6-47e6-9b00-300541f87b4b",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-glasshus-vinterpaviljong",
+    "taskId": "4f447d20-a777-4de3-b3e0-e3e8f03b3d91",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-bilfri-by-tilgjengelighet",
+    "taskId": "720f1f60-ce52-485a-bbc9-a59e1f423837",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-oldboys-trening-uten-press",
+    "taskId": "a11b5032-5741-441c-9679-dca645c54fa6",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
+    "taskId": "dcc6f8e6-a8e6-47dd-b414-17f9ae2ab3da",
+    "kind": "task_pending"
+  },
+  {
+    "id": "prosjekt-lesebiblioteket-apent-leserom",
+    "taskId": "c72b481f-de36-4305-9cca-20a31e34c243",
+    "kind": "task_pending"
+  }
+]
