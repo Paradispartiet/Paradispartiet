@@ -690,6 +690,11 @@ function initIllustratedSite() {
     ]
   }
 };
+  const HOME_PROJECT_BANNERS = {
+    "Oslo Old Boys": "Oslooldboys.html",
+    "Lesebiblioteket": "Lesebiblioteket.html"
+  };
+  const HOME_PROJECT_PAGES = new Set(Object.values(HOME_PROJECT_BANNERS));
   const usedOnPage = new Set();
   // Bare illustrasjoner med en tydelig forklaringsoppgave vises. De andre er arkivert.
   const VISIBLE_SCENE_IDS = new Set([
@@ -698,7 +703,18 @@ function initIllustratedSite() {
       "forklaring-manifest-mekling-reparasjon",
       "forklaring-grunnlag-innhegning-allmenning",
       "forklaring-grunnlag-ostrom-vann",
-      "forklaring-okonomi-apent-ressursregnskap"
+      "forklaring-okonomi-apent-ressursregnskap",
+      "prosjekt-oldboys-trening-uten-press",
+      "prosjekt-lesebiblioteket-apent-leserom",
+      "kort-paradisavisa-kritisk-samtale",
+      "kort-aha-kunnskapsnettverk",
+      "kort-lesebiblioteket-samtalesirkel",
+      "kort-oldboys-lavterskel-aktivitet",
+      "kort-glasshus-vinterlys",
+      "kort-bilfri-by-gronn-gate",
+      "kort-caravan-trygg-sykkelvei",
+      "kort-basicmarked-grunnforsyning",
+      "kort-teorien-om-lyset-bevissthet"
   ]);
 
 
@@ -757,8 +773,20 @@ function initIllustratedSite() {
         hero.prepend(img);
       }
     }
-    // Forsidens gamle fotografier er unike og beholdes. Ikke resirkuler prosjektkortbilder.
-    // Prinsipp- og idégrunnlagskortene bruker tekst til nye, særskilte motiv er bestilt.
+    // Forsiden viser egne, unike prosjektbilder som ikke brukes på detaljsidene.
+    document.querySelectorAll(".projects.home .project").forEach(card => {
+      const name = card.querySelector("h3")?.textContent?.trim();
+      const detailPage = HOME_PROJECT_BANNERS[name];
+      if (!detailPage) return;
+      const scene = SCENE_ASSIGNMENTS.projectBanners[detailPage];
+      const image = makePicture(scene, "vision-card-art");
+      const monogram = card.querySelector(".home-project-icon");
+      if (image && monogram) {
+        monogram.replaceWith(image);
+        card.classList.add("has-project-image");
+      }
+    });
+    // Prinsipp- og idégrunnlagskortene fortsetter som rene tekstkort.
   }
 
   if (page === "prosjekter.html" && !isProject) {
@@ -775,7 +803,8 @@ function initIllustratedSite() {
   }
 
   if (isProject) {
-    addBanner(SCENE_ASSIGNMENTS.projectBanners[page]);
+    // De to motivene på forsiden kan ikke brukes på prosjektets detaljside.
+    if (!HOME_PROJECT_PAGES.has(page)) addBanner(SCENE_ASSIGNMENTS.projectBanners[page]);
   } else if (SCENE_ASSIGNMENTS.pageBanners[page]) {
     addBanner(SCENE_ASSIGNMENTS.pageBanners[page]);
   } else if (page !== "index.html" && page !== "prosjekter.html") {
