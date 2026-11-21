@@ -699,7 +699,7 @@ function initIllustratedSite() {
       "forklaring-manifest-algoritmerevisjon",
       "forklaring-grunnlag-innhegning-allmenning",
       "forklaring-grunnlag-ostrom-vann",
-      "forklaring-okonomi-apent-ressursregnskap",
+      "forklaring-okonomi-apent-ressursregnskap"
 ]);
 
 
