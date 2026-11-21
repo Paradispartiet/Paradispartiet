@@ -261,8 +261,9 @@
       "motiv": "Ground-level realistic community marketplace where one aisle visibly supplies groceries and essentials without payment transaction while the neighboring area hosts independent maker stalls, ordinary people choosing freely, volunteer and craftspeople working side-by-side",
       "alt": "Felles grunnforsyning og frie verksteder fungerer side om side.",
       "size": "2K",
-      "display": "active",
-      "caption": "BasicMarkedet sikrer grunnbehovene, mens det frie markedet gir plass til selvstendig produksjon og handel."
+      "display": "archived",
+      "caption": "BasicMarkedet sikrer grunnbehovene, mens det frie markedet gir plass til selvstendig produksjon og handel.",
+      "review_note": "Arkivert 21.11.2026: visuelt overlesset markedsscene med kunstige tekstskilt, svekker forklaringen av dobbel markedsstruktur."
     },
     {
       "id": "politikk-offentlig-grunnsortiment-varighet",
@@ -534,7 +535,8 @@
       "alt": "Fagfolk tester et hverdagsprodukt på et lokalt kvalitetslaboratorium og undersøker materialene og holdbarheten.",
       "basis": "Økonomisk modell punkt 6: åpne produktkort for ingredienser eller materialer, holdbarhet og revisjonshistorikk, grunnkrav til helse/miljø og åpne fag- og brukeranmeldelser.",
       "motiv": "Close-up concrete editorial scene in a small Scandinavian independent public product-quality laboratory, quality testers examine a set of plain reusable food storage containers and a safe everyday electric kettle on a sturdy workbench. One technician tests lid seal and food-safe material sample, another checks whether the kettle handle and replaceable part survives long use, an independent reviewer looks at visually organized sample cards and material swatches with blank surfaces, not readable labels. Show craftsmanship, quality and transparent testing, not product advertising, luxury retail, generic production line, or fake gauges. Product inspection is distinct from repair and distribution elsewhere in the website.",
-      "display": "active"
+      "display": "archived",
+      "review_note": "Arkivert 21.11.2026: generisk og tettpakket verkstedmotiv som ikke viser åpne produktkort eller faktisk kvalitetskontroll tydelig."
     }
   ]
 }
