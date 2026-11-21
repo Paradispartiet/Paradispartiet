@@ -690,12 +690,12 @@ function initIllustratedSite() {
     ]
   }
 };
+  const usedOnPage = new Set();
   const HOME_PROJECT_BANNERS = {
     "Oslo Old Boys": "Oslooldboys.html",
     "Lesebiblioteket": "Lesebiblioteket.html"
   };
   const HOME_PROJECT_PAGES = new Set(Object.values(HOME_PROJECT_BANNERS));
-  const usedOnPage = new Set();
   // Bare illustrasjoner med en tydelig forklaringsoppgave vises. De andre er arkivert.
   const VISIBLE_SCENE_IDS = new Set([
       "politikk-bolig-hjem-ikke-spekulasjon",
