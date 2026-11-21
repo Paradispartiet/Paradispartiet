@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initManifestReader();
   initEconomicReader();
   initPolicyTopics();
+  initProjectDirectory();
   loadAvisaFeed();
   document.querySelectorAll("[data-year]").forEach(el => {
     el.textContent = new Date().getFullYear();
@@ -223,6 +224,35 @@ function initEconomicReader() {
     entry.link?.addEventListener("click", () => { details.open = false; });
   }
   initReadingProgress();
+}
+
+
+function initProjectDirectory() {
+  const root = document.querySelector(".projects-directory");
+  if (!root) return;
+  const search = root.querySelector("#projects-search");
+  const count = root.querySelector("#projects-count");
+  const empty = root.querySelector("#projects-empty");
+  const cards = [...root.querySelectorAll(".project-directory-card")];
+  if (!search || !count || !empty || !cards.length) return;
+  const searchable = cards.map(card => ({
+    card,
+    value: [...card.querySelectorAll("h2, .project-body p, .project-tag")]
+      .map(el => el.textContent.trim()).join(" ").toLocaleLowerCase("nb-NO")
+  }));
+  function filter() {
+    const query = search.value.trim().toLocaleLowerCase("nb-NO");
+    let shown = 0;
+    for (const {card,value} of searchable) {
+      const matches = value.includes(query);
+      card.hidden = !matches;
+      if (matches) shown++;
+    }
+    count.textContent = query ? shown + " av " + cards.length + " prosjekter" : cards.length + " prosjekter";
+    empty.hidden = shown > 0;
+  }
+  search.addEventListener("input", filter);
+  filter();
 }
 
 function initNavigation() {
