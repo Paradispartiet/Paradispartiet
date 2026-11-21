@@ -80,6 +80,17 @@ try {
           await node.scrollIntoViewIfNeeded({timeout:8000});
           const dims=await node.evaluate(async img=>{await img.decode();return {width:img.naturalWidth,height:img.naturalHeight}});
           if(!dims.width||!dims.height) errors.push(device+" "+filename+": bilde uten pikseldata "+info.name);
+          if (device==="desktop" && [
+            "politikk-bolig-hjem-ikke-spekulasjon",
+            "politikk-transport-kollektiv-og-korridorer",
+            "forklaring-manifest-algoritmerevisjon",
+            "forklaring-grunnlag-ostrom-vann"
+          ].includes(info.name)) {
+            await page.screenshot({
+              path:"illustration-screenshots/" + device + "-revisjon-" + info.name + ".png",
+              fullPage:false
+            });
+          }
           if ((device==="mobile" || device==="desktop") && [
             "forklaring-manifest-apen-skole-kveld",
             "forklaring-grunnlag-samfunnskontrakt-maktbegrensning",
