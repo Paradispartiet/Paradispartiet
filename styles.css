@@ -1780,3 +1780,43 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--okonomiskmodell .economic-toc-tools { margin: 0 18px 14px; }
   .page--okonomiskmodell .document-toc ol { padding: 12px 18px 20px 43px; }
 }
+
+/* Prosjekter: luftige, korte kort med lesbar status – ingen dekorasjonsbilder. */
+.projects-directory { max-width:1224px; padding:clamp(36px,6vw,72px) clamp(20px,4vw,34px) 100px; }
+.projects-directory .intro { max-width:790px; margin:0 0 35px; text-align:left; }
+.projects-directory .intro .eyebrow { color:#ffdd58; text-transform:uppercase; font-size:.79rem; letter-spacing:.15em; font-weight:750; }
+.projects-directory .intro h1 { font-size:clamp(2.5rem,6vw,4.25rem); line-height:1.1; letter-spacing:-.04em; }
+.projects-directory .intro p:last-child { max-width:65ch; font-size:clamp(1.02rem,2vw,1.16rem); line-height:1.66; }
+.projects-directory-tools { display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:14px 22px; margin:0 0 25px; }
+.projects-directory-search { display:grid; gap:8px; width:min(100%,465px); }
+.projects-directory-search label { color:#dcecf5; font-size:.89rem; font-weight:700; }
+.projects-directory-search input { width:100%; min-width:0; min-height:46px; background:#071725; color:#f5faff; border:1px solid rgba(83,187,224,.5); border-radius:10px; padding:10px 14px; font:inherit; }
+.projects-directory-search input::placeholder { color:#aac1cf; }
+.projects-directory-search input:focus-visible { outline:2px solid #52d8eb; outline-offset:2px; }
+.projects-directory-count { margin:0 0 10px; color:#bed4df; font-size:.9rem; }
+.projects-directory .project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.projects-directory .project-directory-card { min-width:0; background:linear-gradient(150deg,#0b2131,#050f19 90%); border:1px solid rgba(70,174,212,.35); border-radius:14px; box-shadow:none; transition:transform .2s ease,border-color .2s ease; }
+.projects-directory .project-directory-card[hidden] { display:none !important; }
+.projects-directory .project-directory-card:hover,.projects-directory .project-directory-card:focus-within { border-color:rgba(255,220,89,.65); transform:translateY(-2px); }
+.projects-directory .project-directory-card > a { display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding:19px; height:100%; min-height:184px; color:inherit; text-decoration:none; }
+.projects-directory .project-monogram { display:grid; place-items:center; width:44px; height:44px; border-radius:11px; background:rgba(255,216,71,.12); border:1px solid rgba(255,216,71,.36); color:#ffe48b; font-size:.9rem; font-weight:800; }
+.projects-directory .project-monogram--blue { color:#9be0ff; border-color:rgba(80,177,236,.4); background:rgba(29,148,214,.11); }
+.projects-directory .project-monogram--cyan { color:#92eee3; border-color:rgba(94,210,205,.41); background:rgba(32,181,172,.12); }
+.projects-directory .project-body { min-width:0; display:flex; flex-direction:column; gap:9px; margin:0; padding:0; }
+.projects-directory .project-body h2 { margin:0; color:#f9fcff; font-size:1.12rem; line-height:1.29; overflow-wrap:anywhere; }
+.projects-directory .project-body p { margin:0; color:#bed2df; font-size:.91rem; line-height:1.5; overflow-wrap:anywhere; }
+.projects-directory .project-card-meta { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:10px; }
+.projects-directory .project-tag { display:inline-block; padding:4px 9px; max-width:100%; border:1px solid rgba(255,214,81,.35); background:rgba(255,216,66,.08); border-radius:999px; color:#ffe49c; font-size:.74rem; font-weight:650; line-height:1.28; overflow-wrap:anywhere; }
+.projects-directory .project-tag--unspecified,.projects-directory .project-tag--resource { color:#c5d6df; border-color:rgba(121,162,189,.34); background:rgba(83,122,147,.1); }
+.projects-directory .project-card-action { color:#8de5f4; font-size:.76rem; font-weight:720; white-space:nowrap; }
+.projects-directory .projects-empty { margin:28px 0 0; padding:20px; color:#e1edf5; background:#0b2030; border:1px solid rgba(75,182,217,.3); border-radius:12px; }
+.projects-directory .projects-empty[hidden] { display:none; }
+@media(max-width:1040px){.projects-directory .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:700px){
+ .projects-directory{padding:34px 20px 85px;}
+ .projects-directory .intro{margin-bottom:28px;}
+ .projects-directory .intro h1{font-size:clamp(2.3rem,9vw,3.1rem);}
+ .projects-directory .project-grid{grid-template-columns:minmax(0,1fr);}
+ .projects-directory .project-directory-card > a{min-height:145px; padding:16px; gap:13px;}
+}
+@media(prefers-reduced-motion:reduce){.projects-directory .project-directory-card{transition:none;}.projects-directory .project-directory-card:hover{transform:none;}}
