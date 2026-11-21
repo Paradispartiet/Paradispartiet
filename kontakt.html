@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page--kontakt">
 <a class="skip-link" href="#main-content">Hopp til innhold</a>
 <header class="site-header">
   <div class="header-inner">
@@ -33,11 +33,14 @@
 </header>
 
 <main id="main-content">
-<section id="meld-deg-inn" class="join">
-  <h1>Meld deg inn</h1>
-  <p>Vil du være med å bygge Paradispartiet? Fyll ut skjemaet – det tar under ett minutt.</p>
+<section id="meld-deg-inn" class="join contact-page">
+  <header class="contact-page-intro">
+    <p class="contact-page-eyebrow">Paradispartiet · Kontakt og medlemskap</p>
+    <h1>Meld deg inn</h1>
+    <p>Vil du være med å bygge Paradispartiet? Fyll ut skjemaet – det tar under ett minutt.</p>
+  </header>
 
-  <!-- Bytt LENKEN under til din Google Forms-lenke -->
+  <section class="contact-membership-panel" aria-label="Medlemskap">
   <p>
     <a class="btn btn-yellow" href="https://docs.google.com/forms/d/e/1FAIpQLScazELiFQj1DIpiJaszPPKG7iF_nbokG3gq-cbpvFPei8KGEw/viewform" target="_blank" rel="noopener">
       Meld deg inn (skjema)
@@ -48,10 +51,11 @@
     Vi samler kun inn det vi trenger for medlemskap (navn, fødselsår, e-post, kommune). Du kan når som helst be oss slette opplysningene dine:
     <a href="mailto:paradispartiet@gmail.com">paradispartiet@gmail.com</a>.
   </p>
+  </section>
 
-  <hr>
-
-  <h3>Støtt registreringen – skriv under på papir</h3>
+  <section class="contact-paper" aria-labelledby="support-paper-title">
+    <p class="contact-section-eyebrow">Støtteerklæring</p>
+    <h2 id="support-paper-title">Støtt registreringen – skriv under på papir</h2>
   <p>For å bli registrert som parti trenger vi <strong>5 000 underskrifter på papir</strong>.</p>
 
   <ol class="paper-steps">
@@ -67,6 +71,7 @@
   <p class="small">
     Digital innsending, bilder eller skann er dessverre ikke gyldig – valgmyndighetene krever originale papirsignaturer.
   </p>
+  </section>
 </section>
 </main>
 <footer class="site-footer"><p>© <span data-year>2026</span> Paradispartiet</p></footer>

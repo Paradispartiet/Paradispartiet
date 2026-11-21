@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page--om">
 <a class="skip-link" href="#main-content">Hopp til innhold</a>
 
 <header class="site-header">
@@ -33,27 +33,18 @@
   </div>
 </header>
 
-<!-- Toppbanner -->
-<section class="project-banner" style="--accent-bg: rgba(255,215,0,0.08);">
-  <div class="project-banner-inner">
-    <div class="project-banner-text">
-      <h1>Om Paradispartiet</h1>
-      <p>Et initiativ for et samfunn der trygghet, frihet og fellesskap står side ved side.</p>
-    </div>
-    <div class="project-banner-icon">
-      <img src="assets/logo.svg" alt="Paradispartiet symbol">
-    </div>
-  </div>
-</section>
-
-<!-- Hovedinnhold -->
-<main id="main-content" class="about">
+<main id="main-content" class="about about-page">
+  <header class="about-page-intro">
+    <p class="about-page-eyebrow">Paradispartiet · Om oss</p>
+    <h1>Om Paradispartiet</h1>
+    <p>Et initiativ for et samfunn der trygghet, frihet og fellesskap står side ved side.</p>
+  </header>
   <p class="about-lead">
     Paradispartiet er et politisk og sosialt initiativ for et samfunn der grunnbehov ikke settes på spill.  
     Vi tror på fellesskap, åpenhet og rett til livsrom – der alle har bolig, mat, helse og frihet til å skape.
   </p>
 
-  <div class="about-grid">
+  <div class="about-grid about-values">
     <article>
       <h3>Et samfunn bygget på trygghet</h3>
       <p>
@@ -86,6 +77,12 @@
     <a href="kontakt.html#meld-deg-inn" class="btn btn-yellow">Meld deg inn</a>
     <a href="kontakt.html" class="btn btn-outline">Kontakt oss</a>
   </div>
+  <nav class="about-page-next" aria-label="Utforsk mer">
+    <p>Utforsk også</p>
+    <a href="politikk.html">Politikken <span aria-hidden="true">↗</span></a>
+    <a href="manifest.html">Manifestet <span aria-hidden="true">↗</span></a>
+    <a href="prosjekter.html">Prosjektene <span aria-hidden="true">↗</span></a>
+  </nav>
 </main>
 
 <nav class="bottom-nav" aria-label="Hovedlenker nederst">
