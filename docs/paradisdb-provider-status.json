@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "docs/paradisdb-inventory.json",
   "metadata_only": true,
-  "generated_at": "2026-11-20T16:41:21.877Z",
+  "generated_at": "2026-11-21T14:38:10.597Z",
   "provider_checks": {
     "DB-01": {
       "provider": "supabase",
@@ -19,14 +19,14 @@
     "DB-03": {
       "provider": "supabase",
       "result": "verified",
-      "checked_at": "2026-11-20T16:41:21.877Z",
+      "checked_at": "2026-11-21T14:38:10.597Z",
       "observed_status": "ACTIVE_HEALTHY"
     },
     "DB-04": {
       "provider": "supabase",
       "result": "verified",
-      "checked_at": "2026-11-20T16:41:21.877Z",
-      "observed_status": "INACTIVE"
+      "checked_at": "2026-11-21T14:38:10.597Z",
+      "observed_status": "ACTIVE_HEALTHY"
     },
     "DB-05": {
       "provider": "not_configured",
