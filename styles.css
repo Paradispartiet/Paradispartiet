@@ -1820,3 +1820,153 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
  .projects-directory .project-directory-card > a{min-height:145px; padding:16px; gap:13px;}
 }
 @media(prefers-reduced-motion:reduce){.projects-directory .project-directory-card{transition:none;}.projects-directory .project-directory-card:hover{transform:none;}}
+
+
+/* Forsiden 2026: redaksjonell typografi og rolig P-identitet uten dekorasjonsbilder. */
+.page--home .hero {
+  max-width: 1224px;
+  min-width: 0;
+  padding: clamp(42px, 7vw, 86px) clamp(20px, 4vw, 34px) clamp(32px, 5vw, 65px);
+  grid-template-columns: minmax(0, 1fr) minmax(160px, .42fr);
+  gap: clamp(24px, 4vw, 56px);
+  border-bottom: 1px solid rgba(74, 185, 224, .21);
+  background: radial-gradient(ellipse at 86% 40%, rgba(25, 163, 216, .11), transparent 60%);
+}
+.page--home .hero .hero-copy { min-width: 0; }
+.page--home .hero h1 {
+  font-size: clamp(2.45rem, 5.3vw, 4.55rem);
+  font-weight: 830;
+  letter-spacing: -.048em;
+  line-height: 1.09;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.page--home .hero .lead { max-width: 58ch; line-height: 1.68; }
+.page--home .hero-aside { min-height: 230px; }
+.page--home .hero-aside::before,
+.page--home .hero-aside::after { content: none; }
+.page--home .hero-aside img {
+  display: block;
+  width: min(100%, 258px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  filter: none;
+}
+.page--home .hero-aside-label { bottom: -3px; font-size: .66rem; letter-spacing: .12em; text-align: center; white-space: nowrap; }
+.page--home .home-pathways {
+  display: grid;
+  width: min(100% - 60px, 1155px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 auto 32px;
+  padding: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(58, 181, 223, .38);
+  border-radius: 16px;
+  background: rgba(48, 156, 189, .28);
+}
+.page--home .home-pathways > a {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 83px;
+  gap: 11px;
+  padding: 14px 16px;
+  background: #071827;
+  color: #f2f9ff;
+  text-decoration: none;
+  transition: background .18s ease;
+}
+.page--home .home-pathways > a:hover,
+.page--home .home-pathways > a:focus-visible { background: #10324c; }
+.page--home .home-pathway-index { align-self: flex-start; color: #72deee; font-size: .73rem; font-weight: 820; }
+.page--home .home-pathway-text { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
+.page--home .home-pathway-text strong { font-size: 1rem; line-height: 1.23; }
+.page--home .home-pathway-text > span { color: #b6d0df; font-size: .79rem; line-height: 1.35; }
+.page--home .home-pathway-arrow { align-self: flex-start; margin-left: auto; color: #ffdb65; font-weight: 800; }
+.page--home .foundation { padding-top: 40px; padding-bottom: 30px; }
+.page--home .foundation-hero { margin-bottom: 23px; }
+.page--home .foundation-grid { gap: 13px; }
+.page--home .foundation-grid article {
+  min-height: 0;
+  padding: 23px;
+  background: linear-gradient(150deg, #0b2538, #07121f);
+  border-radius: 13px;
+}
+.page--home .foundation-grid h3 { font-size: 1.18rem; }
+.page--home .principles-section { padding-top: 50px; padding-bottom: 55px; }
+.page--home .principles-section .cards { gap: 13px; }
+.page--home .principles-section .card { min-height: 0; padding: 23px; border-radius: 13px; }
+.page--home .principles-section .card p { line-height: 1.63; }
+.page--home .home-principles-more { margin: 20px 0 0; }
+.page--home .home-principles-more > summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 47px;
+  gap: 9px;
+  padding: 10px 17px;
+  border: 1px solid rgba(93, 197, 231, .44);
+  border-radius: 11px;
+  color: #ffdf6e;
+  background: rgba(17, 45, 66, .72);
+  font-weight: 710;
+  cursor: pointer;
+}
+.page--home .home-principles-more > summary:hover { border-color: #ffdb69; }
+.page--home .home-principles-more > .cards { margin-top: 19px; }
+.page--home .projects.home { padding-top: 61px; padding-bottom: 65px; }
+.page--home .projects.home .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+.page--home .projects.home .project > a {
+  display: grid;
+  grid-template-columns: 52px minmax(0,1fr);
+  align-items: start;
+  gap: 14px;
+  min-height: 147px;
+  padding: 22px;
+  background: linear-gradient(135deg,#0b2538,#07121f);
+}
+.page--home .projects.home .project-body { padding: 1px 0 0; }
+.page--home .projects.home .project-body h3 { margin: 0 0 9px; font-size: 1.16rem; }
+.page--home .projects.home .project-body p { margin: 0; }
+.page--home .home-project-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(79, 185, 218, .42);
+  border-radius: 10px;
+  color: #93deff;
+  background: rgba(22, 150, 215, .12);
+  font-weight: 800;
+  font-size: .87rem;
+}
+.page--home .home-project-icon--cyan { color: #91eddf; border-color: rgba(83, 208, 188, .43); background: rgba(20, 164, 144, .13); }
+.page--home .about { padding-top: 60px; padding-bottom: 75px; }
+@media (max-width: 1040px) {
+  .page--home .hero { grid-template-columns: minmax(0,1fr) 190px; }
+  .page--home .home-pathways { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 700px) {
+  .page--home .hero { grid-template-columns: 1fr; gap: 0; padding: 43px 20px 36px; }
+  .page--home .hero h1 { font-size: clamp(2.35rem, 9.4vw, 3.2rem); line-height: 1.11; }
+  .page--home .hero .lead { margin-bottom: 22px; }
+  .page--home .hero-aside { display: none; }
+  .page--home .home-pathways { width: calc(100% - 40px); margin: 0 auto 20px; gap: 1px; }
+  .page--home .home-pathways > a { min-height: 72px; padding: 12px; gap: 8px; }
+  .page--home .home-pathway-index { font-size: .69rem; }
+  .page--home .home-pathway-text strong { font-size: .94rem; }
+  .page--home .home-pathway-text > span { font-size: .74rem; }
+  .page--home .home-pathway-arrow { font-size: .88rem; }
+  .page--home .foundation { padding: 37px 20px 20px; }
+  .page--home .foundation-grid { grid-template-columns: 1fr; }
+  .page--home .principles-section { padding: 45px 20px 42px; }
+  .page--home .principles-section .cards { grid-template-columns: 1fr; }
+  .page--home .principles-section .card { padding: 21px; }
+  .page--home .projects.home { padding: 49px 20px 54px; }
+  .page--home .projects.home .project-grid { grid-template-columns: 1fr; }
+  .page--home .projects.home .project > a { min-height: 130px; padding: 18px; gap: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page--home .home-pathways > a { transition: none; }
+}

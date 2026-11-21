@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page--home">
 <a class="skip-link" href="#main-content">Hopp til innhold</a>
 
 <header class="site-header">
@@ -46,10 +46,18 @@
     </div>
   </div>
   <div class="hero-aside" aria-hidden="true">
-    <img src="assets/logo-full.svg" alt="">
+    <img src="assets/logo.svg" alt="">
     <span class="hero-aside-label">Trygghet · Frihet · Fellesskap</span>
   </div>
 </section>
+
+<!-- Hurtigveier: fire tekstbaserte innganger til nettstedet -->
+<nav class="home-pathways" aria-label="Utforsk Paradispartiet">
+  <a href="politikk.html"><span class="home-pathway-index">01</span><span class="home-pathway-text"><strong>Politikk</strong><span>Se forslagene</span></span><span class="home-pathway-arrow" aria-hidden="true">↗</span></a>
+  <a href="manifest.html"><span class="home-pathway-index">02</span><span class="home-pathway-text"><strong>Manifest</strong><span>Les visjonen</span></span><span class="home-pathway-arrow" aria-hidden="true">↗</span></a>
+  <a href="grunnlag.html"><span class="home-pathway-index">03</span><span class="home-pathway-text"><strong>Grunnlag</strong><span>Forstå teorien</span></span><span class="home-pathway-arrow" aria-hidden="true">↗</span></a>
+  <a href="prosjekter.html"><span class="home-pathway-index">04</span><span class="home-pathway-text"><strong>Prosjekter</strong><span>Utforsk idéene</span></span><span class="home-pathway-arrow" aria-hidden="true">↗</span></a>
+</nav>
 
 <!-- Idégrunnlag -->
 <section class="foundation">
@@ -92,8 +100,7 @@
 <section class="principles-section" aria-labelledby="principles-title">
   <div class="section-heading"><p class="eyebrow">Idéer i praksis</p><h2 id="principles-title">Grunnprinsipper</h2><p>Utvalgte prinsipper fra Paradismodellen – fra grunnleggende rettigheter til levende lokalsamfunn.</p></div>
   <div class="cards">
-
-  <div class="card">
+<div class="card">
     <h3>BasicMarked + FriMarked</h3>
     <p>
       Grunnbehov kan ikke settes på spill. Alle får dekket bolig, mat og helse gjennom 10–15 timer samfunnsarbeid i uka.
@@ -102,7 +109,7 @@
     </p>
   </div>
 
-  <div class="card">
+<div class="card">
     <h3>Rett til bolig, mat og helsehjelp</h3>
     <p>
       Ingen skal stå uten grunnleggende trygghet. Disse rettighetene gjelder alle, uavhengig av inntekt eller status.
@@ -110,7 +117,7 @@
     </p>
   </div>
 
-  <div class="card">
+<div class="card">
     <h3>Rett til spredt bosetting</h3>
     <p>
       Ingen eier naturen. Alle mennesker har rett til å bo fritt i naturen, så lenge naturen ikke forstyrres.
@@ -119,15 +126,18 @@
     </p>
   </div>
 
-  <div class="card">
+<div class="card">
     <h3>Bilfri by</h3>
     <p>
       Byen tilhører mennesker, ikke privatbiler. Sentrum blir bilfritt, med smart logistikk for varer og tjenester.
       Gater blir grønne korridorer – trygge, rene og levende byrom der stillhet, fellesskap og frisk luft erstatter støy og kø.
     </p>
   </div>
-
-  <div class="card">
+  </div>
+  <details class="home-principles-more">
+    <summary>Se fire flere grunnprinsipper</summary>
+    <div class="cards">
+<div class="card">
     <h3>Rettferdighet uten hevn</h3>
     <p>
       Vold og overgrep kan straffes med fengsel. Andre tvister løses gjennom ansvar, erstatning og offentlig forsikring.
@@ -135,7 +145,7 @@
     </p>
   </div>
 
-  <div class="card">
+<div class="card">
     <h3>Åpen produksjonsregistrering</h3>
     <p>
       Produksjon er frihet, men også ansvar. Alle kan skape varer og tjenester, men alt registreres og kvalitetssikres åpent.
@@ -143,7 +153,7 @@
     </p>
   </div>
 
-  <div class="card">
+<div class="card">
     <h3>Livslang læring og kultur</h3>
     <p>
       Skoler og lesebibliotek holdes åpne dag og natt. Deltakelse teller som arbeid.
@@ -151,8 +161,8 @@
       Kunnskap er en kollektiv ressurs, ikke en vare.
     </p>
   </div>
-  
-  <div class="card">
+
+<div class="card">
     <h3>Mennesket som lysbærer</h3>
     <p>
       Mennesket er både natur og bevissthet. Vi bærer lyset videre – innsikt, skapelse og ansvar.
@@ -160,8 +170,8 @@
       Slik kan livets kretsløp beskyttes og videreføres i balanse.
     </p>
   </div>
-
-</div>
+    </div>
+  </details>
 </section>
 
 <!-- Paradisavisa -->
@@ -180,9 +190,9 @@
   <p class="projects-intro">Et samfunn bygges ikke av lover alene, men av steder der mennesker møtes. Prosjektene våre viser hvordan modellen leves i praksis.</p>
 
   <div class="project-grid">
-    <article class="project"><a href="Prosjekter/Oslooldboys.html" aria-label="Les mer om Oslo Old Boys"><img src="assets/oslo_old_boys.PNG" alt="" loading="lazy"><div class="project-body"><h3>Oslo Old Boys</h3><p>En sosial sportsklubb der idrett og fellesskap møtes.</p></div></a></article>
+    <article class="project"><a href="Prosjekter/Oslooldboys.html" aria-label="Les mer om Oslo Old Boys"><span class="home-project-icon home-project-icon--blue" aria-hidden="true">OB</span><div class="project-body"><h3>Oslo Old Boys</h3><p>En sosial sportsklubb der idrett og fellesskap møtes.</p></div></a></article>
 
-    <article class="project"><a href="Prosjekter/Lesebiblioteket.html" aria-label="Les mer om Lesebiblioteket"><img src="assets/lesebiblioteket.PNG" alt="" loading="lazy"><div class="project-body"><h3>Lesebiblioteket</h3><p>Et åpent rom for kunnskap og ro – uten kjøpspress.</p></div></a></article>
+    <article class="project"><a href="Prosjekter/Lesebiblioteket.html" aria-label="Les mer om Lesebiblioteket"><span class="home-project-icon home-project-icon--cyan" aria-hidden="true">LB</span><div class="project-body"><h3>Lesebiblioteket</h3><p>Et åpent rom for kunnskap og ro – uten kjøpspress.</p></div></a></article>
   </div>
 
   <div class="projects-footer">
