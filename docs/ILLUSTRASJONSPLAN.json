@@ -1,7 +1,7 @@
 {
-  "version": 5,
-  "policy": "Kun utvalgte illustrasjoner som forklarer konkret tekst vises. Andre er bevart som arkiverte motiver og skal ikke lastes på nettsiden. Én bildefil brukes på høyst ett sted. Logo er unntatt.",
-  "source": "Paradispartiet/Paradispartiet, lest direkte fra main 20.11.2026",
+  "version": 6,
+  "policy": "Utvalgte prosjektbilder kan vises på forsiden og prosjektoversikten som konkrete, unike innganger. Lange politiske dokumenter bruker bare bilder som forklarer avsnittets innhold. Én bildefil vises bare på ett sted. Logo er unntatt.",
+  "source": "Paradispartiet/Paradispartiet, oppdatert 21.11.2026 for unike prosjektkortbilder",
   "images": [
     {
       "id": "side-forside-trygghet",
@@ -135,13 +135,14 @@
     },
     {
       "id": "prosjekt-oldboys-trening-uten-press",
-      "page": "Prosjekter/Oslooldboys.html",
-      "slot": "banner",
+      "page": "index.html",
+      "slot": "home-project:Oslo Old Boys",
       "basis": "Lavterskel sportsklubb og sosial tilhørighet uten prestasjonskrav",
       "motiv": "Adults of different ages and genders casually playing football on green Norwegian community field at daylight, some laughing at the sideline on a bench and chatting, one person offering a hand after a fall, not an organized professional competition; joy and movement",
       "alt": "Voksne spiller fotball sammen i en uformell og inkluderende klubb.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt, innholdstilpasset prosjektmotiv brukt kun i prosjektkort på forsiden – ikke på prosjektdetaljsiden."
     },
     {
       "id": "prosjekt-paradisavisa-uavhengig-redaksjon",
@@ -155,13 +156,14 @@
     },
     {
       "id": "prosjekt-lesebiblioteket-apent-leserom",
-      "page": "Prosjekter/Lesebiblioteket.html",
-      "slot": "banner",
+      "page": "index.html",
+      "slot": "home-project:Lesebiblioteket",
       "basis": "Gratis lavterskel rom mellom bibliotek, kafé og verksted, uten kjøpeplikt",
       "motiv": "Spacious yet intimate ground-floor public reading space in an urban neighborhood, long bookshelves, adults reading quietly, small discussion circle and one person writing at table, tea mugs but no cashier or point of sale, accessible entrance, soft daylight",
       "alt": "Et gratis leserom der voksne leser, skriver og snakker uten kjøpeplikt.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt, innholdstilpasset prosjektmotiv brukt kun i prosjektkort på forsiden – ikke på prosjektdetaljsiden."
     },
     {
       "id": "kort-paradisavisa-kritisk-samtale",
@@ -171,7 +173,8 @@
       "motiv": "Close-up editorial worktable: handmade newspaper pages, an illustrated story spread and two people in a thoughtful interview, a camera and recording notebook, vivid real-life newsroom; no readable written text",
       "alt": "En redaksjon arbeider med artikler, bilder og samfunnsdebatt.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-aha-kunnskapsnettverk",
@@ -181,7 +184,8 @@
       "motiv": "Thoughtful close-up of hands using a tablet with visual speech bubbles dissolving into a pattern of shared anonymous knowledge, a nearby colleague learning from the resulting insights, clearly consent-focused human centered AI",
       "alt": "Mennesker bruker digitale samtaler til å dele kunnskap på en trygg måte.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-lesebiblioteket-samtalesirkel",
@@ -191,7 +195,8 @@
       "motiv": "Candid intimate view inside a welcoming free library café, four adults in an unhurried book discussion circle, books, soft chairs and plants, no consumer signage",
       "alt": "En liten gruppe voksne samtaler om bøker i et åpent lesebibliotek.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-oldboys-lavterskel-aktivitet",
@@ -201,7 +206,8 @@
       "motiv": "Joyful close-up of two midlife teammates tying their football boots at the edge of a local park field before joining a friendly practice, smiles and teamwork, no professional sponsor logos",
       "alt": "To voksne gjør seg klare til en uformell fotballtrening.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-glasshus-vinterlys",
@@ -211,7 +217,8 @@
       "motiv": "Detailed winter view of a single softly lit glass pavilion in an Oslo-like park, snowy branches, elderly person with book visible within, warm refuge contrasting blue winter dusk",
       "alt": "En liten oppvarmet glasspaviljong lyser i en vinterpark.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-bilfri-by-gronn-gate",
@@ -221,7 +228,8 @@
       "motiv": "Intimate eye level view of a child safely crossing a pleasant car-free urban lane with an older companion, planting beds, people sitting on benches and one passing tram at a distance; show safe quiet street life",
       "alt": "En trygg bilfri gate med barn, benker og grønne møteplasser.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-caravan-trygg-sykkelvei",
@@ -231,7 +239,8 @@
       "motiv": "One cyclist and one hiker moving along a well maintained green corridor between fields and woodland, small rural village and local bus shelter in distance, clear rest stop and respect for natural habitat",
       "alt": "Sykkelvei og gangsti kobler natur og små lokalsamfunn sammen.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-basicmarked-grunnforsyning",
@@ -241,7 +250,8 @@
       "motiv": "Inside a modest municipal basics provision center: volunteer checks a reusable basket of fresh local produce and essential hygiene goods for a resident, functional shelving and transparent logistics, accessible and dignified, no cashier",
       "alt": "Utdeling av mat og nødvendighetsvarer gjennom en felles ordning.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "kort-teorien-om-lyset-bevissthet",
@@ -251,7 +261,8 @@
       "motiv": "Thoughtful person reading beside a window where morning sunlight illuminates plant leaves and dust motes, reflection of person in glass becomes a graceful visual metaphor for awareness and inner clarity; not fantasy gadgets",
       "alt": "Et menneske reflekterer ved et vindu der sollys faller på planter.",
       "size": "1K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Unikt prosjektkortbilde på prosjektoversikten; ingen gjenbruk på forsiden eller prosjektets underside."
     },
     {
       "id": "politikk-okonomi-dobbel-markedsstruktur",

@@ -1799,6 +1799,27 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .projects-directory .project-directory-card[hidden] { display:none !important; }
 .projects-directory .project-directory-card:hover,.projects-directory .project-directory-card:focus-within { border-color:rgba(255,220,89,.65); transform:translateY(-2px); }
 .projects-directory .project-directory-card > a { display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding:19px; height:100%; min-height:184px; color:inherit; text-decoration:none; }
+/* Prosjektbildet erstatter monogrammet i en kompakt, horisontal kortlayout. */
+.projects-directory .project-directory-card.has-project-image > a {
+  grid-template-columns: 112px minmax(0,1fr);
+  align-items: center;
+}
+.projects-directory .project-directory-card.has-project-image > a > .vision-card-art {
+  display: block;
+  width: 112px;
+  max-width: 100%;
+  height: 110px;
+  min-height: 0;
+  max-height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: none;
+  transform: none;
+}
+.projects-directory .project-directory-card.has-project-image:hover .vision-card-art {
+  filter: none;
+  transform: none;
+}
 .projects-directory .project-monogram { display:grid; place-items:center; width:44px; height:44px; border-radius:11px; background:rgba(255,216,71,.12); border:1px solid rgba(255,216,71,.36); color:#ffe48b; font-size:.9rem; font-weight:800; }
 .projects-directory .project-monogram--blue { color:#9be0ff; border-color:rgba(80,177,236,.4); background:rgba(29,148,214,.11); }
 .projects-directory .project-monogram--cyan { color:#92eee3; border-color:rgba(94,210,205,.41); background:rgba(32,181,172,.12); }
@@ -1818,6 +1839,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
  .projects-directory .intro h1{font-size:clamp(2.3rem,9vw,3.1rem);}
  .projects-directory .project-grid{grid-template-columns:minmax(0,1fr);}
  .projects-directory .project-directory-card > a{min-height:145px; padding:16px; gap:13px;}
+ .projects-directory .project-directory-card.has-project-image > a{
+   grid-template-columns: 100px minmax(0,1fr);
+ }
+ .projects-directory .project-directory-card.has-project-image > a > .vision-card-art{
+   width: 100px;
+   height: 100px;
+   max-height: 100px;
+ }
 }
 @media(prefers-reduced-motion:reduce){.projects-directory .project-directory-card{transition:none;}.projects-directory .project-directory-card:hover{transform:none;}}
 
@@ -1926,6 +1955,26 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   padding: 22px;
   background: linear-gradient(135deg,#0b2538,#07121f);
 }
+/* Små, unike prosjektbilder i forsidens to kompakte kort. */
+.page--home .projects.home .project.has-project-image > a {
+  grid-template-columns: minmax(0, 142px) minmax(0, 1fr);
+  align-items: center;
+}
+.page--home .projects.home .project.has-project-image .vision-card-art {
+  display: block;
+  width: 100%;
+  height: 106px;
+  min-height: 0;
+  max-height: 106px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: none;
+  transform: none;
+}
+.page--home .projects.home .project.has-project-image:hover .vision-card-art {
+  filter: none;
+  transform: none;
+}
 .page--home .projects.home .project-body { padding: 1px 0 0; }
 .page--home .projects.home .project-body h3 { margin: 0 0 9px; font-size: 1.16rem; }
 .page--home .projects.home .project-body p { margin: 0; }
@@ -1966,6 +2015,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--home .projects.home { padding: 49px 20px 54px; }
   .page--home .projects.home .project-grid { grid-template-columns: 1fr; }
   .page--home .projects.home .project > a { min-height: 130px; padding: 18px; gap: 13px; }
+  .page--home .projects.home .project.has-project-image > a {
+    grid-template-columns: 106px minmax(0, 1fr);
+  }
+  .page--home .projects.home .project.has-project-image .vision-card-art {
+    height: 91px;
+    max-height: 91px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .page--home .home-pathways > a { transition: none; }
