@@ -696,11 +696,10 @@ function initIllustratedSite() {
       "politikk-bolig-hjem-ikke-spekulasjon",
       "politikk-transport-kollektiv-og-korridorer",
       "forklaring-manifest-mekling-reparasjon",
-      "forklaring-manifest-algoritmerevisjon",
       "forklaring-grunnlag-innhegning-allmenning",
       "forklaring-grunnlag-ostrom-vann",
       "forklaring-okonomi-apent-ressursregnskap"
-]);
+  ]);
 
 
   function makePicture(scene, className, {eager = false} = {}) {

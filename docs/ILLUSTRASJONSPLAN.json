@@ -284,7 +284,8 @@
       "alt": "En innbygger får nøklene til en nøktern bolig i et grønt fellesskap.",
       "size": "2K",
       "display": "active",
-      "caption": "Bolig skal være en rettighet og et hjem, ikke en investering for spekulasjon."
+      "caption": "Bolig skal være en rettighet og et hjem, ikke en investering for spekulasjon.",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Nøktern overlevering av bolig i gjenkjennelig gårdsrom; konkret kobling til bolig som rettighet."
     },
     {
       "id": "politikk-mat-lokal-matsikkerhet",
@@ -345,7 +346,8 @@
       "alt": "Tog, gangvei og sykkelsti gjør bilfri reise mulig mellom by og land.",
       "size": "2K",
       "display": "active",
-      "caption": "Kollektivtransport, bilfrie bykjerner og grønne ferdselsårer gjør det lettere å reise uten privatbil."
+      "caption": "Kollektivtransport, bilfrie bykjerner og grønne ferdselsårer gjør det lettere å reise uten privatbil.",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Viser faktisk sammenheng mellom kollektivtransport, sykkel og fotgjengere; unngå å gjenta motivet på andre sider."
     },
     {
       "id": "politikk-kultur-alle-kan-skape",
@@ -367,7 +369,8 @@
       "basis": "Manifestet kapittel 24 skiller alvorlige krenkelser fra uhell og mindre skader og beskriver ansvar, mekling, gjenoppretting, erstatning og offentlig forsikring.",
       "motiv": "In a quiet human-scale Norwegian neighborhood, an accidental broken glass pane in a community garden pavilion is being repaired by a tradesperson while two neighbors and an impartial local mediator calmly discuss the damage and compensation, another helper safely cleans glass and reuses wood, all cooperating; the visual MUST clearly emphasize practical repair and mediation over punishment, no courtroom, police or violence.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Konkret reparasjon av felles bygg og mekling mellom naboer, relevant for kapittelet."
     },
     {
       "id": "forklaring-manifest-algoritmerevisjon",
@@ -379,7 +382,8 @@
       "basis": "Manifestet kapittel 40 krever åpne og etterprøvbare offentlige algoritmer, dataminimering, innsyn, retting, sletting og uavhengig revisjon uten offentliggjøring av privatlivet.",
       "motiv": "Inside a realistic modest Norwegian public digital services office, independent auditors and a citizen examine the transparent workflow of a public service using diagrams of processing stages on large screens, while personal files stay physically and visually separated inside a locked privacy room with frosted glass. Show one auditor pointing to a process trail and another reviewing documentation, no surveillance camera, no giant robotic AI, no readable code, no fake textual statistics.",
       "size": "2K",
-      "display": "active"
+      "display": "archived",
+      "review_note": "Arkivert 21.11.2026 etter faktisk skjermgjennomgang: generisk møte rundt skjerm. Verken algoritmerevisjon eller beskyttelse av private opplysninger blir forklart visuelt."
     },
     {
       "id": "forklaring-grunnlag-innhegning-allmenning",
@@ -391,7 +395,8 @@
       "basis": "Grunnlagsdokumentet kapittel 6 drøfter Enclosure Laws: tap av felles brukte jordressurser, privatisering og endringer i arbeid og bosetting.",
       "motiv": "Historically grounded eighteenth-century England countryside, an open common grazing meadow is visibly being divided and enclosed by new hedges and wooden fences, sheep and common farmers standing on the public side while landowners' workers finish building a gate and fencing; a family carries simple tools and possessions away, a distant burgeoning mill town is only faintly visible beyond fields. An explanatory editorial historical scene, avoid anachronistic clothes, vehicles, skyscrapers or dramatic violence.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Historisk gjerdebygging og tap av felles beiteland visualiserer innhegning."
     },
     {
       "id": "forklaring-grunnlag-ostrom-vann",
@@ -403,7 +408,8 @@
       "basis": "Grunnlagsdokumentet kapittel 16 beskriver Elinor Ostroms forskning på lokalt organisert forvaltning, blant annet vanningsanlegg i Nepal, med brukermedvirkning, tilpassede regler og konfliktløsning.",
       "motiv": "Documentary-inspired human-centered Nepal foothill village, farmers of different ages collectively maintain a stone-lined community irrigation channel and distribute water to terraced fields using low wooden sluice gates, a small open meeting of users beside the channel listens to one another and decides how to share water fairly; physically coherent canals, clear connection between cooperative rules and sustainable resource care, respectful non-stereotyped specific rural setting, not a fantasy mountain village.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Landsbyens felles vannkanal med vedlikehold og samtale viser samarbeid om allmenning."
     },
     {
       "id": "forklaring-okonomi-arbeidstid-bidrag",
@@ -427,7 +433,8 @@
       "basis": "Økonomisk modell punkt 1.4 beskriver åpent ressursregnskap med lagerstatus, tilførsel, avgang, klima- og energibruk, avfall og produktkort.",
       "motiv": "Inside a modest highly believable Norwegian cooperative goods depot, staff visually inspecting labeled-by-color reusable crates of vegetables and household supplies, an inventory clerk verifies arrivals against an open ledger on a laptop where only colored nonverbal shapes are visible, a second worker weighs outgoing produce and another separates reusable packaging for recycling; skylights and small solar panel visible outside. One physical chain from incoming goods to tracked outgoing goods and reuse, no readable text or numbers, no fantasy network or giant glowing holograms.",
       "size": "2K",
-      "display": "active"
+      "display": "active",
+      "review_note": "Visuelt gjennomgått 21.11.2026 – behold. Lagerregistrering, veiing og ombruksbeholdere knytter motivet til ressursregnskapet."
     },
     {
       "id": "forklaring-okonomi-rehabilitering-bolig",
