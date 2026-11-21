@@ -693,7 +693,6 @@ function initIllustratedSite() {
   const usedOnPage = new Set();
   // Bare illustrasjoner med en tydelig forklaringsoppgave vises. De andre er arkivert.
   const VISIBLE_SCENE_IDS = new Set([
-      "politikk-okonomi-dobbel-markedsstruktur",
       "politikk-bolig-hjem-ikke-spekulasjon",
       "politikk-transport-kollektiv-og-korridorer",
       "forklaring-manifest-mekling-reparasjon",
@@ -701,8 +700,7 @@ function initIllustratedSite() {
       "forklaring-grunnlag-innhegning-allmenning",
       "forklaring-grunnlag-ostrom-vann",
       "forklaring-okonomi-apent-ressursregnskap",
-      "forklaring-okonomi-produktkort-kvalitet"
-  ]);
+]);
 
 
   function makePicture(scene, className, {eager = false} = {}) {
