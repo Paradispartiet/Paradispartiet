@@ -796,9 +796,14 @@ function initIllustratedSite() {
       const scene = SCENE_ASSIGNMENTS.projectCards[name];
       if (!scene) return;
       const img = makePicture(scene, "vision-card-art");
-      const existing = card.querySelector(".project-visual, img");
-      if (img && existing) existing.replaceWith(img);
-      else if (img) card.querySelector("a")?.prepend(img);
+      const existing = card.querySelector(".project-visual, .project-monogram, img");
+      if (img && existing) {
+        existing.replaceWith(img);
+        card.classList.add("has-project-image");
+      } else if (img) {
+        card.querySelector("a")?.prepend(img);
+        card.classList.add("has-project-image");
+      }
     });
   }
 
