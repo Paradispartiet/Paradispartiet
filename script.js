@@ -687,6 +687,17 @@ function initIllustratedSite() {
         "section_id": "kvalitet-registrering",
         "caption": "Åpne produktkort og kvalitetsprøver skal gjøre det mulig å kontrollere materialer, holdbarhet og sikkerhet før varer tas i bruk."
       }
+    ],
+    "paradismodellen-i-praksis.html": [
+      {
+        "id": "paradis-nabolaget",
+        "alt": "Grønne lave bolighus, trikk, marked, lek, felles hager og bibliotek i et bilfritt nabolag ved naturen.",
+        "size": "2K",
+        "width": 1672,
+        "height": 941,
+        "section_id": "paradis-nabolaget",
+        "caption": "Et mulig Paradis-nabolag: egne hjem, grønne møteplasser, lokale tjenester og kollektivtransport i samme nærmiljø."
+      }
     ]
   }
 };
@@ -714,8 +725,9 @@ function initIllustratedSite() {
       "kort-bilfri-by-gronn-gate",
       "kort-caravan-trygg-sykkelvei",
       "kort-basicmarked-grunnforsyning",
-      "kort-teorien-om-lyset-bevissthet"
-  ]);
+      "kort-teorien-om-lyset-bevissthet",
+      "paradis-nabolaget"
+]);
 
 
   function makePicture(scene, className, {eager = false} = {}) {
@@ -730,14 +742,14 @@ function initIllustratedSite() {
     img.className = className;
     img.src = source(scene.id);
     img.srcset = source(scene.id + "-960") + " 960w, " + source(scene.id)
-      + (scene.size === "1K" ? " 1024w" : " 1920w");
+      + (" " + (scene.width || (scene.size === "1K" ? 1024 : 1920)) + "w");
     img.sizes = /vision-(?:home|banner|page)-image/.test(className)
       ? "100vw"
       : /vision-card-art/.test(className)
         ? "(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 600px"
         : "(max-width: 700px) 100vw, (max-width: 1100px) 85vw, 950px";
-    img.width = scene.size === "1K" ? 1024 : 1920;
-    img.height = scene.size === "1K" ? 576 : 1080;
+    img.width = scene.width || (scene.size === "1K" ? 1024 : 1920);
+    img.height = scene.height || (scene.size === "1K" ? 576 : 1080);
     img.alt = scene.alt;
     img.loading = eager ? "eager" : "lazy";
     img.decoding = "async";
