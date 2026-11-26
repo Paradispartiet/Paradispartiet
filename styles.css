@@ -1637,7 +1637,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   max-width: 73ch;
   line-height: 1.77;
 }
-.page--politikk .policy-market-comparison {
+.page--politikk .policy-market-comparison,
+.page--okonomiskmodell .policy-market-comparison {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
@@ -1645,7 +1646,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   padding: 0;
   list-style: none;
 }
-.page--politikk .policy-market-comparison li {
+.page--politikk .policy-market-comparison li,
+.page--okonomiskmodell .policy-market-comparison li {
   min-width: 0;
   min-height: 140px;
   margin: 0;
@@ -1654,11 +1656,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border-radius: 14px;
   background: linear-gradient(145deg, rgba(9, 51, 73, .82), rgba(4, 20, 31, .92));
 }
-.page--politikk .policy-market-comparison li:last-child {
+.page--politikk .policy-market-comparison li:last-child,
+.page--okonomiskmodell .policy-market-comparison li:last-child {
   border-color: rgba(255, 206, 77, .43);
   background: linear-gradient(145deg, rgba(61, 42, 15, .58), rgba(27, 24, 18, .86));
 }
-.page--politikk .policy-market-comparison li strong {
+.page--politikk .policy-market-comparison li strong,
+.page--okonomiskmodell .policy-market-comparison li strong {
   display: block;
   margin-bottom: 10px;
   font-size: 1.14rem;
@@ -1669,7 +1673,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--politikk .policy-intro h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
   .page--politikk .policy-featured,
   .page--politikk .policy-topic-list,
-  .page--politikk .policy-market-comparison { grid-template-columns: minmax(0, 1fr); }
+  .page--politikk .policy-market-comparison,
+.page--okonomiskmodell .policy-market-comparison { grid-template-columns: minmax(0, 1fr); }
   .page--politikk .policy-feature { min-height: 114px; padding: 16px 18px; }
   .page--politikk .policy-topic-panel > summary { padding: 17px 18px; }
   .page--politikk .policy-topic-tools { margin: 0 16px 14px; }
@@ -2217,3 +2222,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .page--kontakt .contact-membership-panel, .page--kontakt .contact-paper { padding: 22px 18px; }
   .page--kontakt .contact-membership-panel .btn { width: 100%; }
 }
+
+/* Sammenligning av markedene: eksisterende kortprofil, med korte underoverskrifter. */
+.page--okonomiskmodell .policy-market-comparison li > span { display:block; color:#f4faff; font-weight:650; }
+.page--okonomiskmodell .policy-market-comparison li p { margin:10px 0 12px; }
