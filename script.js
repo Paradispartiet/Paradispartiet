@@ -440,7 +440,7 @@ function initIllustratedSite() {
   "projectBanners": {
     "EchoNet.html": {
       "id": "prosjekt-aha-samtaler-innsikt",
-      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "alt": "Illustrasjon av private samtaler på nettbrett og et tenkt felles kunnskapsnettverk.",
       "size": "2K"
     },
     "Caravan.html": {
@@ -735,7 +735,9 @@ function initIllustratedSite() {
       "politikk-kultur-alle-kan-skape",
       "prosjekt-glasshus-vinterpaviljong",
       "prosjekt-bilfri-by-tilgjengelighet",
-      "prosjekt-caravan-gronne-korridorer"
+      "prosjekt-caravan-gronne-korridorer",
+      "prosjekt-aha-samtaler-innsikt",
+      "prosjekt-paradisavisa-uavhengig-redaksjon"
 ]);
 
 
