@@ -22,6 +22,20 @@
 - Behold nåværende stramme bildeutvalg. Nye motiver krever et konkret tekststed, separat motivbeskrivelse, korrekt alt-tekst og oppdatering av illustrasjonsplanen før de vises.
 - Arbeidsrekkefølge: **ferdig tekst → eget bilde/asset → ferdig kort eller side**.
 
+### Fast bildestil – vedtatt 26. november 2026
+
+Gjelder alle nye illustrasjoner og erstatningsmotiver på Paradispartiets nettsted:
+
+- Sort eller nesten sort grunnflate.
+- Dempede, naturlige farger.
+- Matt, gjerne lett kornete, malerisk tekstur.
+- Mange meningsbærende symboler og gjenstander, valgt ut fra teksten.
+- Diskret belysning, uten glimmer eller overdrevne refleksjoner.
+- Få mennesker – gjenstandene skal fortelle historien.
+- Seriøst, intelligent og redaksjonelt uttrykk.
+
+Les hele teksten som skal illustreres før motivet planlegges. Velg konkrete visuelle referanser som forklarer innholdet; unngå generiske portretter, glansede reklamebilder og tilfeldig dekor. Dokumenter motiv og alt-tekst i illustrasjonsplanen. Tidligere godkjente motiver beholdes inntil en konkret erstatning er godkjent. Denne bildestilen endrer ikke nettstedets P-logo, knapper, typografi eller øvrige fargeprofil.
+
 ## Brukerreisen
 Besøkende skal finne Politikk, forstå Paradismodellen gjennom Manifest/Grunnlag/Økonomisk modell, utforske Prosjekter og komme til medlemskap fra forsiden. Medlemslenken går til `kontakt.html#meld-deg-inn`, og skjemaet er en ekstern tjeneste. Medlemskap og papirbasert støtteerklæring skal fremstå som to ulike handlinger.
 
