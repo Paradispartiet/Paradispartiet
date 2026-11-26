@@ -440,7 +440,7 @@ function initIllustratedSite() {
   "projectBanners": {
     "EchoNet.html": {
       "id": "prosjekt-aha-samtaler-innsikt",
-      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "alt": "Illustrasjon av private samtaler på nettbrett og et tenkt felles kunnskapsnettverk.",
       "size": "2K"
     },
     "Caravan.html": {
@@ -542,7 +542,8 @@ function initIllustratedSite() {
     "mat": {
       "id": "politikk-mat-lokal-matsikkerhet",
       "alt": "Lokal dyrking og distribusjon sikrer tilgang til næringsrik mat.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "Forslaget til BasicMarked bygger på næringsrik mat, lokal produksjon og felles forsyning."
     },
     "helse": {
       "id": "politikk-helse-fysisk-psykisk-sosial",
@@ -552,7 +553,8 @@ function initIllustratedSite() {
     "utdanning": {
       "id": "politikk-utdanning-praksis-og-teori",
       "alt": "Elever og voksne lærer gjennom bøker og praktisk verkstedarbeid.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "Livslang læring: åpne verksteder og undervisning skal knytte praktisk og teoretisk kunnskap sammen."
     },
     "arbeidsliv": {
       "id": "politikk-arbeidsliv-tid-etter-evne",
@@ -573,7 +575,8 @@ function initIllustratedSite() {
     "kultur": {
       "id": "politikk-kultur-alle-kan-skape",
       "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
-      "size": "2K"
+      "size": "2K",
+      "caption": "Åpne kulturhus, atelierer og scener skal gi flere mulighet til å skape og delta."
     }
   },
   "documentFigures": {
@@ -726,7 +729,15 @@ function initIllustratedSite() {
       "kort-caravan-trygg-sykkelvei",
       "kort-basicmarked-grunnforsyning",
       "kort-teorien-om-lyset-bevissthet",
-      "paradis-nabolaget"
+      "paradis-nabolaget",
+      "politikk-mat-lokal-matsikkerhet",
+      "politikk-utdanning-praksis-og-teori",
+      "politikk-kultur-alle-kan-skape",
+      "prosjekt-glasshus-vinterpaviljong",
+      "prosjekt-bilfri-by-tilgjengelighet",
+      "prosjekt-caravan-gronne-korridorer",
+      "prosjekt-aha-samtaler-innsikt",
+      "prosjekt-paradisavisa-uavhengig-redaksjon"
 ]);
 
 

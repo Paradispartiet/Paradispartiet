@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "policy": "Utvalgte prosjektbilder kan vises på forsiden og prosjektoversikten som konkrete, unike innganger. Lange politiske dokumenter bruker bare bilder som forklarer avsnittets innhold. Én bildefil vises bare på ett sted. Logo er unntatt.",
+  "policy": "Utvalgte prosjektbilder kan vises på forsiden og prosjektoversikten som konkrete, unike innganger. Lange politiske dokumenter bruker bare bilder som forklarer avsnittets innhold. Én bildefil vises bare på ett sted. Logo er unntatt. Ny eller erstattet illustrasjon følger den faste bildestilen i docs/DESIGNPROFIL.md (26.11.2026): sort/nesten sort grunnflate, naturlige dempede farger, matt malerisk tekstur, meningsbærende gjenstander, diskret lys, få mennesker, seriøst redaksjonelt uttrykk. Les teksten før motivvalg. Tidligere godkjente bilder beholdes.",
   "source": "Paradispartiet/Paradispartiet, oppdatert 21.11.2026 for unike prosjektkortbilder",
   "images": [
     {
@@ -99,9 +99,10 @@
       "slot": "banner",
       "basis": "Personlige KI-samtaler, anonym læring og felles kunnskap uten overvåkning",
       "motiv": "Interior of a welcoming public knowledge workshop, two people using their own tablets privately while a shared wall display visualizes many anonymous insights as abstract interconnected knowledge cards, clearly separate private screens and common learning; no surveillance cameras, no readable UI text",
-      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "alt": "Illustrasjon av private samtaler på nettbrett og et tenkt felles kunnskapsnettverk.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-caravan-gronne-korridorer",
@@ -111,7 +112,8 @@
       "motiv": "Wide Norwegian countryside route with well-made accessible walking and cycling trails connecting two small villages and a train stop, a simple rest pavilion at the riverside, walkers of different abilities and a cyclist, protected wetlands clearly undisturbed",
       "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-glasshus-vinterpaviljong",
@@ -121,7 +123,8 @@
       "motiv": "Cold snowy Norwegian urban park after sunset, several modest glass pavilions glowing warmly from inside, families and older adults reading and chatting without shopping, condensation on glass, benches and plants inside, surrounding bare trees and snow",
       "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-bilfri-by-tilgjengelighet",
@@ -131,7 +134,8 @@
       "motiv": "Specific human-scale city cross-section: broad pedestrian square with tram stop, tactile guide paving and wheelchair ramp, cyclist moving carefully, electric cargo bike delivering goods to small shops, an emergency vehicle on designated access lane in distance; no private cars, practical infrastructure visible",
       "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-oldboys-trening-uten-press",
@@ -152,7 +156,8 @@
       "motiv": "Warm modern small editorial newsroom, diverse writers working on social issues, two journalists interviewing a cultural worker, wall with anonymous clippings and photographs without readable text, newspaper pages without legible words, thoughtful debate, serious creative public sphere",
       "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-lesebiblioteket-apent-leserom",
@@ -306,7 +311,9 @@
       "motiv": "Local seasonal food growing and distribution scene: farmers picking vegetables in mixed beds, fresh nutritious produce delivered by handcart to a neighborhood food house, families with baskets, no industrial monoculture, detailed and realistic harvest",
       "alt": "Lokal dyrking og distribusjon sikrer tilgang til næringsrik mat.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "caption": "Forslaget til BasicMarked bygger på næringsrik mat, lokal produksjon og felles forsyning.",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "politikk-helse-fysisk-psykisk-sosial",
@@ -326,7 +333,9 @@
       "motiv": "Bright community school workshop where an older learner studies a plan at table while young adult learners build a practical wooden object with tools under patient teacher supervision, bookshelves and accessible workspaces, people collaborating",
       "alt": "Elever og voksne lærer gjennom bøker og praktisk verkstedarbeid.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "caption": "Livslang læring: åpne verksteder og undervisning skal knytte praktisk og teoretisk kunnskap sammen.",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "politikk-arbeidsliv-tid-etter-evne",
@@ -368,7 +377,9 @@
       "motiv": "Accessible neighborhood arts center where different ages make pottery, paint and rehearse a small theatrical performance at the same time in adjacent open rooms, warm stage lights and shared equipment, no entrance tickets or merchandizing",
       "alt": "Felles kulturhus gir alle rom til håndverk, kunst og scenearbeid.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "caption": "Åpne kulturhus, atelierer og scener skal gi flere mulighet til å skape og delta.",
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "forklaring-manifest-mekling-reparasjon",
