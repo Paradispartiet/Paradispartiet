@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "policy": "Utvalgte prosjektbilder kan vises på forsiden og prosjektoversikten som konkrete, unike innganger. Lange politiske dokumenter bruker bare bilder som forklarer avsnittets innhold. Én bildefil vises bare på ett sted. Logo er unntatt.",
+  "policy": "Utvalgte prosjektbilder kan vises på forsiden og prosjektoversikten som konkrete, unike innganger. Lange politiske dokumenter bruker bare bilder som forklarer avsnittets innhold. Én bildefil vises bare på ett sted. Logo er unntatt. Ny eller erstattet illustrasjon følger den faste bildestilen i docs/DESIGNPROFIL.md (26.11.2026): sort/nesten sort grunnflate, naturlige dempede farger, matt malerisk tekstur, meningsbærende gjenstander, diskret lys, få mennesker, seriøst redaksjonelt uttrykk. Les teksten før motivvalg. Tidligere godkjente bilder beholdes.",
   "source": "Paradispartiet/Paradispartiet, oppdatert 21.11.2026 for unike prosjektkortbilder",
   "images": [
     {
@@ -102,7 +102,7 @@
       "alt": "Illustrasjon av private samtaler på nettbrett og et tenkt felles kunnskapsnettverk.",
       "size": "2K",
       "display": "active",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-caravan-gronne-korridorer",
@@ -113,7 +113,7 @@
       "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
       "size": "2K",
       "display": "active",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-glasshus-vinterpaviljong",
@@ -124,7 +124,7 @@
       "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
       "size": "2K",
       "display": "active",
-      "review_note": "Foreslått reaktivering 26.11.2026: eksisterende, unikt vintermotiv for GlassHus-detaljsiden, begge WebP-varianter kontrollert i GitHub. Visuell vurdering gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-bilfri-by-tilgjengelighet",
@@ -135,7 +135,7 @@
       "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
       "size": "2K",
       "display": "active",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-oldboys-trening-uten-press",
@@ -157,7 +157,7 @@
       "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
       "size": "2K",
       "display": "active",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "prosjekt-lesebiblioteket-apent-leserom",
@@ -313,7 +313,7 @@
       "size": "2K",
       "display": "active",
       "caption": "Forslaget til BasicMarked bygger på næringsrik mat, lokal produksjon og felles forsyning.",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av motivbeskrivelse, tilhørende tekst og begge bildefiler. Visuell gjennomgang gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "politikk-helse-fysisk-psykisk-sosial",
@@ -335,7 +335,7 @@
       "size": "2K",
       "display": "active",
       "caption": "Livslang læring: åpne verksteder og undervisning skal knytte praktisk og teoretisk kunnskap sammen.",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av motivbeskrivelse, tilhørende tekst og begge bildefiler. Visuell gjennomgang gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "politikk-arbeidsliv-tid-etter-evne",
@@ -379,7 +379,7 @@
       "size": "2K",
       "display": "active",
       "caption": "Åpne kulturhus, atelierer og scener skal gi flere mulighet til å skape og delta.",
-      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av motivbeskrivelse, tilhørende tekst og begge bildefiler. Visuell gjennomgang gjenstår før merge."
+      "review_note": "Godkjent for publisering av brukeren 26.11.2026. Eksisterende unikt motiv og begge WebP-varianter kontrollert i GitHub. Brukerens godkjenning erstatter utestående visuell vurdering; ikke en ny visuell kontroll."
     },
     {
       "id": "forklaring-manifest-mekling-reparasjon",
