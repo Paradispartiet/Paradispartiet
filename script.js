@@ -732,7 +732,8 @@ function initIllustratedSite() {
       "paradis-nabolaget",
       "politikk-mat-lokal-matsikkerhet",
       "politikk-utdanning-praksis-og-teori",
-      "politikk-kultur-alle-kan-skape"
+      "politikk-kultur-alle-kan-skape",
+      "prosjekt-glasshus-vinterpaviljong"
 ]);
 
 
