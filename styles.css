@@ -2226,3 +2226,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* Sammenligning av markedene: eksisterende kortprofil, med korte underoverskrifter. */
 .page--okonomiskmodell .policy-market-comparison li > span { display:block; color:#f4faff; font-weight:650; }
 .page--okonomiskmodell .policy-market-comparison li p { margin:10px 0 12px; }
+
+
+/* Grunnlag, kapittel 15: forklar forholdet mellom natur, økonomi og livskvalitet. */
+.page--teori #k15 .ecology-explanation { margin: 24px 0 34px; max-width: 100%; }
+.page--teori #k15 .ecology-boundary,
+.page--teori #k15 .ecology-economy,
+.page--teori #k15 .ecology-purpose { box-sizing: border-box; min-width: 0; padding: clamp(14px, 3vw, 26px); border: 1px solid; border-radius: 14px; }
+.page--teori #k15 .ecology-boundary { background: #102a24; border-color: #659c79; }
+.page--teori #k15 .ecology-economy { margin-top: 16px; background: #0a253a; border-color: #4b9caf; }
+.page--teori #k15 .ecology-purpose { margin-top: 16px; background: #322a1b; border-color: #d8b657; }
+.page--teori #k15 .ecology-explanation strong { display: block; color: #f4faff; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+.page--teori #k15 .ecology-purpose strong { color: #ffe449; }
+.page--teori #k15 .ecology-explanation p { margin: 7px 0 0; line-height: 1.55; color: #e0e9e9; overflow-wrap: anywhere; }
+.page--teori #k15 .ecology-explanation figcaption { margin: 10px 0 0; color: #b9cdd9; font-size: .9rem; line-height: 1.55; }
