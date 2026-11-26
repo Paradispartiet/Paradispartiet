@@ -111,7 +111,8 @@
       "motiv": "Wide Norwegian countryside route with well-made accessible walking and cycling trails connecting two small villages and a train stop, a simple rest pavilion at the riverside, walkers of different abilities and a cyclist, protected wetlands clearly undisturbed",
       "alt": "Grønne gang- og sykkelforbindelser knytter bygder og togstopp sammen.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
     },
     {
       "id": "prosjekt-glasshus-vinterpaviljong",
@@ -132,7 +133,8 @@
       "motiv": "Specific human-scale city cross-section: broad pedestrian square with tram stop, tactile guide paving and wheelchair ramp, cyclist moving carefully, electric cargo bike delivering goods to small shops, an emergency vehicle on designated access lane in distance; no private cars, practical infrastructure visible",
       "alt": "Bilfri sentrumsgate med trikk, universell utforming og nødvendig varelevering.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
     },
     {
       "id": "prosjekt-oldboys-trening-uten-press",
