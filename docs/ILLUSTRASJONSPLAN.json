@@ -121,7 +121,8 @@
       "motiv": "Cold snowy Norwegian urban park after sunset, several modest glass pavilions glowing warmly from inside, families and older adults reading and chatting without shopping, condensation on glass, benches and plants inside, surrounding bare trees and snow",
       "alt": "Oppvarmet glasspaviljong i snødekket park, åpen for lesing og samtale.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Foreslått reaktivering 26.11.2026: eksisterende, unikt vintermotiv for GlassHus-detaljsiden, begge WebP-varianter kontrollert i GitHub. Visuell vurdering gjenstår før merge."
     },
     {
       "id": "prosjekt-bilfri-by-tilgjengelighet",
