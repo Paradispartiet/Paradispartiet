@@ -34,11 +34,11 @@
     {
       "id": "DB-04",
       "system": "AHA – staging",
-      "provider_environment": "Supabase PostgreSQL 17 / test",
+      "provider_environment": "Supabase PostgreSQL 17 / test + privat Storage",
       "identity": "AHA Staging, ref sstuzwppsheivczyqrim",
-      "location": "Org EchoNet",
-      "verification": "Direkte kontroll 18.11: INACTIVE (pauset). Ikke tilgjengelig for vanlige SQL-/app-tester.",
-      "next_check": "Ikke reaktiver uten behov og kostnadsbeslutning; staging er ikke produksjonsdatabase."
+      "location": "Org EchoNet, eu-west-1",
+      "verification": "Direkte kontroll 26.11.2026: ACTIVE_HEALTHY. Kunstrommets staging-migrasjon er kjørt: privat bucket aha-kunstrommet-private-backups, JSON maks 6 MiB per fil, 16 reserverbare stier per konto (96 MiB ferdige objekter), eierstyrt RLS på public.aha_kunstrommet_backup_slots og ni avgrensede policyer. 0 objekter, 0 reservasjoner ved kontroll. [AHA PR #1154](https://github.com/EchoNetAHA/AHA-EchoNet/pull/1154).",
+      "next_check": "Kun staging; produksjon og klientflagg urørt. Test ekte to-konto Storage API, TUS, kvote og restore før aktivering. Faktisk organisasjonsforbruk og fakturering ikke kontrollert."
     },
     {
       "id": "DB-05",
@@ -79,7 +79,7 @@
         "DB-05"
       ],
       "other_storage": "localStorage og filer",
-      "verification": "AHA aktiv; staging pauset; Azure deaktivert ifølge bruker; sky-synk ikke godkjent"
+      "verification": "AHA aktiv; staging aktiv, Kunstrommet privat backup kun test; Azure deaktivert ifølge bruker; sky-synk ikke godkjent"
     },
     {
       "id": "PRJ-02",
