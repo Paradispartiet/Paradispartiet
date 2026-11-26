@@ -733,7 +733,9 @@ function initIllustratedSite() {
       "politikk-mat-lokal-matsikkerhet",
       "politikk-utdanning-praksis-og-teori",
       "politikk-kultur-alle-kan-skape",
-      "prosjekt-glasshus-vinterpaviljong"
+      "prosjekt-glasshus-vinterpaviljong",
+      "prosjekt-bilfri-by-tilgjengelighet",
+      "prosjekt-caravan-gronne-korridorer"
 ]);
 
 
