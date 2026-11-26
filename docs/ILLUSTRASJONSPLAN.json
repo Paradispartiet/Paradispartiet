@@ -99,9 +99,10 @@
       "slot": "banner",
       "basis": "Personlige KI-samtaler, anonym læring og felles kunnskap uten overvåkning",
       "motiv": "Interior of a welcoming public knowledge workshop, two people using their own tablets privately while a shared wall display visualizes many anonymous insights as abstract interconnected knowledge cards, clearly separate private screens and common learning; no surveillance cameras, no readable UI text",
-      "alt": "Personlige samtaler blir til anonymisert, felles kunnskap uten overvåkning.",
+      "alt": "Illustrasjon av private samtaler på nettbrett og et tenkt felles kunnskapsnettverk.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
     },
     {
       "id": "prosjekt-caravan-gronne-korridorer",
@@ -155,7 +156,8 @@
       "motiv": "Warm modern small editorial newsroom, diverse writers working on social issues, two journalists interviewing a cultural worker, wall with anonymous clippings and photographs without readable text, newspaper pages without legible words, thoughtful debate, serious creative public sphere",
       "alt": "Journalister og skribenter arbeider i en uavhengig redaksjon.",
       "size": "2K",
-      "display": "archived"
+      "display": "active",
+      "review_note": "Foreslått reaktivering 26.11.2026 etter kontroll av prosjekttekst, motivbeskrivelse og begge eksisterende WebP-varianter. Unikt motiv på prosjektdetaljsiden. Visuell vurdering gjenstår før merge."
     },
     {
       "id": "prosjekt-lesebiblioteket-apent-leserom",
